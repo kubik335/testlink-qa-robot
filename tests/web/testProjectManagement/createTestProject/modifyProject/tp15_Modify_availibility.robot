@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation  A test case for changing the project availibility
 Resource  ../../../../../resource/testlink.robot
-Test Setup  testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+Test Setup  Run Keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND         headerPage.Go to index page and change testproject
 
 Test Teardown  Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
@@ -9,8 +9,8 @@ Test Teardown  Delete test project  ${newTestProjectName}  ${newTestProjectPrefi
 
 *** Variables ***
 
-${newTestProjectName}  testProject15
-${newTestProjectPrefix}  tp15
+${newTestProjectName}       testProject15
+${newTestProjectPrefix}     tp15
 
 
 *** Test Cases ***
