@@ -1,7 +1,7 @@
 #*** Settings ***
 #Documentation  A test suite with a single test for creating a new Keyword. This test has
 #...            a workflow that is created using keywords from the resource file.
-#Resource       ../../../resources/resourcesKeywordManagement.robot
+#Resource       ../../../resource/resourcesKeywordManagement.robot
 
 #*** Test Cases ***
 #Create Keyword

@@ -45,7 +45,7 @@ ${CONFIGURATION}  <!-- Template bugzillaxmlrpcInterface -->
 *** Test Cases ***
 
 Issue Tracker Management
-    testlink.Login as admin correct
+
     testlink.Start Creating Issue Tracker Management
     testlink.Fill in all the fields, types and finish creating
     testlink.Check issue trackers have been created
