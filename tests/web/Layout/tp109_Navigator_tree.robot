@@ -10,6 +10,7 @@ Test Setup  Run keywords    testlink.Login and Create new Test Project ${newTest
 ...             AND         testlink.Create test suite ${testSuiteName1} in test project ${newTestProjectName}
 ...             AND         testlink.Create test case ${testCaseName} in ${testSuiteName}
 
+
 Test Teardown  Run keywords  Delete Test Project  ${newTestProjectName}  ${newtestprojectprefix}
 ...             AND          close browser
 
@@ -27,6 +28,8 @@ ${testCaseName}                     tc109
 
 *** Test Cases ***
 Navigator tree
+
+
     testlink.Go to index page
     testlink.Go to Test Specification (mainframe)
     testlink.Click on Expand tree
@@ -36,13 +39,7 @@ Navigator tree
     testlink.Click on the white arrow on the left side of the Test Project
     testlink.Click on the black arrow on the left side of the Test Project
 
-    #testlink.Go to index page
-    #testlink.Go to Test Specification (mainframe)
-    #testlink.Click on Expand tree
-    #testlink.Check tree expanded
-    #testlink.Click on Collapse tree
 
-#yyfvbbbvcxxdvbvvffgnjnmjj
 
 
 
