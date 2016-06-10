@@ -23,16 +23,15 @@ ${newTestProjectPrefix}  tp47
 
 Assign Requirements
 
-        #testlink.Change and check test project with RS control
-        testlink.Go to Requirement Specification (mainframe)
-        testlink.Create New Requirement Specification (type URS)
-        testlink.Choose Requirement Specification
-        testlink.Create Requirement Operations
-        testlink.Create Test Case From Requirement
-        testlink.Go to index page
-        testlink.Go to Assign Requirements
-        testlink.Select Test Suite
-        testlink.Assign Requirements
-        testlink.Check Assign Requirements
+      testlink.Go to Requirement Specification (mainframe)
+      testlink.Create New Requirement Specification (type URS)
+      testlink.Choose Requirement Specification
+      testlink.Create Requirement Operations
+      testlink.Create Test Case From Requirement
+      testlink.Go to index page
+      testlink.Go to Assign Requirements
+      testlink.Select Test Suite
+      testlink.Assign Requirements
+      testlink.Check Assign Requirements
 
 

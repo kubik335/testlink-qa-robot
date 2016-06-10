@@ -2,13 +2,16 @@
 Documentation  A test case for changing the project availibility
 Resource  ../../../../../resource/testlink.robot
 Test Setup  testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+
 Test Teardown  Run keywords  testlink.Delete Requirement Specification
-...            AND           Close browser
+...             AND             testlink.Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...             AND             Close browser
 *** Variables ***
 
 ${dokumentID}   newdokumentid40
 ${title}        newtitle40
-
+${newTestProjectName}  testProject40
+${newTestProjectPrefix}  tp40
 
 
 *** Test Cases ***

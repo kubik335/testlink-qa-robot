@@ -24,7 +24,6 @@ ${title}        newtitle41
 
 Create requirement specification
 
-        #testlink.Change and check test project with RS control
         testlink.Go to Requirement Specification (mainframe)
         testlink.Create New Requirement Specification (type URS)
         testlink.Choose Requirement Specification
