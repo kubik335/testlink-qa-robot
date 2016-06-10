@@ -579,7 +579,7 @@ Get to Issue Tracker Management
 
 Create Issue Tracker
     [Tags]  tp108
-    testlink.Login as admin correct
+
     testlink.Get to Issue Tracker Management
     issueTrackerManagement.Click Create Issue Tracker Management
     issueTrackerManagement.Fill in all fields, type: BUGZILLA (XMLRPC)

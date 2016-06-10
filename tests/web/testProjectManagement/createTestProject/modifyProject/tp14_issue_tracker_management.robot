@@ -3,6 +3,7 @@ Documentation  A test case for changing the project availibility
 Resource  ../../../../../resource/testlink.robot
 Test Setup  Run Keywords  testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...                 AND   testlink.Create Issue Tracker
+
 Test Teardown  Run Keywords  testlink.Delete Issue Tracker from test Project
 ...                 AND      testlink.Delete Issue Tracker ${ISSUETRACKER}
 ...                 AND      testlink.Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
