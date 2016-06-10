@@ -4,7 +4,8 @@ Resource  ../../../../../resource/testlink.robot
 Test Setup  Run Keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND         headerPage.Go to index page and change testproject
 
-Test Teardown  Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+Test Teardown  Run Keywords  Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...                 AND      Close browser
 
 
 *** Variables ***

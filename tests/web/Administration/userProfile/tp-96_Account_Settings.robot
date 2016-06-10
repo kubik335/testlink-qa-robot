@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation  A test case for editing MySettings(account settings).
+Documentation  The test case for editing MySettings(account settings).
 ...            Test case verifies the correct inputing of information to the fields.
 
 Resource       ../../../../resource/testlink.robot

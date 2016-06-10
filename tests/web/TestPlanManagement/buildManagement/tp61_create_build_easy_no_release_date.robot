@@ -1,7 +1,7 @@
 *** Settings ***
 
-Documentation  A test suite with a single test for creating a new Custom Field. This test has
-...            a workflow that is created using keywords from the resource file.
+Documentation  The test case for creating build with values without release date and
+...            that could not generate error/conflicts while creating.
 
 Resource       ../../../../resource/testlink.robot
 

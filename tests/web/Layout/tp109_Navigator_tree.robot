@@ -1,6 +1,5 @@
 *** Settings ***
-Documentation  A test suite with a single test for creating a new Test Project. This test has
-...            a workflow that is created using keywords from the resource file.
+Documentation  The test case to control the functuonality of Navigation tree(expanding, collapsing).
 
 Resource        ../../../resource/testlink.robot
 

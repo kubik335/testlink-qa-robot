@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  A test case made to check edition mode of the user.
+Documentation  The test case made to check editing mode of the user.
 
 Resource       ../../../../resource/testlink.robot
 
