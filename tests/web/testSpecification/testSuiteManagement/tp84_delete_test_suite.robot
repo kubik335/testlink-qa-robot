@@ -4,7 +4,7 @@ Documentation  A test suite with a single test for creating a new Custom Field. 
 ...            a workflow that is created using keywords from the resource file.
 
 Resource       ../../../../resource/testlink.robot
-Test Setup  Run keywords    testlink.Create new Test Project
+Test Setup  Run keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND         headerPage.Go to index page and change testproject
 ...             AND         testlink.Create test suite ${testSuiteName} in test project ${newTestProjectName}
 ...             AND         testlink.Create test case ${tc1} in ${testSuiteName}

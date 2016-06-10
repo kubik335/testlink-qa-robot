@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation  A test case for changing the project availibility
 Resource  ../../../../../resource/testlink.robot
-Test Setup  Create new Test Project
+Test Setup  testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 Test Teardown  close browser
 *** Variables ***
 

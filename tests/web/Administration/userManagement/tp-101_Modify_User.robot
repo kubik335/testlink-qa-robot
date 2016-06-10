@@ -1,17 +1,24 @@
 *** Settings ***
-Documentation  A test case for succesful login as admin with correct login info
+Documentation  A test case made to check edition mode of the user.
+
 Resource       ../../../../resource/testlink.robot
-Test Teardown  Close browser
+
+Test Setup      testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+
+Test Teardown  Run keywords     testlink.Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...             AND             Close Browser
 
 *** Variables ***
 ${login}  vojta.svoboda
 ${fname}  karel
 ${lname}  karel
 ${email}  email@email.com
+${newTestProjectName}           testProject101
+${newTestProjectPrefix}         tp101
+${newTestProjectDescription}    Description101
 
 *** Test Cases ***
 Edit user test case
-    testlink.Login as admin correct
+
     testlink.Start editing user
     testlink.Edit user
-# zkuska

@@ -2,7 +2,7 @@
 Documentation  A test case for changing the project availibility
 Resource  ../../../../../resource/testlink.robot
 
-Test Setup  Run keywords    testlink.Create new Test Project
+Test Setup  Run keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND         headerPage.Go to index page and change testproject
 
 Test Teardown  Run keywords     testlink.Delete Test Suite

@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation  A test case for changing the project availibility
 Resource  ../../../../../resource/testlink.robot
-Test Setup  Login as admin correct
+Test Setup   testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 Test Teardown  Run keywords  testlink.Delete Requirement Specification
 ...            AND           Close browser
 *** Variables ***

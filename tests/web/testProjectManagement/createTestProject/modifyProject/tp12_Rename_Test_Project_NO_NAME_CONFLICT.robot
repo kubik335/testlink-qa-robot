@@ -4,7 +4,7 @@ Documentation  A test suite with a single test for creating a new Test Project. 
 
 Resource        ../../../../../resource/testlink.robot
 
-Test Setup  Run keywords    testlink.Create new Test Project
+Test Setup  Run keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND         headerPage.Go to index page and change testproject
 
 Test Teardown  Run keywords  Delete Test Project  ${newTestProjectName1}  ${newtestprojectprefix1}

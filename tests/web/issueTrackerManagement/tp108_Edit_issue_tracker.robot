@@ -2,10 +2,17 @@
 Documentation  A test suite with a single test for creating a new Custom Field. This test has
 ...            a workflow that is created using keywords from the resource file.
 Resource       ../../../resource/testlink.robot
-Test Setup  testlink.Create Issue Tracker
-Test Teardown  Close all browsers
+
+Test Setup  Run keywords        testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+...            AND              testlink.Create Issue Tracker
+
+Test Teardown  Run keywords     testlink.Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...            AND              Close all browsers
 
 *** Variables ***
+${newTestProjectName}           testProject108
+${newTestProjectPrefix}         tp108
+${newTestProjectDescription}    Description108
 ${ISSUETRACKER}  IssueTrackerName
 ${NEWISSUETRACKER}  newIssueTracker
 ${CONFIGURATION}  <!-- Template bugzillaxmlrpcInterface -->

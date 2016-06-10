@@ -4,15 +4,20 @@ Documentation  A test suite with a single test for creating a new Custom Field. 
 ...            a workflow that is created using keywords from the resource file.
 
 Resource       ../../../../resource/testlink.robot
+Test Setup      testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
-Test Teardown  Run keywords  testlink.Delete Test Plan Management  ${TestPlanName}
-...            AND           Close browser
+Test Teardown  Run keywords     testlink.Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...             AND             testlink.Delete Test Plan Management  ${TestPlanName}
+...             AND             Close browser
 
 
 *** Variables ***
 
 ${TestPlanName}  testPlan53
 ${TestPlanDescription}  DescriptionOfTestPlan53
+${newTestProjectName}           testProject53
+${newTestProjectPrefix}         tp53
+${newTestProjectDescription}    Description53
 
 *** Test Cases ***
 

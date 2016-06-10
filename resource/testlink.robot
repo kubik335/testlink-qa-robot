@@ -196,12 +196,13 @@ Fill information to create test (enchanced feautures)
     createTestProjectPage.Unselect all features
     unselect frame
 
-Start creating new test project without conflict
+Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
+
     desktopPage.Go to Test Project Management
-    Check unique test project name and prefix
+    Check unique test project ${newTestProjectName} and ${newTestProjectPrefix}
     testProjectManagement.Click Create
 
-Fill information to create test without conflict
+Fill information to create test without conflict ${newTestProjectName} ${newTestProjectPrefix}
 
     wait until keyword succeeds  1min  0  createTestProjectPage.I am here
     select frame  mainframe
@@ -236,7 +237,7 @@ Submit and check new test project
     No warning about existing projects
     testProjectManagement.Check new project exists  ${newTestProjectName}
 
-Check unique test project name and prefix
+Check unique test project ${newTestProjectName} and ${newTestProjectPrefix}
 
     testProjectManagement.Check Test Project Management
     select frame  mainframe
@@ -274,10 +275,13 @@ Check that test has been deleted
     wait until page does not contain element  ${newTestProjectPrefix}
     unselect frame
 
-Create new Test Project
+Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
     Login as admin correct
-    Start creating new test project without conflict
-    Fill information to create test without conflict
+    testlink.Create TP ${newTestProjectName} ${newTestProjectPrefix}
+
+Create TP ${newTestProjectName} ${newTestProjectPrefix}
+    Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
+    Fill information to create test without conflict ${newTestProjectName} ${newTestProjectPrefix}
     Submit and check new test project
 
 Go to Test Project Management

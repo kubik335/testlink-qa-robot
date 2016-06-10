@@ -1,6 +1,15 @@
 *** Settings ***
 Documentation  A test case for succesful login as admin with correct login info
 Resource       ../../../resource/testlink.robot
+Test Setup      testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+
+Test Teardown  Run keywords     testlink.Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...             AND             Close Browser
+
+*** Variables ***
+${newTestProjectName}           testProject4
+${newTestProjectPrefix}         tp4
+${newTestProjectDescription}    Description4
 
 *** Test Cases ***
 Log in as admin and check layout

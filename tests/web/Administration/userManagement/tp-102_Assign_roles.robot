@@ -1,21 +1,26 @@
 *** Settings ***
-Documentation  A test case for assigning roles to existing users
+Documentation  A test case for assigning roles to existing users.
+
 Resource       ../../../../resource/testlink.robot
-Test Setup  Run Keywords
-...             testlink.Login as admin correct    AND
-...             testlink.Create and check role ${role} in user management
-Test Teardown  Run Keywords  userManagement.Delete role ${role}
+
+
+Test Setup  Run keywords        testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+...             AND             headerPage.Go to index page and change testproject
+...             AND             testlink.Create and check role ${role} in user management
+
+Test Teardown  Run keywords     testlink.Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...             AND             userManagement.Delete role ${role}
 ...             AND             Close all browsers
 
 
 *** Variables ***
-${role}  novaRole
-
+${role}                     novaRole
+${newTestProjectName}       testProject102
+${newTestProjectPrefix}     tp102
 
 *** Test Cases ***
+
 Assign Test Project and Test Plan roles
-    #testlink.Login as admin correct
-    headerPage.Change Test Project
     headerPage.Go to User Management
     userManagement.Click bookmark Assign Test Project roles
     userManagement.Change user role in test project

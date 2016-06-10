@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation  A test case for changing the project availibility
 Resource  ../../../../../resource/testlink.robot
-Test Setup  Create new Test Project
+Test Setup  testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 Test Teardown  Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 
 
@@ -15,7 +15,7 @@ ${newTestProjectPrefix}  tp15
 
 Change Project Availibility
 
-    testlink.Login as admin correct
+    #testlink.Login as admin correct
     testlink.Go to Test Project Management
     testlink.Click desired project
     testlink.Unselect Checkbox Availibility Active
