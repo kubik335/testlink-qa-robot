@@ -1,8 +1,11 @@
 *** Settings ***
 Documentation  A test case for changing the project availibility
 Resource  ../../../../../resource/testlink.robot
-Test Setup  Run Keywords  testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
-...                 AND   testlink.Create Issue Tracker
+
+Test Setup  Run Keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+...             AND         headerPage.Go to index page and change testproject
+...             AND         testlink.Create Issue Tracker
+...             AND         headerPage.Go to index page
 
 Test Teardown  Run Keywords  testlink.Delete Issue Tracker from test Project
 ...                 AND      testlink.Delete Issue Tracker ${ISSUETRACKER}
@@ -37,7 +40,6 @@ ${newTestProjectPrefix}  tp14
 *** Test Cases ***
 
 Issue Tracker Management
-    testlink.Login as admin correct
     testlink.Go to Test Project Management
     testlink.Add Issue Tracker to test project
     testlink.Save test project and check Issue Tracker has been added
