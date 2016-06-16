@@ -1,7 +1,6 @@
 *** Settings ***
 
-Documentation  A test suite with a single test for creating a new Custom Field. This test has
-...            a workflow that is created using keywords from the resource file.
+Documentation  The test case for creating a test case with steps without generation errors or conflicts.
 
 Resource       ../../../../../resource/testlink.robot
 
@@ -16,7 +15,6 @@ Test Teardown  Run keywords    testlink.Delete test project  ${newTestProjectNam
 ...             AND              Close browser
 
 *** Variables ***
-
 ${newTestProjectName}           testProject86
 ${newTestProjectPrefix}         tp86
 ${testSuiteName}                tsuite86

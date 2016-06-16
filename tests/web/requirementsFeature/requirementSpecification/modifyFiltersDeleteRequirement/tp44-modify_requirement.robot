@@ -1,5 +1,7 @@
 *** Settings ***
-Documentation  A test case for changing the project availibility
+Documentation  The test case for modifying requirement, selecting existing requirements and
+...            checkin any changes made with versions of the requirement.
+
 Resource  ../../../../../resource/testlink.robot
 
 Test Setup  Run keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}

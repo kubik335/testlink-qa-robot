@@ -1,7 +1,6 @@
 *** Settings ***
 
-Documentation  A test suite with a single test for creating a new Custom Field. This test has
-...            a workflow that is created using keywords from the resource file.
+Documentation  The test case for editing test cases.
 
 Resource       ../../../../../resource/testlink.robot
 
@@ -17,7 +16,6 @@ Test Teardown  Run keywords         testlink.Go to index page
 ...             AND                 Close browser
 
 *** Variables ***
-
 ${newTestProjectName}           testProject87
 ${newTestProjectPrefix}         tp87
 ${testSuiteName}                tsuite87

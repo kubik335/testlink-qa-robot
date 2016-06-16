@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  A test case for creating project without conflict (no existing project)
+Documentation  The test case for creating the first test project after a fresh install(TEMPLATE OFF).
 
 Resource       ../../../../../resource/testlink.robot
 

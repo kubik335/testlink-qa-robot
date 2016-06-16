@@ -1,5 +1,6 @@
 *** Settings ***
-Documentation  A test case for changing the project availibility
+Documentation  Test case for changing the Issue Tracker Managment.
+
 Resource  ../../../../../resource/testlink.robot
 
 Test Setup  Run Keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
@@ -38,8 +39,8 @@ ${newTestProjectPrefix}  tp14
 
 
 *** Test Cases ***
-
 Issue Tracker Management
+
     testlink.Go to Test Project Management
     testlink.Add Issue Tracker to test project
     testlink.Save test project and check Issue Tracker has been added

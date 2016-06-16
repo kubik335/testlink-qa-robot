@@ -1,5 +1,6 @@
 *** Settings ***
-Documentation  A test case for changing the project availibility
+Documentation  The test case for assigning/unassigning any available requirement for test cases.
+
 Resource  ../../../../resource/testlink.robot
 
 Test Setup  Run keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}

@@ -28,7 +28,6 @@ ${testCaseName}                     tc109
 *** Test Cases ***
 Navigator tree
 
-
     testlink.Go to index page
     testlink.Go to Test Specification (mainframe)
     testlink.Click on Expand tree

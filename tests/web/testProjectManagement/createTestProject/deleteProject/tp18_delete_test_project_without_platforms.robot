@@ -1,8 +1,12 @@
 *** Settings ***
-Documentation  A test case for changing the project availibility
+Documentation  The test case for deleting a test projects that has NO PLATFORMS DEFINED
+
 Resource  ../../../../../resource/testlink.robot
+
 Test Setup  testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+
 Test Teardown  close browser
+
 *** Variables ***
 
 ${newTestProjectName}  testProject18

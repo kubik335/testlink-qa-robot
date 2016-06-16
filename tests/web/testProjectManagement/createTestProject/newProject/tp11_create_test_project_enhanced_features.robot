@@ -1,11 +1,13 @@
 *** Settings ***
-Documentation  A test suite with a single test for creating a new Test Project. This test has
-...            a workflow that is created using keywords from the resource file.
+Documentation  A test case for creating test project and unchecking checkboxes, such as "Enhanced features",
+...            "Issue Tracker Management", "Availability".
+
 Resource       ../../../../../resource/testlink.robot
+
 Test Teardown  Run keywords  Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...            AND           Close browser
-*** Variables ***
 
+*** Variables ***
 ${newTestProjectName}  testProject11
 ${newTestProjectPrefix}  tp11
 

@@ -1,7 +1,7 @@
 *** Settings ***
 
-Documentation  A test suite with a single test for creating a new Custom Field. This test has
-...            a workflow that is created using keywords from the resource file.
+Documentation  This test case controls Test case operations like: Export, Print,
+...            Create a new version, Deactivate this version, Add to Test plan, Execution history.
 
 Resource       ../../../../../resource/testlink.robot
 
@@ -23,7 +23,6 @@ Test Teardown  Run keywords     testlink.Delete test project  ${newTestProjectNa
 
 
 *** Variables ***
-
 ${newTestProjectName}               testProject90
 ${newTestProjectPrefix}             tp90
 ${TestPlanName}                     testPlan90

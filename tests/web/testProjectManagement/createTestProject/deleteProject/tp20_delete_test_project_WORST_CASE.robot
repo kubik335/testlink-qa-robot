@@ -1,7 +1,7 @@
 *** Settings ***
 
-Documentation  A test suite with a single test for creating a new Custom Field. This test has
-...            a workflow that is created using keywords from the resource file.
+Documentation  The test case for deleting test projects that have: custom fields, keywords, platform
+...            defined an assigned to test plans and test cases with custom fields.
 
 Resource       ../../../../../resource/testlink.robot
 

@@ -1,8 +1,12 @@
 *** Settings ***
-Documentation  A test case for creating project without conflict (no existing project)
+Documentation  A test case for creating a test project with all required information,
+...            without creating any conflict (uses a test project name not present on system,
+...            use a PREFIX not present on system).
+
 Resource       ../../../../../resource/testlink.robot
 
 Test Setup  testlink.Login as admin correct
+
 Test Teardown  Run keywords  Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...            AND           Close browser
 

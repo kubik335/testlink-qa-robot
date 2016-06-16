@@ -1,7 +1,6 @@
 *** Settings ***
 
-Documentation  A test suite with a single test for creating a new Custom Field. This test has
-...            a workflow that is created using keywords from the resource file.
+Documentation  this test case checks deleting of test case with steps and keywords.
 
 Resource       ../../../../../resource/testlink.robot
 
@@ -23,7 +22,6 @@ Test Teardown  Run keywords         testlink.Delete test project  ${newTestProje
 ...             AND                 Close browser
 
 *** Variables ***
-
 ${newTestProjectName}               testProject89
 ${newTestProjectPrefix}             tp89
 ${testSuiteName}                    tsuite89

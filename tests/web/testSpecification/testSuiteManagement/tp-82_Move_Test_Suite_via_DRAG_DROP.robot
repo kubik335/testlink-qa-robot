@@ -1,7 +1,7 @@
 *** Settings ***
 
-Documentation  A test suite with a single test for creating a new Custom Field. This test has
-...            a workflow that is created using keywords from the resource file.
+Documentation  This test case controls movimg function of EMPTY and NOT EMPTY
+...            test suites via DRAG & DROP.
 
 Resource       ../../../../resource/testlink.robot
 

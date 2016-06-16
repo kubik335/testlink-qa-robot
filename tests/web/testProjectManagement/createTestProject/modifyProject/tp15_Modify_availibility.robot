@@ -1,6 +1,8 @@
 *** Settings ***
-Documentation  A test case for changing the project availibility
+Documentation  This test case is used for changing the test project availibility.
+
 Resource  ../../../../../resource/testlink.robot
+
 Test Setup  Run Keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND         headerPage.Go to index page and change testproject
 

@@ -238,7 +238,6 @@ Submit and check new test project
     testProjectManagement.Check new project exists  ${newTestProjectName}
 
 Check unique test project ${newTestProjectName} and ${newTestProjectPrefix}
-
     testProjectManagement.Check Test Project Management
     select frame  mainframe
     element should not contain  item_view_wrapper  ${newTestProjectName}
@@ -261,7 +260,6 @@ Delete test project
 
 
 Delete empty test project
-
     testProjectManagement.Check Test Project Management
     select frame  mainframe
     click element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[last()]
@@ -294,28 +292,25 @@ Click desired project
 Unselect Checkbox Availibility Active
     testProjectEdit.Unselect Checkbox Availibility Active
 
-
 Check Test Project Is Inactive
     testProjectManagement.Check Test Project Is Inactive
 
-Start creating new user
-    [Tags]  tp-100_Create_New_User
-    headerPage.Change Test Project
-    wait until keyword succeeds  1min  0  headerPage.I am here
-    headerPage.Go to User Management
-    wait until keyword succeeds  1min  0  userManagement.I am here
-    userManagement.Click create button
+#Start creating new user
+    #[Tags]  tp-100_Create_New_User
+    #headerPage.Change Test Project
+    #wait until keyword succeeds  1min  0  headerPage.I am here
+    #headerPage.Go to User Management
+    #wait until keyword succeeds  1min  0  userManagement.I am here
+    #userManagement.Click create button
 
-Fill all info about user and submit
-    [Tags]  tp-100_Create_New_User
-    userManagement.Check all fields for new user are availiable
-    userManagement.Fill inputs for creating user and submit
+#Fill all info about user and submit
+    #[Tags]  tp-100_Create_New_User
+    #userManagement.Check all fields for new user are availiable
+    #userManagement.Fill inputs for creating user and submit
 
-Check that user exists
-    [Tags]  tp-100_Create_New_User
-    userManagement.Check that user exists
-
-
+#Check that user exists
+    #[Tags]  tp-100_Create_New_User
+    #userManagement.Check that user exists
 
 Click test project dropdown
     headerPage.Click test project dropdown
@@ -331,12 +326,10 @@ Check Platform Management Without Platforms
 
 Unactive Test Project by Bulb
     [Tags]  tp13
-
     testProjectManagement.Unactive Test Project by Bulb
 
 Check Test Project Is Active
     [Tags]  tp13
-
     testProjectManagement.Check Test Project Is Active
 
 Go to index page
@@ -362,22 +355,20 @@ Create Requirement Operations
     [Tags]  tp38
     requirementSpecificationEdit.Create Requirement Operations
 
-
 Delete Requirement Specification
     [Tags]  tp38
     headerPage.Go to index page
     desktopPage.Go to Requirement Specification (mainframe)
     requirementSpecificationEdit.Delete Requirement Specification
 
-Change and check test project
-    [Tags]  tp5
-    headerPage.Change Test Project
+#Change and check test project
+    #[Tags]  tp5
+    #headerPage.Change Test Project
 
 Change and check test project with RS control
     [Tags]  tp38
     headerPage.Change Test Project
     desktopPage.Check Selected Project and Requirement link
-
 
 Start creating Define Custom Fields
     [Tags]  tp105
@@ -396,9 +387,9 @@ Edit information Custom Field
     defineCustomFields.Select Custom Field
     defineCustomFields.Edit Custom Fields
 
-Submit and check Define Custom Field
-    [Tags]  tp105
-    defineCustomFields.Create and check custom field
+#Submit and check Define Custom Field
+    #[Tags]  tp105
+    #defineCustomFields.Create and check custom field
 
 Submit and check Edited Define Custom Field
     [Tags]  tp106
@@ -427,9 +418,9 @@ Start editing user
     userManagement.Wait until page contains view users content
     userManagement.Click desired user
 
-Click desired user
-    [Tags]  tp-101_Modify_user
-    userManagement.Click desired user
+#Click desired user
+    #[Tags]  tp-101_Modify_user
+    #userManagement.Click desired user
 
 Edit user
     [Tags]  tp-101_Modify_user
@@ -464,7 +455,6 @@ Create Test Plan Management AS COPY
 
 Click on Test Plan Management
     [Tags]  tp55
-
     desktopPage.Wait until page contains all elements
     desktopPage.Go to Test Plan Management
     desktopPage.Check Test Plan Management
@@ -472,7 +462,6 @@ Click on Test Plan Management
 
 Create Test Plan Management AS COPY NOK
     [Tags]  tp55
-
     testPlanManagement.Create Test Plan Management
     testPlanManagement_detail.Input Name  ${TestPlanName}
     testPlanManagement_detail.Click Create button to finish Test Plan Management
@@ -579,7 +568,6 @@ Get to Issue Tracker Management
 
 Create Issue Tracker
     [Tags]  tp108
-
     testlink.Get to Issue Tracker Management
     issueTrackerManagement.Click Create Issue Tracker Management
     issueTrackerManagement.Fill in all fields, type: BUGZILLA (XMLRPC)
@@ -636,19 +624,15 @@ Input Personal data in settings
 
 Change Personal password in My Settings
     [Tags]  tp96
-
     mySettings.Change Password
 
 Set Personal password in My Settings back
     [Tags]  tp96
-
     mySettings.Change Password back
 
 Set Personal data in My Settings back
     [Tags]  tp96
-
     mySettings.Set Personal data back to normal
-
 
 Add Issue Tracker to test project
     [Tags]  tp14
@@ -661,12 +645,12 @@ Save test project and check Issue Tracker has been added
     testProjectManagement.Create Test Project
     testProjectManagement.Check Issue Tracker has been added to the Test Project
 
-Delete Issue Tracker from test Project
-    headerPage.Go to index page
-    desktopPage.Go to link Test Project Management
-    testProjectManagement.Click desired project
-    testProjectManagement.Remove issue tracker from test project
-    testProjectManagement.Create Test Project
+#Delete Issue Tracker from test Project
+    #headerPage.Go to index page
+    #desktopPage.Go to link Test Project Management
+    #testProjectManagement.Click desired project
+    #testProjectManagement.Remove issue tracker from test project
+    #testProjectManagement.Create Test Project
 
 Create New Version Of Requirement
     [Tags]  tp44
@@ -706,19 +690,16 @@ Check Assign Requirements
 
 Start creating build with warning
     [Tags]  tp61
-
     desktopPage.Go to Builds/Releases
     buildsReleases.Check Builds/Releases
     buildsReleases.Create Build
     buildsReleases.Check if warning message appears
 
 Start creating build
-
     [Tags]  tp63
     desktopPage.Go to Builds/Releases
     wait until keyword succeeds  1min  0  buildsReleases.Check Builds/Releases
     buildsReleases.Create Build
-
 
 Create Build with name ${buildName}
     [Tags]  tp63
@@ -726,7 +707,6 @@ Create Build with name ${buildName}
     testlink.Start creating build
     testlink.Add Details and Finish creating build ${buildName}
     testlink.Check that Build is created ${buildName}
-
 
 Create ${NewNameBuild} from existing ${FromBuild}
     [Tags]  tp63
@@ -793,7 +773,6 @@ Start Creating Test Case
      testSpecificationPage.Click Test Case Button
 
 Fill informations test case and create
-
     testSpecificationPage.Check create test case open
     testSpecificationPage.Fill in Summary test case
     testSpecificationPage.Fill in Preconditions test case
@@ -816,7 +795,6 @@ Create test suite ${testSuiteName} in test project ${newTestProjectName}
     testSpecificationPage.Click new test suite
     testSpecificationPage.Fill name for ts: ${testSuiteName} and submit
 
-
 Create test case ${testCaseName} in ${testSuiteName}
     headerPage.Go to Index Page
     desktopPage.Go to Test Specification (mainframe)
@@ -828,7 +806,6 @@ Create test case ${testCaseName} in ${testSuiteName}
     testlink.Create Step in test case: ${testCaseName}
     testSpecificationPage.Add Step after created first step
     #wait until keyword succeeds  1min  0  testSpecificationPage.Click on save & exit
-
 
 Delete New Test Suite
     [Tags]  tp80
@@ -955,7 +932,6 @@ Create Platform ${PlatformName}
     wait until page contains  ${PlatformName}
     unselect frame
 
-
 Add Platform to Test Plan
     headerPage.go to index page
     wait until keyword succeeds  1min  0  desktopPage.Check Add/Remove Platforms
@@ -965,8 +941,6 @@ Add Platform to Test Plan
     click element  xpath=//tr/td[2]/img[1]
     click button  doAssignPlatforms
     unselect frame
-
-
 
 Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
     [Tags]  tp74
@@ -1098,14 +1072,11 @@ Go to Test Project And Select It
     desktopPage.Go to Test Project Management
     testProjectManagement.Wait Until Page Contains TP and Click It
 
-
-
 Leave empty TP name and prefix
     [Tags]  tp12
     testProjectManagement.Add Test Project Name
     testProjectManagement.Add Prefix
     testProjectManagement.Check Warning message
-
 
 Assign Roles
     [Tags]  tp59
@@ -1114,7 +1085,6 @@ Assign Roles
     testPlanManagement_detail.Click Button Assign Roles Test Plan Management  ${TestPlanName}
     wait until keyword succeeds  1min  0  assignRolesForTP.I am here ASSIGN ROLES
     assignRolesForTP.Assign Roles for TP
-
 
 Check That Roles Were Assigned
     [Tags]  tp59
@@ -1155,7 +1125,6 @@ Check Custom Fields Are Visible
     desktopPage.Go to Test Specification (mainframe)
     testSpecificationPage.Check Custom Fields
 
-
 Click on Expand tree
     testSpecificationPage.Expand tree
     testSpecificationPage.check Expand tree
@@ -1171,7 +1140,6 @@ Check tree expanded
     testSpecificationPage.check test project and tsuite
 
 Click on the white arrow on the left side of the Test Project
-
     testSpecificationPage.Navigator tree expands by one branch
     testSpecificationPage.Check white arrow
 

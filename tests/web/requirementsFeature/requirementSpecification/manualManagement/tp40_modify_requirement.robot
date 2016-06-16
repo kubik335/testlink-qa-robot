@@ -1,6 +1,8 @@
 *** Settings ***
-Documentation  A test case for changing the project availibility
+Documentation  The test case for modifying requirement.
+
 Resource  ../../../../../resource/testlink.robot
+
 Test Setup  testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
 Test Teardown  Run keywords  testlink.Delete Requirement Specification
