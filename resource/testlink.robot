@@ -62,7 +62,6 @@ Login as admin with empty password field
     loginPage.Fill correct Login input
     loginPage.Check that warning about empty field appears
 
-
 Check desktop links
     desktopPage.Go to Define Custom Fields
     desktopPage.Check Define Custom Fields
@@ -197,7 +196,6 @@ Fill information to create test (enchanced feautures)
     unselect frame
 
 Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
-
     desktopPage.Go to Test Project Management
     Check unique test project ${newTestProjectName} and ${newTestProjectPrefix}
     testProjectManagement.Click Create
@@ -645,12 +643,12 @@ Save test project and check Issue Tracker has been added
     testProjectManagement.Create Test Project
     testProjectManagement.Check Issue Tracker has been added to the Test Project
 
-#Delete Issue Tracker from test Project
-    #headerPage.Go to index page
-    #desktopPage.Go to link Test Project Management
-    #testProjectManagement.Click desired project
-    #testProjectManagement.Remove issue tracker from test project
-    #testProjectManagement.Create Test Project
+Delete Issue Tracker from test Project
+    headerPage.Go to index page
+    desktopPage.Go to link Test Project Management
+    testProjectManagement.Click desired project
+    testProjectManagement.Remove issue tracker from test project
+    testProjectManagement.Create Test Project
 
 Create New Version Of Requirement
     [Tags]  tp44

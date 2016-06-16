@@ -9,7 +9,7 @@ Test Setup  Run Keywords    testlink.Login and Create new Test Project ${newTest
 ...             AND         headerPage.Go to index page
 
 Test Teardown  Run Keywords  testlink.Delete Issue Tracker from test Project
-...                 AND      testlink.Delete Issue Tracker ${ISSUETRACKER}
+...                  AND     testlink.Delete Issue Tracker ${ISSUETRACKER}
 ...                 AND      testlink.Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...                 AND      Close all browsers
 
@@ -44,5 +44,6 @@ Issue Tracker Management
     testlink.Go to Test Project Management
     testlink.Add Issue Tracker to test project
     testlink.Save test project and check Issue Tracker has been added
+
 
 
