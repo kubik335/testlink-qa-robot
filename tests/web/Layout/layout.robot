@@ -52,6 +52,7 @@ ${buildDescription}                 DescriptionOfBuild
 *** Keywords ***
 
 Create TestSuite and TestCase for tp109 Navigator Tree
+    Go to index page and change testproject
     Create test suite ${testSuiteName} in test project ${newTestProjectName}
     Create test suite ${testSuiteName1} in test project ${newTestProjectName}
     Create test case ${testCaseName} in ${testSuiteName}
