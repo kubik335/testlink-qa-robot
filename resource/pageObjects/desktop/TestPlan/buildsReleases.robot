@@ -100,3 +100,8 @@ Choose template ${FromBuild}
     wait until page contains element  name=source_build_id
     select from list by label  name=source_build_id  ${FromBuild} (0)
     unselect frame
+
+Add Details and Finish creating build ${buildName}
+    [Tags]  tp61
+    buildsReleases.Fill in the details of the Build ${buildName}
+    buildsReleases.Save Build

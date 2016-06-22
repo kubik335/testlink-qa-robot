@@ -11,7 +11,8 @@ ${DELAY}         0
 ${LOGIN URL}     http://${SERVER}/login.php
 ${WELCOME URL}   http://${SERVER}/index.php?caller=login
 ${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
+${BROWSER}      chrome
+
 
 
 *** Keywords ***
@@ -83,6 +84,19 @@ Fill incorrect credentials and submit
     Fill incorrect Login input
     Fill incorrect Password input
     Click Log in Button
+
+Fill credentials and submit ${LOGIN} ${PASSWORD}
+    Fill Login ${LOGIN}
+    Fill Password ${PASSWORD}
+    Click Log in Button
+
+Fill Login ${LOGIN}
+    clear element text  login
+    input text  login  ${LOGIN}
+
+Fill Password ${PASSWORD}
+    clear element text  tl_password
+    input text  tl_password  ${PASSWORD}
 
 Click Log in Button
     Click Button  login_submit

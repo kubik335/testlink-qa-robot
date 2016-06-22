@@ -112,3 +112,4 @@ Change Test Project
     wait until page contains element  xpath=//select[@name="testproject"]
     select from list by label  xpath=//select[@name="testproject"]  tp:testing project
     unselect frame
+

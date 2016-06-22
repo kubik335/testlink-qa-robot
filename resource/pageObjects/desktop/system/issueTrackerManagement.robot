@@ -225,4 +225,38 @@ Delete Issue tracker ${ISSUETRACKER}
     wait until page does not contain  ${ISSUETRACKER}
     unselect frame
 
+Click created IT ${ISSUETRACKER}
+    select frame  mainframe
+    wait until page contains  ${ISSUETRACKER}
+    click element  xpath=//a[contains(text(),"${ISSUETRACKER}")]
+    unselect frame
 
+Create IT
+    issueTrackerManagement.Check Issue Tracker Management
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: BUGZILLA (XMLRPC)
+    issueTrackerManagement.Check Issue Tracker named ${ISSUETRACKER}
+
+Fill all fields IT
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: BUGZILLA (DB)
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: MANTIS (SOAP)
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: MANTIS (DB)
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: JIRA (SOAP)
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: JIRA (DB)
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: JIRA (REST)
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: FOGBUGZ (DB)
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: FOGBUGZ (REST)
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: YOUTRACK (REST)
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: REDMINE (REST)
+    issueTrackerManagement.Click Create Issue Tracker Management
+    issueTrackerManagement.Fill in all fields, type: TRAC (XMLRPC)

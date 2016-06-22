@@ -71,7 +71,7 @@ Check that user exists
 
 Click desired user
     select frame  name=mainframe
-    click link  ${login}
+    click link  ${user}
     unselect frame
 
 Fill inputs for editing user and submit
@@ -179,3 +179,7 @@ Delete role ${role}
     unselect frame
 
 
+Edit user
+    [Tags]  tp101
+    userManagement.Check all fields for editing user are availiable
+    userManagement.Fill inputs for editing user and submit

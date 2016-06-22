@@ -88,6 +88,30 @@ Input Last Name
 
     input text  lastName  ${NewTestLastName}
 
+Input Data in Settings
+    [Tags]  tp96
+    select frame  mainframe
+    mySettings.input First Name
+    mySettings.input Last Name
+    mySettings.input Email Adress
+    mySettings.click Save Button
+    unselect frame
+
+Validate
+    select frame  mainframe
+    clear element text  emailAddress
+    Check Email field must be filled
+    unselect frame
+    select frame  mainframe
+    clear element text  firstName
+    Check First Name field must be filled
+    unselect frame
+    select frame  mainframe
+    clear element text  lastName
+    Check Last Name field must be filled
+    unselect frame
+
+
 Check First Name field must be filled
 
     execute javascript  var imput = document.getElementsByName('firstName'); imput[0].required = false;

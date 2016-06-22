@@ -26,24 +26,28 @@ Check Define Custom Fields
 
 Click create Custom Field
     select frame  name=mainframe
-    Click Button  create_cfield
+    double click element  xpath=//input[@name="create_cfield"]
     unselect frame
 
 Input information about Custom Field
     select frame  name=mainframe
     input text  cf_name  ${CFNAME}
     input text  cf_label  ${CFLABEL}
+    double click element  xpath=//input[@name="do_update"]
     unselect frame
 
-Create and check custom field
+Check custom field
     select frame  name=mainframe
-    Click Button  do_update
+    #Click Button  do_update
     page should contain  ${CFNAME}
     unselect frame
 
 Check edited custom field
-    Click Button  do_update
+    #Click Button  do_update
+    select frame  mainframe
+    wait until page contains  ${NEWCFNAME}
     page should contain  ${NEWCFNAME}
+    unselect frame
 
 Select Custom Field
     select frame  name=mainframe
@@ -62,6 +66,8 @@ Edit Custom Fields
     #change[Display on test execution]
     click element  xpath=//*[@id="cf_show_on_execution"]
     click element  xpath=//*[@id="cf_show_on_execution"]/option[2]
+    double click element  xpath=//input[@name="do_update"]
+    unselect frame
 
 Select and delete EDITED Custom Field
     select frame  name=mainframe
@@ -71,7 +77,7 @@ Select and delete EDITED Custom Field
     click button  Yes
     unselect frame
 
-Select and delete Custom Field
+Select and delete Custom Field ${CFNAME}
     select frame  name=mainframe
     click link  ${CFNAME}
     click button  do_delete
@@ -88,3 +94,21 @@ Check if EDITED Custom Field has been deleted
     select frame  name=mainframe
     page should not contain  ${NEWCFNAME}
     unselect frame
+
+
+Creating Define Custom Fields
+    defineCustomFields.Check Define Custom Fields
+    defineCustomFields.Click create Custom Field
+    defineCustomFields.Input information about Custom Field
+    defineCustomFields.Check custom field
+
+Edit information CF and Check New CF
+    defineCustomFields.Check Define Custom Fields
+    defineCustomFields.Select Custom Field
+    defineCustomFields.Edit Custom Fields
+    defineCustomFields.Check Define Custom Fields
+    defineCustomFields.Check edited custom field
+
+Delete CF ${CFNAME}
+    defineCustomFields.Select and delete Custom Field ${CFNAME}
+    defineCustomFields.Check if Custom Field has been deleted

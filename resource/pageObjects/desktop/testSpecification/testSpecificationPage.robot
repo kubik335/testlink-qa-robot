@@ -555,15 +555,15 @@ Expand tree
     wait until page contains element  expand_tree
     click element  expand_tree
     unselect frame
-select Collapse tree
-    #select frame  name=mainframe
+
+Collapse tree
     select frame  mainframe
-    #wait until page contains element  treeframe
-   # select frame  name=treeframe
+    wait until page contains element  treeframe
     select frame  treeframe
+    wait until page contains element  collapse_tree
     click element  collapse_tree
-    page should not contain  ${testSuiteName}
     unselect frame
+
 
 Click on arrow to unfold
     select frame  name=mainframe
@@ -573,6 +573,7 @@ Click on arrow to unfold
    # wait until page contains element  xpath=(//span[contains(text(),"tsuite109_1 (0)")])[1]
     click element  xpath=//*[@id="extdd-1"]/img[1]
     unselect frame
+
 Check Collapse tree
     select frame  mainframe
     select frame  treeframe
@@ -582,15 +583,14 @@ Check Collapse tree
     page should not contain  ${testSuiteName}
     page should not contain  ${testSuiteName1}
     unselect frame
-check Expand tree
+
+Check Expand tree
     select frame  name=mainframe
     page should contain element  treeframe
     select frame  treeframe
     wait until page contains element  xpath=(//span[contains(text(),"${testSuiteName}")])[1]
     wait until page contains element  xpath=(//span[contains(text(),"${testSuiteName1}")])[1]
-    #wait until page contains element  xpath=(//span[contains(text(),"tsuite109_1")])[1]
-    #wait until page contains element  xpath=(//span[contains(text(),"tp109-1:tc109")])[1]
-    wait until page contains element  xpath=(//span[contains(text(),"tp109-1:${testCaseName}")])[1]
+    wait until page contains element  xpath=(//span[contains(text(),"${newtestprojectprefix}-1:${testCaseName}")])[1]
     unselect frame
 
 Fill in title test case name ${testCaseName}
@@ -888,3 +888,28 @@ Check white arrow
      #page should contain element  xpath=//*[@id="extdd-6"]/span
 
      unselect frame
+
+Create TS ${testSuiteName} ${newTestProjectName}
+    wait until keyword succeeds  1min  0  testSpecificationPage.I am here
+    testSpecificationPage.Select test project ${newTestProjectName} node
+    testSpecificationPage.Click Actions button
+    testSpecificationPage.Click new test suite
+    testSpecificationPage.Fill name for ts: ${testSuiteName} and submit
+
+Create TC in TS
+    wait until keyword succeeds  1min  0  testSpecificationPage.I am here
+    testSpecificationPage.Select test suite ${testSuiteName} node
+    testSpecificationPage.Click Actions button
+    testSpecificationPage.Click new test case
+    testSpecificationPage.Fill name for tc: ${testCaseName} and submit
+    testSpecificationPage.Select test case ${testCaseName} node
+    testSpecificationPage.Create Step
+    testSpecificationPage.Add Step after created first step
+
+Click on the white arrow on the left side of the Test Project
+    testSpecificationPage.Navigator tree expands by one branch
+    testSpecificationPage.Check white arrow
+
+Click on the black arrow on the left side of the Test Project
+    testSpecificationPage.Click on black arrow
+    testSpecificationPage.Check black arrow

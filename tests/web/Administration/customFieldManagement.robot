@@ -1,0 +1,34 @@
+*** Settings ***
+Documentation  This test suite is used to check deleting and editing of Custom Fields in TestLink.
+
+Resource       ../../../resource/testlink1.robot
+
+Suite Setup                       Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+
+Suite Teardown  Run keywords      Delete Custom Field ${NEWCFNAME}
+...             AND               Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...             AND               Close browser
+
+*** Variables ***
+
+${LOGIN}                            renat.kulalov
+${PASSWORD}                         renat123
+${CFNAME}                       DEFCUS
+${CFLABEL}                      FIELD
+${CFNAME}                       DEFCUS
+${NEWCFNAME}                    DEFCUSEDITED
+${CFLABEL}                      FIELDEDITED
+${newTestProjectName}           customFieldManagement
+${newTestProjectPrefix}         ts
+${newTestProjectDescription}    Test suite customFieldManagement: tp105, tp 106
+
+*** Test Cases ***
+
+105 Create new Custom Field
+    Start creating Define Custom Fields
+
+106 Create edit and delete new Custom Field
+    Edit information Custom Field and Check New Custom Field
+
+
+
