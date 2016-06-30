@@ -154,3 +154,28 @@ I am here Execute Tests Frame
     wait until page contains element  xpath=//div/form/div/table/tbody/tr/td/div/input[@type="submit"]
     wait until page contains element  xpath=//div/form/div/table/tbody/tr/td/div/input[@value="Save and move to next"]
     wait until page contains element  xpath=//div/form/div/table/tbody/tr/td/div/input[@value="Save execution"]
+
+
+Expand tree
+    select frame  mainframe
+    wait until page contains element  treeframe
+    select frame  treeframe
+    wait until page contains element  expand_tree
+    click element  expand_tree
+    unselect frame
+
+Execute Test Cases
+    executeTestsPage.Expand tree
+    executeTestsPage.Select test case ${testCaseName} node
+    executeTestsPage.Execute Test Case Passed
+    executeTestsPage.Click on Save and move to next
+    executeTestsPage.Check That Passed Test Was Saved
+    executeTestsPage.Check Move to Next Function ${testCaseName2}
+    executeTestsPage.Execute Test Case Failed
+    executeTestsPage.Click on Save and move to next
+    executeTestsPage.Check That Failed Test Was Saved
+    executeTestsPage.Check Move to Next Function ${testCaseName3}
+    executeTestsPage.Execute Test Case Blocked
+    executeTestsPage.Click on Save execution button
+    executeTestsPage.Check That Blocked Test Was Saved
+    executeTestsPage.Check Test Suite Status

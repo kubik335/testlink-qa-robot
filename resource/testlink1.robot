@@ -330,3 +330,15 @@ Start creating build
     desktopPage.Go to Builds/Releases
     wait until keyword succeeds  1min  0  buildsReleases.Check Builds/Releases
     buildsReleases.Create Build
+
+Add Test Suite to Test Plan
+    [Tags]  91
+    headerPage.Go to index page
+    desktopPage.Go to Test Specification (mainframe)
+    testSpecificationPage.Add Test Cases to the Test Plan
+
+Execute Test Suite
+    [Tags]  91
+    headerPage.Go to index page
+    desktopPage.Go to Execute Tests
+    executeTestsPage.Execute Test Cases

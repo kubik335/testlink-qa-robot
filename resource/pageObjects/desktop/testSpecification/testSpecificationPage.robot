@@ -897,7 +897,7 @@ Create TS ${testSuiteName} ${newTestProjectName}
     testSpecificationPage.Fill name for ts: ${testSuiteName} and submit
 
 Create TC in TS
-    wait until keyword succeeds  1min  0  testSpecificationPage.I am here
+    testSpecificationPage.I am here
     testSpecificationPage.Select test suite ${testSuiteName} node
     testSpecificationPage.Click Actions button
     testSpecificationPage.Click new test case
@@ -913,3 +913,11 @@ Click on the white arrow on the left side of the Test Project
 Click on the black arrow on the left side of the Test Project
     testSpecificationPage.Click on black arrow
     testSpecificationPage.Check black arrow
+
+Add Test Cases to the Test Plan
+    testSpecificationPage.Select test case ${testCaseName2} node and click action button
+    testSpecificationPage.Click On Add To Test Plans
+    testSpecificationPage.Select test case ${testCaseName3} node and click action button
+    testSpecificationPage.Click On Add To Test Plans
+    testSpecificationPage.Select test case ${testCaseName} node and click action button
+    testSpecificationPage.Click On Add To Test Plans
