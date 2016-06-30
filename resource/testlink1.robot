@@ -342,3 +342,10 @@ Execute Test Suite
     headerPage.Go to index page
     desktopPage.Go to Execute Tests
     executeTestsPage.Execute Test Cases
+
+Create Test Suite
+    [Tags]  tp86
+    wait until keyword succeeds  1min  0  headerPage.Go to index page and change testproject
+    desktopPage.Go to Test Specification (mainframe)
+    testSpecificationPage.Create Test Suite Button
+    testSpecificationPage.Fill In The Fields

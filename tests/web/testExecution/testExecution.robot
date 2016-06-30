@@ -1,6 +1,7 @@
 *** Settings ***
 
-Documentation  Test suite with a single test case, taht checks execution of test.
+Documentation  Test suite with a single test case, that checks
+...            execution of test.
 
 Resource       ../../../resource/testlink1.robot
 
@@ -19,6 +20,7 @@ ${PASSWORD}                         renat123
 ${newTestProjectName}               testExecution
 ${newTestProjectPrefix}             ts
 ${testSuiteName}                    tsuite91
+${testDescription}                  DescriptionOfTest91
 ${testCaseName}                     tc91
 ${testCaseName2}                    tc91_1
 ${testCaseName3}                    tc91_2
@@ -38,7 +40,7 @@ ${buildDescription}                 DescriptionOfBuild
 
 Create Test Suite with several Test Cases for tp91
     Go to index page and change testproject
-    Create test suite ${testSuiteName} in test project ${newTestProjectName}
+    Create Test Suite
     Create test case ${testCaseName} in ${testSuiteName}
     Create test case ${testCaseName2} in ${testSuiteName}
     Create test case ${testCaseName3} in ${testSuiteName}
