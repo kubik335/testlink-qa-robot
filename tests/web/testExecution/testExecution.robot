@@ -9,6 +9,10 @@ Test Setup  Run keywords            Login and Create new Test Project ${newTestP
 ...             AND                 Go to index page and change testproject
 ...             AND                 Create New Test Plan ${TestPlanName}
 ...             AND                 Create Build with name ${buildName}
+...             AND                 Create Test Suite
+...             AND                 Create test case ${testCaseName} in ${testSuiteName}
+...             AND                 Create test case ${testCaseName2} in ${testSuiteName}
+...             AND                 Create test case ${testCaseName3} in ${testSuiteName}
 
 Test Teardown  Run keywords         Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND                 Close browser
@@ -32,12 +36,11 @@ ${buildDescription}                 DescriptionOfBuild
 *** Test Cases ***
 
 91 Execute Test
-    Create Test Suite with several Test Cases for tp91
+    #Create Test Suite with several Test Cases for tp91
     Add Test Suite to Test Plan
     Execute Test Suite
 
 *** Keywords ***
-
 
 Create Test Suite with several Test Cases for tp91
     Go to index page and change testproject

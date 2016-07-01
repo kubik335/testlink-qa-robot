@@ -902,9 +902,7 @@ Create TC in TS
     testSpecificationPage.Click Actions button
     testSpecificationPage.Click new test case
     testSpecificationPage.Fill name for tc: ${testCaseName} and submit
-    testSpecificationPage.Select test case ${testCaseName} node
-    testSpecificationPage.Create Step
-    testSpecificationPage.Add Step after created first step
+
 
 Click on the white arrow on the left side of the Test Project
     testSpecificationPage.Navigator tree expands by one branch

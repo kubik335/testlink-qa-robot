@@ -317,6 +317,11 @@ Create test case ${testCaseName} in ${testSuiteName}
     headerPage.Go to Index Page
     desktopPage.Go to Test Specification (mainframe)
     testSpecificationPage.Create TC in TS
+    headerPage.Go to Index Page
+    desktopPage.Go to Test Specification (mainframe)
+    testSpecificationPage.Select test case ${testCaseName} node
+    testSpecificationPage.Create Step
+    testSpecificationPage.Add Step after created first step
 
 Create Build with name ${buildName}
     [Tags]  tp63
