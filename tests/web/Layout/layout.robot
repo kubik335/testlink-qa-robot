@@ -6,6 +6,10 @@ Resource       ../../../resource/testlink1.robot
 Suite Setup     Run keywords      Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND               Create New Test Plan ${TestPlanName}
 ...             AND               Create Build with name ${buildName}
+...             AND               Create test suite ${testSuiteName} in test project ${newTestProjectName}
+...             AND               Create test suite ${testSuiteName1} in test project ${newTestProjectName}
+...             AND               Create test case ${testCaseName} in ${testSuiteName}
+...             AND               Keywords
 
 Suite Teardown  Run keywords      Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND               Delete test project  ${newTestProjectName1}  ${newTestProjectPrefix1}
@@ -16,9 +20,9 @@ Suite Teardown  Run keywords      Delete test project  ${newTestProjectName}  ${
 ${LOGIN}                            renat.kulalov
 ${PASSWORD}                         renat123
 ${newTestProjectName}               layout
-${newTestProjectPrefix}             ts
+${newTestProjectPrefix}             layout
 ${newTestProjectName1}              layout1
-${newTestProjectPrefix1}            ts1
+${newTestProjectPrefix1}            layout1
 ${testSuiteName}                    tsuite109
 ${testSuiteName1}                   tsuite109_1
 ${testCaseName}                     tc109
@@ -26,23 +30,23 @@ ${TestPlanName}                     testPlan
 ${TestPlanDescription}              Description
 ${buildName}                        buildName
 ${buildDescription}                 DescriptionOfBuild
+${KeywordName}                      keyWord
+
 
 *** Test Cases ***
 
 5 Validation of changing the Test Project
-    Go to index page
+    headerPage.Go to index page
     Create TP ${newTestProjectName1} ${newTestProjectPrefix1}
-    Go to index page and change testproject
+    headerPage.Go to index page and change testproject
 
 4 Log in as admin and check layout
     Check header links
     Check desktop links
 
 109 Navigator Tree
-    Create TestSuite and TestCase for tp109 Navigator Tree
-    Go to index page
-    Go to Test Specification (mainframe)
-    Expand tree
+    Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    testSpecificationPage.Expand tree
     Check Expand tree
     Collapse tree
     Check Collapse tree
@@ -51,8 +55,8 @@ ${buildDescription}                 DescriptionOfBuild
 
 *** Keywords ***
 
-Create TestSuite and TestCase for tp109 Navigator Tree
-    Go to index page and change testproject
+Preconditions for tp109 Navigator Tree
+    headerPage.Go to index page and change testproject
     Create test suite ${testSuiteName} in test project ${newTestProjectName}
     Create test suite ${testSuiteName1} in test project ${newTestProjectName}
     Create test case ${testCaseName} in ${testSuiteName}

@@ -13,8 +13,7 @@ Suite Setup  Run keywords        Login and Create new Test Project ${newTestProj
 ...             AND              Create and check role ${role} in user management
 
 
-Suite Teardown  Run keywords     Go to index page
-...             AND              Go to User Management
+Suite Teardown  Run keywords     HeaderPage Go to ${userManagement}
 ...             AND              userManagement.Delete role ${role}
 ...             AND              Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND              Close all browsers
@@ -31,7 +30,7 @@ ${email}                            email@email.com
 ${pass}                             vojta123
 ${role}                             novaRole
 ${newTestProjectName}               userManagement
-${newTestProjectPrefix}             ts
+${newTestProjectPrefix}             userManagement
 ${TestPlanName}                     testPlan
 ${TestPlanDescription}              Description
 
@@ -47,8 +46,7 @@ ${TestPlanDescription}              Description
     Edit user
 
 102 Assign Test Project and Test Plan roles
-    Go to index page
-    Go to User Management
+    HeaderPage Go to ${userManagement}
     Click bookmark Assign Test Project roles
     Change user role in test project
     Click Bookmark Assign Test Plan roles

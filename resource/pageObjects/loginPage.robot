@@ -11,7 +11,7 @@ ${DELAY}         0
 ${LOGIN URL}     http://${SERVER}/login.php
 ${WELCOME URL}   http://${SERVER}/index.php?caller=login
 ${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ie
+${BROWSER}      ff
 
 
 
@@ -56,11 +56,6 @@ I am here
 Fill correct Login input
     clear element text  login
     input text  login  renat.kulalov
-
-
-
-
-
 
 Fill correct Password input
     clear element text  tl_password

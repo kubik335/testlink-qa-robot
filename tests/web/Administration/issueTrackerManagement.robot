@@ -13,9 +13,9 @@ Suite Teardown  Run keywords        Delete all created issue trackers
 
 ${LOGIN}                            renat.kulalov
 ${PASSWORD}                         renat123
-${newTestProjectName}           issueTrackerManagement
-${newTestProjectPrefix}         ts
-${newTestProjectDescription}    Test suite customFieldManagement: tp107, tp 108
+${newTestProjectName}               issueTrackerManagement
+${newTestProjectPrefix}             issue
+${newTestProjectDescription}        Test suite customFieldManagement: tp107, tp 108
 
 ${ISSUETRACKER}                 IssueTrackerName
 ${ISSUETRACKER1}                IssueTrackerName1

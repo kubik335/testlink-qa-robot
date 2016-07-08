@@ -34,10 +34,8 @@ Create Test Plan Management
     click button  create_testplan
     unselect frame
 
-Check Test Plan Management is Created
-    [Arguments]   ${TestPlanManagementName}
-
+Check Test Plan Management is Created ${TestPlanName}
     select frame  mainframe
     wait until page contains  Test Plan Management
-    wait until page contains element  xpath=//a[contains(text()," ${TestPlanManagementName} ")]
+    wait until page contains element  xpath=//a[contains(text()," ${TestPlanName} ")]
     unselect frame

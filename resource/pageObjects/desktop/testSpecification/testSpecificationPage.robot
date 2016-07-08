@@ -848,6 +848,7 @@ Navigator tree expands by one branch
      #page should contain element  xpath=//*[@id="extdd-6"]/span
      #page should contain element  xpath=//*[@id="extdd-9"]/span
      unselect frame
+
 Click on black arrow
      select frame  mainframe
      #wait until page contains element  treeframe
@@ -896,7 +897,7 @@ Create TS ${testSuiteName} ${newTestProjectName}
     testSpecificationPage.Click new test suite
     testSpecificationPage.Fill name for ts: ${testSuiteName} and submit
 
-Create TC in TS
+Create TC ${testSuiteName} in TS ${testCaseName}
     testSpecificationPage.I am here
     testSpecificationPage.Select test suite ${testSuiteName} node
     testSpecificationPage.Click Actions button

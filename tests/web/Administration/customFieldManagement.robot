@@ -19,7 +19,7 @@ ${CFNAME}                       DEFCUS
 ${NEWCFNAME}                    DEFCUSEDITED
 ${CFLABEL}                      FIELDEDITED
 ${newTestProjectName}           customFieldManagement
-${newTestProjectPrefix}         ts
+${newTestProjectPrefix}         custom
 ${newTestProjectDescription}    Test suite customFieldManagement: tp105, tp 106
 
 *** Test Cases ***

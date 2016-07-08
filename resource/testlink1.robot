@@ -38,131 +38,37 @@ Resource  ../resource/pageObjects/desktop/testPlanContents/addRemoveTestCases.ro
 Resource  ../resource/pageObjects/desktop/testPlanContents/assignTestCaseExecution.robot
 Resource  ../resource/pageObjects/desktop/testPlanContents/updateLinkedTcVersion.robot
 Resource  ../resource/pageObjects/desktop/testPlanContents/addRemovePlatforms.robot
-
+Resource  ../resource/helper/desktopHeaderPage.robot
 *** Variables ***
 
 
 *** Keywords ***
 
 Check header links
-    headerPage.Change Test Project
+    headerPage.Go to index page and change testproject
     headerPage.I am here in full
-    headerPage.Go to My Settings
+    HeaderPage Go to ${mySettings}
     mySettings.I am here
-    headerPage.Go to Desktop (Project)
+    HeaderPage Go to ${desktop}
     desktopPage.I am here
-    headerPage.Go to Requirement Specification (titlebar)
+    HeaderPage Go to ${requirementSpec}
     requirementSpecification(mainframe).I am here
-    headerPage.Go to Test Specification (titlebar)
+    HeaderPage Go to ${testSpecification}
     testSpecificationPage.I am here
-    headerPage.Go to Test Execution
+    HeaderPage Go to ${testExecution}
     executeTestsPage.I am here
-    headerPage.Go to Test Reports
+    HeaderPage Go to ${testReports}
     reportsAndMetricsPage.I am here
-    headerPage.Go to User Management
+    HeaderPage Go to ${userManagement}
     userManagement.I am here
-    headerPage.Go to Events
+    HeaderPage Go to ${events}
     eventsPage.I am here
-    headerPage.Go to index page
+    HeaderPage Go to ${indexPage}
 
-Check desktop links
-    Go to index page
-    desktopPage.Go to Define Custom Fields
-    desktopPage.Check Define Custom Fields
-    headerPage.Go to index page
-    desktopPage.Go to Issue Tracker Management
-    desktopPage.Check Issue Tracker Management
-    headerPage.Go to index page
-    desktopPage.Go to Test Project Management
-    desktopPage.Check Test Project Management
-    headerPage.Go to index page
-    desktopPage.Go to Assign User Roles
-    desktopPage.Check Assign User Roles
-    headerPage.Go to index page
-    desktopPage.Go to Assign Custom Fields
-    desktopPage.Check Assign Custom Fields
-    headerPage.Go to index page
-    desktopPage.Go to Keyword Management
-    desktopPage.Check Keyword Management
-    headerPage.Go to index page
-    desktopPage.Go to Platform Management
-    desktopPage.Check Platform Management
-    headerPage.Go to index page
-    desktopPage.Go to Requirement Specification (mainframe)
-    desktopPage.Check Requirement Specification (mainframe)
-    headerPage.Go to index page
-    desktopPage.Go to Requirement Overview
-    desktopPage.Check Requirement Overview
-    headerPage.Go to index page
-    desktopPage.Go to Search Requirements
-    desktopPage.Check Search Requirements
-    headerPage.Go to index page
-    desktopPage.Go to Search Requirement Specifications
-    desktopPage.Check Search Requirement Specifications
-    headerPage.Go to index page
-    desktopPage.Go to Assign Requirements
-    desktopPage.Check Assign Requirements
-    headerPage.Go to index page
-    desktopPage.go to Generate Requirement Specification Document
-    desktopPage.Check Generate Requirement Specification Document
-    headerPage.Go to index page
-    desktopPage.Go to Test Specification (mainframe)
-    desktopPage.Check Test Specification (mainframe)
-    headerPage.Go to index page
-    desktopPage.Go to Search Test Cases
-    desktopPage.Check Search Test Cases
-    headerPage.Go to index page
-    desktopPage.Go to Assign Keywords
-    desktopPage.Check Assign Keywords
-    headerPage.Go to index page
-    desktopPage.Go to Test Cases Created Per User
-    desktopPage.Check Test Cases Created Per User
-    headerPage.Go to index page
-    desktopPage.Go to Test Plan Management
-    desktopPage.Check Test Plan Management
-    headerPage.Go to index page
-    desktopPage.Go to Builds/Releases
-    desktopPage.Check Builds/Releases
-    headerPage.Go to index page
-    desktopPage.Go to Milestone Overview
-    desktopPage.Check Milestone Overview
-    headerPage.Go to index page
-    desktopPage.Go to Execute Tests
-    desktopPage.Check Execute Tests
-    headerPage.Go to index page
-    desktopPage.Go to Test Cases Assigned to Me
-    desktopPage.Check Test Cases Assigned to Me
-    headerPage.Go to index page
-    desktopPage.Go to Test Reports and Metrics
-    desktopPage.Check Test Reports and Metrics
-    headerPage.Go to index page
-    desktopPage.Go to Metrics Dashboard
-    desktopPage.Check Metrics Dashboard
-    headerPage.Go to index page
-    desktopPage.Go to Add/Remove Platforms
-    desktopPage.Check Add/Remove Platforms
-    headerPage.Go to index page
-    desktopPage.Go to Add/Remove Test Cases
-    desktopPage.Check Add/Remove Test Cases
-    headerPage.Go to index page
-    desktopPage.Go to Assign Test Case Execution
-    desktopPage.Check Assign Test Case Execution
-    headerPage.Go to index page
-    desktopPage.Go to Set Urgent Tests
-    desktopPage.Check Set Urgent Tests
-    headerPage.Go to index page
-    desktopPage.Go to Update Linked Test Case Versions
-    desktopPage.Check Update Linked Test Case Versions
-    headerPage.Go to index page
-    desktopPage.Go to Show Test Cases Newest Versions
-    desktopPage.Check Show Test Cases Newest Versions
-    headerPage.Go to index page
 
 Delete test project
     [Arguments]  ${newTestProjectName}  ${newTestProjectPrefix}
-    headerPage.Go to index page
-    desktopPage.Wait until page contains all elements
-    desktopPage.Go to Test Project Management
+    desktopHeaderPage.Go to and check ${testProjectManagement} ${testProjectManagement}
     testProjectManagement.Check Test Project Management
     select frame  mainframe
     click element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[last()]
@@ -173,7 +79,7 @@ Delete test project
     unselect frame
 
 Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
-    desktopPage.Go to Test Project Management
+    desktopHeaderPage.Go to and check ${testProjectManagement} ${testProjectManagement}
     Check unique test project ${newTestProjectName} and ${newTestProjectPrefix}
     testProjectManagement.Click Create
 
@@ -217,39 +123,33 @@ Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
 Start creating Define Custom Fields
     [Tags]  tp105
-    headerPage.Go to index page
-    desktopPage.Go to Define Custom Fields
+    desktopHeaderPage.Change Test Project and go to ${customFields} ${checkCustomField}
     defineCustomFields.Creating Define Custom Fields
 
 Edit information Custom Field and Check New Custom Field
     [Tags]  tp106
-    headerPage.Go to index page
-    desktopPage.Go to Define Custom Fields
+    desktopHeaderPage.Change Test Project and go to ${customFields} ${checkCustomField}
     defineCustomFields.Edit information CF and Check New CF
 
 Delete Custom Field ${CFNAME}
     [Tags]  tp105
-    headerPage.Go to index page
-    desktopPage.Go to Define Custom Fields
+    desktopHeaderPage.Change Test Project and go to ${customFields} ${checkCustomField}
     defineCustomFields.Delete CF ${CFNAME}
 
 Delete all created issue trackers
     [Tags]  tp107, tp108
-    headerPage.Go to index page
-    desktopPage.Go to Issue Tracker Management
+    desktopHeaderPage.Change Test Project and go to ${issueTrackerName} ${checkIssueTracker}
     issueTrackerManagement.Delete Issue trackers
 
 Create Issue Tracker
     [Tags]  tp108
-    headerPage.Go to index page
-    desktopPage.Go to link Issue Tracker Management
+    desktopHeaderPage.Change Test Project and go to ${issueTracker} ${checkIssueTracker}
     issueTrackerManagement.Create IT
     headerPage.Go to index page
 
 Click created Issue Tracker with name ${ISSUETRACKER}
     [Tags]  tp108
-    headerPage.Go to index page
-    desktopPage.Go to link Issue Tracker Management
+    desktopHeaderPage.Change Test Project and go to ${issueTracker} ${checkIssueTracker}
     issueTrackerManagement.Check Issue Tracker Management
     issueTrackerManagement.Click created IT ${ISSUETRACKER}
 
@@ -263,16 +163,13 @@ Modify name and type of Issue Tracker
 
 Create all possible types of Issue Tracker and check it
     [Tags]  tp107
-    headerPage.Go to index page
-    desktopPage.Go to Issue Tracker Management
+    desktopHeaderPage.Change Test Project and go to ${issueTracker} ${checkIssueTracker}
     issueTrackerManagement.Check Issue Tracker Management
     issueTrackerManagement.Fill all fields IT
     issueTrackerManagement.Check created issue trackers
 
 Create New Test Plan ${TestPlanName}
-    headerPage.Go to index page and change testproject
-    wait until keyword succeeds  1min  0  desktopPage.I am here
-    desktopPage.Go to Test Plan Management
+    desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     wait until keyword succeeds  1min  0  desktopPage.Check Test Plan Management
     testPlanManagement.Create Test Plan Management
     testPlanManagement_detail.Input Name  ${TestPlanName}
@@ -280,19 +177,16 @@ Create New Test Plan ${TestPlanName}
     testPlanManagement_detail.Select Checkbox Active
     testPlanManagement_detail.Select Checkbox Public
     testPlanManagement_detail.Click Create button to finish Test Plan Management
-    wait until keyword succeeds  1min  0  testPlanManagement.Check Test Plan Management is Created  ${TestPlanName}
+    wait until keyword succeeds  1min  0  testPlanManagement.Check Test Plan Management is Created ${TestPlanName}
 
 Create and check role ${role} in user management
-    headerPage.Go to index page and change testproject
-    wait until keyword succeeds  1min  0  headerPage.I am here
-    headerPage.Go to User Management
+    HeaderPage Go to ${userManagement}
     userManagement.Click bookmark View roles
     userManagement.Create role ${role}
 
 Start editing user
     [Tags]  tp101
-    headerPage.Go to index page
-    headerPage.Go to User Management
+    HeaderPage Go to ${userManagement}
     userManagement.Wait until page contains view users content
     userManagement.Click desired user
 
@@ -302,23 +196,18 @@ Set My Personal Data
 
 Validate settings fields
     [Tags]  tp96
-    headerPage.Go to index page
-    wait until keyword succeeds  1min  0  headerPage.I am here
-    headerPage.Go to My Settings
+    HeaderPage Go to ${mySettings}
     wait until keyword succeeds  1min  0  mySettings.I am here
     mySettings.Validate
 
 Create test suite ${testSuiteName} in test project ${newTestProjectName}
-    headerPage.Go to Index Page
-    desktopPage.Go to Test Specification (mainframe)
+    desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Create TS ${testSuiteName} ${newTestProjectName}
 
 Create test case ${testCaseName} in ${testSuiteName}
-    headerPage.Go to Index Page
-    desktopPage.Go to Test Specification (mainframe)
-    testSpecificationPage.Create TC in TS
-    headerPage.Go to Index Page
-    desktopPage.Go to Test Specification (mainframe)
+    desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    testSpecificationPage.Create TC ${testSuiteName} in TS ${testCaseName}
+    desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Select test case ${testCaseName} node
     testSpecificationPage.Create Step
     testSpecificationPage.Add Step after created first step
@@ -332,25 +221,31 @@ Create Build with name ${buildName}
 
 Start creating build
     [Tags]  tp63
-    desktopPage.Go to Builds/Releases
+    desktopHeaderPage.Change Test Project and go to ${buildReleases} ${checkBuildReleases}
     wait until keyword succeeds  1min  0  buildsReleases.Check Builds/Releases
     buildsReleases.Create Build
 
 Add Test Suite to Test Plan
     [Tags]  91
-    headerPage.Go to index page
-    desktopPage.Go to Test Specification (mainframe)
+    desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Add Test Cases to the Test Plan
 
 Execute Test Suite
     [Tags]  91
-    headerPage.Go to index page
-    desktopPage.Go to Execute Tests
+    desktopHeaderPage.Change Test Project and go to ${executeTests} ${executeTests}
     executeTestsPage.Execute Test Cases
 
 Create Test Suite
     [Tags]  tp86
-    wait until keyword succeeds  1min  0  headerPage.Go to index page and change testproject
-    desktopPage.Go to Test Specification (mainframe)
+    desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Create Test Suite Button
     testSpecificationPage.Fill In The Fields
+
+Keywords
+    [Tags]  89
+    desktopHeaderPage.Change Test Project and go to ${keywordManagement} ${keywordManagement}
+    assignKeywords.Create Keyword
+    assignKeywords.Check Keyword Was Created
+    assignKeywords.Click Assign Keyword to Test Case
+    testSpecificationPage.Select test case ${testCaseName} node
+    assignKeywords.Assign Keywords

@@ -23,7 +23,7 @@ ${NewTestLastName}                  testLastName
 ${NewTestFirstName}                 testFirstName
 ${NewTestPassword}                  testPassword
 ${newTestProjectName}               userProfile
-${newTestProjectPrefix}             ts
+${newTestProjectPrefix}             userProfile
 ${LOGIN1}                           lalala
 ${PASSWORD1}                        1534354
 ${LOGIN2}                           renat.kulalov

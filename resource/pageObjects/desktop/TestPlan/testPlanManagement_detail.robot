@@ -117,14 +117,12 @@ unselect checkbox Copy Platforms Links
     unselect frame
 
 unselect checkbox Copy Milestones
-
     select frame  name=mainframe
     wait until page contains element  name=copy_milestones
     unselect checkbox  copy_milestones
     unselect frame
 
 Click Create button to finish Test Plan Management
-
     select frame  mainframe
     wait until page contains element  do_create
     click button  Create
