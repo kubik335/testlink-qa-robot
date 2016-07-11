@@ -16,8 +16,6 @@ Test Setup  Run keywords    Login and Create new Test Project ${newTestProjectNa
 ...             AND         Add Platform to Test Plan
 ...             AND         Create Build with name ${buildName}
 ...             AND         Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
-...             AND         HeaderPage Go to ${indexPage}
-
 
 Test Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND            close browser
@@ -44,5 +42,5 @@ ${buildDescription}             DescriptionOfBuild
 
 78 Update Linked TC version
     Update linked TC ${testCaseName} ${testSuiteName} version
-    Check TC Version was changed ${testCaseName} ${testSuiteName} in Update Linked TC Version
+    testlink1.Check TC Version was changed ${testCaseName} ${testSuiteName} in Update Linked TC Version
     Check TC Version was changed ${testCaseName} ${testSuiteName} in Assign TC Execution

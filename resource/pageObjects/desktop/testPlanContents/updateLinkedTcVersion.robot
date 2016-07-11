@@ -69,6 +69,14 @@ Check TC Version was changed ${testCaseName}
     page should contain element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"1")]][td/select]
     unselect frame
 
+Check changed TC Version ${testCaseName}
+    select frame  mainframe
+    wait until page contains element  workframe
+    select frame  workframe
+    wait until page contains element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"1")]][td/select]
+    page should contain element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"1")]][td/select]
+    unselect frame
+
 Update New Version of Test Case
     wait until keyword succeeds  1min  0  updateLinkedTcVersion.I am here
     updateLinkedTcVersion.Select Test Suite From The Tree ${testSuiteName}
@@ -78,4 +86,4 @@ Update New Version of Test Case
 UpdateLinkedTcVersion Check TC Was Changed
     wait until keyword succeeds  1min  0  updateLinkedTcVersion.I am here
     updateLinkedTcVersion.Select Test Suite From The Tree ${testSuiteName}
-    wait until keyword succeeds  1min  0  updateLinkedTcVersion.Check TC Version was changed ${testCaseName}
+    wait until keyword succeeds  1min  0  updateLinkedTcVersion.Check changed TC Version ${testCaseName}
