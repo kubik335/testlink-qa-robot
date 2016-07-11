@@ -53,7 +53,7 @@ Check header links
     desktopPage.I am here
     HeaderPage Go to ${requirementSpec}
     requirementSpecification(mainframe).I am here
-    HeaderPage Go to ${testSpecification}
+    HeaderPage Go to ${testSpec}
     testSpecificationPage.I am here
     HeaderPage Go to ${testExecution}
     executeTestsPage.I am here
@@ -143,13 +143,13 @@ Delete all created issue trackers
 
 Create Issue Tracker
     [Tags]  tp108
-    desktopHeaderPage.Change Test Project and go to ${issueTracker} ${checkIssueTracker}
+    desktopHeaderPage.Change Test Project and go to ${issueTrackerName} ${checkIssueTracker}
     issueTrackerManagement.Create IT
     headerPage.Go to index page
 
 Click created Issue Tracker with name ${ISSUETRACKER}
     [Tags]  tp108
-    desktopHeaderPage.Change Test Project and go to ${issueTracker} ${checkIssueTracker}
+    desktopHeaderPage.Change Test Project and go to ${issueTrackerName} ${checkIssueTracker}
     issueTrackerManagement.Check Issue Tracker Management
     issueTrackerManagement.Click created IT ${ISSUETRACKER}
 
@@ -163,7 +163,7 @@ Modify name and type of Issue Tracker
 
 Create all possible types of Issue Tracker and check it
     [Tags]  tp107
-    desktopHeaderPage.Change Test Project and go to ${issueTracker} ${checkIssueTracker}
+    desktopHeaderPage.Change Test Project and go to ${issueTrackerName} ${checkIssueTracker}
     issueTrackerManagement.Check Issue Tracker Management
     issueTrackerManagement.Fill all fields IT
     issueTrackerManagement.Check created issue trackers

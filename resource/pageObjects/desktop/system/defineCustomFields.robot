@@ -20,24 +20,24 @@ ${BROWSER}      ff
 *** Keywords ***
 
 Check Define Custom Fields
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains  Custom fields
     unselect frame
 
 Click create Custom Field
-    select frame  name=mainframe
+    select frame  mainframe
     double click element  xpath=//input[@name="create_cfield"]
     unselect frame
 
 Input information about Custom Field
-    select frame  name=mainframe
+    select frame  mainframe
     input text  cf_name  ${CFNAME}
     input text  cf_label  ${CFLABEL}
     double click element  xpath=//input[@name="do_update"]
     unselect frame
 
 Check custom field
-    select frame  name=mainframe
+    select frame  mainframe
     #Click Button  do_update
     page should contain  ${CFNAME}
     unselect frame
@@ -50,12 +50,12 @@ Check edited custom field
     unselect frame
 
 Select Custom Field
-    select frame  name=mainframe
+    select frame  mainframe
     click link  ${CFNAME}
     unselect frame
 
 Edit Custom Fields
-    select frame  name=mainframe
+    select frame  mainframe
     input text  cf_name  ${NEWCFNAME}
     #change (Available for)
     click element  xpath=//*[@id="combo_cf_node_type_id"]
@@ -66,11 +66,20 @@ Edit Custom Fields
     #change[Display on test execution]
     click element  xpath=//*[@id="cf_show_on_execution"]
     click element  xpath=//*[@id="cf_show_on_execution"]/option[2]
-    double click element  xpath=//input[@name="do_update"]
+    unselect frame
+    select frame  mainframe
+    wait until page contains element  xpath=//div/input[@name="do_update"]
+    double click element  xpath=//div/input[@name="do_update"]
+    unselect frame
+
+Update Custom Field
+    select frame  mainframe
+    wait until page contains element  xpath=//div/input[@name="do_update"]
+    click button  Update
     unselect frame
 
 Select and delete EDITED Custom Field
-    select frame  name=mainframe
+    select frame  mainframe
     click link  ${NEWCFNAME}
     click button  do_delete
     wait until page contains  Yes
@@ -78,7 +87,7 @@ Select and delete EDITED Custom Field
     unselect frame
 
 Select and delete Custom Field ${CFNAME}
-    select frame  name=mainframe
+    select frame  mainframe
     click link  ${CFNAME}
     click button  do_delete
     wait until page contains  Yes
@@ -86,12 +95,12 @@ Select and delete Custom Field ${CFNAME}
     unselect frame
 
 Check if Custom Field has been deleted
-    select frame  name=mainframe
+    select frame  mainframe
     page should not contain  ${CFNAME}
     unselect frame
 
 Check if EDITED Custom Field has been deleted
-    select frame  name=mainframe
+    select frame  mainframe
     page should not contain  ${NEWCFNAME}
     unselect frame
 
@@ -106,6 +115,7 @@ Edit information CF and Check New CF
     defineCustomFields.Check Define Custom Fields
     defineCustomFields.Select Custom Field
     defineCustomFields.Edit Custom Fields
+    defineCustomFields.Update Custom Field
     defineCustomFields.Check Define Custom Fields
     defineCustomFields.Check edited custom field
 

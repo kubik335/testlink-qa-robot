@@ -8,7 +8,7 @@ Library        Selenium2Library
 ${mySettings}               xpath=//a[img[@title="My Settings"]]
 ${desktop}          xpath=//img[@title="Project"]
 ${requirementSpec}  xpath=//img[@title="Requirement Specification"]
-${testSpecification}  xpath=//img[@title="Test Specification"]
+${testSpec}  xpath=//img[@title="Test Specification"]
 ${testExecution}  xpath=//img[@title="Test Execution"]
 ${testReports}  xpath=//img[@title="Test Reports"]
 ${userManagement}  xpath=//img[@title="User Management"]

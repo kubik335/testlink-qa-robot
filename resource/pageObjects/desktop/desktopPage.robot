@@ -191,6 +191,13 @@ Check link ${check}
     select frame  mainframe
     ${count}  get matching xpath count  //frame[@name="treeframe"]
     run keyword if  ${count} > 0  Check treeframe ${check}
+    run keyword if  ${count} == 0  Check mainframe ${check}
+    unselect frame
+
+Check mainframe ${check}
+    unselect frame
+    select frame  mainframe
+    wait until page contains  ${check}
     unselect frame
 
 Check treeframe ${check}
