@@ -268,3 +268,13 @@ Update linked TC ${testCaseName} ${testSuiteName} version
     [Tags]  tp78
     desktopHeaderPage.Change Test Project and go to ${updateTCVersion} ${updateTCVersion}
     updateLinkedTcVersion.Update New Version of Test Case
+
+Check TC Version was changed ${testCaseName} ${testSuiteName} in Update Linked TC Version
+    [Tags]  tp78
+    desktopHeaderPage.Change Test Project and go to ${updateTCVersion} ${updateTCVersion}
+    updateLinkedTcVersion.UpdateLinkedTcVersion Check TC Was Changed
+
+Check TC Version was changed ${testCaseName} ${testSuiteName} in Assign TC Execution
+    [Tags]  tp78
+    desktopHeaderPage.Change Test Project and go to ${assignTCExecution} ${assignTCExecution}
+    assignTestCaseExecution.AssignTCExecution Check TC Was Changed

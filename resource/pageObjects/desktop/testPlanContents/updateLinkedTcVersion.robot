@@ -74,3 +74,8 @@ Update New Version of Test Case
     updateLinkedTcVersion.Select Test Suite From The Tree ${testSuiteName}
     wait until keyword succeeds  1min  0  updateLinkedTcVersion.Check Version Of The TC ${testCaseName}
     updateLinkedTcVersion.Update to new version ${testCaseName}
+
+UpdateLinkedTcVersion Check TC Was Changed
+    wait until keyword succeeds  1min  0  updateLinkedTcVersion.I am here
+    updateLinkedTcVersion.Select Test Suite From The Tree ${testSuiteName}
+    wait until keyword succeeds  1min  0  updateLinkedTcVersion.Check TC Version was changed ${testCaseName}

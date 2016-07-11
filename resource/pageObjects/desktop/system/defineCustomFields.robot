@@ -69,7 +69,7 @@ Edit Custom Fields
     unselect frame
     select frame  mainframe
     wait until page contains element  xpath=//input[@name="do_update"]
-    double click element  xpath=/input[@name="do_update"]
+    double click element  xpath=//input[@name="do_update"]
     unselect frame
 
 Update Custom Field

@@ -24,6 +24,8 @@ Test Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${new
 
 *** Variables ***
 
+${LOGIN}                        renat.kulalov
+${PASSWORD}                     renat123
 ${newTestProjectName}           testPlanContent
 ${newTestProjectPrefix}         testPlan
 ${newTestProjectDescription}    DesctiptioneOfTestProject

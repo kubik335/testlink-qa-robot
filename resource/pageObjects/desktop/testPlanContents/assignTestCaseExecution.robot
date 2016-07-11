@@ -82,3 +82,7 @@ Check Updated Version of TC ${testCaseName}
     page should contain element  xpath=//tr[td[contains(.,"1")]][td[contains(.,"${testCaseName}")]]
     unselect frame
 
+AssignTCExecution Check TC Was Changed
+    wait until keyword succeeds  1min  0  assignTestCaseExecution.I am here
+    assignTestCaseExecution.Select Test Suite From The Tree ${testSuiteName}
+    wait until keyword succeeds  1min  0  assignTestCaseExecution.Check Updated Version of TC ${testCaseName}
