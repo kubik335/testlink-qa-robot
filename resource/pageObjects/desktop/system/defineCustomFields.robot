@@ -115,7 +115,7 @@ Edit information CF and Check New CF
     defineCustomFields.Check Define Custom Fields
     defineCustomFields.Select Custom Field
     defineCustomFields.Edit Custom Fields
-    defineCustomFields.Update Custom Field
+    #defineCustomFields.Update Custom Field
     defineCustomFields.Check Define Custom Fields
     defineCustomFields.Check edited custom field
 
