@@ -65,3 +65,9 @@ Unassign TC from ${PlatformName}
     click element  xpath=//tr[td[text()="${PlatformName}"]]//input[@type="checkbox"]
     click element  xpath=//input[@name="doAddRemove"]
     unselect frame
+
+Assign TC to user & platform
+    addRemoveTestCases.Show Test Cases
+    wait until keyword succeeds  1min  0  addRemoveTestCases.Check Page Add/Remove TC ${PlatformName}
+    addRemoveTestCases.Assign TC to user ${Username}
+    addRemoveTestCases.Assign TC to platform ${PlatformName}

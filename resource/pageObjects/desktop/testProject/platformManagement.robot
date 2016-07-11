@@ -21,18 +21,35 @@ ${BROWSER}      ff
 
 
 Check Platform Management
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains  Platform Management
     wait until page contains element  create_platform
     unselect frame
 
 
 Check Platform Management Without Platforms
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains  Platform Management
     wait until page contains element  create_platform
     page should not contain element  xpath=/html/body/div/table
     unselect frame
 
-Create Platform
-    # v testlinku
+Create Platform ${PlatformName}
+    select frame  titlebar
+    click element  xpath=//img[@title="logo"]
+    unselect frame
+    select frame  mainframe
+    wait until page contains  Platform Management
+    click link  Platform Management
+    unselect frame
+    select frame  mainframe
+    click button  create_platform
+    unselect frame
+    select frame  mainframe
+    input text  name    ${PlatformName}
+    click button  submitButton
+    unselect frame
+    select frame  mainframe
+    wait until page contains  ${PlatformName}
+    unselect frame
+

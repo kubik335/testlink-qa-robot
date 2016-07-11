@@ -69,3 +69,8 @@ Check TC Version was changed ${testCaseName}
     page should contain element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"1")]][td/select]
     unselect frame
 
+Update New Version of Test Case
+    wait until keyword succeeds  1min  0  updateLinkedTcVersion.I am here
+    updateLinkedTcVersion.Select Test Suite From The Tree ${testSuiteName}
+    wait until keyword succeeds  1min  0  updateLinkedTcVersion.Check Version Of The TC ${testCaseName}
+    updateLinkedTcVersion.Update to new version ${testCaseName}

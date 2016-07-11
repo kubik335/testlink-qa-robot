@@ -3,23 +3,24 @@
 Documentation  This test case controls assigning test case execution to user.
 
 
-Resource       ../../../../resource/testlink.robot
-Test Setup  Run keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+Resource    ../../../resource/testlink1.robot
+
+Test Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND         headerPage.Go to index page and change testproject
-...             AND         testlink.Create test suite ${testSuiteName} in test project ${newTestProjectName}
-...             AND         testlink.Create test case ${testCaseName} in ${testSuiteName}
-...             AND         testlink.Create New Version Of TC
-...             AND         testlink.Create New Test Plan ${TestPlanName}
-...             AND         testlink.Create Platform ${PlatformName}
-...             AND         testlink.Create Platform ${PlatformName1}
-...             AND         testlink.Add Platform to Test Plan
-...             AND         testlink.Create Build with name ${buildName}
-...             AND         testlink.Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
-...             AND         headerPage.go to index page
+...             AND         Create test suite ${testSuiteName} in test project ${newTestProjectName}
+...             AND         Create test case ${testCaseName} in ${testSuiteName}
+...             AND         Create New Version Of TC
+...             AND         Create New Test Plan ${TestPlanName}
+...             AND         Create Platform ${PlatformName}
+...             AND         Create Platform ${PlatformName1}
+...             AND         Add Platform to Test Plan
+...             AND         Create Build with name ${buildName}
+...             AND         Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
+...             AND         HeaderPage Go to ${indexPage}
 
 
-Test Teardown  Run keywords    testlink.Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
-...             AND             close browser
+Test Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...             AND            close browser
 
 *** Variables ***
 
@@ -40,7 +41,6 @@ ${buildDescription}             DescriptionOfBuild
 *** Test Cases ***
 
 78 Update Linked TC version
-
-    testlink.Update linked TC ${testCaseName} ${testSuiteName} version
-    testlink.Check TC Version was changed ${testCaseName} ${testSuiteName} in Update Linked TC Version
-    testlink.Check TC Version was changed ${testCaseName} ${testSuiteName} in Assign TC Execution
+    Update linked TC ${testCaseName} ${testSuiteName} version
+    Check TC Version was changed ${testCaseName} ${testSuiteName} in Update Linked TC Version
+    Check TC Version was changed ${testCaseName} ${testSuiteName} in Assign TC Execution

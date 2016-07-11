@@ -249,3 +249,22 @@ Keywords
     assignKeywords.Click Assign Keyword to Test Case
     testSpecificationPage.Select test case ${testCaseName} node
     assignKeywords.Assign Keywords
+
+Create New Version Of TC
+    [Tags]  tp78
+    desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    testSpecificationPage.Create New Version of TestCase
+
+Add Platform to Test Plan
+    desktopHeaderPage.Change Test Project and go to ${addRemovePlatforms} ${addRemovePlatforms}
+    addRemovePlatforms.Add Platform
+
+Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
+    [Tags]  tp74
+    desktopHeaderPage.Change Test Project and go to ${addRemoveTestCases} ${checkAddRemoveTestCases}
+    addRemoveTestCases.Assign TC to user & platform
+
+Update linked TC ${testCaseName} ${testSuiteName} version
+    [Tags]  tp78
+    desktopHeaderPage.Change Test Project and go to ${updateTCVersion} ${updateTCVersion}
+    updateLinkedTcVersion.Update New Version of Test Case

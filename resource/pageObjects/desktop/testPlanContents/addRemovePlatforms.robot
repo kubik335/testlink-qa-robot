@@ -37,3 +37,10 @@ Check there is platform assigned
     page should contain element  xpath=//td[contains(.,"Assigned platforms")][//option[contains(.,"Platform20")]]
     page should not contain element  xpath=//td[contains(.,"Avaliable platforms")]//option
     unselect frame
+
+Add Platform
+    wait until keyword succeeds  1min  0  addRemovePlatforms.I Am Here
+    select frame  name=mainframe
+    click element  xpath=//tr/td[2]/img[1]
+    click button  doAssignPlatforms
+    unselect frame

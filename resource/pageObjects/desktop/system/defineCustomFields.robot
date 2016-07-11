@@ -68,13 +68,13 @@ Edit Custom Fields
     click element  xpath=//*[@id="cf_show_on_execution"]/option[2]
     unselect frame
     select frame  mainframe
-    wait until page contains element  xpath=//div/input[@name="do_update"]
-    double click element  xpath=//div/input[@name="do_update"]
+    wait until page contains element  xpath=//input[@name="do_update"]
+    double click element  xpath=/input[@name="do_update"]
     unselect frame
 
 Update Custom Field
     select frame  mainframe
-    wait until page contains element  xpath=//div/input[@name="do_update"]
+    wait until page contains element  xpath=//input[@name="do_update"]
     click button  Update
     unselect frame
 

@@ -667,7 +667,6 @@ Create New Sibling ${testCaseName2}
     click element  name=do_create_button
     unselect frame
 
-
 Check New Sibling Was Created
     Expand tree
     select frame  mainframe
@@ -677,12 +676,9 @@ Check New Sibling Was Created
     page should contain element  xpath=//ul/li/ul/li/ul/li[contains(.,"${testCaseName2}")]/div/a
     unselect frame
 
-
 Select test case ${testCaseName} node and click action button
-
     testSpecificationPage.Select test case ${testCaseName} node
     testSpecificationPage.Click Actions button
-
 
 Click On Export Test Case
     select frame  mainframe
@@ -920,3 +916,7 @@ Add Test Cases to the Test Plan
     testSpecificationPage.Click On Add To Test Plans
     testSpecificationPage.Select test case ${testCaseName} node and click action button
     testSpecificationPage.Click On Add To Test Plans
+
+Create New Version of TestCase
+    testSpecificationPage.Select test case ${testCaseName} node and click action button
+    testSpecificationPage.Click On Create New Version
