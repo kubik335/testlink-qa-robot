@@ -262,7 +262,7 @@ Add Platform to Test Plan
 Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
     [Tags]  tp74
     desktopHeaderPage.Change Test Project and go to ${addRemoveTestCases} ${checkAddRemoveTestCases}
-    addRemoveTestCases.Assign TC to user & platform
+    addRemoveTestCases.Assign to user ${Username} & platform ${PlatformName} TC
 
 Update linked TC ${testCaseName} ${testSuiteName} version
     [Tags]  tp78
@@ -278,3 +278,19 @@ Check TC Version was changed ${testCaseName} ${testSuiteName} in Assign TC Execu
     [Tags]  tp78
     desktopHeaderPage.Change Test Project and go to ${assignTCExecution} ${assignTCExecution}
     assignTestCaseExecution.AssignTCExecution Check TC Was Changed
+
+Check Assigned TC to ${Username} and ${PlatformName}
+    [Tags]  tp74
+    desktopHeaderPage.Change Test Project and go to ${assignTCExecution} ${assignTCExecution}
+    assignTestCaseExecution.AssignTCExecution Check TC Was Corrected
+
+Unassign TC ${PlatformName}
+    [Tags]  tp74
+    desktopHeaderPage.Change Test Project and go to ${addRemoveTestCases} ${checkAddRemoveTestCases}
+    addRemoveTestCases.Unassign platform and its testCases ${PlatformName}
+
+Check TC Are Not Assigned ${testSuiteName}
+    [Tags]  tp74
+    desktopHeaderPage.Change Test Project and go to ${assignTCExecution} ${assignTCExecution}
+    wait until keyword succeeds  1min  0  assignTestCaseExecution.I am here
+    wait until keyword succeeds  1min  0  assignTestCaseExecution.Check there is no assigned TC ${testSuiteName}

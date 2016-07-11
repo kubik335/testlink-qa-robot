@@ -66,8 +66,14 @@ Unassign TC from ${PlatformName}
     click element  xpath=//input[@name="doAddRemove"]
     unselect frame
 
-Assign TC to user & platform
+Assign to user ${Username} & platform ${PlatformName} TC
     addRemoveTestCases.Show Test Cases
     wait until keyword succeeds  1min  0  addRemoveTestCases.Check Page Add/Remove TC ${PlatformName}
     addRemoveTestCases.Assign TC to user ${Username}
     addRemoveTestCases.Assign TC to platform ${PlatformName}
+
+Unassign platform and its testCases ${PlatformName}
+    addRemoveTestCases.Show Test Cases
+    wait until keyword succeeds  1min  0  addRemoveTestCases.Check Page Add/Remove TC ${PlatformName}
+    addRemoveTestCases.Check TC were Assigned
+    addRemoveTestCases.Unassign TC from ${PlatformName}

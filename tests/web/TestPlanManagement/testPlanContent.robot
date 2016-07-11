@@ -1,11 +1,11 @@
 *** Settings ***
 
-Documentation  This test case controls assigning test case execution to user.
-
+Documentation   This is a test suite with several test cases, which controls assigning test case execution to certain user
+...             and updating linked test case version to current test plan.
 
 Resource    ../../../resource/testlink1.robot
 
-Test Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+Suite Setup   Run keywords  Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND         headerPage.Go to index page and change testproject
 ...             AND         Create test suite ${testSuiteName} in test project ${newTestProjectName}
 ...             AND         Create test case ${testCaseName} in ${testSuiteName}
@@ -15,9 +15,8 @@ Test Setup  Run keywords    Login and Create new Test Project ${newTestProjectNa
 ...             AND         Create Platform ${PlatformName1}
 ...             AND         Add Platform to Test Plan
 ...             AND         Create Build with name ${buildName}
-...             AND         Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
 
-Test Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+Suite Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND            close browser
 
 *** Variables ***
@@ -40,7 +39,23 @@ ${buildDescription}             DescriptionOfBuild
 
 *** Test Cases ***
 
+74 Assign Test Case Execution
+    Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
+    Add TC ${testCaseName} to platform ${PlatformName1} users ${Username1}
+    Check Assigned TC to ${Username} and ${PlatformName}
+    Check Assigned TC to ${Username1} and ${PlatformName1}
+    Unassign TC ${PlatformName}
+    Unassign TC ${PlatformName1}
+    Add TC ${testCaseName} to platform ${PlatformName} users ${Username1}
+    Add TC ${testCaseName} to platform ${PlatformName1} users ${Username}
+    Check Assigned TC to ${Username} and ${PlatformName1}
+    Check Assigned TC to ${Username1} and ${PlatformName}
+    Unassign TC ${PlatformName}
+    Unassign TC ${PlatformName1}
+    Check TC Are Not Assigned ${testSuiteName}
+
 78 Update Linked TC version
+    Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
     Update linked TC ${testCaseName} ${testSuiteName} version
     testlink1.Check TC Version was changed ${testCaseName} ${testSuiteName} in Update Linked TC Version
-    Check TC Version was changed ${testCaseName} ${testSuiteName} in Assign TC Execution
+    testlink1.Check TC Version was changed ${testCaseName} ${testSuiteName} in Assign TC Execution
