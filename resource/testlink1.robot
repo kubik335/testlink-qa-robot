@@ -190,10 +190,6 @@ Start editing user
     userManagement.Wait until page contains view users content
     userManagement.Click desired user
 
-Set My Personal Data
-    mySettings.Set Personal data back to normal
-    mySettings.Change Password back
-
 Validate settings fields
     [Tags]  tp96
     HeaderPage Go to ${mySettings}

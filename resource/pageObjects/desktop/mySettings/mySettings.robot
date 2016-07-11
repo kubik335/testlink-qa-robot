@@ -147,3 +147,6 @@ Change Password back
     wait until page contains  Your password was changed succesfully
     unselect frame
 
+Set My Personal Data
+    mySettings.Set Personal data back to normal
+    mySettings.Change Password back
