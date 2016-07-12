@@ -21,14 +21,12 @@ ${BROWSER}      ff
 
 Input Name
     [Arguments]   ${TestPlanName}
-
     select frame  name=mainframe
     wait until page contains element  testplan_name
     input text  testplan_name  ${TestPlanName}
     unselect frame
 
 Input Description
-
     select frame  name=mainframe
     wait until page contains  Description
     wait until page contains element  xpath=//iframe[@title="Rich text editor, notes"]
@@ -41,7 +39,6 @@ Input Description
     unselect frame
 
 wait until page contains all checkboxes from existing Test Plan
-
     select frame  mainframe
     wait until page contains  Copy User Roles
     wait until page contains  Copy Attachments
@@ -51,66 +48,55 @@ wait until page contains all checkboxes from existing Test Plan
     wait until page contains  Copy Milestones
     unselect frame
 
-
-
 Select Checkbox Active
-
-    select frame  name=mainframe
-    wait until page contains element  name=active
+    select frame  mainframe
+    wait until page contains element  active
     select checkbox  active
     unselect frame
 
 Select Checkbox Public
-
     select frame  name=mainframe
     wait until page contains element  name=is_public
     select checkbox  is_public
     unselect frame
 
 unselect checkbox Public
-
     select frame  name=mainframe
     wait until page contains element  name=is_public
     unselect checkbox  is_public
     unselect frame
 
 unselect checkbox Active
-
     select frame  name=mainframe
     wait until page contains element  name=active
     unselect checkbox  active
     unselect frame
 
 unselect checkbox Copy User Roles
-
     select frame  name=mainframe
     wait until page contains element  name=copy_user_roles
     unselect checkbox  copy_user_roles
     unselect frame
 
 unselect checkbox Copy Test Cases
-
     select frame  name=mainframe
     wait until page contains element  name=copy_tcases
     unselect checkbox  copy_tcases
     unselect frame
 
 unselect checkbox Copy Attachements
-
     select frame  name=mainframe
     wait until page contains element  name=copy_attachments
     unselect checkbox  copy_attachments
     unselect frame
 
 unselect checkbox Copy Builds
-
     select frame  name=mainframe
     wait until page contains element  name=copy_builds
     unselect checkbox  copy_builds
     unselect frame
 
 unselect checkbox Copy Platforms Links
-
     select frame  name=mainframe
     wait until page contains element  name=copy_platforms_links
     unselect checkbox  copy_platforms_links
@@ -129,14 +115,12 @@ Click Create button to finish Test Plan Management
     unselect frame
 
 Warning Message Creating Same Test Plan Management
-
     select frame  mainframe
     wait until page contains  There is already a Test Plan with this name. Please choose another name!
     unselect frame
 
 Click Button Delete Test Plan Management
     [Arguments]  ${TestPlanNameToDelete}
-
     select frame  mainframe
     wait until page contains  ${TestPlanNameToDelete}
     click element  xpath=//tr[td//text()[contains(.,'${TestPlanNameToDelete}')]]/td[last()]/img[1]
@@ -144,27 +128,23 @@ Click Button Delete Test Plan Management
 
 Click Button Assign Roles Test Plan Management
     [Arguments]  ${TestPlanName}
-
     select frame  mainframe
     wait until page contains  ${TestPlanName}
     click element  xpath=//tr[td//text()[contains(.,'${TestPlanName}')]]/td/a/img[@title="Assign roles"]
     unselect frame
 
 Confirm Delete Test Plan Management
-
     select frame  mainframe
     click button  Yes
     unselect frame
 
 Check Test Plan Management Deleted
     [Arguments]  ${TestPlanNameToDelete}
-
     select frame  mainframe
     wait until page does not contain  ${TestPlanNameToDelete}
     unselect frame
 
 Create from existing Test Plan?
-
     select frame  mainframe
     wait until page contains  Create from existing Test Plan?
     #click element  copy_from_tplan_id
@@ -278,3 +258,13 @@ Check Updated Test Plan
     page should contain element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${EditTestPlanName}")][contains(text()," ")]
     unselect frame
 
+Make all Test Plan Active/Inactive
+    [Tags]  56
+    testPlanManagement_detail.Check Test Plan Is Active
+    testPlanManagement_detail.Click On Bulb Icon
+    testPlanManagement_detail.Check Test Plan Is Active
+
+Edit And Check Test Plan
+    [Tags]  56
+    testPlanManagement_detail.Edit Test Plan
+    testPlanManagement_detail.Check Updated Test Plan

@@ -70,7 +70,7 @@ Check if Build was created ${buildName}
     wait until page contains element  xpath=//a[contains(text(),"${buildName}")]
     unselect frame
 
-Delete Build ${buildName}
+Delete ${buildName} Build
     select frame  name=mainframe
     click element  xpath=//tr[td//text()[contains(.,'${buildName}')]]/td[last()]/img
     wait until page contains  You are going to delete: ${buildName}
@@ -105,3 +105,18 @@ Add Details and Finish creating build ${buildName}
     [Tags]  tp61
     buildsReleases.Fill in the details of the Build ${buildName}
     buildsReleases.Save Build
+
+Create Build With Release Date And Save ${buildName}
+    [Tags]  tp62
+    buildsReleases.Fill in the details of the Build ${buildName}
+    buildsReleases.Add release date
+    buildsReleases.Save Build
+
+Check that Build is created ${buildName}
+    [Tags]  tp61
+    buildsReleases.Check if Build was created ${buildName}
+
+Edit Build Info and Save Changes
+    buildsReleases.Fill in the details of the Build ${buildName3}
+    buildsReleases.Add Release Date
+    buildsReleases.Save Build after Editing

@@ -210,16 +210,10 @@ Create test case ${testCaseName} in ${testSuiteName}
 
 Create Build with name ${buildName}
     [Tags]  tp63
-    wait until keyword succeeds  1min  0  headerPage.Go to index page and change testproject
+    desktopHeaderPage.Change Test Project and go to ${buildReleases} ${checkBuildReleases}
     Start creating build
     Add Details and Finish creating build ${buildName}
     Check if Build was created ${buildName}
-
-Start creating build
-    [Tags]  tp63
-    desktopHeaderPage.Change Test Project and go to ${buildReleases} ${checkBuildReleases}
-    wait until keyword succeeds  1min  0  buildsReleases.Check Builds/Releases
-    buildsReleases.Create Build
 
 Add Test Suite to Test Plan
     [Tags]  91
@@ -290,3 +284,92 @@ Check TC Are Not Assigned ${testSuiteName}
     desktopHeaderPage.Change Test Project and go to ${assignTCExecution} ${assignTCExecution}
     wait until keyword succeeds  1min  0  assignTestCaseExecution.I am here
     wait until keyword succeeds  1min  0  assignTestCaseExecution.Check there is no assigned TC ${testSuiteName}
+
+Create Test Plan Management AS COPY ${TestPlanName}
+     [Tags]  tp54
+    desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
+    testPlanManagement.Create Test Plan Management
+    testPlanManagement_detail.Input Name  ${TestPlanName}
+    testPlanManagement_detail.Create from existing Test Plan?
+    testPlanManagement_detail.Select Checkbox Active
+    testPlanManagement_detail.Click Create button to finish Test Plan Management
+    testPlanManagement.Check Test Plan Management is Created ${TestPlanName}
+
+Create Test Plan AS COPY Unselect all checkboxes ${TestPlanName}
+    [Tags]  tp55
+    desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
+    testPlanManagement.Create Test Plan Management
+    testPlanManagement_detail.Input Name  ${TestPlanName}
+    testPlanManagement_detail.Create from existing Test Plan?
+    testPlanManagement_detail.unselect checkbox Copy User Roles
+    testPlanManagement_detail.unselect checkbox Copy Attachements
+    testPlanManagement_detail.unselect checkbox Copy Test Cases
+    testPlanManagement_detail.unselect checkbox Copy Builds
+    testPlanManagement_detail.unselect checkbox Copy Platforms Links
+    testPlanManagement_detail.unselect checkbox Copy Milestones
+    testPlanManagement_detail.unselect checkbox Active
+    testPlanManagement_detail.unselect checkbox Public
+    testPlanManagement_detail.Click Create button to finish Test Plan Management
+    testPlanManagement.Check Test Plan Management is Created ${TestPlanName}
+
+Order By Test Case, Name, Build In Test Plan Management
+    [Tags]  56
+    desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
+    testPlanManagement_detail.Order By Name
+    testPlanManagement_detail.Order By Test Case
+    testPlanManagement_detail.Order By Test Build
+
+Assign Roles
+    [Tags]  tp59
+    desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
+    testPlanManagement_detail.Click Button Assign Roles Test Plan Management  ${TestPlanName}
+    wait until keyword succeeds  1min  0  assignRolesForTP.I am here ASSIGN ROLES
+    assignRolesForTP.Assign Roles for TP
+
+Check That Roles Were Assigned
+    [Tags]  tp59
+    desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
+    testPlanManagement_detail.Click Button Assign Roles Test Plan Management  ${TestPlanName}
+    wait until keyword succeeds  1min  0  assignRolesForTP.I am here ASSIGN ROLES
+    assignRolesForTP.Check That Roles Were Chnanged
+
+Delete Test Plan Management
+     [Arguments]  ${TestPlanNameToDelete}
+     desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
+     testPlanManagement_detail.Click Button Delete Test Plan Management  ${TestPlanNameToDelete}
+     testPlanManagement_detail.Confirm Delete Test Plan Management
+     testPlanManagement_detail.Check Test Plan Management Deleted  ${TestPlanNameToDelete}
+
+Start creating build
+    [Tags]  tp63
+    Change Test Project and go to ${buildReleases} ${checkBuildReleases}
+    wait until keyword succeeds  1min  0  buildsReleases.Check Builds/Releases
+    buildsReleases.Create Build
+
+Start creating build with warning
+    [Tags]  tp61
+    Change Test Project and go to ${buildReleases} ${checkBuildReleases}
+    buildsReleases.Check Builds/Releases
+    buildsReleases.Create Build
+    buildsReleases.Check if warning message appears
+
+Fill info and choose template ${NewNameBuild} ${FromBuild}
+    buildsReleases.Fill in the details of the Build ${NewNameBuild}
+    buildsReleases.Choose template ${FromBuild}
+    buildsReleases.Save Build
+
+Create ${NewNameBuild} from existing ${FromBuild}
+    [Tags]  tp63
+    Start creating build
+    Fill info and choose template ${NewNameBuild} ${FromBuild}
+
+Delete Build ${buildName}
+    [Tags]  tp61
+    Change Test Project and go to ${buildReleases} ${checkBuildReleases}
+    buildsReleases.Delete ${buildName} Build
+
+Add Test Case To the Test Plan
+    [Tags]  56
+    desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    testSpecificationPage.Select test case ${testCaseName} node and click action button
+    testSpecificationPage.Click On Add To Test Plans
