@@ -315,3 +315,19 @@ Check Test Specification
     [Tags]  tp41_requirement_operation_creare_tc
     desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Add Filters Test Case Title Test Specification
+
+Check There Is No Platforms Assigned
+    [Tags]  tp19
+    Change Test Project and go to ${addRemovePlatforms} ${addRemovePlatforms}
+    wait until keyword succeeds  1min  0  addRemovePlatforms.I Am Here
+    addRemovePlatforms.Check there are no platforms assigned
+
+Check Keyword Exists
+    [Tags]  tp20
+    Change Test Project and go to ${keywordManagement} ${keywordManagement}
+    assignKeywords.Check Keyword
+
+Check Custom Fields Are Visible
+    [Tags]  tp20
+    Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    testSpecificationPage.Check Custom Fields

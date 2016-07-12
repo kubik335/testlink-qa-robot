@@ -155,3 +155,20 @@ Check Unique ${newTestProjectName} ${newTestProjectPrefix}
     element should not contain  item_view_wrapper  ${newTestProjectPrefix}
     unselect frame
 
+Delete TP NOTHING INSIDE
+    select frame  mainframe
+    click element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[last()]
+    wait until page contains  Yes
+    click button  Yes
+    unselect frame
+
+Delete empty test project
+    testProjectManagement.Check Test Project Management
+    testProjectManagement.Delete TP NOTHING INSIDE
+
+Check that test has been deleted
+    select frame  mainframe
+    wait until page does not contain element  ${newTestProjectName}
+    wait until page does not contain element  ${newTestProjectPrefix}
+    unselect frame
+
