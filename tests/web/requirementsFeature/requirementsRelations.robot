@@ -30,16 +30,11 @@ ${title1}                       newtitle48_1
     Change Test Project and go to ${assignRequirements} ${checkAssignRequirements}
     Select Test Suite
     Assign Requirements
-    Check Assign Requirements
+    Check Assigned Requirements
 
 48 Relations between requirements and test cases
-    Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
-    Create New Requirement Specification (type URS)
-    Choose Requirement Specification
-    Create Requirement Operations
-    Create Another Requirement Operations
-    Create Test Case From Requirement
     Change Test Project and go to ${assignRequirements} ${checkAssignRequirements}
     Select Test Suite
-    Assign Requirements
-    Unassign Requirements And Check Availiable Requirements
+    Check Assigned Requirements
+    Unassign Requirements
+    Check Availiable Requirements

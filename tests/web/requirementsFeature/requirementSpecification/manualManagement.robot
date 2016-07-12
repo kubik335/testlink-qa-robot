@@ -24,19 +24,14 @@ ${title}                        newtitle
     Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
     Create New Requirement Specification (type URS)
     Choose Requirement Specification
-    Create Requirement Operations
 
 40 Modify requirement
     Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
-    Create New Requirement Specification (type URS)
     Choose Requirement Specification
     Create Requirement Operations
     Edit Requirement Operations
 
 41 Create requirement specification
     Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
-    Create New Requirement Specification (type URS)
-    Choose Requirement Specification
-    Create Requirement Operations
     Create Test Case From Requirement
     Check Test Specification

@@ -97,13 +97,13 @@ Create Another Requirement Operations
     select frame  workframe
     wait until page contains element  xpath=//img[@title="Actions"]
     click element  xpath=//img[@title="Actions"]
-    wait until page contains element  name=create_req
-    click button  name=create_req
+    wait until page contains element  create_req
+    click button  create_req
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=create_req
+    wait until page contains element  create_req
     wait until page contains element  req_title
     wait until page contains element  reqDocId
     wait until page contains element  reqType
@@ -112,11 +112,13 @@ Create Another Requirement Operations
     input text  req_title  ${title1}
     select from list by value  reqStatus  F
     select from list by value  reqType  1
-    click element  name=create_req
+    click element  create_req
     unselect frame
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
+    wait until page contains element  expand_tree
+    click element  expand_tree
     wait until page contains  ${dokumentID1}:${title1}
     unselect frame
 
@@ -124,8 +126,8 @@ Edit Requirement Operations
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  name=expand_tree
-    click element  name=expand_tree
+    wait until page contains element  expand_tree
+    click element  expand_tree
     sleep  2
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
@@ -135,15 +137,15 @@ Edit Requirement Operations
     select frame  workframe
     wait until page contains element  xpath=//img[@title="Actions"]
     click element  xpath=//img[@title="Actions"]
-    wait until page contains element  name=edit_req
-    click button  name=edit_req
-    wait until page contains element  name=create_req
+    wait until page contains element  edit_req
+    click button  edit_req
+    wait until page contains element  create_req
     wait until page contains element  reqStatus
     wait until page contains element  reqType
     select from list by value  reqStatus  I
     select from list by value  reqType  6
     input text  expected_coverage  1
-    click element  name=create_req
+    click element  create_req
     wait until page contains element  ext-gen30
     input text  ext-gen30  This is new log
     click button  OK

@@ -144,7 +144,7 @@ Check and Delete Test Project ${newTestProjectName} ${newTestProjectPrefix}
     testProjectManagement.Check Test Project Management
     testProjectManagement.Delete TP ${newTestProjectName} ${newTestProjectPrefix}
 
-Check Test Project and Clikc Create ${newTestProjectName} ${newTestProjectPrefix}
+Check Test Project and Click Create ${newTestProjectName} ${newTestProjectPrefix}
     testProjectManagement.Check Test Project Management
     testProjectManagement.Check Unique ${newTestProjectName} ${newTestProjectPrefix}
     testProjectManagement.Click Create

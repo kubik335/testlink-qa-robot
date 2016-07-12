@@ -73,7 +73,7 @@ Delete test project
 
 Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
     desktopHeaderPage.Go to and check ${testProjectManagement} ${testProjectManagement}
-    testProjectManagement.Check Test Project and Clikc Create ${newTestProjectName} ${newTestProjectPrefix}
+    testProjectManagement.Check Test Project and Click Create ${newTestProjectName} ${newTestProjectPrefix}
 
 Create TP ${newTestProjectName} ${newTestProjectPrefix}
     Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}

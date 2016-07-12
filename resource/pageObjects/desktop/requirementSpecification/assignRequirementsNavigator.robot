@@ -47,11 +47,11 @@ Assign Requirements
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=idSRS
-    click element  name=idSRS
+    wait until page contains element  idSRS
+    click element  idSRS
     select from list by label  idSRS  [${dokumentID}] - ${title}
-    wait until page contains element  name=actionButton
-    click element  name=actionButton
+    wait until page contains element  actionButton
+    click element  actionButton
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -64,12 +64,12 @@ Assign Requirements
     wait until page contains element  workframe
     select frame  workframe
     wait until page contains element  xpath=//tbody//img[@title="check/uncheck all"]
-    wait until page contains element  name=actionButton
+    wait until page contains element  actionButton
     click element  xpath=//tbody//img[@title="check/uncheck all"]
-    click element  name=actionButton
+    click element  actionButton
     unselect frame
 
-Check Assign Requirements
+Check Assigned Requirements
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
@@ -85,12 +85,12 @@ Check Assign Requirements
     wait until page contains element  xpath=//*[@id="div_assigned_req"]/table/tbody
     unselect frame
 
-Unassign Requirements And Check Availiable Requirements
+Unassign Requirements
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
     wait until page contains element  expand_tree
-    click button  name=expand_tree
+    click button  expand_tree
     wait until page contains  ${newTestProjectPrefix}-1:${title} [1]
     wait until page contains element  xpath=//a[span[contains(text(),"${title} [1]")]]
     double click element  xpath=//a[span[contains(text(),"${title} [1]")]]
@@ -99,11 +99,13 @@ Unassign Requirements And Check Availiable Requirements
     wait until page contains element  workframe
     select frame  workframe
     wait until page contains element  xpath=//*[@id="div_assigned_req"]/table/tbody
-    wait until page contains element  name=unassign
+    wait until page contains element  unassign
     wait until page contains element  xpath=//*[@id="div_assigned_req"]//tbody//img[@title="check/uncheck all"]
     click element  xpath=//*[@id="div_assigned_req"]//tbody//img[@title="check/uncheck all"]
-    click element  name=unassign
+    click element  unassign
     unselect frame
+
+Check Availiable Requirements
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
