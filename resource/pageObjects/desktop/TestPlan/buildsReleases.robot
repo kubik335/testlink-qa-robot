@@ -25,6 +25,7 @@ Check Builds/Releases
     unselect frame
 
 Create Build
+    wait until keyword succeeds  1min  0  buildsReleases.Check Builds/Releases
     select frame  name=mainframe
     wait until page contains element  create_build
     click button  create_build
@@ -120,3 +121,8 @@ Edit Build Info and Save Changes
     buildsReleases.Fill in the details of the Build ${buildName3}
     buildsReleases.Add Release Date
     buildsReleases.Save Build after Editing
+
+Fill info and choose template ${NewNameBuild} ${FromBuild}
+    buildsReleases.Fill in the details of the Build ${NewNameBuild}
+    buildsReleases.Choose template ${FromBuild}
+    buildsReleases.Save Build

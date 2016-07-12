@@ -131,4 +131,27 @@ Wait Until Page Contains TP and Click It
     click element  xpath=//a[contains(.,"${newTestProjectName}")]
     unselect frame
 
+Delete TP ${newTestProjectName} ${newTestProjectPrefix}
+    select frame  mainframe
+    click element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[last()]
+    wait until page contains  Yes
+    click button  Yes
+    wait until page does not contain element  ${newTestProjectName}
+    wait until page does not contain element  ${newTestProjectPrefix}
+    unselect frame
+
+Check and Delete Test Project ${newTestProjectName} ${newTestProjectPrefix}
+    testProjectManagement.Check Test Project Management
+    testProjectManagement.Delete TP ${newTestProjectName} ${newTestProjectPrefix}
+
+Check unique test project and Clikc Create ${newTestProjectName} ${newTestProjectPrefix}
+    testProjectManagement.Check Test Project Management
+    testProjectManagement.Check Unique ${newTestProjectName} ${newTestProjectPrefix}
+    testProjectManagement.Click Create
+
+Check Unique ${newTestProjectName} ${newTestProjectPrefix}
+    select frame  mainframe
+    element should not contain  item_view_wrapper  ${newTestProjectName}
+    element should not contain  item_view_wrapper  ${newTestProjectPrefix}
+    unselect frame
 

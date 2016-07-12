@@ -69,34 +69,11 @@ Check header links
 Delete test project
     [Arguments]  ${newTestProjectName}  ${newTestProjectPrefix}
     desktopHeaderPage.Go to and check ${testProjectManagement} ${testProjectManagement}
-    testProjectManagement.Check Test Project Management
-    select frame  mainframe
-    click element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[last()]
-    wait until page contains  Yes
-    click button  Yes
-    wait until page does not contain element  ${newTestProjectName}
-    wait until page does not contain element  ${newTestProjectPrefix}
-    unselect frame
+    testProjectManagement.Check and Delete Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
 Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
     desktopHeaderPage.Go to and check ${testProjectManagement} ${testProjectManagement}
-    Check unique test project ${newTestProjectName} and ${newTestProjectPrefix}
-    testProjectManagement.Click Create
-
-Check unique test project ${newTestProjectName} and ${newTestProjectPrefix}
-    testProjectManagement.Check Test Project Management
-    select frame  mainframe
-    element should not contain  item_view_wrapper  ${newTestProjectName}
-    element should not contain  item_view_wrapper  ${newTestProjectPrefix}
-    unselect frame
-
-Fill information to create test without conflict ${newTestProjectName} ${newTestProjectPrefix}
-    wait until keyword succeeds  1min  0  createTestProjectPage.I am here
-    select frame  mainframe
-    createTestProjectPage.Fill Test Project Name  ${newTestProjectName}
-    createTestProjectPage.Fill Test Project Prefix  ${newTestProjectPrefix}
-    createTestProjectPage.Select Unselected Checkboxes
-    unselect frame
+    testProjectManagement.Check unique test project and Clikc Create ${newTestProjectName} ${newTestProjectPrefix}
 
 Create TP ${newTestProjectName} ${newTestProjectPrefix}
     Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
@@ -107,9 +84,6 @@ Submit and check new test project
     createTestProjectPage.Click Create
     No warning about existing projects
     testProjectManagement.Check new project exists  ${newTestProjectName}
-
-No warning about existing projects
-    createTestProjectPage.Warning message is not here
 
 Login as admin ${LOGIN} ${PASSWORD}
     loginPage.Open Browser To Login Page
@@ -145,13 +119,12 @@ Create Issue Tracker
     [Tags]  tp108
     desktopHeaderPage.Change Test Project and go to ${issueTrackerName} ${checkIssueTracker}
     issueTrackerManagement.Create IT
-    headerPage.Go to index page
+    HeaderPage Go to ${indexPage}
 
 Click created Issue Tracker with name ${ISSUETRACKER}
     [Tags]  tp108
     desktopHeaderPage.Change Test Project and go to ${issueTrackerName} ${checkIssueTracker}
-    issueTrackerManagement.Check Issue Tracker Management
-    issueTrackerManagement.Click created IT ${ISSUETRACKER}
+    issueTrackerManagement.Check and Create Issue Tracker ${ISSUETRACKER}
 
 Modify name and type of Issue Tracker
     [Tags]  tp108
@@ -164,37 +137,28 @@ Modify name and type of Issue Tracker
 Create all possible types of Issue Tracker and check it
     [Tags]  tp107
     desktopHeaderPage.Change Test Project and go to ${issueTrackerName} ${checkIssueTracker}
-    issueTrackerManagement.Check Issue Tracker Management
-    issueTrackerManagement.Fill all fields IT
-    issueTrackerManagement.Check created issue trackers
+    issueTrackerManagement.Create all types of IssueTracker
 
 Create New Test Plan ${TestPlanName}
     desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     wait until keyword succeeds  1min  0  desktopPage.Check Test Plan Management
     testPlanManagement.Create Test Plan Management
-    testPlanManagement_detail.Input Name  ${TestPlanName}
-    testPlanManagement_detail.Input Description
-    testPlanManagement_detail.Select Checkbox Active
-    testPlanManagement_detail.Select Checkbox Public
-    testPlanManagement_detail.Click Create button to finish Test Plan Management
+    testPlanManagement_detail.Fill in all fields ${TestPlanName}
     wait until keyword succeeds  1min  0  testPlanManagement.Check Test Plan Management is Created ${TestPlanName}
 
 Create and check role ${role} in user management
     HeaderPage Go to ${userManagement}
-    userManagement.Click bookmark View roles
-    userManagement.Create role ${role}
+    userManagement.Choose bookmark and create role ${role}
 
 Start editing user
     [Tags]  tp101
     HeaderPage Go to ${userManagement}
-    userManagement.Wait until page contains view users content
-    userManagement.Click desired user
+    userManagement.Choose desired user
 
 Validate settings fields
     [Tags]  tp96
     HeaderPage Go to ${mySettings}
-    wait until keyword succeeds  1min  0  mySettings.I am here
-    mySettings.Validate
+    mySettings.Wait and Validate
 
 Create test suite ${testSuiteName} in test project ${newTestProjectName}
     desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
@@ -228,8 +192,7 @@ Execute Test Suite
 Create Test Suite
     [Tags]  tp86
     desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
-    testSpecificationPage.Create Test Suite Button
-    testSpecificationPage.Fill In The Fields
+    testSpecificationPage.Fill in the fields and create test suite
 
 Keywords
     [Tags]  89
@@ -289,79 +252,53 @@ Create Test Plan Management AS COPY ${TestPlanName}
      [Tags]  tp54
     desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     testPlanManagement.Create Test Plan Management
-    testPlanManagement_detail.Input Name  ${TestPlanName}
-    testPlanManagement_detail.Create from existing Test Plan?
-    testPlanManagement_detail.Select Checkbox Active
-    testPlanManagement_detail.Click Create button to finish Test Plan Management
+    testPlanManagement_detail.Create Test Plan with Warning Message ${TestPlanName}
     testPlanManagement.Check Test Plan Management is Created ${TestPlanName}
 
 Create Test Plan AS COPY Unselect all checkboxes ${TestPlanName}
     [Tags]  tp55
     desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     testPlanManagement.Create Test Plan Management
-    testPlanManagement_detail.Input Name  ${TestPlanName}
-    testPlanManagement_detail.Create from existing Test Plan?
-    testPlanManagement_detail.unselect checkbox Copy User Roles
-    testPlanManagement_detail.unselect checkbox Copy Attachements
-    testPlanManagement_detail.unselect checkbox Copy Test Cases
-    testPlanManagement_detail.unselect checkbox Copy Builds
-    testPlanManagement_detail.unselect checkbox Copy Platforms Links
-    testPlanManagement_detail.unselect checkbox Copy Milestones
-    testPlanManagement_detail.unselect checkbox Active
-    testPlanManagement_detail.unselect checkbox Public
-    testPlanManagement_detail.Click Create button to finish Test Plan Management
+    testPlanManagement_detail.Create Test Plan with unselected checkboxes ${TestPlanName}
     testPlanManagement.Check Test Plan Management is Created ${TestPlanName}
 
 Order By Test Case, Name, Build In Test Plan Management
     [Tags]  56
     desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
-    testPlanManagement_detail.Order By Name
-    testPlanManagement_detail.Order By Test Case
-    testPlanManagement_detail.Order By Test Build
+    testPlanManagement_detail.Order by Name, TC, Build
 
 Assign Roles
     [Tags]  tp59
     desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     testPlanManagement_detail.Click Button Assign Roles Test Plan Management  ${TestPlanName}
-    wait until keyword succeeds  1min  0  assignRolesForTP.I am here ASSIGN ROLES
     assignRolesForTP.Assign Roles for TP
 
 Check That Roles Were Assigned
     [Tags]  tp59
     desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     testPlanManagement_detail.Click Button Assign Roles Test Plan Management  ${TestPlanName}
-    wait until keyword succeeds  1min  0  assignRolesForTP.I am here ASSIGN ROLES
     assignRolesForTP.Check That Roles Were Chnanged
 
 Delete Test Plan Management
      [Arguments]  ${TestPlanNameToDelete}
      desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
-     testPlanManagement_detail.Click Button Delete Test Plan Management  ${TestPlanNameToDelete}
-     testPlanManagement_detail.Confirm Delete Test Plan Management
-     testPlanManagement_detail.Check Test Plan Management Deleted  ${TestPlanNameToDelete}
+     testPlanManagement_detail.Delete and Check ${TestPlanNameToDelete}
 
 Start creating build
     [Tags]  tp63
     Change Test Project and go to ${buildReleases} ${checkBuildReleases}
-    wait until keyword succeeds  1min  0  buildsReleases.Check Builds/Releases
     buildsReleases.Create Build
 
 Start creating build with warning
     [Tags]  tp61
     Change Test Project and go to ${buildReleases} ${checkBuildReleases}
-    buildsReleases.Check Builds/Releases
     buildsReleases.Create Build
     buildsReleases.Check if warning message appears
-
-Fill info and choose template ${NewNameBuild} ${FromBuild}
-    buildsReleases.Fill in the details of the Build ${NewNameBuild}
-    buildsReleases.Choose template ${FromBuild}
-    buildsReleases.Save Build
 
 Create ${NewNameBuild} from existing ${FromBuild}
     [Tags]  tp63
     Start creating build
-    Fill info and choose template ${NewNameBuild} ${FromBuild}
+    buildsReleases.Fill info and choose template ${NewNameBuild} ${FromBuild}
 
 Delete Build ${buildName}
     [Tags]  tp61

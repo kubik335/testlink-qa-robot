@@ -23,6 +23,7 @@ I am here ASSIGN ROLES
     unselect frame
 
 Assign Roles for TP
+    wait until keyword succeeds  1min  0  assignRolesForTP.I am here ASSIGN ROLES
     select frame  mainframe
     select from list by value  xpath=//tr[td[contains(text(), "automation.tester")]]//td/select  9
     select from list by value  xpath=//tr[td[contains(text(), "tester (tester tesena)")]]//td/select  7
@@ -35,6 +36,7 @@ Assign Roles for TP
     unselect frame
 
 Check That Roles Were Chnanged
+    wait until keyword succeeds  1min  0  assignRolesForTP.I am here ASSIGN ROLES
     select frame  mainframe
     list selection should be  xpath=//tr[td[contains(text(), "automation.tester")]]//td/select  9
     list selection should be  xpath=//tr[td[contains(text(), "tester (tester tesena)")]]//td/select  7

@@ -920,3 +920,7 @@ Add Test Cases to the Test Plan
 Create New Version of TestCase
     testSpecificationPage.Select test case ${testCaseName} node and click action button
     testSpecificationPage.Click On Create New Version
+
+Fill in the fields and create test suite
+    testSpecificationPage.Create Test Suite Button
+    testSpecificationPage.Fill In The Fields

@@ -268,3 +268,39 @@ Edit And Check Test Plan
     [Tags]  56
     testPlanManagement_detail.Edit Test Plan
     testPlanManagement_detail.Check Updated Test Plan
+
+Fill in all fields ${TestPlanName}
+    testPlanManagement_detail.Input Name  ${TestPlanName}
+    testPlanManagement_detail.Input Description
+    testPlanManagement_detail.Select Checkbox Active
+    testPlanManagement_detail.Select Checkbox Public
+    testPlanManagement_detail.Click Create button to finish Test Plan Management
+
+Create Test Plan with Warning Message ${TestPlanName}
+    testPlanManagement_detail.Input Name  ${TestPlanName}
+    testPlanManagement_detail.Create from existing Test Plan?
+    testPlanManagement_detail.Select Checkbox Active
+    testPlanManagement_detail.Click Create button to finish Test Plan Management
+
+Create Test Plan with unselected checkboxes ${TestPlanName}
+    testPlanManagement_detail.Input Name  ${TestPlanName}
+    testPlanManagement_detail.Create from existing Test Plan?
+    testPlanManagement_detail.unselect checkbox Copy User Roles
+    testPlanManagement_detail.unselect checkbox Copy Attachements
+    testPlanManagement_detail.unselect checkbox Copy Test Cases
+    testPlanManagement_detail.unselect checkbox Copy Builds
+    testPlanManagement_detail.unselect checkbox Copy Platforms Links
+    testPlanManagement_detail.unselect checkbox Copy Milestones
+    testPlanManagement_detail.unselect checkbox Active
+    testPlanManagement_detail.unselect checkbox Public
+    testPlanManagement_detail.Click Create button to finish Test Plan Management
+
+Order by Name, TC, Build
+    testPlanManagement_detail.Order By Name
+    testPlanManagement_detail.Order By Test Case
+    testPlanManagement_detail.Order By Test Build
+
+Delete and Check ${TestPlanNameToDelete}
+     testPlanManagement_detail.Click Button Delete Test Plan Management  ${TestPlanNameToDelete}
+     testPlanManagement_detail.Confirm Delete Test Plan Management
+     testPlanManagement_detail.Check Test Plan Management Deleted  ${TestPlanNameToDelete}

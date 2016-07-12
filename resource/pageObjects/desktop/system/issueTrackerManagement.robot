@@ -260,3 +260,12 @@ Fill all fields IT
     issueTrackerManagement.Fill in all fields, type: REDMINE (REST)
     issueTrackerManagement.Click Create Issue Tracker Management
     issueTrackerManagement.Fill in all fields, type: TRAC (XMLRPC)
+
+Check and Create Issue Tracker ${ISSUETRACKER}
+    issueTrackerManagement.Check Issue Tracker Management
+    issueTrackerManagement.Click created IT ${ISSUETRACKER}
+
+Create all types of IssueTracker
+    issueTrackerManagement.Check Issue Tracker Management
+    issueTrackerManagement.Fill all fields IT
+    issueTrackerManagement.Check created issue trackers

@@ -40,11 +40,15 @@ Choose template from created project
 
 Fill Test Project Name
     [Arguments]  ${newTestProjectName}
+    select frame  mainframe
     input text  tprojectName  ${newTestProjectName}
+    unselect frame
 
 Fill Test Project Prefix
     [Arguments]  ${newTestProjectPrefix}
+    select frame  mainframe
     input text  tcasePrefix  ${newTestProjectPrefix}
+    unselect frame
 
 Click Issue Tracker
     click element  issue_tracker_id
@@ -63,7 +67,7 @@ Click Create
     click button  Create
     unselect frame
 
-Warning message is not here
+No warning about existing projects
     page should not contain  There's already Test Project named ${newTestProjectName}
     page should not contain  Test Case ID prefix ${newTestProjectPrefix} already exists
 
@@ -83,5 +87,17 @@ Confirm warning about empty fields
     unselect frame
 
 Select Unselected Checkboxes
+    select frame  mainframe
     select checkbox  optReq
     select checkbox  optInventory
+    unselect frame
+
+Fill all information about ${newTestProjectName} ${newTestProjectPrefix}
+    createTestProjectPage.Fill Test Project Name  ${newTestProjectName}
+    createTestProjectPage.Fill Test Project Prefix  ${newTestProjectPrefix}
+    createTestProjectPage.Select Unselected Checkboxes
+
+Fill information to create test without conflict ${newTestProjectName} ${newTestProjectPrefix}
+    wait until keyword succeeds  1min  0  createTestProjectPage.I am here
+    createTestProjectPage.Fill all information about ${newTestProjectName} ${newTestProjectPrefix}
+

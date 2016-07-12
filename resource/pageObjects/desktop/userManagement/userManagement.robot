@@ -183,3 +183,11 @@ Edit user
     [Tags]  tp101
     userManagement.Check all fields for editing user are availiable
     userManagement.Fill inputs for editing user and submit
+
+Choose bookmark and create role ${role}
+    userManagement.Click bookmark View roles
+    userManagement.Create role ${role}
+
+Choose desired user
+    userManagement.Wait until page contains view users content
+    userManagement.Click desired user

@@ -150,3 +150,7 @@ Change Password back
 Set My Personal Data
     mySettings.Set Personal data back to normal
     mySettings.Change Password back
+
+Wait and Validate
+    wait until keyword succeeds  1min  0  mySettings.I am here
+    mySettings.Validate
