@@ -73,7 +73,7 @@ Delete test project
 
 Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
     desktopHeaderPage.Go to and check ${testProjectManagement} ${testProjectManagement}
-    testProjectManagement.Check unique test project and Clikc Create ${newTestProjectName} ${newTestProjectPrefix}
+    testProjectManagement.Check Test Project and Clikc Create ${newTestProjectName} ${newTestProjectPrefix}
 
 Create TP ${newTestProjectName} ${newTestProjectPrefix}
     Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
@@ -310,3 +310,8 @@ Add Test Case To the Test Plan
     desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Select test case ${testCaseName} node and click action button
     testSpecificationPage.Click On Add To Test Plans
+
+Check Test Specification
+    [Tags]  tp41_requirement_operation_creare_tc
+    desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    testSpecificationPage.Add Filters Test Case Title Test Specification

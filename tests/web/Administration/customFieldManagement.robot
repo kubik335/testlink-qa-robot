@@ -13,14 +13,14 @@ Suite Teardown  Run keywords      Delete Custom Field ${NEWCFNAME}
 
 ${LOGIN}                            renat.kulalov
 ${PASSWORD}                         renat123
-${CFNAME}                       DEFCUS
-${CFLABEL}                      FIELD
-${CFNAME}                       DEFCUS
-${NEWCFNAME}                    DEFCUSEDITED
-${CFLABEL}                      FIELDEDITED
-${newTestProjectName}           customFieldManagement
-${newTestProjectPrefix}         custom
-${newTestProjectDescription}    Test suite customFieldManagement: tp105, tp 106
+${CFNAME}                           DEFCUS
+${CFLABEL}                          FIELD
+${CFNAME}                           DEFCUS
+${NEWCFNAME}                        DEFCUSEDITED
+${CFLABEL}                          FIELDEDITED
+${newTestProjectName}               customFieldManagement
+${newTestProjectPrefix}             custom
+${newTestProjectDescription}        Test suite customFieldManagement: tp105, tp 106
 
 *** Test Cases ***
 
