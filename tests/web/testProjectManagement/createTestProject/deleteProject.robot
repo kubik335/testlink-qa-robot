@@ -32,8 +32,9 @@ ${TestPlanDescription}          DescriptionOfTestPlan
     Delete empty test project
 
 19 Delete Test Project No Platfroms Assigned
-     Check There Is No Platforms Assigned
-     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+    Preconditions for tp19
+    Check There Is No Platforms Assigned
+    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 
 20 Delete test project WORST CASE
     Preconditions for tp20
