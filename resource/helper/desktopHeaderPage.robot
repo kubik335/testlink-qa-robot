@@ -99,3 +99,8 @@ Change Test Project and go to ${link} ${check}
     headerPage.Go to index page and change testproject
     desktopPage.Go to ${link}
     desktopPage.Check link ${check}
+
+Click on ${link} ${check}
+    headerPage.Go to index page
+    desktopPage.Go to ${link}
+    desktopPage.Check link ${check}

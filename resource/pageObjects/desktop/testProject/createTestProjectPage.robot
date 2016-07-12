@@ -101,3 +101,27 @@ Fill information to create test without conflict ${newTestProjectName} ${newTest
     wait until keyword succeeds  1min  0  createTestProjectPage.I am here
     createTestProjectPage.Fill all information about ${newTestProjectName} ${newTestProjectPrefix}
 
+Fill information to create test with template OFF
+    createTestProjectPage.I am here
+    select frame  mainframe
+    createTestProjectPage.Choose no template
+    createTestProjectPage.Fill Test Project Name  ${newTestProjectName}
+    createTestProjectPage.Fill Test Project Prefix  ${newTestProjectPrefix}
+    unselect frame
+
+Fill information to create test with template ON
+    wait until keyword succeeds  1min  0  createTestProjectPage.I am here
+    select frame  mainframe
+    createTestProjectPage.Choose template from created project
+    createTestProjectPage.Fill Test Project Name  ${newTestProjectName2}
+    createTestProjectPage.Fill Test Project Prefix  ${newTestProjectPrefix2}
+    unselect frame
+
+Fill information to create test (enchanced feautures)
+    wait until keyword succeeds  1min  0  createTestProjectPage.I am here
+    select frame  mainframe
+    createTestProjectPage.Fill Test Project Name  ${newTestProjectName}
+    createTestProjectPage.Fill Test Project Prefix  ${newTestProjectPrefix}
+    createTestProjectPage.Select Create From Existing Projects = No
+    createTestProjectPage.Unselect all features
+    unselect frame

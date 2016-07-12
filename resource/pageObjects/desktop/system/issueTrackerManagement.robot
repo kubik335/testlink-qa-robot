@@ -225,6 +225,11 @@ Delete Issue tracker ${ISSUETRACKER}
     wait until page does not contain  ${ISSUETRACKER}
     unselect frame
 
+Click Delete Issue Tracker Management
+    select frame  mainframe
+    click button  create
+    unselect frame
+
 Click created IT ${ISSUETRACKER}
     select frame  mainframe
     wait until page contains  ${ISSUETRACKER}

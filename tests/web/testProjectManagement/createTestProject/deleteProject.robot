@@ -17,7 +17,17 @@ ${PASSWORD}                     renat123
 ${newTestProjectName}           deleteProject
 ${newTestProjectPrefix}         deleteProject
 ${PlatformName}                 Platform
+${TestPlanName}                 testPlan
 ${TestPlanDescription}          DescriptionOfTestPlan
+${buildName}                    buildName
+${buildDescription}             DescriptionOfBuild
+${Username}                     renat.kulalov
+${KeywordName}                  key
+${CFNAME}                       fieldName
+${CFLABEL}                      fieldLabel
+${testSuiteName}                tsuite
+${testCaseName}                 tc
+
 
 *** Test Cases ***
 
@@ -40,19 +50,21 @@ ${TestPlanDescription}          DescriptionOfTestPlan
     Preconditions for tp20
     Assign Custom Fields
     Check Keyword Exists
+    Change Test Project and go to ${addRemovePlatforms} ${addRemovePlatforms}
     Check there is platform assigned
     Check Custom Fields Are Visible
+    Delete Custom Field ${CFNAME}
     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
     Check that test has been deleted
 
 *** Keywords ***
 Preconditions for tp19
-    Go to index page and change testproject
+    headerPage.Go to index page and change testproject
     Create New Test Plan ${TestPlanName}
     Create Platform ${PlatformName}
 
 Preconditions for tp20
-    Go to index page and change testproject
+    headerPage.Go to index page and change testproject
     Create New Test Plan ${TestPlanName}
     Create Platform ${PlatformName}
     Add Platform to Test Plan
@@ -63,4 +75,4 @@ Preconditions for tp20
     Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
     Keywords
     Start creating Define Custom Fields
-    HeaderPage Go to ${indexPage}
+    Change Test Project and go to ${assignCustomFields} ${checkAssignCustomFields}

@@ -45,6 +45,7 @@ ${KeywordName}                      keyWord
     Check desktop links
 
 109 Navigator Tree
+    Preconditions for tc109 Navigator Tree
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Expand tree
     Check Expand tree
@@ -55,7 +56,7 @@ ${KeywordName}                      keyWord
 
 *** Keywords ***
 
-Preconditions for tp109 Navigator Tree
+Preconditions for tc109 Navigator Tree
     headerPage.Go to index page and change testproject
     Create test suite ${testSuiteName} in test project ${newTestProjectName}
     Create test suite ${testSuiteName1} in test project ${newTestProjectName}

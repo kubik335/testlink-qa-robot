@@ -45,14 +45,12 @@ Create Test Project
     click button  doActionButton
     unselect frame
 
-Filled the valid name and prefix
+Filled the valid name and prefix ${newTestProjectName} ${newTestProjectPrefix}
     select frame  mainframe
     wait until page contains element  xpath=//*[@id="item_view"]/tbody/tr[1]/td[2]/input
     wait until page contains element  xpath=//*[@id="item_view"]/tbody/tr[2]/td[2]/input
-    input text  xpath=//*[@id="item_view"]/tbody/tr[1]/td[2]/input  ${newTestProjectName1}
-    input text  xpath=//*[@id="item_view"]/tbody/tr[2]/td[2]/input   ${newtestprojectprefix1}
-    #page should contain element   xpath=//*[@id="item_view"]/tbody/tr[1]/td[2]/input  ${newTestProjectName1}
-    #page should contain element  xpath=//*[@id="item_view"]/tbody/tr[2]/td[2]/input   ${newtestprojectprefix1}
+    input text  xpath=//*[@id="item_view"]/tbody/tr[1]/td[2]/input  ${newTestProjectName}
+    input text  xpath=//*[@id="item_view"]/tbody/tr[2]/td[2]/input   ${newTestProjectPrefix}
     Click Button  doActionButton
     unselect frame
 
@@ -74,7 +72,7 @@ Check new project exists
     element should contain  xpath=//table[@id="item_view"]  ${newTestProjectName}
     unselect frame
 
-Click desired project
+Click desired project ${newTestProjectName}
     select frame  mainframe
     click link  ${newTestProjectName}
     unselect frame
@@ -84,8 +82,7 @@ Check Test Project Is Inactive
     page should contain element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[input[@title="Inactive (click to set active)"]]
     unselect frame
 
-Check Test Project Is Active
-
+Check Test Project Is Active ${newTestProjectName}
     select frame  mainframe
     page should contain element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[input[@title="Active (click to set inactive)"]]
     unselect frame
@@ -96,14 +93,13 @@ Wait until container with projects is here
     wait until page contains element  xpath=//*[@id="item_view"]/tfoot
     unselect frame
 
-Unactive Test Project by Bulb
-
+Unactive Test Project by Bulb ${newTestProjectName}
     select frame  mainframe
     click element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[input[@title="Inactive (click to set active)"]]
     page should not contain  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[input[@title="Active (click to set inactive)"]]
     unselect frame
 
-Add issue tracker to test project
+Add IT to TP
     select frame  name=mainframe
     wait until page contains element  xpath=//*[@id="issue_tracker_id"]
     wait until page contains element  issue_tracker_enabled
@@ -172,3 +168,23 @@ Check that test has been deleted
     wait until page does not contain element  ${newTestProjectPrefix}
     unselect frame
 
+Leave empty TP name and prefix
+    [Tags]  tp12
+    testProjectManagement.Add Test Project Name
+    testProjectManagement.Add Prefix
+    testProjectManagement.Check Warning message
+
+Fill and Valid ${newTestProjectName} ${newTestProjectPrefix}
+   testProjectManagement.Filled the valid name and prefix ${newTestProjectName} ${newTestProjectPrefix}
+   testProjectManagement.Check new project exists  ${newTestProjectName}
+
+Save test project and check Issue Tracker has been added
+    [Tags]  tp14
+    testProjectManagement.Create Test Project
+    testProjectManagement.Check Issue Tracker has been added to the Test Project
+
+Add Issue Tracker to Test Project
+    [Tags]  tp14
+    testProjectManagement.Check Test Project Management
+    testProjectManagement.Click desired project ${newTestProjectName}
+    testProjectManagement.Add IT to TP
