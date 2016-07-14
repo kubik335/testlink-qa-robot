@@ -925,4 +925,4 @@ Create New Version of TestCase
 
 Fill in the fields and create test suite
     testSpecificationPage.Create Test Suite Button
-    testSpecificationPage.Fill In The Fields
+    testSpecificationPage.Fill In The Fields ${testSuiteName} ${testDescription}

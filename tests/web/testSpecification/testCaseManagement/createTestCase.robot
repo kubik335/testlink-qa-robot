@@ -1,0 +1,40 @@
+*** Settings ***
+
+Documentation  This test case controls Test case operations like: Export, Print,
+...            Create a new version, Deactivate this version, Add to Test plan, Execution history.
+
+Resource       ../../../../../resource/testlink.robot
+
+Suite Setup  Run keywords    testlink.Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+...             AND         headerPage.Go to index page and change testproject
+...             AND         testlink.Create New Test Plan ${TestPlanName}
+...             AND         headerPage.Go to index page and change testproject
+...             AND         testlink.Create Build with name ${buildName}
+...             AND         headerPage.Go to index page and change testproject
+...             AND         testlink.Create test suite ${testSuiteName} in test project ${newTestProjectName}
+...             AND         testlink.Check New Test Suite
+...             AND         testlink.Create test case ${testCaseName} in ${testSuiteName}
+...             AND         headerPage.Go to index page
+
+
+
+Suite Teardown  Run keywords     testlink.Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...             AND             Close browser
+
+
+*** Variables ***
+
+${LOGIN}                            renat.kulalov
+${PASSWORD}                         renat123
+${newTestProjectName}               testProject90
+${newTestProjectPrefix}             tp90
+${TestPlanName}                     testPlan90
+${TestPlanDescription}              DescriptionOfTestPlan90
+${buildName}                        buildName90
+${buildDescription}                 DescriptionOfBuild90
+${testSuiteName}                    tsuite90
+${testDescription}                  testDescription90
+${testCaseName}                     tc90
+${testCaseName2}                    tc90_1
+
+*** Test Cases ***
