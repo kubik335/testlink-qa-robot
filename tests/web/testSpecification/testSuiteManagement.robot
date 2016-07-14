@@ -20,6 +20,7 @@ ${newTestProjectPrefix}             management
 ${newTestProjectDescription}        Description
 ${suite1}                           tsuite80
 ${suiteDescription}                 Description
+${testDescription}                  testDescription
 ${suite2}                           tsuite81
 ${suite3}                           tsuite82
 ${tc1}                              tc82
@@ -29,7 +30,7 @@ ${tc2}                              tc82_1
 
 80 Create Test Suite Easy
     Controll Warning Message And Create Test Suite ${suite1} ${suiteDescription}
-    Check If Test Suite Was Created
+    Check If Test Suite Was Created ${suite1}
 
 81 Rename Test Suite Easy
     Edit Test Suite ${suite1} Move It Copy It ${suite2}
@@ -48,11 +49,11 @@ ${tc2}                              tc82_1
     testSpecificationPage.Delete New Test Suite ${suite1}
 
 *** Keywords ***
-
 Preconditions for tc82
     Create test suite ${suite3} in test project ${newTestProjectName}
-    Create test case ${tc1} in ${suite3}
-    Create test case ${tc2} in ${suite3}
+    Create test suite ${suite1} in test project ${newTestProjectName}
+    Create test case ${tc1} in ${suite2}
+    Create test case ${tc2} in ${suite2}
 
 Check this testcase structure after movement
     testSpecificationPage.Expand tree

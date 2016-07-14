@@ -61,7 +61,7 @@ Preconditions for tc56
     Create Build with name ${buildName}
     Create test suite ${testSuiteName} in test project ${newTestProjectName}
     Create test case ${testCaseName} in ${testSuiteName}
-    Add Test Case To the Test Plan
+    Add Test Case To the Test Plan ${testCaseName}
 
 
 

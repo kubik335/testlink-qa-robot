@@ -115,5 +115,6 @@ Check Availiable Requirements
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
+    wait until page contains element  div_free_req
     page should contain element  div_free_req
     unselect frame

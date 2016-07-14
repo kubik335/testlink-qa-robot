@@ -305,7 +305,7 @@ Delete Build ${buildName}
     Change Test Project and go to ${buildReleases} ${checkBuildReleases}
     buildsReleases.Delete ${buildName} Build
 
-Add Test Case To the Test Plan
+Add Test Case To the Test Plan ${testCaseName}
     [Tags]  56
     desktopHeaderPage.Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Select test case ${testCaseName} node and click action button
@@ -339,14 +339,59 @@ Controll Warning Message And Create Test Suite ${testSuiteName} ${testDescriptio
     testSpecificationPage.Controll Warning Message
     testSpecificationPage.Fill In The Fields ${testSuiteName} ${testDescription}
 
-Edit Test Suite ${testSuiteName} Move It Copy It ${testSuiteCopy}
+Edit Test Suite ${testSuiteName} Move It Copy It ${suite2}
     [Tags]  tp81
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     wait until keyword succeeds  1min  0  testSpecificationPage.I am here
     testSpecificationPage.Select test suite ${testSuiteName} node
     testSpecificationPage.Edit Test Suite
-    testSpecificationPage.Select test suite ${testSuiteCopy} node
+    testSpecificationPage.Select test suite ${suite2} node
     testSpecificationPage.Copy Test Suite
-    testSpecificationPage.Select test suite ${testSuiteCopy} node
+    testSpecificationPage.Select test suite ${suite2} node
     testSpecificationPage.Move Test Suite
     testSpecificationPage.Check Move And Copy Action
+
+Create Step in test case: ${testCaseName}
+    [Tags]  tp86
+    Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    wait until keyword succeeds  1min  0  testSpecificationPage.I am here
+    testSpecificationPage.Select test case ${testCaseName} node
+    testSpecificationPage.Create Step
+
+Execute Test
+    Change Test Project and go to ${executeTests} ${executeTests}
+    testSpecificationPage.Expand tree
+    testSpecificationPage.Select test case ${testCaseName} node
+    executeTestsPage.Execute Test Case
+
+Check All Actions Buttons For Test Case
+    [Tags]  tp90
+    Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    testSpecificationPage.Select test case ${testCaseName} node and click action button
+    testSpecificationPage.Click On Print View Test Case
+    Select Window  Print Test Case: ${testCaseName}
+    wait until page contains  Test Case ${newTestProjectPrefix}-1: ${testCaseName}
+    close window
+    Select Window  TestLink 1.9.14 (Padawan)
+    testSpecificationPage.Select test case ${testCaseName} node and click action button
+    testSpecificationPage.Click On Create New Version
+    testSpecificationPage.Select test case ${testCaseName} node and click action button
+    testSpecificationPage.Click On Deactivate This Version
+    testSpecificationPage.Select test case ${testCaseName} node and click action button
+    testSpecificationPage.Click On Activate This Version
+
+Show Execution History
+    [Tags]  90
+    Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    testSpecificationPage.Select test case ${testCaseName} node and click action button
+    testSpecificationPage.Click On Execution History
+    select window  TestLink
+    wait until page contains  Test Case ${newTestProjectPrefix}-1 : ${testCaseName}
+    close window
+    Select Window  TestLink 1.9.14 (Padawan)
+
+Add Test Case To the Test Plan
+    [Tags]  56
+    Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    testSpecificationPage.Select test case ${testCaseName} node and click action button
+    testSpecificationPage.Click On Add To Test Plans

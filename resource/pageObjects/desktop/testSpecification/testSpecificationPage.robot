@@ -171,7 +171,7 @@ Controll Warning Message
     click element  xpath=//button[text()="OK"]
     unselect frame
 
-Check If Test Suite Was Created
+Check If Test Suite Was Created ${testSuiteName}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -243,7 +243,7 @@ Edit Test Suite
     wait until page contains element  name=container_name
     wait until page contains element  name=update_testsuite
     wait until page contains element  cke_8
-    input text  container_name  ${testSuiteCopy}
+    input text  container_name  ${suite2}
     wait until page contains element  xpath=//iframe[@title="Rich text editor, details"]
     mouse down  xpath=//iframe[@title="Rich text editor, details"]
     mouse up  xpath=//iframe[@title="Rich text editor, details"]
@@ -259,7 +259,7 @@ Edit Test Suite
     wait until page contains element  workframe
     select frame  workframe
     wait until page contains  updated!
-    page should contain element  xpath=//p[contains(text(),"Test Suite ${testSuiteCopy}")][contains(text(),"was successfully")][contains(text(),"updated!")]
+    page should contain element  xpath=//p[contains(text(),"Test Suite ${suite2}")][contains(text(),"was successfully")][contains(text(),"updated!")]
     unselect frame
 
 Copy Test Suite
@@ -289,7 +289,7 @@ Copy Test Suite
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//p[contains(text(),"Test Suite ${testSuiteCopy}")][contains(text(),"has been copied inside")][contains(text(),"${newTestProjectName}")]
+    wait until page contains element  xpath=//p[contains(text(),"Test Suite ${suite2}")][contains(text(),"has been copied inside")][contains(text(),"${newTestProjectName}")]
     unselect frame
 
 Move Test Suite
@@ -320,10 +320,10 @@ Check Move And Copy Action
     select frame  treeframe
     wait until page contains element  name=expand_tree
     click button  name=expand_tree
-    wait until element contains  tree_div  ${testSuiteCopy}
+    wait until element contains  tree_div  ${suite2}
     wait until element contains  tree_div  20  #20160414:14:20:55 prefix
-    xpath should match x times  //div/ul/li/ul/li/div/a/span[contains(.,"${testSuiteCopy}")]  1
-    xpath should match x times  //div/ul/li/ul/li/ul/li/div/a/span[contains(.,"${testSuiteCopy}")]  1
+    xpath should match x times  //div/ul/li/ul/li/div/a/span[contains(.,"${suite2}")]  1
+    xpath should match x times  //div/ul/li/ul/li/ul/li/div/a/span[contains(.,"${suite2}")]  1
     unselect frame
 
 Delete Another New Test Suite
@@ -769,18 +769,18 @@ Click On Execution History
     click element  xpath=//div/div/span/input[@type="button"]
     unselect frame
 
-Edit Test Case
-    select frame  name=mainframe
+Edit Test Case ${testCaseNameEdit}
+    select frame  mainframe
     wait until page contains element  workframe
-    select frame  name=workframe
+    select frame  workframe
     click button  edit_tc
     unselect frame
     testSpecificationPage.Fill in title test case name ${testCaseNameEdit}
     testSpecificationPage.Fill in Summary test case
     testSpecificationPage.Fill in Preconditions test case
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  workframe
-    select frame  name=workframe
+    select frame  workframe
     click button  do_update
     unselect frame
 
@@ -926,3 +926,9 @@ Create New Version of TestCase
 Fill in the fields and create test suite
     testSpecificationPage.Create Test Suite Button
     testSpecificationPage.Fill In The Fields ${testSuiteName} ${testDescription}
+
+Fill informations test case ${testCaseName} and create
+    testSpecificationPage.Check create test case open
+    testSpecificationPage.Fill in Summary test case
+    testSpecificationPage.Fill in Preconditions test case
+    testSpecificationPage.Fill name for tc: ${testCaseName} and submit
