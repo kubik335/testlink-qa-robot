@@ -331,3 +331,22 @@ Check Custom Fields Are Visible
     [Tags]  tp20
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Check Custom Fields
+
+Controll Warning Message And Create Test Suite ${testSuiteName} ${testDescription}
+    [Tags]  tp80
+    Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    testSpecificationPage.Create Test Suite Button
+    testSpecificationPage.Controll Warning Message
+    testSpecificationPage.Fill In The Fields ${testSuiteName} ${testDescription}
+
+Edit Test Suite ${testSuiteName} Move It Copy It ${testSuiteCopy}
+    [Tags]  tp81
+    Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+    wait until keyword succeeds  1min  0  testSpecificationPage.I am here
+    testSpecificationPage.Select test suite ${testSuiteName} node
+    testSpecificationPage.Edit Test Suite
+    testSpecificationPage.Select test suite ${testSuiteCopy} node
+    testSpecificationPage.Copy Test Suite
+    testSpecificationPage.Select test suite ${testSuiteCopy} node
+    testSpecificationPage.Move Test Suite
+    testSpecificationPage.Check Move And Copy Action

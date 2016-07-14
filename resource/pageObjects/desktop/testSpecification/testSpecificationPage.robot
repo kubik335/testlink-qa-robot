@@ -96,7 +96,7 @@ Delete Test Suite
     wait until page contains  The Test Suite was successfully deleted
     unselect frame
 
-Delete New Test Suite
+Delete New Test Suite ${testSuiteName}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
@@ -146,7 +146,7 @@ Create Test Suite Button
     click element  name=new_testsuite
     unselect frame
 
-Fill In The Fields
+Fill In The Fields ${testSuiteName} ${testDescription}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -219,6 +219,7 @@ Create Another Test Suite For Move Or Copy
     input text  xpath=//*[@id="cke_contents_details"]/textarea  ${testDescriptionCopy}
     click element  name=add_testsuite_button
     unselect frame
+
 check test project and tsuite
     select frame  mainframe
     wait until page contains element  treeframe
@@ -226,6 +227,7 @@ check test project and tsuite
     wait until page contains element  xpath=//a[span[contains(text(),"${newTestProjectName} (")]]
     wait until page contains element  xpath=//a[span/span[contains(text(),"${testSuiteName}")]]
     unselect frame
+
 Edit Test Suite
     select frame  mainframe
     wait until page contains element  workframe
