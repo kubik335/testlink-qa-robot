@@ -99,12 +99,14 @@ Unactive Test Project by Bulb ${newTestProjectName}
     page should not contain  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[input[@title="Active (click to set inactive)"]]
     unselect frame
 
-Add IT to TP
-    select frame  name=mainframe
+Add IT to TP ${ISSUETRACKER}
+    select frame  mainframe
     wait until page contains element  xpath=//*[@id="issue_tracker_id"]
     wait until page contains element  issue_tracker_enabled
-    select from list by label  xpath=//*[@id="issue_tracker_id"]  ${ISSUETRACKER} ( bugzilla (Interface: xmlrpc) )
     select checkbox  issue_tracker_enabled
+    #click element  xpath=//select/option[contains(., "IssueTrackerName ( bugzilla (Interface: db) )")]
+    select from list by label  xpath=//*[@id="issue_tracker_id"]  ${ISSUETRACKER} ( bugzilla (Interface: db) )
+    click element  xpath=//select[@name="issue_tracker_id"]
     unselect frame
 
 Remove issue tracker from test project
@@ -183,8 +185,8 @@ Save test project and check Issue Tracker has been added
     testProjectManagement.Create Test Project
     testProjectManagement.Check Issue Tracker has been added to the Test Project
 
-Add Issue Tracker to Test Project
+Add Issue Tracker ${ISSUETRACKER} to Test Project
     [Tags]  tp14
     testProjectManagement.Check Test Project Management
     testProjectManagement.Click desired project ${newTestProjectName}
-    testProjectManagement.Add IT to TP
+    testProjectManagement.Add IT to TP ${ISSUETRACKER}

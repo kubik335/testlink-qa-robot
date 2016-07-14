@@ -5,8 +5,8 @@ Resource       ../../../resource/testlink1.robot
 
 Suite Setup     Run keywords        Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
-Suite Teardown  Run keywords        Delete all created issue trackers
-...             AND                 Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+Suite Teardown  Run keywords        Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...             AND                 Delete all created issue trackers
 ...             AND                 Close browser
 
 *** Variables ***
@@ -15,7 +15,7 @@ ${LOGIN}                            renat.kulalov
 ${PASSWORD}                         renat123
 ${newTestProjectName}               issueTrackerManagement
 ${newTestProjectPrefix}             issue
-${newTestProjectDescription}        Test suite customFieldManagement: tp107, tp 108
+${newTestProjectDescription}        Test suite customFieldManagement
 
 ${ISSUETRACKER}                 IssueTrackerName
 ${ISSUETRACKER1}                IssueTrackerName1
@@ -54,6 +54,11 @@ ${CONFIGURATION}  <!-- Template bugzillaxmlrpcInterface -->
     Create Issue Tracker
     Click created Issue Tracker with name ${ISSUETRACKER}
     Modify name and type of Issue Tracker
+
+14 Issue Tracker Management
+    Change Test Project and go to ${testProjectManagement} ${testProjectManagement}
+    Add Issue Tracker ${ISSUETRACKER} to test project
+    Save test project and check Issue Tracker has been added
 
 107 Issue Tracker Management
     Create all possible types of Issue Tracker and check it

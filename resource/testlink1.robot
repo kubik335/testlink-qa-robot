@@ -78,9 +78,9 @@ Start creating new test project without conflict ${newTestProjectName} ${newTest
 Create TP ${newTestProjectName} ${newTestProjectPrefix}
     Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
     Fill information to create test without conflict ${newTestProjectName} ${newTestProjectPrefix}
-    Submit and check new test project
+    Submit and check new test project ${newTestProjectName}
 
-Submit and check new test project
+Submit and check new test project ${newTestProjectName}
     createTestProjectPage.Click Create
     No warning about existing projects
     testProjectManagement.Check new project exists  ${newTestProjectName}
@@ -112,7 +112,7 @@ Delete Custom Field ${CFNAME}
 
 Delete all created issue trackers
     [Tags]  tp107, tp108
-    desktopHeaderPage.Change Test Project and go to ${issueTrackerName} ${checkIssueTracker}
+    desktopHeaderPage.Go to and check ${issueTrackerName} ${checkIssueTracker}
     issueTrackerManagement.Delete Issue trackers
 
 Create Issue Tracker

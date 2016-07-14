@@ -33,10 +33,14 @@ Choose from template
     select from list by label  copy_from_tproject_id  ${newTestProjectName}
 
 Choose no template
+    select frame  mainframe
     select from list by label  copy_from_tproject_id  No
+    unselect frame
 
 Choose template from created project
-    select from list by label  copy_from_tproject_id  ${newTestProjectName}
+    select frame  mainframe
+    select from list by label  copy_from_tproject_id  ${newTestProjectName1}
+    unselect frame
 
 Fill Test Project Name
     [Arguments]  ${newTestProjectName}
@@ -72,13 +76,17 @@ No warning about existing projects
     page should not contain  Test Case ID prefix ${newTestProjectPrefix} already exists
 
 Select Create From Existing Projects = No
+    select frame  mainframe
     select from list  copy_from_tproject_id  0
+    unselect frame
 
 Unselect all features
+    select frame  mainframe
     unselect checkbox  optReq
     unselect checkbox  optPriority
     unselect checkbox  optAutomation
     unselect checkbox  optInventory
+    unselect frame
 
 Confirm warning about empty fields
     select frame  mainframe
@@ -103,25 +111,20 @@ Fill information to create test without conflict ${newTestProjectName} ${newTest
 
 Fill information to create test with template OFF
     createTestProjectPage.I am here
-    select frame  mainframe
     createTestProjectPage.Choose no template
     createTestProjectPage.Fill Test Project Name  ${newTestProjectName}
     createTestProjectPage.Fill Test Project Prefix  ${newTestProjectPrefix}
-    unselect frame
 
 Fill information to create test with template ON
     wait until keyword succeeds  1min  0  createTestProjectPage.I am here
-    select frame  mainframe
     createTestProjectPage.Choose template from created project
-    createTestProjectPage.Fill Test Project Name  ${newTestProjectName2}
-    createTestProjectPage.Fill Test Project Prefix  ${newTestProjectPrefix2}
-    unselect frame
+    createTestProjectPage.Fill Test Project Name  ${newTestProjectName}
+    createTestProjectPage.Fill Test Project Prefix  ${newTestProjectPrefix}
 
 Fill information to create test (enchanced feautures)
     wait until keyword succeeds  1min  0  createTestProjectPage.I am here
-    select frame  mainframe
     createTestProjectPage.Fill Test Project Name  ${newTestProjectName}
     createTestProjectPage.Fill Test Project Prefix  ${newTestProjectPrefix}
     createTestProjectPage.Select Create From Existing Projects = No
     createTestProjectPage.Unselect all features
-    unselect frame
+

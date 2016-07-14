@@ -45,14 +45,13 @@ ${KeywordName}                      keyWord
     Check desktop links
 
 109 Navigator Tree
-    Preconditions for tc109 Navigator Tree
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Expand tree
     Check Expand tree
     Collapse tree
     Check Collapse tree
-    Click on the white arrow on the left side of the Test Project
-    Click on the black arrow on the left side of the Test Project
+    testSpecificationPage.Click on the white arrow on the left side of the Test Project
+    testSpecificationPage.Click on the black arrow on the left side of the Test Project
 
 *** Keywords ***
 

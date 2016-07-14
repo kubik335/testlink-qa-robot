@@ -42,12 +42,12 @@ ${testCaseName}                 tc
     Delete empty test project
 
 19 Delete Test Project No Platfroms Assigned
-    Preconditions for tp19
+    Preconditions for tc19
     Check There Is No Platforms Assigned
     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 
 20 Delete test project WORST CASE
-    Preconditions for tp20
+    Preconditions for tc20
     Assign Custom Fields
     Check Keyword Exists
     Change Test Project and go to ${addRemovePlatforms} ${addRemovePlatforms}
@@ -58,12 +58,12 @@ ${testCaseName}                 tc
     Check that test has been deleted
 
 *** Keywords ***
-Preconditions for tp19
+Preconditions for tc19
     headerPage.Go to index page and change testproject
     Create New Test Plan ${TestPlanName}
     Create Platform ${PlatformName}
 
-Preconditions for tp20
+Preconditions for tc20
     headerPage.Go to index page and change testproject
     Create New Test Plan ${TestPlanName}
     Create Platform ${PlatformName}
