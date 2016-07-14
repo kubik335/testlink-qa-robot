@@ -8,11 +8,13 @@ Resource       ../../../resource/testlink1.robot
 
 Suite Setup  Run keywords       Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
-Suite Teardown  Run keywords     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+Suite Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND             Close Browser
 
 *** Variables ***
 
+${LOGIN}                            renat.kulalov
+${PASSWORD}                         renat123
 ${newTestProjectName}               testSuite
 ${newTestProjectPrefix}             management
 ${newTestProjectDescription}        Description
