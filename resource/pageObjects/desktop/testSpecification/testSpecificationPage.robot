@@ -599,7 +599,7 @@ Fill in title test case name ${testCaseName}
 
     select frame  mainframe
     wait until page contains element  workframe
-    select frame  name=workframe
+    select frame  workframe
     input text  testcase_name  ${testCaseName}
     unselect frame
 
@@ -670,7 +670,7 @@ Create New Sibling ${testCaseName2}
     unselect frame
 
 Check New Sibling Was Created
-    Expand tree
+    testSpecificationPage.Expand tree
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe

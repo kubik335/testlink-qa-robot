@@ -358,19 +358,19 @@ Create Step in test case: ${testCaseName}
     testSpecificationPage.Select test case ${testCaseName} node
     testSpecificationPage.Create Step
 
-Execute Test
+Execute Test ${testCaseName}
     Change Test Project and go to ${executeTests} ${executeTests}
     testSpecificationPage.Expand tree
     testSpecificationPage.Select test case ${testCaseName} node
     executeTestsPage.Execute Test Case
 
-Check All Actions Buttons For Test Case
+Check All Actions Buttons For Test Case ${testCaseName}
     [Tags]  tp90
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Select test case ${testCaseName} node and click action button
     testSpecificationPage.Click On Print View Test Case
     Select Window  Print Test Case: ${testCaseName}
-    wait until page contains  Test Case ${newTestProjectPrefix}-1: ${testCaseName}
+    wait until page contains  Test Case ${newTestProjectPrefix}-3: ${testCaseName}
     close window
     Select Window  TestLink 1.9.14 (Padawan)
     testSpecificationPage.Select test case ${testCaseName} node and click action button
@@ -380,18 +380,19 @@ Check All Actions Buttons For Test Case
     testSpecificationPage.Select test case ${testCaseName} node and click action button
     testSpecificationPage.Click On Activate This Version
 
-Show Execution History
+Show Execution History ${testCaseName}
     [Tags]  90
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Select test case ${testCaseName} node and click action button
     testSpecificationPage.Click On Execution History
     select window  TestLink
-    wait until page contains  Test Case ${newTestProjectPrefix}-1 : ${testCaseName}
+    wait until page contains  Test Case ${newTestProjectPrefix}-3 : ${testCaseName}
     close window
     Select Window  TestLink 1.9.14 (Padawan)
 
-Add Test Case To the Test Plan
-    [Tags]  56
-    Change Test Project and go to ${testSpecification} ${checkTestSpecification}
-    testSpecificationPage.Select test case ${testCaseName} node and click action button
-    testSpecificationPage.Click On Add To Test Plans
+Create New Sibling ${testCaseNameNew}
+    [Tags]  tp90
+    testSpecificationPage.Select test case ${testCaseName2} node
+    testSpecificationPage.Click Actions button
+    testSpecificationPage.Create New Sibling ${testCaseNameNew}
+    testSpecificationPage.Check New Sibling Was Created
