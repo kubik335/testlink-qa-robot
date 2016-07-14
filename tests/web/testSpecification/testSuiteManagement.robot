@@ -1,7 +1,8 @@
 *** Settings ***
 
-Documentation  This test case controls movimg function of EMPTY and NOT EMPTY
-...            test suites via DRAG & DROP.
+Documentation  Test Suite with several Test Cases, that are used to control creating test suite only with name
+...            and detail information, renaming it and  deleting. Another test case controls moving function
+...            of EMPTY and NOT EMPTY test suites via DRAG & DROP.
 
 Resource       ../../../resource/testlink1.robot
 
