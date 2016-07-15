@@ -20,11 +20,11 @@ ${PASSWORD}                     renat123
 ${newTestProjectName}           createTestPlan
 ${newTestProjectPrefix}         createTest
 ${newTestProjectDescription}    DesctiptioneOfTestProject
-${testSuiteName}                testSuite
-${testCaseName}                 tc
-${TestPlanName}                 testPlan
-${TestPlanName1}                testPlan1
-${TestPlanName2}                testPlan2
+${testSuiteName}                testSuite56
+${testCaseName}                 tc56
+${TestPlanName}                 testPlan53
+${TestPlanName1}                testPlan54
+${TestPlanName2}                testPlan55
 ${EditTestPlanName}             testPlan56
 ${TestPlanDescription}          DescriptionOfTestPlan
 ${PlatformName}                 Platform

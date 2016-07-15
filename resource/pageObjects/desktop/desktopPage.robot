@@ -86,7 +86,7 @@ I am here in full
     wait until page contains  Generate Requirement Specification Document
     unselect frame
 
-Go to ${link}
+DesktopPage Go to ${link}
     select frame  mainframe
     wait until page contains  ${link}
     click link  ${link}

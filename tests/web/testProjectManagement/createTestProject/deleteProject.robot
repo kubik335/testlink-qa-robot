@@ -25,8 +25,8 @@ ${Username}                     renat.kulalov
 ${KeywordName}                  key
 ${CFNAME}                       fieldName
 ${CFLABEL}                      fieldLabel
-${testSuiteName}                tsuite
-${testCaseName}                 tc
+${testSuiteName}                tsuite20
+${testCaseName}                 tc20
 
 
 *** Test Cases ***

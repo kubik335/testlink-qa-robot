@@ -60,7 +60,7 @@ ${checkShowTCVersion}           Newest versions
 Go to and check ${link} ${check}
     HeaderPage Go to ${indexPage}
     headerPage.I am here
-    desktopPage.Go to ${link}
+    DesktopPage Go to ${link}
     desktopPage.Check link ${check}
 
 Check desktop links
@@ -97,12 +97,12 @@ Check desktop links
 
 Change Test Project and go to ${link} ${check}
     Go to index page and change testproject
-    desktopPage.Go to ${link}
+    DesktopPage Go to ${link}
     desktopPage.Check link ${check}
 
 Click on ${link} ${check}
     HeaderPage Go to ${indexPage}
-    desktopPage.Go to ${link}
+    DesktopPage Go to ${link}
     desktopPage.Check link ${check}
 
 Go to index page and change testproject

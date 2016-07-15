@@ -18,55 +18,55 @@ ${PASSWORD}                         renat123
 ${newTestProjectName}               testSuite
 ${newTestProjectPrefix}             management
 ${newTestProjectDescription}        Description
-${suite1}                           tsuite80
+${testSuiteName1}                   tsuite80
 ${suiteDescription}                 Description
 ${testDescription}                  testDescription
-${suite2}                           tsuite81
-${suite3}                           tsuite82
-${tc1}                              tc82
-${tc2}                              tc82_1
+${testSuiteName2}                   tsuite81
+${testSuiteName3}                   tsuite82
+${testCaseName1}                    tc82
+${testCaseName2}                    tc82_1
 
 *** Test Cases ***
 
 80 Create Test Suite Easy
-    Controll Warning Message And Create Test Suite ${suite1} ${suiteDescription}
-    Check If Test Suite Was Created ${suite1}
+    Controll Warning Message And Create Test Suite ${testSuiteName1} ${suiteDescription}
+    Check If Test Suite Was Created ${testSuiteName1}
 
 81 Rename Test Suite Easy
-    Edit Test Suite ${suite1} Move It Copy It ${suite2}
+    Edit Test Suite ${testSuiteName1} Move It Copy It ${testSuiteName2}
 
 82 Drag drop
     Preconditions for tc82
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     wait until keyword succeeds  1min  0  testSpecificationPage.I am here
-    testSpecificationPage.Move suite ${suite1} to suite ${suite3}
-    testSpecificationPage.Move suite ${suite2} to suite ${suite3}
+    testSpecificationPage.Move suite ${testSuiteName1} to suite ${testSuiteName3}
+    testSpecificationPage.Move suite ${testSuiteName2} to suite ${testSuiteName3}
     wait until keyword succeeds  1min  0  Check this testcase structure after movement
 
 84 Delete Test Suite
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     wait until keyword succeeds  1min  0  testSpecificationPage.I am here
-    testSpecificationPage.Delete New Test Suite ${suite1}
+    testSpecificationPage.Delete New Test Suite ${testSuiteName1}
 
 *** Keywords ***
 Preconditions for tc82
-    Create test suite ${suite3} in test project ${newTestProjectName}
-    Create test suite ${suite1} in test project ${newTestProjectName}
-    Create test case ${tc1} in ${suite2}
-    Create test case ${tc2} in ${suite2}
+    Create test suite ${testSuiteName3} in test project ${newTestProjectName}
+    Create test suite ${testSuiteName1} in test project ${newTestProjectName}
+    Create test case ${testCaseName1} in ${testSuiteName2}
+    Create test case ${testCaseName2} in ${testSuiteName2}
 
 Check this testcase structure after movement
     testSpecificationPage.Expand tree
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains  ${suite1}
-    wait until page contains  ${suite2}
-    wait until page contains  ${suite3}
-    wait until page contains  ${tc1}
-    wait until page contains  ${tc2}
-    wait until page contains element  xpath=//ul/li/ul/li[contains(.,"${suite3}")]/ul/li[contains(.,"${suite1}")]
-    wait until page contains element  xpath=//ul/li/ul/li[contains(.,"${suite3}")]/ul/li[contains(.,"${suite2}")]
-    wait until page contains element  xpath=//ul/li/ul/li[contains(.,"${suite3}")]/ul/li[contains(.,"${suite2}")]/ul/li[contains(.,"${tc1}")]
-    wait until page contains element  xpath=//ul/li/ul/li[contains(.,"${suite3}")]/ul/li[contains(.,"${suite2}")]/ul/li[contains(.,"${tc2}")]
+    wait until page contains  ${testSuiteName1}
+    wait until page contains  ${testSuiteName2}
+    wait until page contains  ${testSuiteName3}
+    wait until page contains  ${testCaseName1}
+    wait until page contains  ${testCaseName2}
+    wait until page contains element  xpath=//ul/li/ul/li[contains(.,"${testSuiteName3}")]/ul/li[contains(.,"${testSuiteName1}")]
+    wait until page contains element  xpath=//ul/li/ul/li[contains(.,"${testSuiteName3}")]/ul/li[contains(.,"${testSuiteName2}")]
+    wait until page contains element  xpath=//ul/li/ul/li[contains(.,"${testSuiteName3}")]/ul/li[contains(.,"${testSuiteName2}")]/ul/li[contains(.,"${testCaseName1}")]
+    wait until page contains element  xpath=//ul/li/ul/li[contains(.,"${testSuiteName3}")]/ul/li[contains(.,"${testSuiteName2}")]/ul/li[contains(.,"${testCaseName2}")]
     unselect frame
