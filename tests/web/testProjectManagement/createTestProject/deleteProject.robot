@@ -59,12 +59,12 @@ ${testCaseName}                 tc
 
 *** Keywords ***
 Preconditions for tc19
-    headerPage.Go to index page and change testproject
+    Go to index page and change testproject
     Create New Test Plan ${TestPlanName}
     Create Platform ${PlatformName}
 
 Preconditions for tc20
-    headerPage.Go to index page and change testproject
+    Go to index page and change testproject
     Create New Test Plan ${TestPlanName}
     Create Platform ${PlatformName}
     Add Platform to Test Plan

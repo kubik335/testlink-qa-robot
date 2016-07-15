@@ -9,19 +9,10 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
-
-Check Keyword Management
-    select frame  name=mainframe
-    wait until page contains  Keyword Management
-    wait until page contains element  create_keyword
-    unselect frame
+#Check Keyword Management
+    #select frame  name=mainframe
+    #wait until page contains  Keyword Management
+    #wait until page contains element  create_keyword
+    #unselect frame

@@ -37,10 +37,10 @@ ${buildDescription}                 DescriptionOfBuild
 *** Keywords ***
 
 Preconditions for tp91
-    headerPage.Go to index page and change testproject
+    Go to index page and change testproject
     Create New Test Plan ${TestPlanName}
     Create Build with name ${buildName}
-    headerPage.Go to index page and change testproject
+    Go to index page and change testproject
     Create Test Suite
     Create test case ${testCaseName} in ${testSuiteName}
     Create test case ${testCaseName2} in ${testSuiteName}

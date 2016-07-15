@@ -9,19 +9,11 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
 Input Name
     [Arguments]   ${TestPlanName}
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  testplan_name
     input text  testplan_name  ${TestPlanName}
     unselect frame
@@ -55,56 +47,56 @@ Select Checkbox Active
     unselect frame
 
 Select Checkbox Public
-    select frame  name=mainframe
-    wait until page contains element  name=is_public
+    select frame  mainframe
+    wait until page contains element  is_public
     select checkbox  is_public
     unselect frame
 
 unselect checkbox Public
-    select frame  name=mainframe
-    wait until page contains element  name=is_public
+    select frame  mainframe
+    wait until page contains element  is_public
     unselect checkbox  is_public
     unselect frame
 
 unselect checkbox Active
-    select frame  name=mainframe
-    wait until page contains element  name=active
+    select frame  mainframe
+    wait until page contains element  active
     unselect checkbox  active
     unselect frame
 
 unselect checkbox Copy User Roles
-    select frame  name=mainframe
-    wait until page contains element  name=copy_user_roles
+    select frame  mainframe
+    wait until page contains element  copy_user_roles
     unselect checkbox  copy_user_roles
     unselect frame
 
 unselect checkbox Copy Test Cases
-    select frame  name=mainframe
-    wait until page contains element  name=copy_tcases
+    select frame  mainframe
+    wait until page contains element  copy_tcases
     unselect checkbox  copy_tcases
     unselect frame
 
 unselect checkbox Copy Attachements
-    select frame  name=mainframe
-    wait until page contains element  name=copy_attachments
+    select frame  mainframe
+    wait until page contains element  copy_attachments
     unselect checkbox  copy_attachments
     unselect frame
 
 unselect checkbox Copy Builds
-    select frame  name=mainframe
-    wait until page contains element  name=copy_builds
+    select frame  mainframe
+    wait until page contains element  copy_builds
     unselect checkbox  copy_builds
     unselect frame
 
 unselect checkbox Copy Platforms Links
-    select frame  name=mainframe
-    wait until page contains element  name=copy_platforms_links
+    select frame  mainframe
+    wait until page contains element  copy_platforms_links
     unselect checkbox  copy_platforms_links
     unselect frame
 
 unselect checkbox Copy Milestones
-    select frame  name=mainframe
-    wait until page contains element  name=copy_milestones
+    select frame  mainframe
+    wait until page contains element  copy_milestones
     unselect checkbox  copy_milestones
     unselect frame
 
@@ -114,10 +106,10 @@ Click Create button to finish Test Plan Management
     click button  Create
     unselect frame
 
-Warning Message Creating Same Test Plan Management
-    select frame  mainframe
-    wait until page contains  There is already a Test Plan with this name. Please choose another name!
-    unselect frame
+#Warning Message Creating Same Test Plan Management
+    #select frame  mainframe
+    #wait until page contains  There is already a Test Plan with this name. Please choose another name!
+    #unselect frame
 
 Click Button Delete Test Plan Management
     [Arguments]  ${TestPlanNameToDelete}
@@ -147,18 +139,17 @@ Check Test Plan Management Deleted
 Create from existing Test Plan?
     select frame  mainframe
     wait until page contains  Create from existing Test Plan?
-    #click element  copy_from_tplan_id
     click element  xpath=//div/form/table/tbody/tr/td/select/option[.='${TestPlanName}']
     unselect frame
     select frame  mainframe
-    wait until page contains element  name=copy_milestones
-    wait until page contains element  name=copy_platforms_links
-    wait until page contains element  name=copy_builds
-    wait until page contains element  name=copy_attachments
-    wait until page contains element  name=copy_tcases
-    wait until page contains element  name=copy_user_roles
-    wait until page contains element  name=active
-    wait until page contains element  name=is_public
+    wait until page contains element  copy_milestones
+    wait until page contains element  copy_platforms_links
+    wait until page contains element  copy_builds
+    wait until page contains element  copy_attachments
+    wait until page contains element  copy_tcases
+    wait until page contains element  copy_user_roles
+    wait until page contains element  active
+    wait until page contains element  is_public
     unselect frame
 
 Order By Name
@@ -243,13 +234,13 @@ Edit Test Plan
     click element  xpath=//div/div/form/div/table/tbody/tr/td[span//text()[contains(.,"[ID:")]]/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
     unselect frame
     select frame  mainframe
-    wait until page contains element  name=testplan_name
-    wait until page contains element  name=do_update
+    wait until page contains element  testplan_name
+    wait until page contains element  do_update
     input text  testplan_name  ${EditTestPlanName}
     unselect frame
     testPlanManagement_detail.Input Description
     select frame  mainframe
-    click element  name=do_update
+    click element  do_update
     unselect frame
 
 Check Updated Test Plan

@@ -6,9 +6,7 @@ Library        BuiltIn
 
 *** Variables ***
 
-
 *** Keywords ***
-
 
 I am here
     select frame  mainframe
@@ -26,11 +24,11 @@ I am here
     wait until page contains element  doActionButton
     unselect frame
 
-Click Template
-    click element  copy_from_tproject_id
+#Click Template
+    #click element  copy_from_tproject_id
 
-Choose from template
-    select from list by label  copy_from_tproject_id  ${newTestProjectName}
+#Choose from template
+    #select from list by label  copy_from_tproject_id  ${newTestProjectName}
 
 Choose no template
     select frame  mainframe
@@ -54,16 +52,16 @@ Fill Test Project Prefix
     input text  tcasePrefix  ${newTestProjectPrefix}
     unselect frame
 
-Click Issue Tracker
-    click element  issue_tracker_id
+#Click Issue Tracker
+    #click element  issue_tracker_id
 
-Choose from Issue Tracker
-    select from list by label  issue_tracker_id  ${issueTrackerName}
+#Choose from Issue Tracker
+    #select from list by label  issue_tracker_id  ${issueTrackerName}
 
-Click Cancel
-    select frame  mainframe
-    click button  Cancel
-    unselect frame
+#Click Cancel
+    #select frame  mainframe
+    #click button  Cancel
+    #unselect frame
 
 Click Create
     select frame  mainframe
@@ -88,11 +86,11 @@ Unselect all features
     unselect checkbox  optInventory
     unselect frame
 
-Confirm warning about empty fields
-    select frame  mainframe
-    wait until page contains   cannot be empty!
-    click button  OK
-    unselect frame
+#Confirm warning about empty fields
+    #select frame  mainframe
+    #wait until page contains   cannot be empty!
+    #click button  OK
+    #unselect frame
 
 Select Unselected Checkboxes
     select frame  mainframe

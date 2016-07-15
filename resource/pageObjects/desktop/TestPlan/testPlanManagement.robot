@@ -9,27 +9,17 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
 
 *** Keywords ***
 
-
-Check Test Plan Management
-
-    select frame  name=mainframe
-    wait until page contains  Test Plan Management
-    wait until page contains element  Create
-    unselect frame
+#Check Test Plan Management
+    #select frame  mainframe
+    #wait until page contains  Test Plan Management
+    #wait until page contains element  Create
+    #unselect frame
 
 Create Test Plan Management
-
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  create_testplan
     click button  create_testplan
     unselect frame

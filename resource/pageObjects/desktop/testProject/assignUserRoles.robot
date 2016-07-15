@@ -9,18 +9,10 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
-Check Assign User Roles
-    select frame  name=mainframe
-    wait until page contains  Assign Test Project roles
-    wait until page contains element  do_update
-    unselect frame
+#Check Assign User Roles
+    #select frame  mainframe
+    #wait until page contains  Assign Test Project roles
+    #wait until page contains element  do_update
+    #unselect frame

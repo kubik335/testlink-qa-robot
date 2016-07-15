@@ -9,14 +9,6 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
 Check Define Custom Fields
@@ -38,12 +30,10 @@ Input information about Custom Field
 
 Check custom field
     select frame  mainframe
-    #Click Button  do_update
     page should contain  ${CFNAME}
     unselect frame
 
 Check edited custom field
-    #Click Button  do_update
     select frame  mainframe
     wait until page contains  ${NEWCFNAME}
     page should contain  ${NEWCFNAME}
@@ -72,19 +62,19 @@ Edit Custom Fields
     double click element  xpath=//input[@name="do_update"]
     unselect frame
 
-Update Custom Field
-    select frame  mainframe
-    wait until page contains element  xpath=//input[@name="do_update"]
-    click button  Update
-    unselect frame
+#Update Custom Field
+    #select frame  mainframe
+    #wait until page contains element  xpath=//input[@name="do_update"]
+    #click button  Update
+    #unselect frame
 
-Select and delete EDITED Custom Field
-    select frame  mainframe
-    click link  ${NEWCFNAME}
-    click button  do_delete
-    wait until page contains  Yes
-    click button  Yes
-    unselect frame
+#Select and delete EDITED Custom Field
+    #select frame  mainframe
+    #click link  ${NEWCFNAME}
+    #click button  do_delete
+    #wait until page contains  Yes
+    #click button  Yes
+    #unselect frame
 
 Select and delete Custom Field ${CFNAME}
     select frame  mainframe
@@ -99,11 +89,10 @@ Check if Custom Field has been deleted
     page should not contain  ${CFNAME}
     unselect frame
 
-Check if EDITED Custom Field has been deleted
-    select frame  mainframe
-    page should not contain  ${NEWCFNAME}
-    unselect frame
-
+#Check if EDITED Custom Field has been deleted
+    #select frame  mainframe
+    #page should not contain  ${NEWCFNAME}
+    #unselect frame
 
 Creating Define Custom Fields
     defineCustomFields.Check Define Custom Fields
@@ -115,7 +104,6 @@ Edit information CF and Check New CF
     defineCustomFields.Check Define Custom Fields
     defineCustomFields.Select Custom Field
     defineCustomFields.Edit Custom Fields
-    #defineCustomFields.Update Custom Field
     defineCustomFields.Check Define Custom Fields
     defineCustomFields.Check edited custom field
 

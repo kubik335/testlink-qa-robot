@@ -9,22 +9,12 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
-
-
 I am here
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  treeframe
-    select frame  name=treeframe
+    select frame  treeframe
     wait until page contains element  xpath=//span[contains(text(),"Settings")]
     wait until page contains element  xpath=//span[contains(text(),"Filters")]
     wait until page contains element  xpath=//input[@value="Apply"]
@@ -61,13 +51,13 @@ Update to new version ${testCaseName}
     click element  xpath=//input[@id="update_btn"]
     unselect frame
 
-Check TC Version was changed ${testCaseName}
-    select frame  mainframe
-    wait until page contains element  workframe
-    select frame  workframe
-    wait until page contains element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"1")]][td/select]
-    page should contain element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"1")]][td/select]
-    unselect frame
+#Check TC Version was changed ${testCaseName}
+    #select frame  mainframe
+    #wait until page contains element  workframe
+    #select frame  workframe
+    #wait until page contains element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"1")]][td/select]
+    #page should contain element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"1")]][td/select]
+    #unselect frame
 
 Check changed TC Version ${testCaseName}
     select frame  mainframe

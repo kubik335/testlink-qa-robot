@@ -7,7 +7,7 @@ Documentation  This Test Suite with several Test Cases is used for creating buil
 Resource    ../../../resource/testlink1.robot
 
 Suite Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
-...             AND          headerPage.Go to index page and change testproject
+...             AND          Go to index page and change testproject
 ...             AND          Create New Test Plan ${TestPlanName}
 
 Suite Teardown  Run keywords  Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
@@ -33,13 +33,13 @@ ${TestPlanDescription}          DescriptionOfTestPlan
     Create Build with name ${buildName}
 
 62 Create Build "EASY" With Release Date
-    headerPage.Go to index page and change testproject
+    Go to index page and change testproject
     Start creating build with warning
     Create Build With Release Date And Save ${buildName1}
-    Check that Build is created ${buildName1}
+    Check if Build was created ${buildName1}
 
 63 Create Build - "Easy" - from existing build
-    headerPage.Go to index page and change testproject
+    Go to index page and change testproject
     Create ${buildName2} from existing ${buildName1}
 
 64 Edit Build

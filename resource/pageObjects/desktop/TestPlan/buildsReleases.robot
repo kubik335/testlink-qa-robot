@@ -9,30 +9,23 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
 
 *** Keywords ***
 
 Check Builds/Releases
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains  Build management
     unselect frame
 
 Create Build
     wait until keyword succeeds  1min  0  buildsReleases.Check Builds/Releases
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  create_build
     click button  create_build
     unselect frame
 
 Check if warning message appears
-    select frame  name=mainframe
+    select frame  mainframe
     execute javascript  var imput = document.getElementsByName('build_name'); imput[0].required = false;
     wait until page contains element  do_create
     click element  do_create
@@ -42,8 +35,7 @@ Check if warning message appears
     unselect frame
 
 Fill in the details of the Build ${buildName}
-    #[Arguments]  ${BuildName}  ${Description}
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  build_name
     input text  build_name  ${buildName}
     wait until page contains element  xpath=//iframe[@title="Rich text editor, notes"]
@@ -54,25 +46,25 @@ Fill in the details of the Build ${buildName}
     unselect frame
 
 Save Build
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  do_create
     click button  Create
     unselect frame
 
 Save Build after Editing
     [Tags]  tp64
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  do_update
     click button  Save
     unselect frame
 
 Check if Build was created ${buildName}
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  xpath=//a[contains(text(),"${buildName}")]
     unselect frame
 
 Delete ${buildName} Build
-    select frame  name=mainframe
+    select frame  mainframe
     click element  xpath=//tr[td//text()[contains(.,'${buildName}')]]/td[last()]/img
     wait until page contains  You are going to delete: ${buildName}
     wait until page contains  Yes
@@ -80,7 +72,7 @@ Delete ${buildName} Build
     unselect frame
 
 Add Release Date
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  name=release_date
     click element  xpath=//img[@title="Show Calender"]
     wait until page contains  Today
@@ -88,7 +80,8 @@ Add Release Date
     unselect frame
 
 Select Build ${buildName}
-    select frame  name=mainframe
+    [Tags]  64
+    select frame  mainframe
     wait until page contains element  xpath=//a[contains(text(),"${buildName}")]
     click link  ${buildName}
     wait until page contains  A build is identified by its title
@@ -97,9 +90,9 @@ Select Build ${buildName}
 Choose template ${FromBuild}
     select frame  mainframe
     wait until page contains element  name=copy_tester_assignments
-    select checkbox  name=copy_tester_assignments
-    wait until page contains element  name=source_build_id
-    select from list by label  name=source_build_id  ${FromBuild} (0)
+    select checkbox  copy_tester_assignments
+    wait until page contains element  source_build_id
+    select from list by label  source_build_id  ${FromBuild} (0)
     unselect frame
 
 Add Details and Finish creating build ${buildName}
@@ -113,11 +106,8 @@ Create Build With Release Date And Save ${buildName}
     buildsReleases.Add release date
     buildsReleases.Save Build
 
-Check that Build is created ${buildName}
-    [Tags]  tp61
-    buildsReleases.Check if Build was created ${buildName}
-
 Edit Build Info and Save Changes
+    [Tags]  64
     buildsReleases.Fill in the details of the Build ${buildName3}
     buildsReleases.Add Release Date
     buildsReleases.Save Build after Editing

@@ -8,7 +8,7 @@ Documentation  The test suite with several test cases for checking basic functio
 Resource    ../../../resource/testlink1.robot
 
 Suite Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
-...             AND         headerPage.Go to index page and change testproject
+...             AND          Go to index page and change testproject
 
 Suite Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND            close browser

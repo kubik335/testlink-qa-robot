@@ -36,9 +36,9 @@ ${KeywordName}                      keyWord
 *** Test Cases ***
 
 5 Validation of changing the Test Project
-    headerPage.Go to index page
+    HeaderPage Go to ${indexPage}
     Create TP ${newTestProjectName1} ${newTestProjectPrefix1}
-    headerPage.Go to index page and change testproject
+    Go to index page and change testproject
 
 4 Log in as admin and check layout
     Check header links
@@ -56,7 +56,7 @@ ${KeywordName}                      keyWord
 *** Keywords ***
 
 Preconditions for tc109 Navigator Tree
-    headerPage.Go to index page and change testproject
+    Go to index page and change testproject
     Create test suite ${testSuiteName} in test project ${newTestProjectName}
     Create test suite ${testSuiteName1} in test project ${newTestProjectName}
     Create test case ${testCaseName} in ${testSuiteName}

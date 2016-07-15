@@ -8,20 +8,12 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
 I am here
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  treeframe
-    select frame  name=treeframe
+    select frame  treeframe
     wait until page contains element  xpath=//h1[text()="Execute Tests"]
     wait until page contains element  xpath=//span[contains(text(),"Settings")]
     wait until page contains element  xpath=//span[contains(text(),"Filters")]
@@ -89,7 +81,6 @@ Check Move to Next Function ${testCaseName}
     page should contain element  xpath=//div/form/div[contains(.,"${testCaseName}")]
     unselect frame
 
-
 Check That Passed Test Was Saved
     select frame  mainframe
     wait until page contains element  treeframe
@@ -110,7 +101,6 @@ Execute Test Case Failed
     select from list by value  xpath=//div/form/div/div/table/tbody/tr[7]/td/select  f
     select from list by value  xpath=//div/form/div/div/table/tbody/tr[10]/td/select  f
     unselect frame
-
 
 Check That Failed Test Was Saved
     select frame  mainframe
@@ -154,7 +144,6 @@ I am here Execute Tests Frame
     wait until page contains element  xpath=//div/form/div/table/tbody/tr/td/div/input[@type="submit"]
     wait until page contains element  xpath=//div/form/div/table/tbody/tr/td/div/input[@value="Save and move to next"]
     wait until page contains element  xpath=//div/form/div/table/tbody/tr/td/div/input[@value="Save execution"]
-
 
 Expand tree
     select frame  mainframe

@@ -9,32 +9,23 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
-
-Check Assign Keywords
-    select frame  name=mainframe
-    wait until page contains element  workframe
-    select frame  name=workframe
-    wait until page contains  Keyword Assignment
-    unselect frame
+#Check Assign Keywords
+    #select frame  name=mainframe
+    #wait until page contains element  workframe
+    #select frame  name=workframe
+    #wait until page contains  Keyword Assignment
+    #unselect frame
 
 Create Keyword
     select frame  mainframe
-    wait until page contains element  name=create_keyword
-    click element  name=create_keyword
+    wait until page contains element  create_keyword
+    click element  create_keyword
     unselect frame
     select frame  mainframe
-    wait until page contains element  name=create_req
-    wait until page contains element  name=keyword
+    wait until page contains element  create_req
+    wait until page contains element  keyword
     input text  keyword  ${KeywordName}
     click element  create_req
     unselect frame
@@ -47,7 +38,7 @@ Check Keyword Was Created
 
 Click Assign Keyword to Test Case
     select frame  mainframe
-    wait until page contains element  name=keyword_assign
+    wait until page contains element  keyword_assign
     click element  keyword_assign
     unselect frame
 
@@ -56,8 +47,8 @@ Assign Keywords
     wait until page contains element  workframe
     select frame  workframe
     wait until page contains element  xpath=/html/body/div/div/form/div/table/tbody/tr/td[2]/img[1]
-    wait until page contains element  name=assigntestcase
-    wait until page contains element  name=from_select_box
+    wait until page contains element  assigntestcase
+    wait until page contains element  from_select_box
     click element  xpath=/html/body/div/div/form/div/table/tbody/tr/td[2]/img[1]
     click element  assigntestcase
     unselect frame

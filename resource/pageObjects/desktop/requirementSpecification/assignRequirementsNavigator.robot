@@ -9,24 +9,16 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
 Select Test Suite
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  name=filter_testcase_name
-    wait until page contains element  name=doUpdateTree
-    input text  name=filter_testcase_name  ${title}
-    click button  name=doUpdateTree
+    wait until page contains element  filter_testcase_name
+    wait until page contains element  doUpdateTree
+    input text  filter_testcase_name  ${title}
+    click button  doUpdateTree
     unselect frame
     select frame  mainframe
     wait until page contains element  treeframe

@@ -7,67 +7,68 @@ Library        Selenium2Library
 
 
 *** Keywords ***
+
 I am here
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"View Users")]
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"View roles")]
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Project roles")]
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Plan roles")]
-    wait until page contains element  css=div.workBack
-    wait until page contains element  name=doCreate
-    wait until page contains element  id=export
+    wait until page contains element  div.workBack
+    wait until page contains element  doCreate
+    wait until page contains element  export
     unselect frame
 
 Wait until page contains view users content
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"View Users")]
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"View roles")]
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Project roles")]
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Plan roles")]
-    wait until page contains element  css=div.workBack
-    wait until page contains element  name=doCreate
-    wait until page contains element  id=export
+    wait until page contains element  div.workBack
+    wait until page contains element  doCreate
+    wait until page contains element  export
     unselect frame
 
-Click create button
-    select frame  name=mainframe
-    click element  name=doCreate
-    unselect frame
+#Click create button
+    #select frame  name=mainframe
+    #click element  name=doCreate
+    #unselect frame
 
-Check all fields for new user are availiable
-    select frame  name=mainframe
-    wait until page contains element  name=login
-    wait until page contains element  name=firstName
-    wait until page contains element  name=lastName
-    wait until page contains element  name=password
-    wait until page contains element  name=emailAddress
-    wait until page contains element  name=rights_id
-    wait until page contains element  name=locale
-    wait until page contains element  name=authentication
-    wait until page contains element  name=do_update
-    wait until page contains element  name=user_is_active
-    wait until page contains element  name=cancel
-    wait until page contains element  name=do_reset_password
-    unselect frame
+#Check all fields for new user are availiable
+    #select frame  name=mainframe
+    #wait until page contains element  name=login
+    #wait until page contains element  name=firstName
+    #wait until page contains element  name=lastName
+    #wait until page contains element  name=password
+    #wait until page contains element  name=emailAddress
+    #wait until page contains element  name=rights_id
+    #wait until page contains element  name=locale
+    #wait until page contains element  name=authentication
+    #wait until page contains element  name=do_update
+    #wait until page contains element  name=user_is_active
+    #wait until page contains element  name=cancel
+    #wait until page contains element  name=do_reset_password
+    #unselect frame
 
-Fill inputs for creating user and submit
-    select frame  name=mainframe
-    input text   name=login  ${login}
-    input text   name=firstName  ${fname}
-    input text   name=lastName  ${lname}
-    input text   name=password  ${pass}
-    input text   name=emailAddress  ${email}
-    select from list by label  name=rights_id  admin
-    select from list by label  name=locale  English (wide/UK)
-    select from list by label  name=authentication  Default(DB)
-    checkbox should be selected  name=user_is_active
-    click element  name=do_update
-    unselect frame
+#Fill inputs for creating user and submit
+    #select frame  name=mainframe
+    #input text   name=login  ${login}
+    #input text   name=firstName  ${fname}
+    #input text   name=lastName  ${lname}
+    #input text   name=password  ${pass}
+    #input text   name=emailAddress  ${email}
+    #select from list by label  name=rights_id  admin
+    #select from list by label  name=locale  English (wide/UK)
+    #select from list by label  name=authentication  Default(DB)
+    #checkbox should be selected  name=user_is_active
+    #click element  name=do_update
+    #unselect frame
 
-Check that user exists
-    select frame  name=mainframe
-    element should contain  css=div.workBack  ${login}
-    unselect frame
+#Check that user exists
+    #select frame  name=mainframe
+    #element should contain  css=div.workBack  ${login}
+    #unselect frame
 
 Click desired user
     select frame  name=mainframe
@@ -75,40 +76,40 @@ Click desired user
     unselect frame
 
 Fill inputs for editing user and submit
-    select frame  name=mainframe
-    clear element text  name=firstName
-    clear element text  name=lastName
-    clear element text  name=emailAddress
-    input text   name=firstName  ${fname}
-    input text   name=lastName  ${lname}
-    input text   name=emailAddress  ${email}
-    select from list by label  name=rights_id  guest
-    select from list by label  name=locale  Czech
-    select from list by label  name=authentication  Default(DB)
-    checkbox should be selected  name=user_is_active
-    click element  name=do_update
+    select frame  mainframe
+    clear element text  firstName
+    clear element text  lastName
+    clear element text  emailAddress
+    input text   firstName  ${fname}
+    input text   lastName  ${lname}
+    input text   emailAddress  ${email}
+    select from list by label  rights_id  guest
+    select from list by label  locale  Czech
+    select from list by label  authentication  Default(DB)
+    checkbox should be selected  user_is_active
+    click element  do_update
     unselect frame
 
 Check all fields for editing user are availiable
-    select frame  name=mainframe
-    wait until page contains element  name=firstName
-    wait until page contains element  name=lastName
-    wait until page contains element  name=emailAddress
-    wait until page contains element  name=rights_id
-    wait until page contains element  name=locale
-    wait until page contains element  name=authentication
-    wait until page contains element  name=do_update
-    wait until page contains element  name=user_is_active
-    wait until page contains element  name=cancel
-    wait until page contains element  name=do_reset_password
+    select frame  mainframe
+    wait until page contains element  firstName
+    wait until page contains element  lastName
+    wait until page contains element  emailAddress
+    wait until page contains element  rights_id
+    wait until page contains element  locale
+    wait until page contains element  authentication
+    wait until page contains element  do_update
+    wait until page contains element  user_is_active
+    wait until page contains element  cancel
+    wait until page contains element  do_reset_password
     unselect frame
 
 Create role ${role}
     page should not contain element  xpath=//a[contains(., "${role}")]
     select frame  mainframe
     wait until page contains element  xpath=//table
-    wait until page contains element  name=doCreate
-    click element  name=doCreate
+    wait until page contains element  doCreate
+    click element  doCreate
     unselect frame
     select frame  mainframe
     wait until page contains element  xpath=//input[@name="rolename"]
@@ -135,8 +136,8 @@ Change user role in test project
     wait until page contains element  xpath=//table[@id="item_view"]
     wait until page contains element  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
     select from list by label  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select  ${role}
-    wait until page contains element  name=do_update
-    click element  name=do_update
+    wait until page contains element  do_update
+    click element  do_update
     unselect frame
     select frame  mainframe
     wait until page contains  User Roles updated
@@ -145,8 +146,8 @@ Change user role in test project
     wait until page contains element  xpath=//table[@id="item_view"]
     wait until page contains element  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
     select from list by label  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select  tester
-    wait until page contains element  name=do_update
-    click element  name=do_update
+    wait until page contains element  do_update
+    click element  do_update
     unselect frame
 
 Change user role in test plan
@@ -154,8 +155,8 @@ Change user role in test plan
     wait until page contains element  xpath=//table[@id="item_view"]
     wait until page contains element  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
     select from list by label  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select  ${role}
-    wait until page contains element  name=do_update
-    click element  name=do_update
+    wait until page contains element  do_update
+    click element  do_update
     unselect frame
     select frame  mainframe
     wait until page contains  User Roles updated
@@ -164,8 +165,8 @@ Change user role in test plan
     wait until page contains element  xpath=//table[@id="item_view"]
     wait until page contains element  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
     select from list by label  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select  tester
-    wait until page contains element  name=do_update
-    click element  name=do_update
+    wait until page contains element  do_update
+    click element  do_update
     unselect frame
 
 Delete role ${role}
@@ -177,7 +178,6 @@ Delete role ${role}
     wait until page contains  Yes
     click button  Yes
     unselect frame
-
 
 Edit user
     [Tags]  tp101

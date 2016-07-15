@@ -9,19 +9,11 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
-Check Assign Requirements
-    select frame  name=mainframe
-    wait until page contains element  workframe
-    select frame  name=workframe
-    wait until page contains  Assign Requirements to Test Case
-    unselect frame
+#Check Assign Requirements
+    #select frame  mainframe
+    #wait until page contains element  workframe
+    #select frame  workframe
+    #wait until page contains  Assign Requirements to Test Case
+    #unselect frame

@@ -9,19 +9,11 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
-Check Generate Requirement Specification Document
-    select frame  name=mainframe
-    wait until page contains element  workframe
-    select frame  name=workframe
-    wait until page contains  Print Requirement Specification
-    unselect frame
+#Check Generate Requirement Specification Document
+    #select frame  name=mainframe
+    #wait until page contains element  workframe
+    #select frame  name=workframe
+    #wait until page contains  Print Requirement Specification
+    #unselect frame

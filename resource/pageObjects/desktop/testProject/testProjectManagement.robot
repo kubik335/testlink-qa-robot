@@ -9,18 +9,10 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      chrome
-
-
 *** Keywords ***
 
 Check Test Project Management
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains  Test Project Management
     wait until page contains element  search
     unselect frame
@@ -31,7 +23,7 @@ Click Create
     unselect frame
 
 Add Test Project Name
-    select frame  name=mainframe
+    select frame  mainframe
     input text  tprojectName  ${testprojectname}
     unselect frame
 
@@ -87,11 +79,10 @@ Check Test Project Is Active ${newTestProjectName}
     page should contain element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[input[@title="Active (click to set inactive)"]]
     unselect frame
 
-
-Wait until container with projects is here
-    select frame  mainframe
-    wait until page contains element  xpath=//*[@id="item_view"]/tfoot
-    unselect frame
+#Wait until container with projects is here
+    #select frame  mainframe
+    #wait until page contains element  xpath=//*[@id="item_view"]/tfoot
+    #unselect frame
 
 Unactive Test Project by Bulb ${newTestProjectName}
     select frame  mainframe
@@ -109,13 +100,13 @@ Add IT to TP ${ISSUETRACKER}
     click element  xpath=//select[@name="issue_tracker_id"]
     unselect frame
 
-Remove issue tracker from test project
-    select frame  name=mainframe
-    wait until page contains element  xpath=//*[@id="issue_tracker_id"]
-    wait until page contains element  issue_tracker_enabled
-    unselect checkbox  issue_tracker_enabled
-    select from list by value  xpath=//*[@id="issue_tracker_id"]  0
-    unselect frame
+#Remove issue tracker from test project
+    #select frame  name=mainframe
+    #wait until page contains element  xpath=//*[@id="issue_tracker_id"]
+    #wait until page contains element  issue_tracker_enabled
+    #unselect checkbox  issue_tracker_enabled
+    #select from list by value  xpath=//*[@id="issue_tracker_id"]  0
+    #unselect frame
 
 Check Issue Tracker has been added to the Test Project
     select frame  mainframe

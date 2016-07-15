@@ -58,7 +58,7 @@ ${checkShowTCVersion}           Newest versions
 *** Keywords ***
 
 Go to and check ${link} ${check}
-    headerPage.Go to index page
+    HeaderPage Go to ${indexPage}
     headerPage.I am here
     desktopPage.Go to ${link}
     desktopPage.Check link ${check}
@@ -96,11 +96,16 @@ Check desktop links
     desktopHeaderPage.Go to and check ${showTCVersion} ${checkShowTCVersion}
 
 Change Test Project and go to ${link} ${check}
-    headerPage.Go to index page and change testproject
+    Go to index page and change testproject
     desktopPage.Go to ${link}
     desktopPage.Check link ${check}
 
 Click on ${link} ${check}
-    headerPage.Go to index page
+    HeaderPage Go to ${indexPage}
     desktopPage.Go to ${link}
     desktopPage.Check link ${check}
+
+Go to index page and change testproject
+    HeaderPage Go to ${indexPage}
+    Choose test project from dropdown
+

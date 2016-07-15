@@ -9,23 +9,13 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
-
-Check Platform Management
-    select frame  mainframe
-    wait until page contains  Platform Management
-    wait until page contains element  create_platform
-    unselect frame
-
+#Check Platform Management
+    #select frame  mainframe
+    #wait until page contains  Platform Management
+    #wait until page contains element  create_platform
+    #unselect frame
 
 Check Platform Management Without Platforms
     select frame  mainframe

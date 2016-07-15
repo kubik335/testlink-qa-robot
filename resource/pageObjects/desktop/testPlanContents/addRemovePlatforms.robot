@@ -9,14 +9,6 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
 
 Check there are no platforms assigned
@@ -40,7 +32,7 @@ Check there is platform assigned
 
 Add Platform
     wait until keyword succeeds  1min  0  addRemovePlatforms.I Am Here
-    select frame  name=mainframe
+    select frame  mainframe
     click element  xpath=//tr/td[2]/img[1]
     click button  doAssignPlatforms
     unselect frame

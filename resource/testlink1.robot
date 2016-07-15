@@ -36,7 +36,7 @@ Resource  ../resource/helper/desktopHeaderPage.robot
 *** Keywords ***
 
 Check header links
-    headerPage.Go to index page and change testproject
+    Go to index page and change testproject
     headerPage.I am here in full
     HeaderPage Go to ${mySettings}
     mySettings.I am here

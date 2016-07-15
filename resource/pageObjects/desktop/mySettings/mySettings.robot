@@ -6,19 +6,10 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      chrome
 ${Name}         renat
 ${LastName}     kulalov
 ${emailAdress}  renat.kulalov@tesena.com
 ${Password}     renat123
-
-
-
 
 
 *** Keywords ***
@@ -43,58 +34,42 @@ Set Personal data back to normal
     wait until page contains  Personal data changed
     unselect frame
 
-First Name Empty
+#First Name Empty
+    #clear element text  firstName
 
-    clear element text  firstName
+#Check Page
+    #select frame  mainframe
+    #wait until page contains  Personal data
+    #wait until page contains  Personal password
 
-Check Page
-    select frame  mainframe
-    wait until page contains  Personal data
-    wait until page contains  Personal password
+#Email Adress Empty
+    #clear element text  emailAddress
 
-Email Adress Empty
-    clear element text  emailAddress
-
-Last Name Empty
-
-    clear element text  lastName
-
-Click Save Button
-
-    click button  Save
-    wait until page contains  Personal data changed
+#Last Name Empty
+    #clear element text  lastName
 
 Check Email field must be filled
-
     execute javascript  var imput = document.getElementsByName('emailAddress'); imput[0].required = false;
     click button  Save
     wait until page contains  Warning!!
     wait until page contains  OK
     click button    OK
 
-Input Email Adress
-
-    input text  emailAddress  ${NewTestEmailAdress}
-
 Check Last Name field must be filled
-
     execute javascript  var imput = document.getElementsByName('lastName'); imput[0].required = false;
     click button  Save
     wait until page contains  Warning!!
     wait until page contains  OK
     click button    OK
 
-Input Last Name
-
-    input text  lastName  ${NewTestLastName}
-
 Input Data in Settings
     [Tags]  tp96
     select frame  mainframe
-    mySettings.input First Name
-    mySettings.input Last Name
-    mySettings.input Email Adress
-    mySettings.click Save Button
+    input text  firstName  ${NewTestFirstName}
+    input text  lastName  ${NewTestLastName}
+    input text  emailAddress  ${NewTestEmailAdress}
+    click button  Save
+    wait until page contains  Personal data changed
     unselect frame
 
 Validate
@@ -111,18 +86,12 @@ Validate
     Check Last Name field must be filled
     unselect frame
 
-
 Check First Name field must be filled
-
     execute javascript  var imput = document.getElementsByName('firstName'); imput[0].required = false;
     click button  Save
     wait until page contains  Warning!!
     wait until page contains  OK
     click button    OK
-
-Input First Name
-
-    input text  firstName  ${NewTestFirstName}
 
 Change Password
     select frame  mainframe

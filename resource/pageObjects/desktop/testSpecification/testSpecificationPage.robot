@@ -9,17 +9,8 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}                   testlab.tesena.com/testlink
-${DELAY}                    0
-${LOGIN URL}                http://${SERVER}/login.php
-${WELCOME URL}              http://${SERVER}/index.php?caller=login
-${ERROR URL}                http://${SERVER}/login.php
-${BROWSER}                  ff
-${testSuiteName}            suiteTest
-${newTestProjectName}       testProject109
-${testSuiteName}                    tsuite109
-${testSuiteName1}                   tsuite109_1
 *** Keywords ***
+
 I am here
     select frame  mainframe
     wait until page contains element  treeframe
@@ -34,21 +25,20 @@ I am here
     wait until page contains element  tree_div
     unselect frame
 
-
 Add Filters Test Case Title Test Specification
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  name=filter_testcase_name
-    wait until page contains element  name=doUpdateTree
-    input text  name=filter_testcase_name  ${title}
-    click button  name=doUpdateTree
+    wait until page contains element  filter_testcase_name
+    wait until page contains element  doUpdateTree
+    input text  filter_testcase_name  ${title}
+    click button  doUpdateTree
     unselect frame
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  name=expand_tree
-    click element  name=expand_tree
+    wait until page contains element  expand_tree
+    click element  expand_tree
     wait until page contains element  xpath=//a[span[contains(text(),"${title} [1]")]]
     click element  xpath=//a[span[contains(text(),"${title} [1]")]]
     unselect frame
@@ -62,10 +52,10 @@ Delete Test Suite
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  name=filter_testcase_name
-    wait until page contains element  name=doUpdateTree
-    input text  name=filter_testcase_name  ${title}
-    click button  name=doUpdateTree
+    wait until page contains element  filter_testcase_name
+    wait until page contains element  doUpdateTree
+    input text  filter_testcase_name  ${title}
+    click button  doUpdateTree
     unselect frame
     select frame  mainframe
     wait until page contains element  treeframe
@@ -79,8 +69,8 @@ Delete Test Suite
     select frame  workframe
     wait until page contains element  xpath=//img[@title="Actions"]
     click element  xpath=//img[@title="Actions"]
-    wait until page contains element  name=delete_testsuite
-    click element  name=delete_testsuite
+    wait until page contains element  delete_testsuite
+    click element  delete_testsuite
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -88,7 +78,7 @@ Delete Test Suite
     #wait until page contains element  xpath=//img[@title="check/uncheck all"]
     #click element  xpath=//img[@title="check/uncheck all"]
     wait until page contains element  name=delete_testsuite
-    click button  name=delete_testsuite
+    click button  delete_testsuite
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -100,8 +90,8 @@ Delete New Test Suite ${testSuiteName}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  name=doUpdateTree
-    click button  name=doUpdateTree
+    wait until page contains element  doUpdateTree
+    click button  doUpdateTree
     unselect frame
     select frame  mainframe
     wait until page contains element  treeframe
@@ -114,23 +104,22 @@ Delete New Test Suite ${testSuiteName}
     select frame  workframe
     wait until page contains element  xpath=//img[@title="Actions"]
     click element  xpath=//img[@title="Actions"]
-    wait until page contains element  name=delete_testsuite
-    click element  name=delete_testsuite
+    wait until page contains element  delete_testsuite
+    click element  delete_testsuite
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
     #wait until page contains element  xpath=//img[@title="check/uncheck all"]
     #click element  xpath=//img[@title="check/uncheck all"]
-    wait until page contains element  name=delete_testsuite
-    click button  name=delete_testsuite
+    wait until page contains element  delete_testsuite
+    click button  delete_testsuite
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
     wait until page contains  The Test Suite was successfully deleted
     unselect frame
-
 
 Create Test Suite Button
     select frame  mainframe
@@ -142,28 +131,28 @@ Create Test Suite Button
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=new_testsuite
-    click element  name=new_testsuite
+    wait until page contains element  new_testsuite
+    click element  new_testsuite
     unselect frame
 
 Fill In The Fields ${testSuiteName} ${testDescription}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=container_name
-    wait until page contains element  name=add_testsuite_button
+    wait until page contains element  container_name
+    wait until page contains element  add_testsuite_button
     wait until page contains element  cke_8
     input text  container_name  ${testSuiteName}
     click element  cke_8
     input text  xpath=//*[@id="cke_contents_details"]/textarea  ${testDescription}
-    click element  name=add_testsuite_button
+    click element  add_testsuite_button
     unselect frame
 
 Controll Warning Message
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=add_testsuite_button
+    wait until page contains element  add_testsuite_button
     execute javascript  document.getElementById('name').required = false;
     click button  Save
     wait until page contains  Please give a name to Test Suite
@@ -180,8 +169,8 @@ Check If Test Suite Was Created ${testSuiteName}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  name=doUpdateTree
-    click button  name=doUpdateTree
+    wait until page contains element  doUpdateTree
+    click button  doUpdateTree
     unselect frame
     select frame  mainframe
     wait until page contains element  treeframe
@@ -205,28 +194,28 @@ Create Another Test Suite For Move Or Copy
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=new_testsuite
-    click element  name=new_testsuite
+    wait until page contains element  new_testsuite
+    click element  new_testsuite
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=container_name
-    wait until page contains element  name=add_testsuite_button
+    wait until page contains element  container_name
+    wait until page contains element  add_testsuite_button
     wait until page contains element  cke_8
     input text  container_name  ${testSuiteCopy}
     click element  cke_8
     input text  xpath=//*[@id="cke_contents_details"]/textarea  ${testDescriptionCopy}
-    click element  name=add_testsuite_button
+    click element  add_testsuite_button
     unselect frame
 
-check test project and tsuite
-    select frame  mainframe
-    wait until page contains element  treeframe
-    select frame  treeframe
-    wait until page contains element  xpath=//a[span[contains(text(),"${newTestProjectName} (")]]
-    wait until page contains element  xpath=//a[span/span[contains(text(),"${testSuiteName}")]]
-    unselect frame
+#check test project and tsuite
+    #select frame  mainframe
+    #wait until page contains element  treeframe
+    #select frame  treeframe
+    #wait until page contains element  xpath=//a[span[contains(text(),"${newTestProjectName} (")]]
+    #wait until page contains element  xpath=//a[span/span[contains(text(),"${testSuiteName}")]]
+    #unselect frame
 
 Edit Test Suite
     select frame  mainframe
@@ -240,8 +229,8 @@ Edit Test Suite
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=container_name
-    wait until page contains element  name=update_testsuite
+    wait until page contains element  container_name
+    wait until page contains element  update_testsuite
     wait until page contains element  cke_8
     input text  container_name  ${suite2}
     wait until page contains element  xpath=//iframe[@title="Rich text editor, details"]
@@ -253,7 +242,7 @@ Edit Test Suite
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    click element  name=update_testsuite
+    click element  update_testsuite
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -268,14 +257,14 @@ Copy Test Suite
     select frame  workframe
     wait until page contains element  xpath=//img[@title="Actions"]
     click element  xpath=//img[@title="Actions"]
-    wait until page contains element  name=move_testsuite_viewer
-    click element  name=move_testsuite_viewer
+    wait until page contains element  move_testsuite_viewer
+    click element  move_testsuite_viewer
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
     wait until page contains element  xpath=//*[@id="containerID_chosen"]
-    wait until page contains element  name=do_copy
+    wait until page contains element  do_copy
     wait until page contains element  xpath=//div/b
     click element  xpath=//div/b
     wait until page contains  ${newTestProjectName}
@@ -284,7 +273,7 @@ Copy Test Suite
     #select from list by label  containerID  copyFile
     #input text  xpath=//*[@id="containerID_chosen"]/div/div/input  ${testSuiteCopy}
     #click element  xpath=//*[@id="containerID_chosen"]
-    click element  name=do_copy
+    click element  do_copy
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -298,76 +287,75 @@ Move Test Suite
     select frame  workframe
     wait until page contains element  xpath=//img[@title="Actions"]
     click element  xpath=//img[@title="Actions"]
-    wait until page contains element  name=move_testsuite_viewer
-    click element  name=move_testsuite_viewer
+    wait until page contains element  move_testsuite_viewer
+    click element  move_testsuite_viewer
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
     wait until page contains element  xpath=//*[@id="containerID_chosen"]
-    wait until page contains element  name=do_copy
+    wait until page contains element  do_copy
     wait until page contains element  xpath=//div/b
     click element  xpath=//div/b
     wait until page contains  ${newTestProjectName}
     wait until page contains element  xpath=//ul[@class="chosen-results"]/li[2]
     click element  xpath=//ul[@class="chosen-results"]/li[2]
-    click element  name=do_move
+    click element  do_move
     unselect frame
 
 Check Move And Copy Action
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  name=expand_tree
-    click button  name=expand_tree
+    wait until page contains element  expand_tree
+    click button  expand_tree
     wait until element contains  tree_div  ${suite2}
     wait until element contains  tree_div  20  #20160414:14:20:55 prefix
     xpath should match x times  //div/ul/li/ul/li/div/a/span[contains(.,"${suite2}")]  1
     xpath should match x times  //div/ul/li/ul/li/ul/li/div/a/span[contains(.,"${suite2}")]  1
     unselect frame
 
-Delete Another New Test Suite
-    select frame  mainframe
-    wait until page contains element  treeframe
-    select frame  treeframe
-    wait until page contains element  name=doUpdateTree
-    click button  name=doUpdateTree
-    unselect frame
-    select frame  mainframe
-    wait until page contains element  treeframe
-    select frame  treeframe
-    wait until page contains element  xpath=//a[span/span[contains(text(),"${testSuiteCopy}")]]
-    click element  xpath=//a[span/span[contains(text(),"${testSuiteCopy}")]]
-    unselect frame
-    select frame  mainframe
-    wait until page contains element  workframe
-    select frame  workframe
-    wait until page contains element  xpath=//img[@title="Actions"]
-    click element  xpath=//img[@title="Actions"]
-    wait until page contains element  name=delete_testsuite
-    click element  name=delete_testsuite
-    unselect frame
-    select frame  mainframe
-    wait until page contains element  workframe
-    select frame  workframe
-    #wait until page contains element  xpath=//img[@title="check/uncheck all"]
-    #click element  xpath=//img[@title="check/uncheck all"]
-    wait until page contains element  name=delete_testsuite
-    click button  name=delete_testsuite
-    unselect frame
-    select frame  mainframe
-    wait until page contains element  workframe
-    select frame  workframe
-    wait until page contains  The Test Suite was successfully deleted
-    unselect frame
+#Delete Another New Test Suite
+    #select frame  mainframe
+    #wait until page contains element  treeframe
+    #select frame  treeframe
+    #wait until page contains element  doUpdateTree
+    #click button  doUpdateTree
+    #unselect frame
+    #select frame  mainframe
+    #wait until page contains element  treeframe
+    #select frame  treeframe
+    #wait until page contains element  xpath=//a[span/span[contains(text(),"${testSuiteCopy}")]]
+    #click element  xpath=//a[span/span[contains(text(),"${testSuiteCopy}")]]
+    #unselect frame
+    #select frame  mainframe
+    #wait until page contains element  workframe
+    #select frame  workframe
+    #wait until page contains element  xpath=//img[@title="Actions"]
+    #click element  xpath=//img[@title="Actions"]
+    #wait until page contains element  delete_testsuite
+    #click element  delete_testsuite
+    #unselect frame
+    #select frame  mainframe
+    #wait until page contains element  workframe
+    #select frame  workframe
+    ##wait until page contains element  xpath=//img[@title="check/uncheck all"]
+    ##click element  xpath=//img[@title="check/uncheck all"]
+    #wait until page contains element  delete_testsuite
+    #click button  delete_testsuite
+    #unselect frame
+    #select frame  mainframe
+    #wait until page contains element  workframe
+    #select frame  workframe
+    #wait until page contains  The Test Suite was successfully deleted
+    #unselect frame
 
-Drag and drop test suite
-    select frame  name=treeframe
-    drag and drop
-    unselect frame
+#Drag and drop test suite
+    #select frame  treeframe
+    #drag and drop
+    #unselect frame
 
 Click Test Case Button
-
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -377,10 +365,9 @@ Click Test Case Button
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=create_tc
-    click element  name=create_tc
+    wait until page contains element  create_tc
+    click element  create_tc
     unselect frame
-
 
 Select test project ${newTestProjectName} node
     select frame  mainframe
@@ -432,7 +419,6 @@ Select test suite ${testSuiteName} node
     click element  xpath=//ul/li/ul/li[contains(.,"${testSuiteName}")]/div/a
     unselect frame
 
-
 Click new test case
     select frame  mainframe
     wait until page contains element  workframe
@@ -452,7 +438,6 @@ Fill name for tc: ${testCaseName} and submit
     unselect frame
 
 Create Step
-
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -516,22 +501,21 @@ Add Step after created first step
     wait until page contains element  workframe
     select frame  workframe
     wait until page contains  Step number:
-    wait until page contains element  name=do_update_step_and_exit
+    wait until page contains element  do_update_step_and_exit
     wait until keyword succeeds  1min  0  testSpecificationPage.Click IT
     unselect frame
 
-Click on save & exit
-    select frame  mainframe
-    wait until page contains element  workframe
-    select frame  workframe
-    #wait until page contains element  xpath=(//div/input[@id="do_update_step_and_exit"])[2]
-    wait until page contains  Save & exit
-    wait until keyword succeeds  1min  0  testSpecificationPage.Click IT
-    unselect frame
+#Click on save & exit
+    #select frame  mainframe
+    #wait until page contains element  workframe
+    #select frame  workframe
+    ##wait until page contains element  xpath=(//div/input[@id="do_update_step_and_exit"])[2]
+    #wait until page contains  Save & exit
+    #wait until keyword succeeds  1min  0  testSpecificationPage.Click IT
+    #unselect frame
 
 Click IT
     click button  name=do_update_step_and_exit
-
 
 Move suite ${from} to suite ${target}
     [Tags]  tp82
@@ -566,13 +550,12 @@ Collapse tree
     click element  collapse_tree
     unselect frame
 
-
 Click on arrow to unfold
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
     wait until element is visible  xpath=//*[@id="extdd-1"]/img[1]
-   # wait until page contains element  xpath=(//span[contains(text(),"tsuite109_1 (0)")])[1]
+   #wait until page contains element  xpath=(//span[contains(text(),"tsuite109_1 (0)")])[1]
     click element  xpath=//*[@id="extdd-1"]/img[1]
     unselect frame
 
@@ -587,7 +570,7 @@ Check Collapse tree
     unselect frame
 
 Check Expand tree
-    select frame  name=mainframe
+    select frame  mainframe
     page should contain element  treeframe
     select frame  treeframe
     wait until page contains element  xpath=(//span[contains(text(),"${testSuiteName}")])[1]
@@ -596,7 +579,6 @@ Check Expand tree
     unselect frame
 
 Fill in title test case name ${testCaseName}
-
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -611,10 +593,8 @@ Fill in Summary test case
     wait until page contains element  xpath=//*[@id="cke_contents_summary"]/iframe
     mouse down  xpath=//*[@id="cke_contents_summary"]/iframe
     mouse up  xpath=//*[@id="cke_contents_summary"]/iframe
-
     select frame  xpath=//*[@id="cke_contents_summary"]/iframe
     input text  xpath=//body  Summary
-
     unselect frame
 
 Fill in Preconditions test case
@@ -625,14 +605,13 @@ Fill in Preconditions test case
     wait until page contains element  xpath=//*[@id="cke_contents_preconditions"]/iframe
     mouse down  xpath=//*[@id="cke_contents_preconditions"]/iframe
     mouse up  xpath=//*[@id="cke_contents_preconditions"]/iframe
-
     select frame  xpath=//*[@id="cke_contents_preconditions"]/iframe
     input text  xpath=//body  Preconditionsss
     unselect frame
 
-Click on Create button test case
-    select frame  mainframe
-    unselect frame
+#Click on Create button test case
+    #select frame  mainframe
+    #unselect frame
 
 Check create test case open
     select frame  mainframe
@@ -657,16 +636,16 @@ Create New Sibling ${testCaseName2}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=new_tc
-    click element  name=new_tc
+    wait until page contains element  new_tc
+    click element  new_tc
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=testcase_name
-    wait until page contains element  name=do_create_button
+    wait until page contains element  testcase_name
+    wait until page contains element  do_create_button
     input text  testcase_name  ${testCaseName2}
-    click element  name=do_create_button
+    click element  do_create_button
     unselect frame
 
 Check New Sibling Was Created
@@ -682,34 +661,34 @@ Select test case ${testCaseName} node and click action button
     testSpecificationPage.Select test case ${testCaseName} node
     testSpecificationPage.Click Actions button
 
-Click On Export Test Case
-    select frame  mainframe
-    wait until page contains element  workframe
-    select frame  workframe
-    wait until page contains element  name=export_tc
-    click element  name=export_tc
-    unselect frame
-    select frame  mainframe
-    wait until page contains element  workframe
-    select frame  workframe
-    wait until page contains element  name=export
-    click element  name=export
-    unselect frame
+#Click On Export Test Case
+    #select frame  mainframe
+    #wait until page contains element  workframe
+    #select frame  workframe
+    #wait until page contains element  export_tc
+    #click element  export_tc
+    #unselect frame
+    #select frame  mainframe
+    #wait until page contains element  workframe
+    #select frame  workframe
+    #wait until page contains element  export
+    #click element  export
+    #unselect frame
 
 Click On Print View Test Case
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=tcPrinterFriendly
-    click element  name=tcPrinterFriendly
+    wait until page contains element  tcPrinterFriendly
+    click element  tcPrinterFriendly
     unselect frame
 
 Click On Create New Version
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=do_create_new_version
-    click element  name=do_create_new_version
+    wait until page contains element  do_create_new_version
+    click element  do_create_new_version
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -722,8 +701,8 @@ Click On Deactivate This Version
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=deactivate_this_tcversion
-    click element  name=deactivate_this_tcversion
+    wait until page contains element  deactivate_this_tcversion
+    click element  deactivate_this_tcversion
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -736,24 +715,24 @@ Click On Activate This Version
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=activate_this_tcversion
-    click element  name=activate_this_tcversion
+    wait until page contains element  activate_this_tcversion
+    click element  activate_this_tcversion
     unselect frame
 
 Click On Add To Test Plans
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=addToTestPlans
-    click element  name=addToTestPlans
+    wait until page contains element  addToTestPlans
+    click element  addToTestPlans
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=add2testplan
+    wait until page contains element  add2testplan
     wait until page contains element  xpath=//*[@id="item_view"]
     select checkbox  xpath=//form/div/div/table/tbody/tr/td/input[@type="checkbox"]
-    click element  name=add2testplan
+    click element  add2testplan
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -788,16 +767,16 @@ Delete Test Case ${NameTestCase}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=delete_tc
-    click element  name=delete_tc
+    wait until page contains element  delete_tc
+    click element  delete_tc
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=do_delete
+    wait until page contains element  do_delete
     wait until page contains element  xpath=//div/p[contains(text(),"Really delete Test Case?")]
     page should contain element  xpath=//div/p[contains(text(),"Really delete Test Case?")]
-    click button  name=do_delete
+    click button  do_delete
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -860,6 +839,7 @@ Click on black arrow
      wait until page contains    ${testSuiteName1}
      click element   xpath=//*[@id="extdd-1"]/img[1]
      unselect frame
+
 Check black arrow
      select frame  mainframe
      #wait until page contains element  treeframe
@@ -873,6 +853,7 @@ Check black arrow
     # wait until page contains    ${testSuiteName1}
      #click element   xpath=//*[@id="extdd-1"]/img[1]
      unselect frame
+
 Check white arrow
      select frame  mainframe
      select frame  treeframe
@@ -885,7 +866,6 @@ Check white arrow
      #wait until page contains    ${testSuiteName1}
      #click element   xpath=//*[@id="extdd-1"]/img[1]
      #page should contain element  xpath=//*[@id="extdd-6"]/span
-
      unselect frame
 
 Create TS ${testSuiteName} ${newTestProjectName}
@@ -901,7 +881,6 @@ Create TC ${testSuiteName} in TS ${testCaseName}
     testSpecificationPage.Click Actions button
     testSpecificationPage.Click new test case
     testSpecificationPage.Fill name for tc: ${testCaseName} and submit
-
 
 Click on the white arrow on the left side of the Test Project
     testSpecificationPage.Navigator tree expands by one branch

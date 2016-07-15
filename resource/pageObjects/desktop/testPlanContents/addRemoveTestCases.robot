@@ -4,20 +4,14 @@ Documentation  A resource file containing the application specific keywords
 ...            that create our own domain specific language. This resource
 ...            implements keywords for testing HTML version of the test
 ...            application.
+
 Library        Selenium2Library
 
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
-
 *** Keywords ***
+
 Check Page Add/Remove TC ${PlatformName}
     select frame  mainframe
     wait until page contains element  workframe
@@ -26,7 +20,6 @@ Check Page Add/Remove TC ${PlatformName}
     wait until page contains element  xpath=//tbody[tr/td[contains(text(),"${PlatformName}")]]
     wait until page contains element  testerID
     unselect frame
-
 
 Assign TC to user ${Username}
     select frame  mainframe

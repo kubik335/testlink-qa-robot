@@ -18,22 +18,11 @@ ${BROWSER}      ff
 
 *** Keywords ***
 
-Login as Admin
-    input text  login  renat.kulalov
-    input text  tl_password  renat123
-
 Open Browser To Login Page
     Open Browser  ${LOGIN URL}  ${BROWSER}
     Maximize Browser Window
     Set Selenium Speed  ${DELAY}
     Title Should Be  TestLink
-
-Go to login page
-    go to  ${LOGIN URL}
-    Title Should Be  TestLink
-
-Submit Credentials
-    Click Button  login_submit
 
 Wait until page contains all elements for login
     wait until page contains element  login
@@ -51,35 +40,6 @@ I am here
     wait until page contains  Lost Password?
     wait until page contains  Home
     wait until page contains  GNU GPL
-
-
-Fill correct Login input
-    clear element text  login
-    input text  login  renat.kulalov
-
-Fill correct Password input
-    clear element text  tl_password
-    input text  tl_password  renat123
-
-
-Fill correct credentials and submit
-   Fill correct Login input
-   Fill correct Password input
-   Click Log in Button
-
-Fill incorrect Login input
-    clear element text  login
-    input text  login  bla
-
-
-Fill incorrect Password input
-    clear element text  tl_password
-    input text  tl_password  bla
-
-Fill incorrect credentials and submit
-    Fill incorrect Login input
-    Fill incorrect Password input
-    Click Log in Button
 
 Fill credentials and submit ${LOGIN} ${PASSWORD}
     Fill Login ${LOGIN}
@@ -102,6 +62,8 @@ Check that warning about empty field appears
                    ...  var imput2 = document.getElementsByName('tl_password'); imput2[0].required = false;
     click button  login_submit
     wait until page contains  Try again! Wrong login name or password!
+
+
 
 
 Check if Login was succesful
