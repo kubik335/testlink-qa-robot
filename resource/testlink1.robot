@@ -4,10 +4,15 @@ Resource  ../resource/pageObjects/loginPage.robot
 Resource  ../resource/pageObjects/desktop/desktopPage.robot
 Resource  ../resource/pageObjects/desktop/headerPage.robot
 Resource  ../resource/pageObjects/desktop/requirementSpecification/requirementSpecification(mainframe).robot
+Resource  ../resource/pageObjects/desktop/requirementSpecification/requirementSpecificationEdit.robot
+Resource  ../resource/pageObjects/desktop/requirementSpecification/assignRequirementsNavigator.robot
 Resource  ../resource/pageObjects/desktop/system/defineCustomFields.robot
 Resource  ../resource/pageObjects/desktop/system/issueTrackerManagement.robot
 Resource  ../resource/pageObjects/desktop/system/editIssueTracker.robot
 Resource  ../resource/pageObjects/desktop/testProject/testProjectManagement.robot
+Resource  ../resource/pageObjects/desktop/testProject/platformManagement.robot
+Resource  ../resource/pageObjects/desktop/testProject/assignCustomFields.robot
+Resource  ../resource/pageObjects/desktop/testProject/testProjectEdit.robot
 Resource  ../resource/pageObjects/desktop/testSpecification/assignKeywords.robot
 Resource  ../resource/pageObjects/desktop/testSpecification/testSpecificationPage.robot
 Resource  ../resource/pageObjects/desktop/testProject/createTestProjectPage.robot
