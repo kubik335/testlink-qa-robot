@@ -26,7 +26,7 @@ I am here
     wait until page contains element  xpath=//img[@title="Test Specification"]
     wait until page contains element  xpath=//img[@title="User Management"]
     wait until page contains element  xpath=//img[@title="Events"]
-    wait until page contains element  name=targetTestCase
+    wait until page contains element  targetTestCase
     wait until page contains element  xpath=//img[@title="Search Test Case by ID"]
     wait until page contains element  xpath=//select[@name="testproject"]
     unselect frame
@@ -40,7 +40,6 @@ I am here in full
     unselect frame
 
 HeaderPage Go to ${link}
-    wait until keyword succeeds  1min  0  headerPage.I am here
     select frame  titlebar
     wait until page contains element  xpath=//img[@title="logo"]
     click element  xpath=//img[@title="logo"]

@@ -14,7 +14,7 @@ I am here
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"View roles")]
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Project roles")]
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Plan roles")]
-    wait until page contains element  div.workBack
+    wait until page contains element  css=div.workBack
     wait until page contains element  doCreate
     wait until page contains element  export
     unselect frame
@@ -25,7 +25,7 @@ Wait until page contains view users content
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"View roles")]
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Project roles")]
     wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Plan roles")]
-    wait until page contains element  div.workBack
+    wait until page contains element  css=div.workBack
     wait until page contains element  doCreate
     wait until page contains element  export
     unselect frame
