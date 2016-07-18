@@ -14,7 +14,6 @@ Suite Setup     Run keywords      Login and Create new Test Project ${newTestPro
 ...             AND               Keywords
 
 Suite Teardown  Run keywords      Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
-...             AND               Delete test project  ${newTestProjectName1}  ${newTestProjectPrefix1}
 ...             AND               Close browser
 
 *** Variables ***
@@ -42,13 +41,15 @@ ${KeywordName}                      keyWord
     HeaderPage Go to ${indexPage}
     Create TP ${newTestProjectName1} ${newTestProjectPrefix1}
     Go to index page and change testproject
+    Delete test project  ${newTestProjectName1}  ${newTestProjectPrefix1}
 
 4 Log in as admin and check layout
-    [Tags]  check
+
     Check header links
     Check desktop links
 
 109 Navigator Tree
+    [Tags]  check
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     Expand tree
     Check Expand tree
