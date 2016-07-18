@@ -36,7 +36,7 @@ ${PASSWORD2}
     Check that warning about empty field appears
 
 96 Change password in MySettings
-    [Tags]  check
+
      Validate settings fields
      Change Password
      Input Data in Settings
