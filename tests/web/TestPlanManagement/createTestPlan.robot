@@ -50,8 +50,8 @@ ${Username}                     renat.kulalov
     Edit And Check Test Plan
 
 59 Assign Roles
-    Assign Roles
-    Check That Roles Were Assigned
+    Assign Roles ${EditTestPlanName}
+    Check That Roles Were Assigned ${EditTestPlanName}
 
 60 Delete Test Plan
     Delete Test Plan Management  ${TestPlanName2}

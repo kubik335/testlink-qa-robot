@@ -64,7 +64,7 @@ ${KeywordName}                      keyword
 90 Test Case Operations
     Preconditions for tc90
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
-    testlink1.Create New Sibling ${testCaseName}
+    Create New Sibling For ${testCaseName}
     Check All Actions Buttons For Test Case ${testCaseName3}
     Add Test Case To the Test Plan ${testCaseName3}
     Execute Test ${testCaseName3}

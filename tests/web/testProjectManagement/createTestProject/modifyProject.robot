@@ -36,7 +36,7 @@ ${testprojectprefix}
     Check Test Project Is Active ${newTestProjectName1}
 
 15 Change Project Availibility
-    desktopHeaderPage.Go to and check ${testProjectManagement} ${testProjectManagement}
+    Go to and check ${testProjectManagement} ${testProjectManagement}
     Click desired project ${newTestProjectName1}
     Unselect Checkbox Availibility Active
     Check Test Project Is Inactive

@@ -66,7 +66,7 @@ Check Assigned Requirements
     wait until page contains element  treeframe
     select frame  treeframe
     wait until page contains element  expand_tree
-    click button  name=expand_tree
+    click button  expand_tree
     wait until page contains  ${newTestProjectPrefix}-1:${title} [1]
     wait until page contains element  xpath=//a[span[contains(text(),"${title} [1]")]]
     double click element  xpath=//a[span[contains(text(),"${title} [1]")]]

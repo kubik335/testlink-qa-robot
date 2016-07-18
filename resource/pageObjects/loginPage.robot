@@ -63,7 +63,10 @@ Check that warning about empty field appears
     click button  login_submit
     wait until page contains  Try again! Wrong login name or password!
 
-
+Login as admin ${LOGIN} ${PASSWORD}
+    loginPage.Open Browser To Login Page
+    wait until keyword succeeds  1min  0  loginPage.Wait until page contains all elements for login
+    Fill credentials and submit ${LOGIN} ${PASSWORD}
 
 
 Check if Login was succesful

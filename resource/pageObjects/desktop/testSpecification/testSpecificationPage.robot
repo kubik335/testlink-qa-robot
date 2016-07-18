@@ -217,7 +217,7 @@ Create Another Test Suite For Move Or Copy
     #wait until page contains element  xpath=//a[span/span[contains(text(),"${testSuiteName}")]]
     #unselect frame
 
-Edit Test Suite
+Edit Test Suite ${suite2}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -251,7 +251,7 @@ Edit Test Suite
     page should contain element  xpath=//p[contains(text(),"Test Suite ${suite2}")][contains(text(),"was successfully")][contains(text(),"updated!")]
     unselect frame
 
-Copy Test Suite
+Copy Test Suite ${suite2}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -303,7 +303,7 @@ Move Test Suite
     click element  do_move
     unselect frame
 
-Check Move And Copy Action
+Check Move And Copy Action ${suite2}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
@@ -526,8 +526,8 @@ Move suite ${from} to suite ${target}
     wait until page contains  ${newTestProjectName}
     wait until page contains  ${from}
     wait until page contains  ${target}
-    wait until page contains  ${newTestProjectPrefix}-1:${tc1}
-    wait until page contains  ${newTestProjectPrefix}-2:${tc2}
+    wait until page contains  ${newTestProjectPrefix}-1:${testCaseName1}
+    wait until page contains  ${newTestProjectPrefix}-2:${testCaseName2}
     #mouse down  xpath=//ul/li/ul/li[contains(.,"${from}")]/div/img[2]
     #mouse over  xpath=//ul/li/ul/li[contains(.,"${target}")]/div/img[2]
     #mouse up  xpath=//ul/li/ul/li[contains(.,"${target}")]/div/img[2]
@@ -632,7 +632,7 @@ Select test case ${testCaseName} node
     double click element  xpath=//ul/li/ul/li/ul/li[contains(.,"${testCaseName}")]/div/a
     unselect frame
 
-Create New Sibling ${testCaseName2}
+Generate new Sibling ${testCaseName2}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -840,32 +840,23 @@ Click on black arrow
      click element   xpath=//*[@id="extdd-1"]/img[1]
      unselect frame
 
-Check black arrow
+Control black arrow
      select frame  mainframe
-     #wait until page contains element  treeframe
      select frame  treeframe
      wait until page contains element  xpath=//*[@id="extdd-1"]/img[1]
      wait until page contains   ${newTestProjectName}
-     #wait until page contains element   xpath=//*[@id="extdd-9"]/span
      page should not contain   ${testSuiteName}
      page should not contain  ${testSuiteName1}
-    # wait until page contains    ${testSuiteName}
-    # wait until page contains    ${testSuiteName1}
-     #click element   xpath=//*[@id="extdd-1"]/img[1]
      unselect frame
 
-Check white arrow
+Control white arrow
      select frame  mainframe
      select frame  treeframe
      wait until page contains element  xpath=//*[@id="extdd-1"]/img[1]
      wait until page contains   ${newTestProjectName}
      page should contain  ${newTestProjectName}
      page should not contain  ${testSuiteName}
-     #wait until page contains    ${testSuiteName}
      page should not contain  ${testSuiteName1}
-     #wait until page contains    ${testSuiteName1}
-     #click element   xpath=//*[@id="extdd-1"]/img[1]
-     #page should contain element  xpath=//*[@id="extdd-6"]/span
      unselect frame
 
 Create TS ${testSuiteName} ${newTestProjectName}
@@ -882,13 +873,13 @@ Create TC ${testSuiteName} in TS ${testCaseName}
     testSpecificationPage.Click new test case
     testSpecificationPage.Fill name for tc: ${testCaseName} and submit
 
-Click on the white arrow on the left side of the Test Project
+Check White Arrow
     testSpecificationPage.Navigator tree expands by one branch
-    testSpecificationPage.Check white arrow
+    testSpecificationPage.Control white arrow
 
-Click on the black arrow on the left side of the Test Project
+Check Black Arrow
     testSpecificationPage.Click on black arrow
-    testSpecificationPage.Check black arrow
+    testSpecificationPage.Control black arrow
 
 Add Test Cases to the Test Plan
     testSpecificationPage.Select test case ${testCaseName2} node and click action button
@@ -911,3 +902,10 @@ Fill informations test case ${testCaseName} and create
     testSpecificationPage.Fill in Summary test case
     testSpecificationPage.Fill in Preconditions test case
     testSpecificationPage.Fill name for tc: ${testCaseName} and submit
+
+Create New Sibling For ${testCaseNameNew}
+    [Tags]  tp90
+    testSpecificationPage.Select test case ${testCaseName2} node
+    testSpecificationPage.Click Actions button
+    testSpecificationPage.Generate new Sibling ${testCaseNameNew}
+    testSpecificationPage.Check New Sibling Was Created

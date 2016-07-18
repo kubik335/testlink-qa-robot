@@ -76,11 +76,6 @@ Submit and check new test project ${newTestProjectName}
     No warning about existing projects
     testProjectManagement.Check new project exists  ${newTestProjectName}
 
-Login as admin ${LOGIN} ${PASSWORD}
-    loginPage.Open Browser To Login Page
-    wait until keyword succeeds  1min  0  loginPage.Wait until page contains all elements for login
-    Fill credentials and submit ${LOGIN} ${PASSWORD}
-
 Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
     Login as admin ${LOGIN} ${PASSWORD}
     loginPage.Check there is no warning about login
@@ -257,13 +252,13 @@ Order By Test Case, Name, Build In Test Plan Management
     desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     testPlanManagement_detail.Order by Name, TC, Build
 
-Assign Roles
+Assign Roles ${TestPlanName}
     [Tags]  tp59
     desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     testPlanManagement_detail.Click Button Assign Roles Test Plan Management  ${TestPlanName}
     assignRolesForTP.Assign Roles for TP
 
-Check That Roles Were Assigned
+Check That Roles Were Assigned ${TestPlanName}
     [Tags]  tp59
     desktopHeaderPage.Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     testPlanManagement_detail.Click Button Assign Roles Test Plan Management  ${TestPlanName}
@@ -329,17 +324,17 @@ Controll Warning Message And Create Test Suite ${testSuiteName} ${testDescriptio
     testSpecificationPage.Controll Warning Message
     testSpecificationPage.Fill In The Fields ${testSuiteName} ${testDescription}
 
-Edit Test Suite ${testSuiteName} Move It Copy It ${suite2}
+Move Copy Edit ${testSuiteName} ${suite2}
     [Tags]  tp81
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     wait until keyword succeeds  1min  0  testSpecificationPage.I am here
     testSpecificationPage.Select test suite ${testSuiteName} node
-    testSpecificationPage.Edit Test Suite
+    testSpecificationPage.Edit Test Suite ${suite2}
     testSpecificationPage.Select test suite ${suite2} node
-    testSpecificationPage.Copy Test Suite
+    testSpecificationPage.Copy Test Suite ${suite2}
     testSpecificationPage.Select test suite ${suite2} node
     testSpecificationPage.Move Test Suite
-    testSpecificationPage.Check Move And Copy Action
+    testSpecificationPage.Check Move And Copy Action ${suite2}
 
 Create Step in test case: ${testCaseName}
     [Tags]  tp86
@@ -380,9 +375,3 @@ Show Execution History ${testCaseName}
     close window
     Select Window  TestLink 1.9.14 (Padawan)
 
-Create New Sibling ${testCaseNameNew}
-    [Tags]  tp90
-    testSpecificationPage.Select test case ${testCaseName2} node
-    testSpecificationPage.Click Actions button
-    testSpecificationPage.Create New Sibling ${testCaseNameNew}
-    testSpecificationPage.Check New Sibling Was Created

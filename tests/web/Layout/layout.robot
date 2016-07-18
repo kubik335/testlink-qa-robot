@@ -46,18 +46,10 @@ ${KeywordName}                      keyWord
 
 109 Navigator Tree
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
-    testSpecificationPage.Expand tree
+    Expand tree
     Check Expand tree
     Collapse tree
     Check Collapse tree
-    testSpecificationPage.Click on the white arrow on the left side of the Test Project
-    testSpecificationPage.Click on the black arrow on the left side of the Test Project
-
-*** Keywords ***
-
-Preconditions for tc109 Navigator Tree
-    Go to index page and change testproject
-    Create test suite ${testSuiteName} in test project ${newTestProjectName}
-    Create test suite ${testSuiteName1} in test project ${newTestProjectName}
-    Create test case ${testCaseName} in ${testSuiteName}
+    Control White Arrow
+    Control Black Arrow
 

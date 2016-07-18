@@ -33,7 +33,7 @@ ${testCaseName2}                    tc82_1
     Check If Test Suite Was Created ${testSuiteName1}
 
 81 Rename Test Suite Easy
-    Edit Test Suite ${testSuiteName1} Move It Copy It ${testSuiteName2}
+    Move Copy Edit ${testSuiteName1} ${testSuiteName2}
 
 82 Drag drop
     Preconditions for tc82
@@ -46,7 +46,7 @@ ${testCaseName2}                    tc82_1
 84 Delete Test Suite
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     wait until keyword succeeds  1min  0  testSpecificationPage.I am here
-    testSpecificationPage.Delete New Test Suite ${testSuiteName1}
+    Delete New Test Suite ${testSuiteName1}
 
 *** Keywords ***
 Preconditions for tc82

@@ -145,7 +145,7 @@ I am here Execute Tests Frame
     wait until page contains element  xpath=//div/form/div/table/tbody/tr/td/div/input[@value="Save and move to next"]
     wait until page contains element  xpath=//div/form/div/table/tbody/tr/td/div/input[@value="Save execution"]
 
-Expand tree
+Expanding tree
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
@@ -154,7 +154,7 @@ Expand tree
     unselect frame
 
 Execute Test Cases
-    executeTestsPage.Expand tree
+    executeTestsPage.Expanding tree
     executeTestsPage.Select test case ${testCaseName} node
     executeTestsPage.Execute Test Case Passed
     executeTestsPage.Click on Save and move to next

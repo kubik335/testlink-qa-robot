@@ -57,5 +57,5 @@ ${buildDescription}             DescriptionOfBuild
 78 Update Linked TC version
     Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
     Update linked TC ${testCaseName} ${testSuiteName} version
-    testlink1.Check TC Version was changed ${testCaseName} ${testSuiteName} in Update Linked TC Version
-    testlink1.Check TC Version was changed ${testCaseName} ${testSuiteName} in Assign TC Execution
+    Check TC Version was changed ${testCaseName} ${testSuiteName} in Update Linked TC Version
+    Check TC Version was changed ${testCaseName} ${testSuiteName} in Assign TC Execution
