@@ -64,36 +64,36 @@ Go to and check ${link} ${check}
     desktopPage.Check link ${check}
 
 Check desktop links
-    desktopHeaderPage.Go to and check ${customFields} ${checkCustomField}
-    desktopHeaderPage.Go to and check ${issueTrackerName} ${checkIssueTracker}
-    desktopHeaderPage.Go to and check ${testProjectManagement} ${testProjectManagement}
-    desktopHeaderPage.Go to and check ${assignUserRoles} ${checkAssignUserRoles}
-    desktopHeaderPage.Go to and check ${assignCustomFields} ${checkAssignCustomFields}
-    desktopHeaderPage.Go to and check ${keywordManagement} ${keywordManagement}
-    desktopHeaderPage.Go to and check ${platformManagement} ${platformManagement}
-    desktopHeaderPage.Go to and check ${requirmSpecification} ${checkRequirmSpecification}
-    desktopHeaderPage.Go to and check ${requirmOverview} ${requirmOverview}
-    desktopHeaderPage.Go to and check ${searchRequirements} ${checkSearchRequirements}
-    desktopHeaderPage.Go to and check ${searchRequirementSpec} ${checkSearchRequirementSpec}
-    desktopHeaderPage.Go to and check ${assignRequirements} ${checkAssignRequirements}
-    desktopHeaderPage.Go to and check ${generateReqSpecDoc} ${checkGenerateReqSpecDoc}
-    desktopHeaderPage.Go to and check ${testSpecification} ${checkTestSpecification}
-    desktopHeaderPage.Go to and check ${searchTestCases} ${searchTestCases}
-    desktopHeaderPage.Go to and check ${assignKeywords} ${checkAssignKeywords}
-    desktopHeaderPage.Go to and check ${testCasesPerUser} ${testCasesPerUser}
-    desktopHeaderPage.Go to and check ${testPlanManagement} ${testPlanManagement}
-    desktopHeaderPage.Go to and check ${buildReleases} ${checkBuildReleases}
-    desktopHeaderPage.Go to and check ${milestoneOverview} ${checkMilestoneOverview}
-    desktopHeaderPage.Go to and check ${executeTests} ${executeTests}
-    desktopHeaderPage.Go to and check ${testCasesAssigned} ${checkTestCasesAssigned}
-    desktopHeaderPage.Go to and check ${testReportsMetrics} ${checkTestReportsMetrics}
-    desktopHeaderPage.Go to and check ${metricsDashboard} ${checkMetricsDashboard}
-    desktopHeaderPage.Go to and check ${addRemovePlatforms} ${addRemovePlatforms}
-    desktopHeaderPage.Go to and check ${addRemoveTestCases} ${checkAddRemoveTestCases}
-    desktopHeaderPage.Go to and check ${assignTCExecution} ${assignTCExecution}
-    desktopHeaderPage.Go to and check ${setUrgentTests} ${setUrgentTests}
-    desktopHeaderPage.Go to and check ${updateTCVersion} ${updateTCVersion}
-    desktopHeaderPage.Go to and check ${showTCVersion} ${checkShowTCVersion}
+    Go to and check ${customFields} ${checkCustomField}
+    Go to and check ${issueTrackerName} ${checkIssueTracker}
+    Go to and check ${testProjectManagement} ${testProjectManagement}
+    Go to and check ${assignUserRoles} ${checkAssignUserRoles}
+    Go to and check ${assignCustomFields} ${checkAssignCustomFields}
+    Go to and check ${keywordManagement} ${keywordManagement}
+    Go to and check ${platformManagement} ${platformManagement}
+    Go to and check ${requirmSpecification} ${checkRequirmSpecification}
+    Go to and check ${requirmOverview} ${requirmOverview}
+    Go to and check ${searchRequirements} ${checkSearchRequirements}
+    Go to and check ${searchRequirementSpec} ${checkSearchRequirementSpec}
+    Go to and check ${assignRequirements} ${checkAssignRequirements}
+    Go to and check ${generateReqSpecDoc} ${checkGenerateReqSpecDoc}
+    Go to and check ${testSpecification} ${checkTestSpecification}
+    Go to and check ${searchTestCases} ${searchTestCases}
+    Go to and check ${assignKeywords} ${checkAssignKeywords}
+    Go to and check ${testCasesPerUser} ${testCasesPerUser}
+    Go to and check ${testPlanManagement} ${testPlanManagement}
+    Go to and check ${buildReleases} ${checkBuildReleases}
+    Go to and check ${milestoneOverview} ${checkMilestoneOverview}
+    Go to and check ${executeTests} ${executeTests}
+    Go to and check ${testCasesAssigned} ${checkTestCasesAssigned}
+    Go to and check ${testReportsMetrics} ${checkTestReportsMetrics}
+    Go to and check ${metricsDashboard} ${checkMetricsDashboard}
+    Go to and check ${addRemovePlatforms} ${addRemovePlatforms}
+    Go to and check ${addRemoveTestCases} ${checkAddRemoveTestCases}
+    Go to and check ${assignTCExecution} ${assignTCExecution}
+    Go to and check ${setUrgentTests} ${setUrgentTests}
+    Go to and check ${updateTCVersion} ${updateTCVersion}
+    Go to and check ${showTCVersion} ${checkShowTCVersion}
 
 Change Test Project and go to ${link} ${check}
     Go to index page and change testproject

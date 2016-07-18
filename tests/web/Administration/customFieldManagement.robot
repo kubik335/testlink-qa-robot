@@ -6,8 +6,7 @@ Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 
 Suite Setup                       Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
-Suite Teardown  Run keywords      Delete Custom Field ${NEWCFNAME}
-...             AND               Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+Suite Teardown  Run keywords      Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND               Close browser
 
 *** Variables ***
@@ -25,11 +24,12 @@ ${newTestProjectDescription}        Test suite customFieldManagement: tp105, tp 
 
 *** Test Cases ***
 
-105 Create new Custom Field
+105 Create new Custom Field]
+    [Tags]  check
     Start creating Define Custom Fields
 
 106 Create edit and delete new Custom Field
     Edit information Custom Field and Check New Custom Field
-
+    Delete Custom Field ${NEWCFNAME}
 
 
