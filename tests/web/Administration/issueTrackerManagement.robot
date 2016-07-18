@@ -7,7 +7,6 @@ Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 Suite Setup     Run keywords        Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
 Suite Teardown  Run keywords        Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
-...             AND                 Delete all created issue trackers
 ...             AND                 Close browser
 
 *** Variables ***
@@ -52,14 +51,17 @@ ${CONFIGURATION}  <!-- Template bugzillaxmlrpcInterface -->
 *** Test Cases ***
 
 108 Edit Issue Tracker
+
     Create Issue Tracker
     Click created Issue Tracker with name ${ISSUETRACKER}
     Modify name and type of Issue Tracker
 
 14 Issue Tracker Management
+    [Tags]  check
     Change Test Project and go to ${testProjectManagement} ${testProjectManagement}
     Add Issue Tracker ${ISSUETRACKER} to test project
     Save test project and check Issue Tracker has been added
 
 107 Issue Tracker Management
     Create all possible types of Issue Tracker and check it
+    Delete all created issue trackers

@@ -24,11 +24,14 @@ ${newTestProjectDescription}        Test suite customFieldManagement: tp105, tp 
 
 *** Test Cases ***
 
-105 Create new Custom Field]
-    [Tags]  check
+105 Create new Custom Field
+
     Start creating Define Custom Fields
+    Delete Custom Field ${CFNAME}
 
 106 Create edit and delete new Custom Field
+
+    Start creating Define Custom Fields
     Edit information Custom Field and Check New Custom Field
     Delete Custom Field ${NEWCFNAME}
 
