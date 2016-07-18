@@ -3,7 +3,7 @@ Documentation  Test Suite with several Test Cases that controls editing of exist
 ...            checking validation of setting the project active or inactive, whereas another one is used for
 ...            changing the test project availibility.
 
-Resource       ../../../../resource/testlink1.robot
+Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
 
 Suite Setup  Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 

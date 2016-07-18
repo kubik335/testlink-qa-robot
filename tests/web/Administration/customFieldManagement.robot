@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation  This test suite is used to check deleting and editing of Custom Fields in TestLink.
 
-Resource       ../../../resource/testlink1.robot
+Resource       ../../../resource/helper/desktopHeaderSystem.robot
+Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 
 Suite Setup                       Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 

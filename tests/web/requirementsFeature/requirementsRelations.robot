@@ -2,7 +2,7 @@
 Documentation  Test Suite with several Test Cases that checks creating a relation between requirement and test case
 ...            and assigning/unassigning any available requirement for test cases.
 
-Resource    ../../../resource/testlink1.robot
+Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 
 Suite Setup  Run keywords       Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 

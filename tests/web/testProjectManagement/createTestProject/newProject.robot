@@ -8,7 +8,7 @@ Documentation  Test Suite with several Test Cases for creating a test project in
 ...            There is also a test case for creating test project and unchecking checkboxes,
 ...            such as "Enhanced features", "Issue Tracker Management", "Availability".
 
-Resource       ../../../../resource/testlink1.robot
+Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
 
 Test Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND            Close browser

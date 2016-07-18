@@ -68,7 +68,6 @@ Login as admin ${LOGIN} ${PASSWORD}
     wait until keyword succeeds  1min  0  loginPage.Wait until page contains all elements for login
     Fill credentials and submit ${LOGIN} ${PASSWORD}
 
-
 Check if Login was succesful
     Title Should Be  TestLink 1.9.14 (Padawan)
 

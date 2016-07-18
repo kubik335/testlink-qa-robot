@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation  This test suite controls creating and editing of Issue Tarcker.
 
-Resource       ../../../resource/testlink1.robot
+Resource       ../../../resource/helper/desktopHeaderSystem.robot
+Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 
 Suite Setup     Run keywords        Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 

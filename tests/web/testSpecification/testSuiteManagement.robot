@@ -4,7 +4,8 @@ Documentation  Test Suite with several Test Cases, that are used to control crea
 ...            and detail information, renaming it and  deleting. Another test case controls moving function
 ...            of EMPTY and NOT EMPTY test suites via DRAG & DROP.
 
-Resource       ../../../resource/testlink1.robot
+Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
+Resource       ../../../resource/helper/desktopHeaderTestSpecification.robot
 
 Suite Setup  Run keywords       Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 

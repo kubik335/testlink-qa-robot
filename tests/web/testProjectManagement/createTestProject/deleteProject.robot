@@ -4,7 +4,11 @@ Documentation  Test Suite with several Test Cases that checks deleting project w
 ...            BUT NOT ASSIGNED TO ANY TEST PLANS, deleting test projects that has: custom fields, keywords, platform
 ...            defined an assigned to test plans and test cases with custom fields.
 
-Resource       ../../../../resource/testlink1.robot
+Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
+Resource       ../../../../resource/helper/desktopHeaderTestPlan.robot
+Resource       ../../../../resource/helper/desktopHeaderSystem.robot
+Resource       ../../../../resource/helper/desktopHeaderTestPlanContent.robot
+Resource       ../../../../resource/helper/desktopHeaderTestSpecification.robot
 
 Test Setup  Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 

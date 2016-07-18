@@ -34,20 +34,6 @@ Set Personal data back to normal
     wait until page contains  Personal data changed
     unselect frame
 
-#First Name Empty
-    #clear element text  firstName
-
-#Check Page
-    #select frame  mainframe
-    #wait until page contains  Personal data
-    #wait until page contains  Personal password
-
-#Email Adress Empty
-    #clear element text  emailAddress
-
-#Last Name Empty
-    #clear element text  lastName
-
 Check Email field must be filled
     execute javascript  var imput = document.getElementsByName('emailAddress'); imput[0].required = false;
     click button  Save

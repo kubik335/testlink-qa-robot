@@ -4,7 +4,8 @@ Documentation  This Test Suite with several Test Cases is used for creating buil
 ...            and that could not generate error/conflicts while creating. Another Test Cases creates build from another
 ...            existing build(No conflicts). Also there is a Test Case, that controls editing mode for Build.
 
-Resource    ../../../resource/testlink1.robot
+Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
+Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
 
 Suite Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND          Go to index page and change testproject

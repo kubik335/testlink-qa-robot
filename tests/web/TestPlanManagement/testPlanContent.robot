@@ -3,7 +3,10 @@
 Documentation   This is a test suite with several test cases, which controls assigning test case execution to certain user
 ...             and updating linked test case version to current test plan.
 
-Resource    ../../../resource/testlink1.robot
+Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
+Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
+Resource       ../../../resource/helper/desktopHeaderTestSpecification.robot
+Resource       ../../../resource/helper/desktopHeaderTestPlanContent.robot
 
 Suite Setup   Run keywords  Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND         Go to index page and change testproject

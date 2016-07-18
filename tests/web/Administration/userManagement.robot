@@ -5,7 +5,8 @@ Documentation  Test Suite controls assigning roles to existing users, editing of
 ...            Due to this fact tp100 is commented and will be used by testers if only needed.
 
 
-Resource       ../../../resource/testlink1.robot
+Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
+Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
 
 
 Suite Setup  Run keywords        Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}

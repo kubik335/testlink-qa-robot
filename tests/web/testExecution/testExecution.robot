@@ -3,7 +3,9 @@
 Documentation  Test suite with a single test case, that checks
 ...            execution of test.
 
-Resource       ../../../resource/testlink1.robot
+Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
+Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
+Resource       ../../../resource/helper/desktopHeaderTestSpecification.robot
 
 Test Setup  Run keywords            Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 

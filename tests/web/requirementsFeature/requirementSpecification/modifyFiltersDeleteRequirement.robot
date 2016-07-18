@@ -2,9 +2,9 @@
 Documentation  Test Suite with one Test Case for modifying requirement, selecting existing requirements and
 ...            checkin any changes made with versions of the requirement.
 
-Resource  ../../../../resource/testlink1.robot
+Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
 
-Suite Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+Suite Setup    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
 Suite Teardown  Run keywords     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND              Close browser

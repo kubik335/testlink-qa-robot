@@ -3,10 +3,7 @@ Documentation  Test case 97 is checking correct/incorrect logging to the testlab
 ...            Test case 96 is for editing MySettings(account settings).
 ...            Test case verifies the correct inputing of information to the fields.
 
-
-
-Resource       ../../../resource/testlink1.robot
-
+Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 
 Test Setup  Run keywords           Login as admin ${LOGIN} ${PASSWORD}
 

@@ -2,9 +2,10 @@
 Documentation  Test Suite with Test Cases that controls creating of new requirement specification, editing this
 ...            requirement and creating test case related to the reauirement operation.
 
-Resource  ../../../../resource/testlink1.robot
+Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
+Resource       ../../../../resource/helper/desktopHeaderTestSpecification.robot
 
-Suite Setup         Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+Suite Setup  Run keywords   Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
 Suite Teardown  Run keywords     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND              Close browser
