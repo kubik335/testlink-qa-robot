@@ -38,12 +38,13 @@ ${KeywordName}                      keyWord
 *** Test Cases ***
 
 5 Validation of changing the Test Project
-    [Tags]  check
+
     HeaderPage Go to ${indexPage}
     Create TP ${newTestProjectName1} ${newTestProjectPrefix1}
     Go to index page and change testproject
 
 4 Log in as admin and check layout
+    [Tags]  check
     Check header links
     Check desktop links
 
