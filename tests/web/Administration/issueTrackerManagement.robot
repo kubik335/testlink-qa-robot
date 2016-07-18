@@ -57,11 +57,12 @@ ${CONFIGURATION}  <!-- Template bugzillaxmlrpcInterface -->
     Modify name and type of Issue Tracker
 
 14 Issue Tracker Management
-    [Tags]  check
+
     Change Test Project and go to ${testProjectManagement} ${testProjectManagement}
     Add Issue Tracker ${ISSUETRACKER} to test project
     Save test project and check Issue Tracker has been added
 
 107 Issue Tracker Management
+    [Tags]  check
     Create all possible types of Issue Tracker and check it
     Delete all created issue trackers
