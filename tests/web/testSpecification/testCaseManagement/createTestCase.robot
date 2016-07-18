@@ -7,7 +7,7 @@ Documentation  This Test Suite with Test Cases is used to control creating a tes
 
 Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
 Resource       ../../../../resource/helper/desktopHeaderTestPlan.robot
-Resource       ../../../../resource/helper/desktopHeaderTestSpecification.robot
+Resource       ../../../../resource/helper/desktopHeadertestSpecification.robot
 
 Suite Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND          Create New Test Plan ${TestPlanName}

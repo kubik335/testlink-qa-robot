@@ -5,7 +5,7 @@ Documentation  Test suite with a single test case, that checks
 
 Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
-Resource       ../../../resource/helper/desktopHeaderTestSpecification.robot
+Resource       ../../../resource/helper/desktopHeadertestSpecification.robot
 
 Test Setup  Run keywords            Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 

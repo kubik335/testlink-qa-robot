@@ -7,7 +7,7 @@ Documentation  The test suite with several test cases for checking basic functio
 
 Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
-Resource       ../../../resource/helper/desktopHeaderTestSpecification.robot
+Resource       ../../../resource/helper/desktopHeadertestSpecification.robot
 
 Suite Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND          Go to index page and change testproject

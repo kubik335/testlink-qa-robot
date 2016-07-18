@@ -8,7 +8,7 @@ Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robo
 Resource       ../../../../resource/helper/desktopHeaderTestPlan.robot
 Resource       ../../../../resource/helper/desktopHeaderSystem.robot
 Resource       ../../../../resource/helper/desktopHeaderTestPlanContent.robot
-Resource       ../../../../resource/helper/desktopHeaderTestSpecification.robot
+Resource       ../../../../resource/helper/desktopHeadertestSpecification.robot
 
 Test Setup  Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
