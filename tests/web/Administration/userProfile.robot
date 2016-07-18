@@ -29,12 +29,14 @@ ${PASSWORD2}
 *** Test Cases ***
 
 97 Login
+
     Login as admin ${LOGIN1} ${PASSWORD1}
     Check there is a warning about login
     Login as admin ${LOGIN2} ${PASSWORD2}
     Check that warning about empty field appears
 
 96 Change password in MySettings
+    [Tags]  check
      Validate settings fields
      Change Password
      Input Data in Settings

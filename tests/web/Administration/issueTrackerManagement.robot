@@ -63,6 +63,6 @@ ${CONFIGURATION}  <!-- Template bugzillaxmlrpcInterface -->
     Save test project and check Issue Tracker has been added
 
 107 Issue Tracker Management
-    [Tags]  check
+
     Create all possible types of Issue Tracker and check it
     Delete all created issue trackers

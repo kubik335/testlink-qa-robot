@@ -43,10 +43,12 @@ ${TestPlanDescription}              Description
     #Check that user exists
 
 101 Edit user test case
+
     Start editing user
     Edit user
 
 102 Assign Test Project and Test Plan roles
+
     HeaderPage Go to ${userManagement}
     Click bookmark Assign Test Project roles
     Change user role in test project
