@@ -31,7 +31,7 @@ Create Test Suite
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Fill in the fields and create test suite
 
-Keywords
+Keywords ${testCaseName}
     [Tags]  89
     Change Test Project and go to ${keywordManagement} ${keywordManagement}
     assignKeywords.Create Keyword
@@ -72,11 +72,11 @@ Move Copy Edit ${testSuiteName} ${suite2}
     [Tags]  tp81
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     wait until keyword succeeds  1min  0  testSpecificationPage.I am here
-    testSpecificationPage.Select test suite ${testSuiteName} node
+    testSpecificationPage.Test Suite ${testSuiteName} select node
     testSpecificationPage.Edit Test Suite ${suite2}
-    testSpecificationPage.Select test suite ${suite2} node
+    testSpecificationPage.Test Suite ${suite2} select node
     testSpecificationPage.Copy Test Suite ${suite2}
-    testSpecificationPage.Select test suite ${suite2} node
+    testSpecificationPage.Test Suite ${suite2} select node
     testSpecificationPage.Move Test Suite
     testSpecificationPage.Check Move And Copy Action ${suite2}
 

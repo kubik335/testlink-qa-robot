@@ -11,7 +11,7 @@ Suite Setup     Run keywords      Login and Create new Test Project ${newTestPro
 ...             AND               Create test suite ${testSuiteName} in test project ${newTestProjectName}
 ...             AND               Create test suite ${testSuiteName1} in test project ${newTestProjectName}
 ...             AND               Create test case ${testCaseName} in ${testSuiteName}
-...             AND               Keywords
+...             AND               Keywords ${testCaseName}
 
 Suite Teardown  Run keywords      Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND               Close browser

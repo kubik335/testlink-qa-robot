@@ -353,7 +353,7 @@ Fill name for ts: ${testSuiteName} and submit
     wait until page contains  Test Suite created
     unselect frame
 
-Select test suite ${testSuiteName} node
+Test Suite ${testSuiteName} select node
     testSpecificationPage.Expand tree
     select frame  mainframe
     wait until page contains element  treeframe
@@ -518,9 +518,9 @@ Fill in title test case name ${testCaseName}
     unselect frame
 
 Fill in Summary test case
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains element  workframe
-    select frame  name=workframe
+    select frame  workframe
     wait until page contains  Summary
     wait until page contains element  xpath=//*[@id="cke_contents_summary"]/iframe
     mouse down  xpath=//*[@id="cke_contents_summary"]/iframe
@@ -532,7 +532,7 @@ Fill in Summary test case
 Fill in Preconditions test case
     select frame  mainframe
     wait until page contains element  workframe
-    select frame  name=workframe
+    select frame  workframe
     wait until page contains  Preconditions
     wait until page contains element  xpath=//*[@id="cke_contents_preconditions"]/iframe
     mouse down  xpath=//*[@id="cke_contents_preconditions"]/iframe
@@ -774,7 +774,7 @@ Create TS ${testSuiteName} ${newTestProjectName}
 
 Create TC ${testSuiteName} in TS ${testCaseName}
     testSpecificationPage.I am here
-    testSpecificationPage.Select test suite ${testSuiteName} node
+    testSpecificationPage.Test Suite ${testSuiteName} select node
     testSpecificationPage.Click Actions button
     testSpecificationPage.Click new test case
     testSpecificationPage.Fill name for tc: ${testCaseName} and submit
@@ -809,7 +809,7 @@ Fill informations test case ${testCaseName} and create
     testSpecificationPage.Fill in Preconditions test case
     testSpecificationPage.Fill name for tc: ${testCaseName} and submit
 
-Create New Sibling For ${testCaseNameNew}
+Create New Sibling ${testCaseNameNew} For ${testCaseName2}
     [Tags]  tp90
     testSpecificationPage.Select test case ${testCaseName2} node
     testSpecificationPage.Click Actions button

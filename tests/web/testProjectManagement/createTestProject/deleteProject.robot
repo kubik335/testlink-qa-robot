@@ -82,6 +82,6 @@ Preconditions for tc20
     Create test case ${testCaseName} in ${testSuiteName}
     Create New Version Of TC
     Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
-    Keywords
+    Keywords ${testCaseName}
     Start creating Define Custom Fields
     Change Test Project and go to ${assignCustomFields} ${checkAssignCustomFields}

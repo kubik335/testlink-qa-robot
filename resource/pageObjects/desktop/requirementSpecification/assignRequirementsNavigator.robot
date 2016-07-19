@@ -99,11 +99,11 @@ Check Availiable Requirements
     wait until page contains element  workframe
     select frame  workframe
     wait until page contains  Available Requirements
-    wait until page does not contain element  xpath=//*[@id="div_assigned_req"]/table
-    unselect frame
-    select frame  mainframe
-    wait until page contains element  workframe
-    select frame  workframe
+    #wait until page does not contain element  xpath=//*[@id="div_assigned_req"]/table
+    #unselect frame
+    #select frame  mainframe
+    #wait until page contains element  workframe
+    #select frame  workframe
     wait until page contains element  div_free_req
-    page should contain element  div_free_req
+    #page should contain element  div_free_req
     unselect frame
