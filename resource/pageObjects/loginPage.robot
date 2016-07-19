@@ -14,7 +14,9 @@ ${ERROR URL}            http://${SERVER}/login.php
 ${BROWSER}              ff
 ${elementLogin}         login
 ${loginSubmit}          login_submit
-
+${indexPage}            xpath=//img[@title="logo"]
+${elementPassword}      tl_password
+${css}                  css=div.messages_rounded
 
 
 *** Keywords ***
@@ -27,16 +29,16 @@ Open Browser To Login Page
 
 Wait until page contains all elements for login
     wait until page contains element  ${elementLogin}
-    wait until page contains element  tl_password
-    wait until page contains element  login_submit
-    wait until page contains element  css=div.messages_rounded
+    wait until page contains element  ${elementPassword}
+    wait until page contains element  ${loginSubmit}
+    wait until page contains element  ${css}
 
 I am here
-    wait until page contains element  xpath=//img[@alt="Company logo"]
+    wait until page contains element  ${indexPage}
     wait until page contains element  ${elementLogin}
-    wait until page contains element  tl_password
-    wait until page contains element  login_submit
-    wait until page contains element  css=div.messages_rounded
+    wait until page contains element  ${elementPassword}
+    wait until page contains element  ${loginSubmit}
+    wait until page contains element  ${css}
     wait until page contains  New User?
     wait until page contains  Lost Password?
     wait until page contains  Home
@@ -52,22 +54,26 @@ Fill Login ${LOGIN}
     input text  ${elementLogin}  ${LOGIN}
 
 Fill Password ${PASSWORD}
-    clear element text  tl_password
-    input text  tl_password  ${PASSWORD}
+    clear element text  ${elementPassword}
+    input text  ${elementPassword}  ${PASSWORD}
 
 Click Log in Button
-    Click Button  login_submit
+    Click Button  ${loginSubmit}
 
 Check that warning about empty field appears
     execute javascript  #var imput = document.getElementsByName('tl_login'); imput[0].required = false;
                    ...  var imput2 = document.getElementsByName('tl_password'); imput2[0].required = false;
-    click button  login_submit
+    click button  ${loginSubmit}
     wait until page contains  Try again! Wrong login name or password!
+
+
 
 Login as admin ${LOGIN} ${PASSWORD}
     loginPage.Open Browser To Login Page
     wait until keyword succeeds  1min  0  loginPage.Wait until page contains all elements for login
     Fill credentials and submit ${LOGIN} ${PASSWORD}
+
+
 
 Check if Login was succesful
     Title Should Be  TestLink 1.9.14 (Padawan)

@@ -26,12 +26,14 @@ ${newTestProjectDescription}    Description of new test project
 *** Test Cases ***
 
 7 Create new Test Project with template off
+
     Login as admin ${LOGIN} ${PASSWORD}
     Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
     Fill information to create test with template OFF
     Submit and check new test project ${newTestProjectName}
 
 8 Create new Test Project with template ON
+
     Preconditions for tc8
     Login as admin ${LOGIN} ${PASSWORD}
     Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
@@ -40,9 +42,11 @@ ${newTestProjectDescription}    Description of new test project
     Delete test project  ${newTestProjectName1}  ${newTestProjectPrefix1}
 
 9 Create new Test Project with no conflict
+
     Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
 11 Create new Test Project with enhanced features
+
     Login as admin ${LOGIN} ${PASSWORD}
     Start creating new test project without conflict ${newTestProjectName} ${newTestProjectPrefix}
     Fill information to create test (enchanced feautures)

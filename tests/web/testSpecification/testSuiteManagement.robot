@@ -30,6 +30,7 @@ ${testCaseName2}                    tc82_1
 *** Test Cases ***
 
 80 Create Test Suite Easy
+    [Tags]  check
     Controll Warning Message And Create Test Suite ${testSuiteName1} ${suiteDescription}
     Check If Test Suite Was Created ${testSuiteName1}
 

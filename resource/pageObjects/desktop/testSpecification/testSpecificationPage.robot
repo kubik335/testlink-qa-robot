@@ -645,7 +645,7 @@ Click On Add To Test Plans ${TestPlanName}
     select frame  workframe
     wait until page contains element  add2testplan
     wait until page contains element  xpath=//*[@id="item_view"]
-    select checkbox  xpath=//form/div/div/table/tbody/tr/td/input[@type="checkbox"]
+    select checkbox  xpath=//tr[td[contains(.,"${TestPlanName}")]]//td/input
     click element  add2testplan
     unselect frame
     select frame  mainframe

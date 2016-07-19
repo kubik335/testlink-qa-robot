@@ -7,7 +7,7 @@ Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robo
 
 Suite Setup  Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
-Suite Teardown  Run keywords     Delete Test Project  ${newTestProjectName1}  ${newTestProjectPrefix1}
+Suite Teardown  Run keywords     Delete Test Project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND              Close browser
 
 *** Variables ***
@@ -18,10 +18,6 @@ ${newTestProjectName}           modifyProject
 ${newTestProjectPrefix}         modifyProject
 ${newTestProjectName1}          modifyProject1
 ${newTestProjectPrefix1}        modifyProject1
-${newTestProjectName2}          modifyProject2
-${newTestProjectPrefix2}        modifyProject2
-${newTestProjectName3}          modifyProject3
-${newTestProjectPrefix3}        modifyProject3
 ${testprojectname}
 ${testprojectprefix}
 
@@ -30,29 +26,30 @@ ${testprojectprefix}
 12 Rename test project
 
     Change Test Project and go to ${testProjectManagement} ${testProjectManagement}
-    Wait Until Page Contains TP and Click It
+    Wait Until Page Contains TP and Click It ${newTestProjectName}
     Leave empty TP name and prefix
     Fill and Valid ${newTestProjectName1} ${newTestProjectPrefix1}
+    Postcondition for tc12
 
 13 Set Test Project INACTIVE
-    [Tags]  check
-    Preconditions for tc13
-    Click desired project ${newTestProjectName2}
+
+    Click desired project ${newTestProjectName}
     Unselect Checkbox Availibility Active
-    Unactive Test Project by Bulb ${newTestProjectName2}
-    Check Test Project Is Active ${newTestProjectName2}
+    Unactive Test Project by Bulb ${newTestProjectName}
+    Check Test Project Is Active ${newTestProjectName}
+
 
 15 Change Project Availibility
-    Preconditions for tc15
+
     Go to and check ${testProjectManagement} ${testProjectManagement}
-    Click desired project ${newTestProjectName3}
+    Click desired project ${newTestProjectName}
     Unselect Checkbox Availibility Active
-    Check Test Project Is Inactive ${newTestProjectName3}
+    Check Test Project Is Inactive ${newTestProjectName}
+
 
 *** Keywords ***
 
-Preconditions for tc13
-    Login and Create new Test Project ${newTestProjectName2} ${newTestProjectPrefix2}
-
-Preconditions for tc15
-    Login and Create new Test Project ${newTestProjectName3} ${newTestProjectPrefix3}
+Postcondition for tc12
+    Go to and check ${testProjectManagement} ${testProjectManagement}
+    Wait Until Page Contains TP and Click It ${newTestProjectName1}
+    Fill and Valid ${newTestProjectName} ${newTestProjectPrefix}
