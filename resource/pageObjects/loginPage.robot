@@ -6,13 +6,14 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${SERVER}        testlab.tesena.com/testlink
-${DELAY}         0
-${LOGIN URL}     http://${SERVER}/login.php
-${WELCOME URL}   http://${SERVER}/index.php?caller=login
-${ERROR URL}     http://${SERVER}/login.php
-${BROWSER}      ff
-
+${SERVER}               testlab.tesena.com/testlink
+${DELAY}                0
+${LOGIN URL}            http://${SERVER}/login.php
+${WELCOME URL}          http://${SERVER}/index.php?caller=login
+${ERROR URL}            http://${SERVER}/login.php
+${BROWSER}              ff
+${elementLogin}         login
+${loginSubmit}          login_submit
 
 
 
@@ -25,14 +26,14 @@ Open Browser To Login Page
     Title Should Be  TestLink
 
 Wait until page contains all elements for login
-    wait until page contains element  login
+    wait until page contains element  ${elementLogin}
     wait until page contains element  tl_password
     wait until page contains element  login_submit
     wait until page contains element  css=div.messages_rounded
 
 I am here
     wait until page contains element  xpath=//img[@alt="Company logo"]
-    wait until page contains element  login
+    wait until page contains element  ${elementLogin}
     wait until page contains element  tl_password
     wait until page contains element  login_submit
     wait until page contains element  css=div.messages_rounded
@@ -47,8 +48,8 @@ Fill credentials and submit ${LOGIN} ${PASSWORD}
     Click Log in Button
 
 Fill Login ${LOGIN}
-    clear element text  login
-    input text  login  ${LOGIN}
+    clear element text  ${elementLogin}
+    input text  ${elementLogin}  ${LOGIN}
 
 Fill Password ${PASSWORD}
     clear element text  tl_password
@@ -76,18 +77,3 @@ Check there is no warning about login
 
 Check there is a warning about login
     page should contain  Try again! Wrong login name or password!
-
-Click New user?
-    click link  New User?
-
-Click Lost Password?
-    click link  Lost Password?
-
-Click Home of TestLink project
-    click link  Home
-
-Click License of Testlink
-    click link  GNU GPL
-
-Close the browser
-    close browser

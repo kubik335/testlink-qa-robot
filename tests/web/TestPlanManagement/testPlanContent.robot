@@ -5,8 +5,8 @@ Documentation   This is a test suite with several test cases, which controls ass
 
 Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
-Resource       ../../../resource/helper/desktopHeadertestSpecification.robot
-Resource       ../../../resource/helper/desktopHeaderTestPlanContent.robot
+Resource       ../../../resource/helper/desktopHeaderPlanContent.robot
+Resource       ../../../resource/helper/desktopHeaderSpecification.robot
 
 Suite Setup   Run keywords  Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND         Go to index page and change testproject

@@ -5,7 +5,7 @@ Documentation  Test Suite with several Test Cases, that are used to control crea
 ...            of EMPTY and NOT EMPTY test suites via DRAG & DROP.
 
 Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
-Resource       ../../../resource/helper/desktopHeadertestSpecification.robot
+Resource       ../../../resource/helper/desktopHeaderSpecification.robot
 
 Suite Setup  Run keywords       Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 

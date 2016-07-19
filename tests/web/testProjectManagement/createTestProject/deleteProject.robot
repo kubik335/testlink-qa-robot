@@ -7,8 +7,8 @@ Documentation  Test Suite with several Test Cases that checks deleting project w
 Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
 Resource       ../../../../resource/helper/desktopHeaderTestPlan.robot
 Resource       ../../../../resource/helper/desktopHeaderSystem.robot
-Resource       ../../../../resource/helper/desktopHeaderTestPlanContent.robot
-Resource       ../../../../resource/helper/desktopHeaderTestSpecification.robot
+Resource       ../../../../resource/helper/desktopHeaderPlanContent.robot
+Resource       ../../../../resource/helper/desktopHeaderSpecification.robot
 
 Test Setup  Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
@@ -36,21 +36,25 @@ ${testCaseName}                 tc20
 *** Test Cases ***
 
 17 Delete Test Project
+
     Delete empty test project
     Check that test has been deleted
 
 18 Delete Test Project Without Platforms
+
     Change Test Project and go to ${platformManagement} ${platformManagement}
     Check Platform Management Without Platforms
     Change Test Project and go to ${testProjectManagement} ${testProjectManagement}
     Delete empty test project
 
 19 Delete Test Project No Platfroms Assigned
+
     Preconditions for tc19
     Check There Is No Platforms Assigned
     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 
 20 Delete test project WORST CASE
+
     Preconditions for tc20
     Assign Custom Fields
     Check Custom Field Was Assigned

@@ -30,10 +30,15 @@ Delete all created issue trackers
     Go to and check ${issueTrackerName} ${checkIssueTracker}
     issueTrackerManagement.Delete Issue trackers
 
-Create Issue Tracker
+Delete created ${ISSUETRACKER}
+    [Tags]  tp107, tp108
+    Go to and check ${issueTrackerName} ${checkIssueTracker}
+    issueTrackerManagement.${ISSUETRACKER} Delete
+
+Create Issue Tracker ${ISSUETRACKER}
     [Tags]  tp108
     Change Test Project and go to ${issueTrackerName} ${checkIssueTracker}
-    issueTrackerManagement.Create IT
+    issueTrackerManagement.Create IT ${ISSUETRACKER}
     HeaderPage Go to ${indexPage}
 
 Click created Issue Tracker with name ${ISSUETRACKER}

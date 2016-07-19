@@ -3,7 +3,7 @@ Documentation  Test Suite with Test Cases that controls creating of new requirem
 ...            requirement and creating test case related to the reauirement operation.
 
 Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
-Resource       ../../../../resource/helper/desktopHeaderTestSpecification.robot
+Resource       ../../../../resource/helper/desktopHeaderSpecification.robot
 
 Suite Setup  Run keywords   Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 

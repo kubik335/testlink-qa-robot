@@ -4,9 +4,9 @@ Documentation  Test Suite with several Test Cases that checks creating a relatio
 
 Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 
-Suite Setup  Run keywords       Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
+Test Setup  Run keywords       Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
-Suite Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+Test Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND             Close browser
 *** Variables ***
 
@@ -34,10 +34,22 @@ ${title1}                       newtitle48
     Check Assigned Requirements ${title}
 
 48 Relations between requirements and test cases
-
+    Preconditions for tc48
     Change Test Project and go to ${assignRequirements} ${checkAssignRequirements}
-    Select Test Suite ${title}
-    Check Assigned Requirements ${title}
-    Unassign Requirements ${title}
+    Select Test Suite ${title1}
+    Check Assigned Requirements ${title1}
+    Unassign Requirements ${title1}
     Check Availiable Requirements
 
+*** Keywords ***
+
+Preconditions for tc48
+    Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
+    Create New Requirement Specification (type URS) ${dokumentID1} ${title1}
+    Choose Requirement Specification ${dokumentID1} ${title1}
+    Create Requirement Operations ${dokumentID1} ${title1}
+    Create Test Case From Requirement ${dokumentID1} ${title1}
+    Change Test Project and go to ${assignRequirements} ${checkAssignRequirements}
+    Select Test Suite ${title1}
+    Assign Requirements ${dokumentID1} ${title1}
+    Check Assigned Requirements ${title1}

@@ -21,7 +21,7 @@ Click Create Issue Tracker Management
     click button  create
     unselect frame
 
-Fill in all fields, type: BUGZILLA (XMLRPC)
+Fill in all fields, type: BUGZILLA (XMLRPC) ${ISSUETRACKER}
     select frame  mainframe
     input text  name  ${ISSUETRACKER}
     input text  cfg  ${CONFIGURATION}
@@ -138,12 +138,14 @@ Check Issue Tracker named ${ISSUETRACKER}
     wait until keyword succeeds  1min  0  wait until page contains  ${ISSUETRACKER}
     unselect frame
 
-Delete Issue trackers
+${ISSUETRACKER} Delete
     select frame  mainframe
     click element  xpath=//tr[td//text()[contains(.,'${ISSUETRACKER}')]]/td[last()]
     wait until page contains  Yes
     click button  Yes
     unselect frame
+
+Delete Issue trackers
     select frame  mainframe
     click element  xpath=//tr[td//text()[contains(.,'${ISSUETRACKER1}')]]/td[last()]
     wait until page contains  Yes
@@ -194,7 +196,7 @@ Delete Issue trackers
     wait until page contains  Yes
     click button  Yes
     unselect frame
-    select frame  name=mainframe
+    select frame  mainframe
     click element  xpath=//tr[td//text()[contains(.,'${ISSUETRACKER11}')]]/td[last()]
     wait until page contains  Yes
     click button  Yes
@@ -206,10 +208,10 @@ Click created IT ${ISSUETRACKER}
     click element  xpath=//a[contains(text(),"${ISSUETRACKER}")]
     unselect frame
 
-Create IT
+Create IT ${ISSUETRACKER}
     issueTrackerManagement.Check Issue Tracker Management
     issueTrackerManagement.Click Create Issue Tracker Management
-    issueTrackerManagement.Fill in all fields, type: BUGZILLA (XMLRPC)
+    issueTrackerManagement.Fill in all fields, type: BUGZILLA (XMLRPC) ${ISSUETRACKER}
     issueTrackerManagement.Check Issue Tracker named ${ISSUETRACKER}
 
 Fill all fields IT

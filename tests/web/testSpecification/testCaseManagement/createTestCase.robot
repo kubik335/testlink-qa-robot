@@ -7,7 +7,7 @@ Documentation  This Test Suite with Test Cases is used to control creating a tes
 
 Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
 Resource       ../../../../resource/helper/desktopHeaderTestPlan.robot
-Resource       ../../../../resource/helper/desktopHeadertestSpecification.robot
+Resource       ../../../../resource/helper/desktopHeaderSpecification.robot
 
 Suite Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND          Create New Test Plan ${TestPlanName}
@@ -68,7 +68,7 @@ ${KeywordName}                      keyword
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     Create New Sibling For ${testCaseName}
     Check All Actions Buttons For Test Case ${testCaseName3}
-    Add Test Case To the Test Plan ${testCaseName3}
+    Add Test Case ${testCaseName3} To the Test Plan ${TestPlanName}
     Execute Test ${testCaseName3}
     Show Execution History ${testCaseName3}
 
@@ -76,7 +76,7 @@ ${KeywordName}                      keyword
 Preconditions for tc89
     Create test case ${testCaseName2} in ${testSuiteName}
     Create test case ${testCaseName3} in ${testSuiteName}
-    Add Test Case To the Test Plan ${testCaseName}
+    Add Test Case ${testCaseName2} To the Test Plan ${TestPlanName}
     Execute Test ${testCaseName}
     Keywords
 

@@ -54,36 +54,38 @@ ${setUrgentTests}               Set Urgent Tests
 ${updateTCVersion}              Update Linked Test Case Versions
 ${showTCVersion}                Show Test Cases Newest Versions
 ${checkShowTCVersion}           Newest versions
+${system}                       System
+${verticalMenu}                 //div[@class="vertical_menu"]
 
 
 *** Keywords ***
 I am here
     select frame  mainframe
-    wait until page contains  System
-    wait until page contains  Define Custom Fields
-    wait until page contains  Issue Tracker Management
-    wait until page contains  Test Project
-    wait until page contains  Test Project Management
-    wait until page contains  Assign User Roles
-    wait until page contains  Assign Custom Fields
-    wait until page contains  Keyword Management
-    wait until page contains  Platform Management
-    wait until page contains  Test Specification
-    wait until page contains  Test Cases created per User
-    wait until page contains  Test Plan
-    wait until page contains  Test Plan Management
-    xpath should match x times  //div[@class="vertical_menu"]  2
+    wait until page contains  ${system}
+    wait until page contains  ${customFields}
+    wait until page contains  ${issueTracker}
+    wait until page contains  ${checkSearchRequirements}
+    wait until page contains  ${testProjectManagement}
+    wait until page contains  ${assignUserRoles}
+    wait until page contains  ${assignCustomFields}
+    wait until page contains  ${keywordManagement}
+    wait until page contains  ${platformManagement}
+    wait until page contains  ${testSpecification}
+    wait until page contains  ${testCasesPerUser}
+    wait until page contains  ${checkGenerateReqSpecDoc}
+    wait until page contains  ${testPlanManagement}
+    xpath should match x times  ${verticalMenu}  2
     unselect frame
 
 I am here in full
     wait until keyword succeeds  1min  0  desktopPage.I am here
     select frame  mainframe
-    wait until page contains  Requirement Specification
-    wait until page contains  Requirement Overview
-    wait until page contains  Search Requirements
-    wait until page contains  Search Requirement Specifications
-    wait until page contains  Assign Requirements
-    wait until page contains  Generate Requirement Specification Document
+    wait until page contains  ${requirmSpecification}
+    wait until page contains  ${requirmOverview}
+    wait until page contains  ${searchRequirements}
+    wait until page contains  ${searchRequirementSpec}
+    wait until page contains  ${assignRequirements}
+    wait until page contains  ${generateReqSpecDoc}
     unselect frame
 
 DesktopPage Go to ${link}

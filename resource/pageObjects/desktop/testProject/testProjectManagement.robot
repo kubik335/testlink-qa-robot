@@ -69,7 +69,7 @@ Click desired project ${newTestProjectName}
     click link  ${newTestProjectName}
     unselect frame
 
-Check Test Project Is Inactive
+Check Test Project Is Inactive ${newTestProjectName}
     select frame  mainframe
     page should contain element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[input[@title="Inactive (click to set active)"]]
     unselect frame
@@ -90,7 +90,7 @@ Add IT to TP ${ISSUETRACKER}
     wait until page contains element  xpath=//*[@id="issue_tracker_id"]
     wait until page contains element  issue_tracker_enabled
     select checkbox  issue_tracker_enabled
-    select from list by label  xpath=//*[@id="issue_tracker_id"]  ${ISSUETRACKER} ( bugzilla (Interface: db) )
+    select from list by label  xpath=//*[@id="issue_tracker_id"]  ${ISSUETRACKER} ( bugzilla (Interface: xmlrpc) )
     click element  xpath=//select[@name="issue_tracker_id"]
     unselect frame
 
@@ -162,7 +162,7 @@ Save test project and check Issue Tracker has been added
     testProjectManagement.Create Test Project
     testProjectManagement.Check Issue Tracker has been added to the Test Project
 
-Add Issue Tracker ${ISSUETRACKER} to Test Project
+Add Issue Tracker ${ISSUETRACKER} to Test Project ${newTestProjectName}
     [Tags]  tp14
     testProjectManagement.Check Test Project Management
     testProjectManagement.Click desired project ${newTestProjectName}

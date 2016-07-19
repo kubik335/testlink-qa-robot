@@ -5,7 +5,7 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${mySettings}               xpath=//a[img[@title="My Settings"]]
+${mySettings}               xpath=//img[@title="My Settings"]
 ${desktop}                  xpath=//img[@title="Project"]
 ${requirementSpec}          xpath=//img[@title="Requirement Specification"]
 ${testSpec}                 xpath=//img[@title="Test Specification"]
@@ -15,34 +15,37 @@ ${userManagement}           xpath=//img[@title="User Management"]
 ${events}                   xpath=//img[@title="Events"]
 ${indexPage}                xpath=//img[@title="logo"]
 ${testProject}              xpath=//select[@name="testproject"]
+${logout}                   xpath=//img[@title="Logout"]
+${searchTC}                 xpath=//img[@title="Search Test Case by ID"]
+${targetTC}                 targetTestCase
 
 *** Keywords ***
 I am here
     select frame  titlebar
-    wait until page contains element  xpath=//img[@alt="Company logo"]
-    wait until page contains element  xpath=//img[@title="My Settings"]
-    wait until page contains element  xpath=//img[@title="Logout"]
-    wait until page contains element  xpath=//img[@title="Project"]
-    wait until page contains element  xpath=//img[@title="Test Specification"]
-    wait until page contains element  xpath=//img[@title="User Management"]
-    wait until page contains element  xpath=//img[@title="Events"]
-    wait until page contains element  targetTestCase
-    wait until page contains element  xpath=//img[@title="Search Test Case by ID"]
-    wait until page contains element  xpath=//select[@name="testproject"]
+    wait until page contains element  ${indexPage}
+    wait until page contains element  ${mySettings}
+    wait until page contains element  ${logout}
+    wait until page contains element  ${desktop}
+    wait until page contains element  ${testSpec}
+    wait until page contains element  ${userManagement}
+    wait until page contains element  ${events}
+    wait until page contains element  ${targetTC}
+    wait until page contains element  ${searchTC}
+    wait until page contains element  ${testProject}
     unselect frame
 
 I am here in full
     wait until keyword succeeds  1min  0  headerPage.I am here
     select frame  titlebar
-    wait until page contains element  xpath=//img[@title="Requirement Specification"]
-    wait until page contains element  xpath=//img[@title="Test Execution"]
-    wait until page contains element  xpath=//img[@title="Test Reports"]
+    wait until page contains element  ${requirementSpec}
+    wait until page contains element  ${testExecution}
+    wait until page contains element  ${testReports}
     unselect frame
 
 HeaderPage Go to ${link}
     select frame  titlebar
-    wait until page contains element  xpath=//img[@title="logo"]
-    click element  xpath=//img[@title="logo"]
+    wait until page contains element  ${indexPage}
+    click element  ${indexPage}
     unselect frame
     wait until keyword succeeds  1min  0  headerPage.I am here
     select frame  titlebar
@@ -51,6 +54,6 @@ HeaderPage Go to ${link}
 
 Choose test project from dropdown
     select frame  titlebar
-    select from list by label  xpath=//select[@name="testproject"]  ${newTestProjectPrefix}:${newTestProjectName}
+    select from list by label  ${testProject}  ${newTestProjectPrefix}:${newTestProjectName}
     unselect frame
 
