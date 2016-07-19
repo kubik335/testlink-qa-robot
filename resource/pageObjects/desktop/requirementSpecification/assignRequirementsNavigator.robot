@@ -77,17 +77,17 @@ Check Assigned Requirements ${title}
 
 Unassign Requirements ${title}
     select frame  mainframe
-    wait until page contains element  treeframe
+    #wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  expand_tree
+    #wait until page contains element  expand_tree
     click button  expand_tree
     wait until page contains element  xpath=//a[span[contains(text(),"${title} [1]")]]
-    double click element  xpath=//a[span[contains(text(),"${title} [1]")]]
+    click element  xpath=//a[span[contains(text(),"${title} [1]")]]
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//*[@id="div_assigned_req"]/table/tbody
+    #wait until page contains element  xpath=//*[@id="div_assigned_req"]/table/tbody
     wait until page contains element  unassign
     wait until page contains element  xpath=//*[@id="div_assigned_req"]//tbody//img[@title="check/uncheck all"]
     click element  xpath=//*[@id="div_assigned_req"]//tbody//img[@title="check/uncheck all"]

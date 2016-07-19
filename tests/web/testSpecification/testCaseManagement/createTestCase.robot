@@ -35,6 +35,7 @@ ${testCaseName1}                    tc87
 ${testCaseName2}                    tc89
 ${testCaseName3}                    tc89_1
 ${testCaseName4}                    tc89_2
+${testCaseName5}                    tc90
 ${KeywordName}                      keyword
 
 
@@ -58,7 +59,7 @@ ${KeywordName}                      keyword
     Edit Test Case ${testCaseName1}
 
 89 Delete test case
-    [Tags]  check
+
     Preconditions for tc89
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     Select test case ${testCaseName2} node and click action button
@@ -69,7 +70,7 @@ ${KeywordName}                      keyword
     Delete Test Step
 
 90 Test Case Operations
-
+    [Tags]  check
     Preconditions for tc90
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     Create New Sibling ${testCaseName6} For ${testCaseName5}
