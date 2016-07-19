@@ -11,12 +11,6 @@ Library        Selenium2Library
 
 *** Keywords ***
 
-#Check Platform Management
-    #select frame  mainframe
-    #wait until page contains  Platform Management
-    #wait until page contains element  create_platform
-    #unselect frame
-
 Check Platform Management Without Platforms
     select frame  mainframe
     wait until page contains  Platform Management

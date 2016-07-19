@@ -3,7 +3,7 @@ Documentation  This test suite is used to check deleting and editing of Custom F
 
 Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
-Resource       ../../../resource/helper/desktopHeadertestSpecification.robot
+Resource       ../../../resource/helper/desktopHeaderTestSpecification.robot
 
 Suite Setup     Run keywords      Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND               Create New Test Plan ${TestPlanName}
@@ -49,7 +49,7 @@ ${KeywordName}                      keyWord
     Check desktop links
 
 109 Navigator Tree
-    [Tags]  check
+
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     Expand tree
     Check Expand tree

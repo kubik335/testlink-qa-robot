@@ -8,7 +8,7 @@ Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robo
 Resource       ../../../../resource/helper/desktopHeaderTestPlan.robot
 Resource       ../../../../resource/helper/desktopHeaderSystem.robot
 Resource       ../../../../resource/helper/desktopHeaderTestPlanContent.robot
-Resource       ../../../../resource/helper/desktopHeadertestSpecification.robot
+Resource       ../../../../resource/helper/desktopHeaderTestSpecification.robot
 
 Test Setup  Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
@@ -53,6 +53,7 @@ ${testCaseName}                 tc20
 20 Delete test project WORST CASE
     Preconditions for tc20
     Assign Custom Fields
+    Check Custom Field Was Assigned
     Check Keyword Exists
     Change Test Project and go to ${addRemovePlatforms} ${addRemovePlatforms}
     Check there is platform assigned

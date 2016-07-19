@@ -14,27 +14,30 @@ ${LOGIN}                        renat.kulalov
 ${PASSWORD}                     renat123
 ${newTestProjectName}           requirementsRelations
 ${newTestProjectPrefix}         requi
-${dokumentID}                   newdokumentid48
-${title}                        newtitle48
-${dokumentID1}                  newdokumentid48_1
-${title1}                       newtitle48_1
+${dokumentID}                   newdokumentid47
+${title}                        newtitle47
+${dokumentID1}                  newdokumentid48
+${title1}                       newtitle48
 
 *** Test Cases ***
 
 47 Assign Requirements
+
     Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
-    Create New Requirement Specification (type URS)
-    Choose Requirement Specification
-    Create Requirement Operations
-    Create Test Case From Requirement
+    Create New Requirement Specification (type URS) ${dokumentID} ${title}
+    Choose Requirement Specification ${dokumentID} ${title}
+    Create Requirement Operations ${dokumentID} ${title}
+    Create Test Case From Requirement ${dokumentID} ${title}
     Change Test Project and go to ${assignRequirements} ${checkAssignRequirements}
-    Select Test Suite
-    Assign Requirements
-    Check Assigned Requirements
+    Select Test Suite ${title}
+    Assign Requirements ${dokumentID} ${title}
+    Check Assigned Requirements ${title}
 
 48 Relations between requirements and test cases
+
     Change Test Project and go to ${assignRequirements} ${checkAssignRequirements}
-    Select Test Suite
-    Check Assigned Requirements
-    Unassign Requirements
+    Select Test Suite ${title}
+    Check Assigned Requirements ${title}
+    Unassign Requirements ${title}
     Check Availiable Requirements
+

@@ -79,11 +79,6 @@ Check Test Project Is Active ${newTestProjectName}
     page should contain element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[input[@title="Active (click to set inactive)"]]
     unselect frame
 
-#Wait until container with projects is here
-    #select frame  mainframe
-    #wait until page contains element  xpath=//*[@id="item_view"]/tfoot
-    #unselect frame
-
 Unactive Test Project by Bulb ${newTestProjectName}
     select frame  mainframe
     click element  xpath=//tr[td//text()[contains(.,'${newTestProjectName}')]]/td[input[@title="Inactive (click to set active)"]]
@@ -95,18 +90,9 @@ Add IT to TP ${ISSUETRACKER}
     wait until page contains element  xpath=//*[@id="issue_tracker_id"]
     wait until page contains element  issue_tracker_enabled
     select checkbox  issue_tracker_enabled
-    #click element  xpath=//select/option[contains(., "IssueTrackerName ( bugzilla (Interface: db) )")]
     select from list by label  xpath=//*[@id="issue_tracker_id"]  ${ISSUETRACKER} ( bugzilla (Interface: db) )
     click element  xpath=//select[@name="issue_tracker_id"]
     unselect frame
-
-#Remove issue tracker from test project
-    #select frame  name=mainframe
-    #wait until page contains element  xpath=//*[@id="issue_tracker_id"]
-    #wait until page contains element  issue_tracker_enabled
-    #unselect checkbox  issue_tracker_enabled
-    #select from list by value  xpath=//*[@id="issue_tracker_id"]  0
-    #unselect frame
 
 Check Issue Tracker has been added to the Test Project
     select frame  mainframe

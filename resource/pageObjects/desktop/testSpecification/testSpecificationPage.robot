@@ -25,7 +25,7 @@ I am here
     wait until page contains element  tree_div
     unselect frame
 
-Add Filters Test Case Title Test Specification
+Add Filters Test Case Title Test Specification ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
@@ -75,8 +75,6 @@ Delete Test Suite
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    #wait until page contains element  xpath=//img[@title="check/uncheck all"]
-    #click element  xpath=//img[@title="check/uncheck all"]
     wait until page contains element  name=delete_testsuite
     click button  delete_testsuite
     unselect frame
@@ -110,8 +108,6 @@ Delete New Test Suite ${testSuiteName}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    #wait until page contains element  xpath=//img[@title="check/uncheck all"]
-    #click element  xpath=//img[@title="check/uncheck all"]
     wait until page contains element  delete_testsuite
     click button  delete_testsuite
     unselect frame
@@ -209,14 +205,6 @@ Create Another Test Suite For Move Or Copy
     click element  add_testsuite_button
     unselect frame
 
-#check test project and tsuite
-    #select frame  mainframe
-    #wait until page contains element  treeframe
-    #select frame  treeframe
-    #wait until page contains element  xpath=//a[span[contains(text(),"${newTestProjectName} (")]]
-    #wait until page contains element  xpath=//a[span/span[contains(text(),"${testSuiteName}")]]
-    #unselect frame
-
 Edit Test Suite ${suite2}
     select frame  mainframe
     wait until page contains element  workframe
@@ -269,10 +257,6 @@ Copy Test Suite ${suite2}
     click element  xpath=//div/b
     wait until page contains  ${newTestProjectName}
     wait until page contains element  xpath=//ul[@class="chosen-results"]/li[text()="${newTestProjectName}"]
-    #execute javascript  document.getElementById("containerID").style.display = "initial";
-    #select from list by label  containerID  copyFile
-    #input text  xpath=//*[@id="containerID_chosen"]/div/div/input  ${testSuiteCopy}
-    #click element  xpath=//*[@id="containerID_chosen"]
     click element  do_copy
     unselect frame
     select frame  mainframe
@@ -314,46 +298,6 @@ Check Move And Copy Action ${suite2}
     xpath should match x times  //div/ul/li/ul/li/div/a/span[contains(.,"${suite2}")]  1
     xpath should match x times  //div/ul/li/ul/li/ul/li/div/a/span[contains(.,"${suite2}")]  1
     unselect frame
-
-#Delete Another New Test Suite
-    #select frame  mainframe
-    #wait until page contains element  treeframe
-    #select frame  treeframe
-    #wait until page contains element  doUpdateTree
-    #click button  doUpdateTree
-    #unselect frame
-    #select frame  mainframe
-    #wait until page contains element  treeframe
-    #select frame  treeframe
-    #wait until page contains element  xpath=//a[span/span[contains(text(),"${testSuiteCopy}")]]
-    #click element  xpath=//a[span/span[contains(text(),"${testSuiteCopy}")]]
-    #unselect frame
-    #select frame  mainframe
-    #wait until page contains element  workframe
-    #select frame  workframe
-    #wait until page contains element  xpath=//img[@title="Actions"]
-    #click element  xpath=//img[@title="Actions"]
-    #wait until page contains element  delete_testsuite
-    #click element  delete_testsuite
-    #unselect frame
-    #select frame  mainframe
-    #wait until page contains element  workframe
-    #select frame  workframe
-    ##wait until page contains element  xpath=//img[@title="check/uncheck all"]
-    ##click element  xpath=//img[@title="check/uncheck all"]
-    #wait until page contains element  delete_testsuite
-    #click button  delete_testsuite
-    #unselect frame
-    #select frame  mainframe
-    #wait until page contains element  workframe
-    #select frame  workframe
-    #wait until page contains  The Test Suite was successfully deleted
-    #unselect frame
-
-#Drag and drop test suite
-    #select frame  treeframe
-    #drag and drop
-    #unselect frame
 
 Click Test Case Button
     select frame  mainframe
@@ -505,15 +449,6 @@ Add Step after created first step
     wait until keyword succeeds  1min  0  testSpecificationPage.Click IT
     unselect frame
 
-#Click on save & exit
-    #select frame  mainframe
-    #wait until page contains element  workframe
-    #select frame  workframe
-    ##wait until page contains element  xpath=(//div/input[@id="do_update_step_and_exit"])[2]
-    #wait until page contains  Save & exit
-    #wait until keyword succeeds  1min  0  testSpecificationPage.Click IT
-    #unselect frame
-
 Click IT
     click button  name=do_update_step_and_exit
 
@@ -528,9 +463,6 @@ Move suite ${from} to suite ${target}
     wait until page contains  ${target}
     wait until page contains  ${newTestProjectPrefix}-1:${testCaseName1}
     wait until page contains  ${newTestProjectPrefix}-2:${testCaseName2}
-    #mouse down  xpath=//ul/li/ul/li[contains(.,"${from}")]/div/img[2]
-    #mouse over  xpath=//ul/li/ul/li[contains(.,"${target}")]/div/img[2]
-    #mouse up  xpath=//ul/li/ul/li[contains(.,"${target}")]/div/img[2]
     drag and drop  xpath=//ul/li/ul/li[contains(.,"${from}")]/div/img[2]  xpath=//ul/li/ul/li[contains(.,"${target}")]/div/img[2]
     unselect frame
 
@@ -609,10 +541,6 @@ Fill in Preconditions test case
     input text  xpath=//body  Preconditionsss
     unselect frame
 
-#Click on Create button test case
-    #select frame  mainframe
-    #unselect frame
-
 Check create test case open
     select frame  mainframe
     wait until page contains element  workframe
@@ -661,20 +589,6 @@ Select test case ${testCaseName} node and click action button
     testSpecificationPage.Select test case ${testCaseName} node
     testSpecificationPage.Click Actions button
 
-#Click On Export Test Case
-    #select frame  mainframe
-    #wait until page contains element  workframe
-    #select frame  workframe
-    #wait until page contains element  export_tc
-    #click element  export_tc
-    #unselect frame
-    #select frame  mainframe
-    #wait until page contains element  workframe
-    #select frame  workframe
-    #wait until page contains element  export
-    #click element  export
-    #unselect frame
-
 Click On Print View Test Case
     select frame  mainframe
     wait until page contains element  workframe
@@ -719,7 +633,7 @@ Click On Activate This Version
     click element  activate_this_tcversion
     unselect frame
 
-Click On Add To Test Plans
+Click On Add To Test Plans ${TestPlanName}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -816,25 +730,17 @@ Check Custom Fields
 
 Navigator tree expands by one branch
      select frame  mainframe
-     #wait until page contains element  treeframe
      select frame  treeframe
      wait until page contains element  xpath=//*[@id="extdd-1"]/img[1]
      wait until page contains   ${newTestProjectName}
-     #wait until page contains element   xpath=//*[@id="extdd-9"]/span
      click element   xpath=//*[@id="extdd-1"]/img[1]
-     #page should contain element  xpath=//*[@id="extdd-6"]/span
-     #page should contain element  xpath=//*[@id="extdd-9"]/span
      unselect frame
 
 Click on black arrow
      select frame  mainframe
-     #wait until page contains element  treeframe
      select frame  treeframe
      wait until page contains element  xpath=//*[@id="extdd-1"]/img[1]
      wait until page contains   ${newTestProjectName}
-     #wait until page contains element   xpath=//*[@id="extdd-9"]/span
-     #page should contain element  xpath=//*[@id="extdd-6"]/span
-     #page should contain element  xpath=//*[@id="extdd-9"]/span
      wait until page contains    ${testSuiteName}
      wait until page contains    ${testSuiteName1}
      click element   xpath=//*[@id="extdd-1"]/img[1]
@@ -883,11 +789,11 @@ Check Black Arrow
 
 Add Test Cases to the Test Plan
     testSpecificationPage.Select test case ${testCaseName2} node and click action button
-    testSpecificationPage.Click On Add To Test Plans
+    testSpecificationPage.Click On Add To Test Plans ${TestPlanName}
     testSpecificationPage.Select test case ${testCaseName3} node and click action button
-    testSpecificationPage.Click On Add To Test Plans
+    testSpecificationPage.Click On Add To Test Plans ${TestPlanName}
     testSpecificationPage.Select test case ${testCaseName} node and click action button
-    testSpecificationPage.Click On Add To Test Plans
+    testSpecificationPage.Click On Add To Test Plans ${TestPlanName}
 
 Create New Version of TestCase
     testSpecificationPage.Select test case ${testCaseName} node and click action button

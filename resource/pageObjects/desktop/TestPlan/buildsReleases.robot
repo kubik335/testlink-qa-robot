@@ -73,7 +73,7 @@ Delete ${buildName} Build
 
 Add Release Date
     select frame  mainframe
-    wait until page contains element  name=release_date
+    wait until page contains element  release_date
     click element  xpath=//img[@title="Show Calender"]
     wait until page contains  Today
     click button  Today
@@ -89,7 +89,7 @@ Select Build ${buildName}
 
 Choose template ${FromBuild}
     select frame  mainframe
-    wait until page contains element  name=copy_tester_assignments
+    wait until page contains element  copy_tester_assignments
     select checkbox  copy_tester_assignments
     wait until page contains element  source_build_id
     select from list by label  source_build_id  ${FromBuild} (0)
@@ -106,9 +106,9 @@ Create Build With Release Date And Save ${buildName}
     buildsReleases.Add release date
     buildsReleases.Save Build
 
-Edit Build Info and Save Changes
+Edit Build Info and Save Changes ${buildName}
     [Tags]  64
-    buildsReleases.Fill in the details of the Build ${buildName3}
+    buildsReleases.Fill in the details of the Build ${buildName}
     buildsReleases.Add Release Date
     buildsReleases.Save Build after Editing
 

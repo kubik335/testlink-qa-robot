@@ -53,7 +53,6 @@ Execute Test Case Passed
     wait until page contains element  workframe
     select frame  workframe
     wait until keyword succeeds  1min  0  executeTestsPage.I am here Execute Tests Frame
-    #xpath should match x times  //div/form/div/div/table/tbody/tr/td/select  2
     select from list by value  xpath=//div/form/div/table/tbody/tr/td/div/select  p
     input text  execution_duration  1010
     select from list by value  xpath=//div/form/div/div/table/tbody/tr[7]/td/select  p
@@ -95,7 +94,6 @@ Execute Test Case Failed
     wait until page contains element  workframe
     select frame  workframe
     wait until keyword succeeds  1min  0  executeTestsPage.I am here Execute Tests Frame
-    #xpath should match x times  //div/form/div/div/table/tbody/tr/td/select  2
     select from list by value  xpath=//div/form/div/table/tbody/tr/td/div/select  f
     input text  execution_duration  1010
     select from list by value  xpath=//div/form/div/div/table/tbody/tr[7]/td/select  f
@@ -116,7 +114,6 @@ Execute Test Case Blocked
     wait until page contains element  workframe
     select frame  workframe
     wait until keyword succeeds  1min  0  executeTestsPage.I am here Execute Tests Frame
-    #xpath should match x times  //div/form/div/div/table/tbody/tr/td/select  2
     select from list by value  xpath=//div/form/div/table/tbody/tr/td/div/select  b
     input text  execution_duration  1010
     select from list by value  xpath=//div/form/div/div/table/tbody/tr[7]/td/select  b

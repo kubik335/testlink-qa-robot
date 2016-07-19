@@ -24,6 +24,9 @@ ${buildName}                    buildName
 ${buildName1}                   buildName1
 ${buildName2}                   buildName2
 ${buildName3}                   buildName3
+${buildName4}                   buildName4
+${buildName5}                   buildName5
+${buildName6}                   buildName6
 ${buildDescription}             DescriptionOfBuild
 ${TestPlanName}                 testPlan
 ${TestPlanDescription}          DescriptionOfTestPlan
@@ -31,23 +34,31 @@ ${TestPlanDescription}          DescriptionOfTestPlan
 *** Test Cases ***
 
 61 Create Build - "Easy" - No release date
+
     Create Build with name ${buildName}
 
 62 Create Build "EASY" With Release Date
+
     Go to index page and change testproject
     Start creating build with warning
     Create Build With Release Date And Save ${buildName1}
     Check if Build was created ${buildName1}
 
 63 Create Build - "Easy" - from existing build
+
+    Create Build with name ${buildName2}
     Go to index page and change testproject
-    Create ${buildName2} from existing ${buildName1}
+    Create ${buildName3} from existing ${buildName2}
 
 64 Edit Build
+
+    Create Build with name ${buildName4}
     Change Test Project and go to ${buildReleases} ${checkBuildReleases}
-    Select Build ${buildName2}
-    Edit Build Info and Save Changes
-    Check if Build was created ${buildName3}
+    Select Build ${buildName4}
+    Edit Build Info and Save Changes ${buildName5}
+    Check if Build was created ${buildName5}
 
 66 Delete Build
-    Delete build ${buildName}
+
+    Create Build with name ${buildName6}
+    Delete build ${buildName6}

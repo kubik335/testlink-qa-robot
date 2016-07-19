@@ -45,16 +45,16 @@ Create New Version Of TC
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Create New Version of TestCase
 
-Add Test Case To the Test Plan ${testCaseName}
+Add Test Case ${testCaseName} To the Test Plan ${TestPlanName}
     [Tags]  56
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     testSpecificationPage.Select test case ${testCaseName} node and click action button
-    testSpecificationPage.Click On Add To Test Plans
+    testSpecificationPage.Click On Add To Test Plans ${TestPlanName}
 
-Check Test Specification
+Check Test Specification ${title}
     [Tags]  tp41_requirement_operation_creare_tc
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
-    testSpecificationPage.Add Filters Test Case Title Test Specification
+    testSpecificationPage.Add Filters Test Case Title Test Specification ${title}
 
 Check Custom Fields Are Visible
     [Tags]  tp20

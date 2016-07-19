@@ -15,19 +15,19 @@ ${LOGIN}                        renat.kulalov
 ${PASSWORD}                     renat123
 ${newTestProjectName}           modifyFiltersDelete
 ${newTestProjectPrefix}         modifyRequi
-${dokumentID}                   newdokumentid
-${title}                        newtitle
+${dokumentID}                   newdokumentid44
+${title}                        newtitle44
 
 *** Test Cases ***
 
 44 Modify filters requirement
     Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
-    Create New Requirement Specification (type URS)
-    Choose Requirement Specification
-    Create Requirement Operations
+    Create New Requirement Specification (type URS) ${dokumentID} ${title}
+    Choose Requirement Specification ${dokumentID} ${title}
+    Create Requirement Operations ${dokumentID} ${title}
     Create New Version Of Requirement
     Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
-    Choose Requirement Specification
+    Choose Requirement Specification ${dokumentID} ${title}
     Delete Requirement Specification NO
     Select More Than 1 Version Requirement
     Delete More Than 1 Version Requirement

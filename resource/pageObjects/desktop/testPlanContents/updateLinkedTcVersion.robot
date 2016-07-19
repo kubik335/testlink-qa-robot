@@ -51,14 +51,6 @@ Update to new version ${testCaseName}
     click element  xpath=//input[@id="update_btn"]
     unselect frame
 
-#Check TC Version was changed ${testCaseName}
-    #select frame  mainframe
-    #wait until page contains element  workframe
-    #select frame  workframe
-    #wait until page contains element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"1")]][td/select]
-    #page should contain element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"1")]][td/select]
-    #unselect frame
-
 Check changed TC Version ${testCaseName}
     select frame  mainframe
     wait until page contains element  workframe

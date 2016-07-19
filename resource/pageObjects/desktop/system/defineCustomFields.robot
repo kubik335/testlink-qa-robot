@@ -62,20 +62,6 @@ Edit Custom Fields
     double click element  xpath=//input[@name="do_update"]
     unselect frame
 
-#Update Custom Field
-    #select frame  mainframe
-    #wait until page contains element  xpath=//input[@name="do_update"]
-    #click button  Update
-    #unselect frame
-
-#Select and delete EDITED Custom Field
-    #select frame  mainframe
-    #click link  ${NEWCFNAME}
-    #click button  do_delete
-    #wait until page contains  Yes
-    #click button  Yes
-    #unselect frame
-
 Select and delete Custom Field ${CFNAME}
     select frame  mainframe
     click link  ${CFNAME}
@@ -88,11 +74,6 @@ Check if Custom Field has been deleted
     select frame  mainframe
     page should not contain  ${CFNAME}
     unselect frame
-
-#Check if EDITED Custom Field has been deleted
-    #select frame  mainframe
-    #page should not contain  ${NEWCFNAME}
-    #unselect frame
 
 Creating Define Custom Fields
     defineCustomFields.Check Define Custom Fields

@@ -11,7 +11,7 @@ Library        Selenium2Library
 
 *** Keywords ***
 
-Select Test Suite
+Select Test Suite ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
@@ -25,7 +25,6 @@ Select Test Suite
     select frame  treeframe
     wait until page contains element  expand_tree
     click element  expand_tree
-    wait until page contains  ${newTestProjectPrefix}-1:${title}
     wait until page contains element  xpath=//a[span[contains(text(),"${title} (")]]
     double click element  xpath=//a[span[contains(text(),"${title} (")]]
     unselect frame
@@ -35,7 +34,7 @@ Select Test Suite
     wait until page contains  Requirements Specification Document
     unselect frame
 
-Assign Requirements
+Assign Requirements ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -61,13 +60,12 @@ Assign Requirements
     click element  actionButton
     unselect frame
 
-Check Assigned Requirements
+Check Assigned Requirements ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
     wait until page contains element  expand_tree
     click button  expand_tree
-    wait until page contains  ${newTestProjectPrefix}-1:${title} [1]
     wait until page contains element  xpath=//a[span[contains(text(),"${title} [1]")]]
     double click element  xpath=//a[span[contains(text(),"${title} [1]")]]
     unselect frame
@@ -77,13 +75,12 @@ Check Assigned Requirements
     wait until page contains element  xpath=//*[@id="div_assigned_req"]/table/tbody
     unselect frame
 
-Unassign Requirements
+Unassign Requirements ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
     wait until page contains element  expand_tree
     click button  expand_tree
-    wait until page contains  ${newTestProjectPrefix}-1:${title} [1]
     wait until page contains element  xpath=//a[span[contains(text(),"${title} [1]")]]
     double click element  xpath=//a[span[contains(text(),"${title} [1]")]]
     unselect frame

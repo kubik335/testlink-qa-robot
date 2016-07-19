@@ -38,24 +38,24 @@ Create New Test Plan ${TestPlanName}
     testPlanManagement_detail.Fill in all fields ${TestPlanName}
     wait until keyword succeeds  1min  0  testPlanManagement.Check Test Plan Management is Created ${TestPlanName}
 
-Create Test Plan Management AS COPY ${TestPlanName}
+Create Test Plan Management ${TestPlanName} AS COPY ${TestPlanName1}
      [Tags]  tp54
     Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     testPlanManagement.Create Test Plan Management
-    testPlanManagement_detail.Create Test Plan with Warning Message ${TestPlanName}
+    testPlanManagement_detail.Create Test Plan ${TestPlanName} with Warning Message ${TestPlanName1}
     testPlanManagement.Check Test Plan Management is Created ${TestPlanName}
 
-Create Test Plan AS COPY Unselect all checkboxes ${TestPlanName}
+Create Test Plan ${TestPlanName} AS COPY Unselect all checkboxes ${TestPlanName1}
     [Tags]  tp55
     Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     testPlanManagement.Create Test Plan Management
-    testPlanManagement_detail.Create Test Plan with unselected checkboxes ${TestPlanName}
+    testPlanManagement_detail.Create Test Plan ${TestPlanName} with unselected checkboxes ${TestPlanName1}
     testPlanManagement.Check Test Plan Management is Created ${TestPlanName}
 
-Order By Test Case, Name, Build In Test Plan Management
+Order By Test Case, Name, Build In Test Plan Management ${TestPlanName} ${TestPlanName1}
     [Tags]  56
     Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
-    testPlanManagement_detail.Order by Name, TC, Build
+    testPlanManagement_detail.Order by Name, TC, Build ${TestPlanName} ${TestPlanName1}
 
 Assign Roles ${TestPlanName}
     [Tags]  tp59

@@ -21,13 +21,6 @@ Click Create Issue Tracker Management
     click button  create
     unselect frame
 
-#Check if warning message appears
-    #select frame  name=mainframe
-    #click button  create
-    #wait until page contains  Issue Tracker name cannot be empty!
-    #click button  ext-gen18
-    #unselect frame
-
 Fill in all fields, type: BUGZILLA (XMLRPC)
     select frame  mainframe
     input text  name  ${ISSUETRACKER}
@@ -206,21 +199,6 @@ Delete Issue trackers
     wait until page contains  Yes
     click button  Yes
     unselect frame
-
-#Delete Issue tracker ${ISSUETRACKER}
-    #select frame  name=mainframe
-    #click element  xpath=//tr[td//text()[contains(.,'${ISSUETRACKER}')]]/td[last()]
-    #wait until page contains  Yes
-    #click button  Yes
-    #unselect frame
-    #select frame  name=mainframe
-    #wait until page does not contain  ${ISSUETRACKER}
-    #unselect frame
-
-#Click Delete Issue Tracker Management
-    #select frame  mainframe
-    #click button  create
-    #unselect frame
 
 Click created IT ${ISSUETRACKER}
     select frame  mainframe

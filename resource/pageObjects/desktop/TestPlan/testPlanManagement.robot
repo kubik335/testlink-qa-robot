@@ -12,12 +12,6 @@ Library        Selenium2Library
 
 *** Keywords ***
 
-#Check Test Plan Management
-    #select frame  mainframe
-    #wait until page contains  Test Plan Management
-    #wait until page contains element  Create
-    #unselect frame
-
 Create Test Plan Management
     select frame  mainframe
     wait until page contains element  create_testplan

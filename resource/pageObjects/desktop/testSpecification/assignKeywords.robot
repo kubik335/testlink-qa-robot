@@ -11,13 +11,6 @@ Library        Selenium2Library
 
 *** Keywords ***
 
-#Check Assign Keywords
-    #select frame  name=mainframe
-    #wait until page contains element  workframe
-    #select frame  name=workframe
-    #wait until page contains  Keyword Assignment
-    #unselect frame
-
 Create Keyword
     select frame  mainframe
     wait until page contains element  create_keyword

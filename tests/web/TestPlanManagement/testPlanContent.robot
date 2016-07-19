@@ -20,7 +20,7 @@ Suite Setup   Run keywords  Login and Create new Test Project ${newTestProjectNa
 ...             AND         Create Build with name ${buildName}
 
 Suite Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
-...             AND            close browser
+...             AND             Close browser
 
 *** Variables ***
 
