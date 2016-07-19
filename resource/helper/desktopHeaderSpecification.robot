@@ -93,7 +93,7 @@ Check All Actions Buttons For Test Case ${testCaseName}
     testSpecificationPage.Select test case ${testCaseName} node and click action button
     testSpecificationPage.Click On Print View Test Case
     Select Window  Print Test Case: ${testCaseName}
-    wait until page contains  Test Case ${newTestProjectPrefix}-3: ${testCaseName}
+    wait until page contains  ${testCaseName}
     close window
     Select Window  TestLink 1.9.14 (Padawan)
     testSpecificationPage.Select test case ${testCaseName} node and click action button
@@ -109,7 +109,7 @@ Show Execution History ${testCaseName}
     testSpecificationPage.Select test case ${testCaseName} node and click action button
     testSpecificationPage.Click On Execution History
     select window  TestLink
-    wait until page contains  Test Case ${newTestProjectPrefix}-3 : ${testCaseName}
+    wait until page contains  ${testCaseName}
     close window
     Select Window  TestLink 1.9.14 (Padawan)
 

@@ -36,6 +36,7 @@ ${testCaseName2}                    tc89
 ${testCaseName3}                    tc89_1
 ${testCaseName4}                    tc89_2
 ${testCaseName5}                    tc90
+${testCaseName6}                    tc90_1
 ${KeywordName}                      keyword
 
 
@@ -70,7 +71,7 @@ ${KeywordName}                      keyword
     Delete Test Step
 
 90 Test Case Operations
-    [Tags]  check
+
     Preconditions for tc90
     Change Test Project and go to ${testSpecification} ${checkTestSpecification}
     Create New Sibling ${testCaseName6} For ${testCaseName5}

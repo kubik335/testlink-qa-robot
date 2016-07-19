@@ -576,7 +576,7 @@ Generate new Sibling ${testCaseName2}
     click element  do_create_button
     unselect frame
 
-Check New Sibling Was Created
+Check New Sibling Was Created ${testCaseName2}
     testSpecificationPage.Expand tree
     select frame  mainframe
     wait until page contains element  treeframe
@@ -814,4 +814,4 @@ Create New Sibling ${testCaseNameNew} For ${testCaseName2}
     testSpecificationPage.Select test case ${testCaseName2} node
     testSpecificationPage.Click Actions button
     testSpecificationPage.Generate new Sibling ${testCaseNameNew}
-    testSpecificationPage.Check New Sibling Was Created
+    testSpecificationPage.Check New Sibling Was Created ${testCaseNameNew}
