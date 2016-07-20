@@ -40,7 +40,7 @@ ${title1}                       newtitle48
     Preconditions for tc48
     Change Test Project and go to ${assignRequirements} ${checkAssignRequirements}
     Select Test Suite ${title1}
-    #Check Assigned Requirements ${title1}
+    Check Assigned Requirements ${title1}
     #Unassign Requirements ${title}
     #Check Availiable Requirements
 
