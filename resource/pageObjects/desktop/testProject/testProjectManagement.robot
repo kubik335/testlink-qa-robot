@@ -47,9 +47,9 @@ Create Test Project
 
 Filled the valid name and prefix ${newTestProjectName} ${newTestProjectPrefix}
     select frame  mainframe
-    wait until page contains element  ${xpathInput}
+    wait until page contains element  ${xpathInput1}
     wait until page contains element  ${xpathInput2}
-    input text  ${xpathInput}  ${newTestProjectName}
+    input text  ${xpathInput1}  ${newTestProjectName}
     input text  ${xpathInput2}   ${newTestProjectPrefix}
     Click Button  doActionButton
     unselect frame

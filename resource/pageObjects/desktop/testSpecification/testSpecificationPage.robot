@@ -61,6 +61,7 @@ ${elementDoDelete}                      do_delete
 ${xpathDeleteIT}                        xpath=//div/p[contains(text(),"Really delete Test Case?")]
 ${xpathStepRowImage}                    xpath=//*[@id="step_row_1"]/td[5]/img
 ${xpathStepRow2}                        xpath=//*[@id="step_row_2"]
+${xpathStepRow1}                        xpath=//*[@id="step_row_1"]
 ${xpathDoToogleCF}                      xpath=//input[@id="doToggleCF"]
 
 *** Keywords ***
@@ -682,8 +683,8 @@ Click On Activate This Version
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  ${elementActivateVersion
-    click element  ${elementActivateVersion
+    wait until page contains element  ${elementActivateVersion}
+    click element  ${elementActivateVersion}
     unselect frame
 
 Click On Add To Test Plans ${TestPlanName}
@@ -767,8 +768,8 @@ Delete Test Step
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  ${xpathStepRow2}${xpathStepRow2}
-    page should not contain element  xpath=//*[@id="step_row_1"]
+    wait until page contains element  ${xpathStepRow2}
+    page should not contain element  ${xpathStepRow1}
     unselect frame
 
 Check Custom Fields
