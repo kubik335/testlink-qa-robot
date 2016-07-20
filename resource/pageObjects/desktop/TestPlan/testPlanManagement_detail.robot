@@ -181,9 +181,9 @@ Order By Test Case ${TestPlanName} ${TestPlanName1}
     select frame  mainframe
     wait until page contains element  ${xpathTestCaseImage}
     wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
-    wait until page contains element  ${xpathTestCaseWidth}
+    wait until page contains element  ${xpathTestCaseWidth1}
     page should contain element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
-    page should contain element  ${xpathTestCaseWidth}
+    page should contain element  ${xpathTestCaseWidth1}
     click element  ${xpathTestCaseImage}
     unselect frame
     select frame  mainframe
