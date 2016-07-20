@@ -34,8 +34,8 @@ Create Build
 Check if warning message appears
     select frame  mainframe
     execute javascript  var imput = document.getElementsByName('build_name'); imput[0].required = false;
-    wait until page contains element  ${elementDoCreate}
-    click element  ${elementDoCreate}
+    wait until page contains element  ${elementBuildDoCreate}
+    click element  ${elementBuildDoCreate}
     wait until page contains  Please enter a name for the Build!
     wait until page contains element  ${xpathButtonOK}
     click element  ${xpathButtonOK}
