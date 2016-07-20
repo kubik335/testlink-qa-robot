@@ -9,22 +9,41 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${inputTestPlanName}  testplan_name
+${xpathTextEditor}  xpath=//iframe[@title="Rich text editor, notes"]
+${checkboxActive}  active
+${checkboxIsPublic}  is_public
+${checkboxCopyUserRoles}  copy_user_roles
+${checkboxCopyTC}  copy_tcases
+${checkbpxCopyAttachments}  copy_attachments
+${checkboxCopyBuild}  copy_builds
+${checkboxCopyPlatform}  copy_platforms_links
+${checkboxCopyMilestone}  copy_milestones
+${xpathNameImage}  xpath=//*[@id="item_view"]/thead/tr/th[1]/img[2]
+${xpathTestCaseImage}  xpath=//*[@id="item_view"]/thead/tr/th[3]/img
+${xpathTestCaseWidth1}  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:8%;"][contains(text(),"1")]
+${xpathTestCaseWidth0}  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:8%;"][contains(text(),"0")]
+${xpathItemViewImage}  xpath=//*[@id="item_view"]/thead/tr/th[1]/img[1]
+${xpathBuildImage}  xpath=//*[@id="item_view"]/thead/tr/th[4]/img
+${xpathBuildWidth1}  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:6%;"][contains(text(),"1")]
+${xpathBuildWidth0}  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:6%;"][contains(text(),"0")]
+
 *** Keywords ***
 
 Input Name
     [Arguments]   ${TestPlanName}
     select frame  mainframe
-    wait until page contains element  testplan_name
-    input text  testplan_name  ${TestPlanName}
+    wait until page contains element  ${inputTestPlanName}
+    input text  ${inputTestPlanName}  ${TestPlanName}
     unselect frame
 
 Input Description
-    select frame  name=mainframe
+    select frame  mainframe
     wait until page contains  Description
-    wait until page contains element  xpath=//iframe[@title="Rich text editor, notes"]
-    mouse down  xpath=//iframe[@title="Rich text editor, notes"]
-    mouse up  xpath=//iframe[@title="Rich text editor, notes"]
-    select frame  xpath=//iframe[@title="Rich text editor, notes"]
+    wait until page contains element  ${xpathTextEditor}
+    mouse down  ${xpathTextEditor}
+    mouse up  ${xpathTextEditor}
+    select frame  ${xpathTextEditor}
     input text  xpath=//body  ${TestPlanDescription}
     unselect frame
 
@@ -40,62 +59,62 @@ wait until page contains all checkboxes from existing Test Plan
 
 Select Checkbox Active
     select frame  mainframe
-    wait until page contains element  active
-    select checkbox  active
+    wait until page contains element  ${checkboxActive}
+    select checkbox  ${checkboxActive}
     unselect frame
 
 Select Checkbox Public
     select frame  mainframe
-    wait until page contains element  is_public
-    select checkbox  is_public
+    wait until page contains element  ${checkboxIsPublic}
+    select checkbox  ${checkboxIsPublic}
     unselect frame
 
 unselect checkbox Public
     select frame  mainframe
-    wait until page contains element  is_public
-    unselect checkbox  is_public
+    wait until page contains element  ${checkboxIsPublic}
+    unselect checkbox  ${checkboxIsPublic}
     unselect frame
 
 unselect checkbox Active
     select frame  mainframe
-    wait until page contains element  active
-    unselect checkbox  active
+    wait until page contains element  ${checkboxActive}
+    unselect checkbox  ${checkboxActive}
     unselect frame
 
 unselect checkbox Copy User Roles
     select frame  mainframe
-    wait until page contains element  copy_user_roles
-    unselect checkbox  copy_user_roles
+    wait until page contains element  ${checkboxCopyUserRoles}
+    unselect checkbox  ${checkboxCopyUserRoles}
     unselect frame
 
 unselect checkbox Copy Test Cases
     select frame  mainframe
-    wait until page contains element  copy_tcases
-    unselect checkbox  copy_tcases
+    wait until page contains element  ${checkboxCopyTC}
+    unselect checkbox  ${checkboxCopyTC}
     unselect frame
 
 unselect checkbox Copy Attachements
     select frame  mainframe
-    wait until page contains element  copy_attachments
-    unselect checkbox  copy_attachments
+    wait until page contains element  ${checkbpxCopyAttachments}
+    unselect checkbox  ${checkbpxCopyAttachments}
     unselect frame
 
 unselect checkbox Copy Builds
     select frame  mainframe
-    wait until page contains element  copy_builds
-    unselect checkbox  copy_builds
+    wait until page contains element  ${checkboxCopyBuild}
+    unselect checkbox  ${checkboxCopyBuild}
     unselect frame
 
 unselect checkbox Copy Platforms Links
     select frame  mainframe
-    wait until page contains element  copy_platforms_links
-    unselect checkbox  copy_platforms_links
+    wait until page contains element  ${checkboxCopyPlatform}
+    unselect checkbox  ${checkboxCopyPlatform}
     unselect frame
 
 unselect checkbox Copy Milestones
     select frame  mainframe
-    wait until page contains element  copy_milestones
-    unselect checkbox  copy_milestones
+    wait until page contains element  ${checkboxCopyMilestone}
+    unselect checkbox  ${checkboxCopyMilestone}
     unselect frame
 
 Click Create button to finish Test Plan Management
@@ -135,61 +154,61 @@ Create from existing Test Plan? ${TestPlanName}
     click element  xpath=//div/form/table/tbody/tr/td/select/option[.='${TestPlanName}']
     unselect frame
     select frame  mainframe
-    wait until page contains element  copy_milestones
-    wait until page contains element  copy_platforms_links
-    wait until page contains element  copy_builds
-    wait until page contains element  copy_attachments
-    wait until page contains element  copy_tcases
-    wait until page contains element  copy_user_roles
-    wait until page contains element  active
-    wait until page contains element  is_public
+    wait until page contains element  ${checkboxCopyMilestone}
+    wait until page contains element  ${checkboxCopyPlatform}
+    wait until page contains element  ${checkboxCopyBuild}
+    wait until page contains element  ${checkbpxCopyAttachments}
+    wait until page contains element  ${checkboxCopyTC}
+    wait until page contains element  ${checkboxCopyUserRoles}
+    wait until page contains element  ${checkboxActive}
+    wait until page contains element  ${checkboxIsPublic}
     unselect frame
 
 Order By Name ${TestPlanName} ${TestPlanName1}
     select frame  mainframe
-    wait until page contains element  xpath=//*[@id="item_view"]/thead/tr/th[1]/img[2]
+    wait until page contains element  ${xpathNameImage}
     wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
     page should contain element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
-    click element  xpath=//*[@id="item_view"]/thead/tr/th[1]/img[2]
+    click element  ${xpathNameImage}
     unselect frame
     select frame  mainframe
     wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName1}")][contains(text()," ")]
     page should contain element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName1}")][contains(text()," ")]
-    click element  xpath=//*[@id="item_view"]/thead/tr/th[1]/img[2]
+    click element  ${xpathNameImage}
     unselect frame
 
 Order By Test Case ${TestPlanName} ${TestPlanName1}
     select frame  mainframe
-    wait until page contains element  xpath=//*[@id="item_view"]/thead/tr/th[3]/img
+    wait until page contains element  ${xpathTestCaseImage}
     wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
-    wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:8%;"][contains(text(),"1")]
+    wait until page contains element  ${xpathTestCaseWidth}
     page should contain element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
-    page should contain element  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:8%;"][contains(text(),"1")]
-    click element  xpath=//*[@id="item_view"]/thead/tr/th[3]/img
+    page should contain element  ${xpathTestCaseWidth}
+    click element  ${xpathTestCaseImage}
     unselect frame
     select frame  mainframe
     wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName1}")][contains(text()," ")]
-    wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:8%;"][contains(text(),"0")]
+    wait until page contains element  ${xpathTestCaseWidth0}
     page should contain element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName1}")][contains(text()," ")]
-    page should contain element  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:8%;"][contains(text(),"0")]
-    click element  xpath=//*[@id="item_view"]/thead/tr/th[3]/img
+    page should contain element  ${xpathTestCaseWidth0}
+    click element  ${xpathTestCaseImage}
     unselect frame
 
 Order By Test Build ${TestPlanName} ${TestPlanName1}
     select frame  mainframe
-    wait until page contains element  xpath=//*[@id="item_view"]/thead/tr/th[4]/img
+    wait until page contains element  ${xpathBuildImage}
     wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
-    wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:6%;"][contains(text(),"1")]
+    wait until page contains element  ${xpathBuildWidth1}
     page should contain element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
-    page should contain element  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:6%;"][contains(text(),"1")]
-    click element  xpath=//*[@id="item_view"]/thead/tr/th[4]/img
+    page should contain element  ${xpathBuildWidth1}
+    click element  ${xpathBuildImage}
     unselect frame
     select frame  mainframe
     wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName1}")][contains(text()," ")]
-    wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:6%;"][contains(text(),"0")]
+    wait until page contains element  ${xpathBuildWidth0}
     page should contain element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName1}")][contains(text()," ")]
-    page should contain element  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:6%;"][contains(text(),"0")]
-    click element  xpath=//*[@id="item_view"]/thead/tr/th[4]/img
+    page should contain element  ${xpathBuildWidth0}
+    click element  ${xpathBuildImage}
     unselect frame
 
 Check Test Plan Is Active ${TestPlanName} ${TestPlanName1}
@@ -218,17 +237,17 @@ Click On Bulb Icon ${TestPlanName} ${TestPlanName1}
 
 Edit Test Plan ${TestPlanName} ${EditTestPlanName}
     select frame  mainframe
-    wait until page contains element  xpath=//*[@id="item_view"]/thead/tr/th[1]/img[1]
-    click element  xpath=//*[@id="item_view"]/thead/tr/th[1]/img[1]
+    wait until page contains element  ${xpathItemViewImage}
+    click element  ${xpathItemViewImage}
     unselect frame
     select frame  mainframe
     wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td[span//text()[contains(.,"[ID:")]]/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
     click element  xpath=//div/div/form/div/table/tbody/tr/td[span//text()[contains(.,"[ID:")]]/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
     unselect frame
     select frame  mainframe
-    wait until page contains element  testplan_name
+    wait until page contains element  ${inputTestPlanName}
     wait until page contains element  do_update
-    input text  testplan_name  ${EditTestPlanName}
+    input text  ${inputTestPlanName}  ${EditTestPlanName}
     unselect frame
     testPlanManagement_detail.Input Description
     select frame  mainframe

@@ -9,18 +9,27 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${elementCreateKeyword}             create_keyword
+${elementCreateReq}                 create_req
+${inputKeyword}                     keyword
+${elementKeywordAssign}             keyword_assign
+${xpathImage}                       xpath=/html/body/div/div/form/div/table/tbody/tr/td[2]/img[1]
+${xpathUpdated}                     xpath=//div/div/p[contains(text(),"item")][contains(text()," ")][contains(text(),"was successfully")][contains(text()," ")][contains(text(),"updated!")]
+${elementAssignTC}                  assigntestcase
+${elementFromSelectBox}             from_select_box
+
 *** Keywords ***
 
 Create Keyword
     select frame  mainframe
-    wait until page contains element  create_keyword
-    click element  create_keyword
+    wait until page contains element  ${elementCreateKeyword}
+    click element  ${elementCreateKeyword}
     unselect frame
     select frame  mainframe
-    wait until page contains element  create_req
-    wait until page contains element  keyword
-    input text  keyword  ${KeywordName}
-    click element  create_req
+    wait until page contains element  ${elementCreateReq}
+    wait until page contains element  ${inputKeyword}
+    input text  ${inputKeyword}  ${KeywordName}
+    click element  ${elementCreateReq}
     unselect frame
 
 Check Keyword Was Created
@@ -31,25 +40,25 @@ Check Keyword Was Created
 
 Click Assign Keyword to Test Case
     select frame  mainframe
-    wait until page contains element  keyword_assign
-    click element  keyword_assign
+    wait until page contains element  ${elementKeywordAssign}
+    click element  ${elementKeywordAssign}
     unselect frame
 
 Assign Keywords
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=/html/body/div/div/form/div/table/tbody/tr/td[2]/img[1]
-    wait until page contains element  assigntestcase
-    wait until page contains element  from_select_box
-    click element  xpath=/html/body/div/div/form/div/table/tbody/tr/td[2]/img[1]
-    click element  assigntestcase
+    wait until page contains element  ${xpathImage}
+    wait until page contains element  ${elementAssignTC}
+    wait until page contains element  ${elementFromSelectBox}
+    click element  ${xpathImage}
+    click element  ${elementAssignTC}
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//div/div/p[contains(text(),"item")][contains(text()," ")][contains(text(),"was successfully")][contains(text()," ")][contains(text(),"updated!")]
-    page should contain element  xpath=//div/div/p[contains(text(),"item")][contains(text()," ")][contains(text(),"was successfully")][contains(text()," ")][contains(text(),"updated!")]
+    wait until page contains element  ${xpathUpdated}
+    page should contain element  ${xpathUpdated}
     unselect frame
 
 Check Keyword

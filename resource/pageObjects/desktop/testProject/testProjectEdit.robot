@@ -9,20 +9,23 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${elementDoActionButton}        doActionButton
+${xpathInputActive}             xpath=//input[@name="active"]
+
 *** Keywords ***
 
 Wait until page contains all elements
     select frame  mainframe
     wait until page contains element  active
-    wait until page contains element  doActionButton
+    wait until page contains element  ${elementDoActionButton}
     unselect frame
 
 Unselect Checkbox Availibility Active
     testProjectEdit.Wait until page contains all elements
     select frame  mainframe
-    checkbox should be selected  xpath=//input[@name="active"]
-    unselect checkbox  xpath=//input[@name="active"]
-    click element  doActionButton
+    checkbox should be selected  ${xpathInputActive}
+    unselect checkbox  ${xpathInputActive}
+    click element  ${elementDoActionButton}
     unselect frame
 
 

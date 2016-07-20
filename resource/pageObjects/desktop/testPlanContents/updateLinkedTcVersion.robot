@@ -9,6 +9,8 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${xpathInputBtn}  xpath=//input[@id="update_btn"]
+
 *** Keywords ***
 
 I am here
@@ -39,7 +41,7 @@ Check Version Of The TC ${testCaseName}
     select frame  workframe
     wait until page contains element  xpath=//tr[td[contains(.,"${testCaseName}")]][td[contains(.,"2")]][td/select]
     wait until page contains element  xpath=//tr[td[contains(.,"${testCaseName}")]]//input[@type="checkbox"]
-    wait until page contains element  xpath=//input[@id="update_btn"]
+    wait until page contains element  ${xpathInputBtn}
     unselect frame
 
 Update to new version ${testCaseName}
@@ -48,7 +50,7 @@ Update to new version ${testCaseName}
     select frame  workframe
     click element  xpath=//tr[td[contains(.,"${testCaseName}")]]//input[@type="checkbox"]
     select from list by label  xpath=//tr[td[contains(.,"${testCaseName}")]]//select  1
-    click element  xpath=//input[@id="update_btn"]
+    click element  ${xpathInputBtn}
     unselect frame
 
 Check changed TC Version ${testCaseName}

@@ -6,18 +6,26 @@ Library        BuiltIn
 
 *** Variables ***
 
+${elementCopyFromTP}            copy_from_tproject_id
+${elementTPProject}             tprojectName
+${elementTCPrefix}              tcasePrefix
+${elementOptReq}                optReq
+${elementOptPriority}           optPriority
+${elementOptAutomation}         optAutomation
+${elementOptInventory}          optInventory
+
 *** Keywords ***
 
 I am here
     select frame  mainframe
-    wait until page contains element  copy_from_tproject_id
-    wait until page contains element  tprojectName
-    wait until page contains element  tcasePrefix
+    wait until page contains element  ${elementCopyFromTP}
+    wait until page contains element  ${elementTPProject}
+    wait until page contains element  ${elementTCPrefix}
     wait until page contains element  xpath=//*[@id="item_view"]/tbody/tr[4]/td[2]/textarea
-    wait until page contains element  optReq
-    wait until page contains element  optPriority
-    wait until page contains element  optAutomation
-    wait until page contains element  optInventory
+    wait until page contains element  ${elementOptReq}
+    wait until page contains element  ${elementOptPriority}
+    wait until page contains element  ${elementOptAutomation}
+    wait until page contains element  ${elementOptInventory}
     wait until page contains element  active
     wait until page contains element  is_public
     wait until page contains element  go_back
@@ -26,24 +34,24 @@ I am here
 
 Choose no template
     select frame  mainframe
-    select from list by label  copy_from_tproject_id  No
+    select from list by label  ${elementCopyFromTP}  No
     unselect frame
 
 Choose template from created project
     select frame  mainframe
-    select from list by label  copy_from_tproject_id  ${newTestProjectName1}
+    select from list by label  ${elementCopyFromTP}  ${newTestProjectName1}
     unselect frame
 
 Fill Test Project Name
     [Arguments]  ${newTestProjectName}
     select frame  mainframe
-    input text  tprojectName  ${newTestProjectName}
+    input text  ${elementTPProject}  ${newTestProjectName}
     unselect frame
 
 Fill Test Project Prefix
     [Arguments]  ${newTestProjectPrefix}
     select frame  mainframe
-    input text  tcasePrefix  ${newTestProjectPrefix}
+    input text  ${elementTCPrefix}  ${newTestProjectPrefix}
     unselect frame
 
 Click Create
@@ -58,21 +66,21 @@ No warning about existing projects
 
 Select Create From Existing Projects = No
     select frame  mainframe
-    select from list  copy_from_tproject_id  0
+    select from list  ${elementCopyFromTP}  0
     unselect frame
 
 Unselect all features
     select frame  mainframe
-    unselect checkbox  optReq
-    unselect checkbox  optPriority
-    unselect checkbox  optAutomation
-    unselect checkbox  optInventory
+    unselect checkbox  ${elementOptReq}
+    unselect checkbox  ${elementOptPriority}
+    unselect checkbox  ${elementOptAutomation}
+    unselect checkbox  ${elementOptInventory}
     unselect frame
 
 Select Unselected Checkboxes
     select frame  mainframe
-    select checkbox  optReq
-    select checkbox  optInventory
+    select checkbox  ${elementOptReq}
+    select checkbox  ${elementOptInventory}
     unselect frame
 
 Fill all information about ${newTestProjectName} ${newTestProjectPrefix}

@@ -9,112 +9,117 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${elementCreate}  create
+${inputName}  name
+${inputCFG}  cfg
+${xpathType}  xpath=//*[@id="type"]
+
 *** Keywords ***
 
 Check Issue Tracker Management
     select frame  mainframe
-    wait until page contains element  create
+    wait until page contains element  ${elementCreate}
     unselect frame
 
 Click Create Issue Tracker Management
     select frame  mainframe
-    click button  create
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: BUGZILLA (XMLRPC) ${ISSUETRACKER}
     select frame  mainframe
-    input text  name  ${ISSUETRACKER}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  bugzilla (Interface: xmlrpc)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  bugzilla (Interface: xmlrpc)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: BUGZILLA (DB)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER1}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  bugzilla (Interface: db)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER1}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  bugzilla (Interface: db)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: MANTIS (SOAP)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER2}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  mantis (Interface: soap)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER2}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  mantis (Interface: soap)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: MANTIS (DB)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER3}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  mantis (Interface: db)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER3}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  mantis (Interface: db)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: JIRA (SOAP)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER4}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  jira (Interface: soap)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER4}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  jira (Interface: soap)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: JIRA (DB)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER5}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  jira (Interface: db)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER5}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  jira (Interface: db)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: JIRA (REST)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER6}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  jira (Interface: rest)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER6}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  jira (Interface: rest)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: FOGBUGZ (DB)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER7}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  fogbugz (Interface: db)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER7}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  fogbugz (Interface: db)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: FOGBUGZ (REST)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER8}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  fogbugz (Interface: rest)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER8}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  fogbugz (Interface: rest)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: YOUTRACK (REST)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER9}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  youtrack (Interface: rest)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER9}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  youtrack (Interface: rest)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: REDMINE (REST)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER10}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  redmine (Interface: rest)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER10}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  redmine (Interface: rest)
+    click button  ${elementCreate}
     unselect frame
 
 Fill in all fields, type: TRAC (XMLRPC)
     select frame  mainframe
-    input text  name  ${ISSUETRACKER11}
-    input text  cfg  ${CONFIGURATION}
-    select from list by label  xpath=//*[@id="type"]  trac (Interface: xmlrpc)
-    click button  create
+    input text  ${inputName}  ${ISSUETRACKER11}
+    input text  ${inputCFG}  ${CONFIGURATION}
+    select from list by label  ${xpathType}  trac (Interface: xmlrpc)
+    click button  ${elementCreate}
     unselect frame
 
 Check created issue trackers

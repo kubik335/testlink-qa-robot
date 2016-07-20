@@ -9,6 +9,13 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${buttonCreateBuild}                create_build
+${elementDoCreate}                  do_create
+${xpathButtonOK}                    xpath=//button[text()="OK"]
+${elementBuildName}                 build_name
+${xpathTextEditor}                  xpath=//iframe[@title="Rich text editor, notes"]
+${elementCopyTesterAssignment}      copy_tester_assignments
+${elementSourceBuildID}             source_build_id
 
 *** Keywords ***
 
@@ -20,34 +27,34 @@ Check Builds/Releases
 Create Build
     wait until keyword succeeds  1min  0  buildsReleases.Check Builds/Releases
     select frame  mainframe
-    wait until page contains element  create_build
-    click button  create_build
+    wait until page contains element  ${buttonCreateBuild}
+    click button  ${buttonCreateBuild}
     unselect frame
 
 Check if warning message appears
     select frame  mainframe
     execute javascript  var imput = document.getElementsByName('build_name'); imput[0].required = false;
-    wait until page contains element  do_create
-    click element  do_create
+    wait until page contains element  ${elementDoCreate}
+    click element  ${elementDoCreate}
     wait until page contains  Please enter a name for the Build!
-    wait until page contains element  xpath=//button[text()="OK"]
-    click element  xpath=//button[text()="OK"]
+    wait until page contains element  ${xpathButtonOK}
+    click element  ${xpathButtonOK}
     unselect frame
 
 Fill in the details of the Build ${buildName}
     select frame  mainframe
-    wait until page contains element  build_name
-    input text  build_name  ${buildName}
-    wait until page contains element  xpath=//iframe[@title="Rich text editor, notes"]
-    mouse down  xpath=//iframe[@title="Rich text editor, notes"]
-    mouse up  xpath=//iframe[@title="Rich text editor, notes"]
-    select frame  xpath=//iframe[@title="Rich text editor, notes"]
+    wait until page contains element  ${elementBuildName}
+    input text  ${elementBuildName}  ${buildName}
+    wait until page contains element  ${xpathTextEditor}
+    mouse down  ${xpathTextEditor}
+    mouse up  ${xpathTextEditor}
+    select frame  ${xpathTextEditor}
     input text  xpath=//body  ${buildDescription}
     unselect frame
 
 Save Build
     select frame  mainframe
-    wait until page contains element  do_create
+    wait until page contains element  ${elementDoCreate}
     click button  Create
     unselect frame
 
@@ -89,10 +96,10 @@ Select Build ${buildName}
 
 Choose template ${FromBuild}
     select frame  mainframe
-    wait until page contains element  copy_tester_assignments
-    select checkbox  copy_tester_assignments
-    wait until page contains element  source_build_id
-    select from list by label  source_build_id  ${FromBuild} (0)
+    wait until page contains element  ${elementCopyTesterAssignment}
+    select checkbox  ${elementCopyTesterAssignment}
+    wait until page contains element  ${elementSourceBuildID}
+    select from list by label  ${elementSourceBuildID}  ${FromBuild} (0)
     unselect frame
 
 Add Details and Finish creating build ${buildName}

@@ -9,6 +9,14 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${xpathInput1}                  xpath=//*[@id="item_view"]/tbody/tr[1]/td[2]/input
+${xpathInput2}                  xpath=//*[@id="item_view"]/tbody/tr[2]/td[2]/input
+${xpathTable}                   xpath=//table[@id="item_view"]
+${xpathIssueTracker}            xpath=//*[@id="issue_tracker_id"]
+${elementIssueTrackerEnabled}   issue_tracker_enabled
+${elementIssueTrackerSelect}    xpath=//select[@name="issue_tracker_id"]]
+${itemViewWrapper}              item_view_wrapper
+
 *** Keywords ***
 
 Check Test Project Management
@@ -39,10 +47,10 @@ Create Test Project
 
 Filled the valid name and prefix ${newTestProjectName} ${newTestProjectPrefix}
     select frame  mainframe
-    wait until page contains element  xpath=//*[@id="item_view"]/tbody/tr[1]/td[2]/input
-    wait until page contains element  xpath=//*[@id="item_view"]/tbody/tr[2]/td[2]/input
-    input text  xpath=//*[@id="item_view"]/tbody/tr[1]/td[2]/input  ${newTestProjectName}
-    input text  xpath=//*[@id="item_view"]/tbody/tr[2]/td[2]/input   ${newTestProjectPrefix}
+    wait until page contains element  ${xpathInput}
+    wait until page contains element  ${xpathInput2}
+    input text  ${xpathInput}  ${newTestProjectName}
+    input text  ${xpathInput2}   ${newTestProjectPrefix}
     Click Button  doActionButton
     unselect frame
 
@@ -61,7 +69,7 @@ Check Warning message
 Check new project exists
     [Arguments]  ${newTestProjectName}
     select frame  mainframe
-    element should contain  xpath=//table[@id="item_view"]  ${newTestProjectName}
+    element should contain  ${xpathTable}   ${newTestProjectName}
     unselect frame
 
 Click desired project ${newTestProjectName}
@@ -87,17 +95,17 @@ Unactive Test Project by Bulb ${newTestProjectName}
 
 Add IT to TP ${ISSUETRACKER}
     select frame  mainframe
-    wait until page contains element  xpath=//*[@id="issue_tracker_id"]
-    wait until page contains element  issue_tracker_enabled
-    select checkbox  issue_tracker_enabled
-    select from list by label  xpath=//*[@id="issue_tracker_id"]  ${ISSUETRACKER} ( bugzilla (Interface: xmlrpc) )
-    click element  xpath=//select[@name="issue_tracker_id"]
+    wait until page contains element  ${xpathIssueTracker}
+    wait until page contains element  ${elementIssueTrackerEnabled}
+    select checkbox  ${elementIssueTrackerEnabled}
+    select from list by label  ${xpathIssueTracker}  ${ISSUETRACKER} ( bugzilla (Interface: xmlrpc) )
+    click element  ${elementIssueTrackerSelect}
     unselect frame
 
 Check Issue Tracker has been added to the Test Project
     select frame  mainframe
-    wait until page contains element  xpath=//table[@id="item_view"]
-    element should contain  xpath=//table[@id="item_view"]  ${ISSUETRACKER}
+    wait until page contains element  ${xpathTable}
+    element should contain  ${xpathTable}   ${ISSUETRACKER}
     unselect frame
 
 Wait Until Page Contains TP and Click It ${newTestProjectName}
@@ -126,8 +134,8 @@ Check Test Project and Click Create ${newTestProjectName} ${newTestProjectPrefix
 
 Check Unique ${newTestProjectName} ${newTestProjectPrefix}
     select frame  mainframe
-    element should not contain  item_view_wrapper  ${newTestProjectName}
-    element should not contain  item_view_wrapper  ${newTestProjectPrefix}
+    element should not contain  ${itemViewWrapper} ${newTestProjectName}
+    element should not contain  ${itemViewWrapper} ${newTestProjectPrefix}
     unselect frame
 
 Delete TP NOTHING INSIDE

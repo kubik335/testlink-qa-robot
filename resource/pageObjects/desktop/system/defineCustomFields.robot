@@ -9,6 +9,10 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${inputCFName}  cf_name
+${xpathDoUpdate}  xpath=//input[@name="do_update"]
+${xpathCreateCF}  xpath=//input[@name="create_cfield"]
+
 *** Keywords ***
 
 Check Define Custom Fields
@@ -18,14 +22,14 @@ Check Define Custom Fields
 
 Click create Custom Field
     select frame  mainframe
-    double click element  xpath=//input[@name="create_cfield"]
+    double click element  ${xpathCreateCF}
     unselect frame
 
 Input information about Custom Field
     select frame  mainframe
-    input text  cf_name  ${CFNAME}
+    input text  ${inputCFName}  ${CFNAME}
     input text  cf_label  ${CFLABEL}
-    double click element  xpath=//input[@name="do_update"]
+    double click element  ${xpathDoUpdate}
     unselect frame
 
 Check custom field
@@ -46,7 +50,7 @@ Select Custom Field
 
 Edit Custom Fields
     select frame  mainframe
-    input text  cf_name  ${NEWCFNAME}
+    input text  ${inputCFName}  ${NEWCFNAME}
     #change (Available for)
     click element  xpath=//*[@id="combo_cf_node_type_id"]
     click element  xpath=//*[@id="combo_cf_node_type_id"]/option[3]
@@ -58,8 +62,8 @@ Edit Custom Fields
     click element  xpath=//*[@id="cf_show_on_execution"]/option[2]
     unselect frame
     select frame  mainframe
-    wait until page contains element  xpath=//input[@name="do_update"]
-    double click element  xpath=//input[@name="do_update"]
+    wait until page contains element  ${xpathDoUpdate}
+    double click element  ${xpathDoUpdate}
     unselect frame
 
 Select and delete Custom Field ${CFNAME}

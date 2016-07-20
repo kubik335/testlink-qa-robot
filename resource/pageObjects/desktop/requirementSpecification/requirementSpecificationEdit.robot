@@ -9,22 +9,48 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${elementNewReqSpec}            new_req_spec
+${elementTitle}                 title
+${elementDocID}                 doc_id
+${elementCreateSrs}             createSRS
+${elementReqSpecType}           reqSpecType
+${xpathActions}                 xpath=//img[@title="Actions"]
+${elementCreateReq}             create_req
+${elementReqTitle}              req_title
+${elementReqDocID}              reqDocId
+${elementReqType}               reqType
+${elementReqStatus}             reqStatus
+${elementExpandTree}            expand_tree
+${elementEditReq}               edit_req
+${inputExtGen30}                ext-gen30
+${buttonCreateTC}               create_tcases
+${elementCreateTCFormReq}       create_tc_from_req
+${xpathCheckUncheck}            xpath=//tbody//img[@title="check/uncheck all"]
+${elementCollapseTree}          collapse_tree
+${elementDeleteReq}             delete_req
+${elementFreezeReqVersion}      freeze_req_version
+${elementCopyReq}               copy_req
+${elementNewRevision}           new_revision
+${elementNewButton}             new_version
+${elementPrintFriendly}         printerFriendly
+${elementDeleteSRS}             deleteSRS
+
 *** Keywords ***
 
 Create New Requirement Specification (type URS) ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  new_req_spec
-    click element  new_req_spec
-    wait until page contains element  title
-    wait until page contains element  doc_id
-    wait until page contains element  createSRS
-    wait until page contains element  reqSpecType
-    input text  doc_id  ${dokumentID}
-    input text  title  ${title}
-    select from list by value  reqSpecType  2
-    click element  createSRS
+    wait until page contains element  ${elementNewReqSpec}
+    click element  ${elementNewReqSpec}
+    wait until page contains element  ${elementTitle}
+    wait until page contains element  ${elementDocID}
+    wait until page contains element  ${elementCreateSrs}
+    wait until page contains element  ${elementReqSpecType}
+    input text  ${elementDocID}  ${dokumentID}
+    input text  ${elementTitle}  ${title}
+    select from list by value  ${elementReqSpecType}  2
+    click element  ${elementCreateSrs}
     unselect frame
 
 Choose Requirement Specification ${dokumentID} ${title}
@@ -38,31 +64,31 @@ Choose Requirement Specification ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//img[@title="Actions"]
+    wait until page contains element  ${xpathActions}
     unselect frame
 
 Create Requirement Operations ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//img[@title="Actions"]
-    click element  xpath=//img[@title="Actions"]
-    wait until page contains element  create_req
-    click button  create_req
+    wait until page contains element  ${xpathActions}
+    click element  ${xpathActions}
+    wait until page contains element  ${elementCreateReq}
+    click button  ${elementCreateReq}
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  name=create_req
-    wait until page contains element  req_title
-    wait until page contains element  reqDocId
-    wait until page contains element  reqType
-    wait until page contains element  reqStatus
-    input text  reqDocId  ${dokumentID}
-    input text  req_title  ${title}
-    select from list by value  reqStatus  F
-    select from list by value  reqType  1
-    click element  create_req
+    wait until page contains element  ${elementCreateReq}
+    wait until page contains element  ${elementReqTitle}
+    wait until page contains element  ${elementReqDocID}
+    wait until page contains element  ${elementReqType}
+    wait until page contains element  ${elementReqStatus}
+    input text  ${elementReqDocID}  ${dokumentID}
+    input text  ${elementReqTitle}  ${title}
+    select from list by value  ${elementReqStatus}  F
+    select from list by value  ${elementReqType}  1
+    click element  ${elementCreateReq}
     unselect frame
     select frame  mainframe
     wait until page contains element  treeframe
@@ -74,8 +100,8 @@ Edit Requirement Operations ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  expand_tree
-    click element  expand_tree
+    wait until page contains element  ${elementExpandTree}
+    click element  ${elementExpandTree}
     sleep  2
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
@@ -83,19 +109,19 @@ Edit Requirement Operations ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//img[@title="Actions"]
-    click element  xpath=//img[@title="Actions"]
-    wait until page contains element  edit_req
-    click button  edit_req
-    wait until page contains element  create_req
-    wait until page contains element  reqStatus
-    wait until page contains element  reqType
-    select from list by value  reqStatus  I
-    select from list by value  reqType  6
+    wait until page contains element  ${xpathActions}
+    click element  ${xpathActions}
+    wait until page contains element  ${elementEditReq}
+    click button  ${elementEditReq}
+    wait until page contains element  ${elementCreateReq}
+    wait until page contains element  ${elementReqStatus}
+    wait until page contains element  ${elementReqType}
+    select from list by value  ${elementReqStatus}  I
+    select from list by value  ${elementReqType}  6
     input text  expected_coverage  1
-    click element  create_req
-    wait until page contains element  ext-gen30
-    input text  ext-gen30  This is new log
+    click element  ${elementCreateReq}
+    wait until page contains element  ${inputExtGen30}
+    input text  ${inputExtGen30}  This is new log
     click button  OK
     unselect frame
 
@@ -110,23 +136,23 @@ Create Test Case From Requirement ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//img[@title="Actions"]
-    click element  xpath=//img[@title="Actions"]
-    wait until page contains element  create_tcases
-    click button  create_tcases
-    wait until page contains element  create_tc_from_req
-    wait until page contains element  xpath=//tbody//img[@title="check/uncheck all"]
-    click element  xpath=//tbody//img[@title="check/uncheck all"]
-    click button  create_tc_from_req
+    wait until page contains element  ${xpathActions}
+    click element  ${xpathActions}
+    wait until page contains element  ${buttonCreateTC}
+    click button  ${buttonCreateTC}
+    wait until page contains element  ${elementCreateTCFormReq}
+    wait until page contains element  ${xpathCheckUncheck}
+    click element  ${xpathCheckUncheck}
+    click button  ${elementCreateTCFormReq}
     unselect frame
 
 Create New Version Of Requirement
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  expand_tree
-    wait until page contains element  collapse_tree
-    click element  expand_tree
+    wait until page contains element  ${elementExpandTree}
+    wait until page contains element  ${elementCollapseTree}
+    click element  ${elementExpandTree}
     sleep  2
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
@@ -134,18 +160,18 @@ Create New Version Of Requirement
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//img[@title="Actions"]
-    click element  xpath=//img[@title="Actions"]
-    wait until page contains element  edit_req
-    wait until page contains element  delete_req
-    wait until page contains element  freeze_req_version
-    wait until page contains element  copy_req
-    wait until page contains element  new_revision
-    wait until page contains element  new_version
-    wait until page contains element  printerFriendly
-    click button  new_version
-    wait until page contains element  ext-gen30
-    input text  ext-gen30  This is new log
+    wait until page contains element  ${xpathActions}
+    click element  ${xpathActions}
+    wait until page contains element  ${elementEditReq}
+    wait until page contains element  ${elementDeleteReq}
+    wait until page contains element  ${elementFreezeReqVersion}
+    wait until page contains element  ${elementCopyReq}
+    wait until page contains element  ${elementNewRevision}
+    wait until page contains element  ${elementNewButton}
+    wait until page contains element  ${elementPrintFriendly}
+    click button  ${elementNewButton}
+    wait until page contains element  ${inputExtGen30}
+    input text  ${inputExtGen30}  This is new log
     click button  OK
     unselect frame
 
@@ -153,11 +179,11 @@ Delete Requirement Specification NO
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//img[@title="Actions"]
-    click element  xpath=//img[@title="Actions"]
+    wait until page contains element  ${xpathActions}
+    click element  ${xpathActions}
     wait until page contains element  edit_req_spec
-    wait until page contains element  deleteSRS
-    click button  deleteSRS
+    wait until page contains element  ${elementDeleteSRS}
+    click button  ${elementDeleteSRS}
     wait until page contains  No
     click button  No
     wait until page contains  Requirement Specification Operations
@@ -167,9 +193,9 @@ Select More Than 1 Version Requirement
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  expand_tree
-    wait until page contains element  collapse_tree
-    click element  expand_tree
+    wait until page contains element  ${elementExpandTree}
+    wait until page contains element  ${elementCollapseTree}
+    click element  ${elementExpandTree}
     sleep  2
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
@@ -177,15 +203,15 @@ Select More Than 1 Version Requirement
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//img[@title="Actions"]
-    click element  xpath=//img[@title="Actions"]
-    wait until page contains element  edit_req
-    wait until page contains element  delete_req
-    wait until page contains element  freeze_req_version
-    wait until page contains element  copy_req
-    wait until page contains element  new_revision
-    wait until page contains element  new_version
-    wait until page contains element  printerFriendly
+    wait until page contains element  ${xpathActions}
+    click element  ${xpathActions}
+    wait until page contains element  ${elementEditReq}
+    wait until page contains element  ${elementDeleteReq}
+    wait until page contains element  ${elementFreezeReqVersion}
+    wait until page contains element  ${elementCopyReq}
+    wait until page contains element  ${elementNewRevision}
+    wait until page contains element  ${elementNewButton}
+    wait until page contains element  ${elementPrintFriendly}
     unselect frame
 
 Delete More Than 1 Version Requirement
@@ -203,9 +229,9 @@ Check Requirement Version
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    wait until page contains element  expand_tree
-    wait until page contains element  collapse_tree
-    click element  expand_tree
+    wait until page contains element  ${elementExpandTree}
+    wait until page contains element  ${elementCollapseTree}
+    click element  ${elementExpandTree}
     sleep  2
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]

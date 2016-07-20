@@ -9,13 +9,14 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${buttonCreateTestPlan}  create_testplan
 
 *** Keywords ***
 
 Create Test Plan Management
     select frame  mainframe
-    wait until page contains element  create_testplan
-    click button  create_testplan
+    wait until page contains element  ${buttonCreateTestPlan}
+    click button  ${buttonCreateTestPlan}
     unselect frame
 
 Check Test Plan Management is Created ${TestPlanName}

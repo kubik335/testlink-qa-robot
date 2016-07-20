@@ -10,22 +10,24 @@ Library        Selenium2Library
 
 *** Variables ***
 
+${xpathInputDoAddRemove}    xpath=//input[@name="doAddRemove"]
+${elementTesterID}          testerID
 *** Keywords ***
 
 Check Page Add/Remove TC ${PlatformName}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    wait until page contains element  xpath=//input[@name="doAddRemove"]
+    wait until page contains element  ${xpathInputDoAddRemove}
     wait until page contains element  xpath=//tbody[tr/td[contains(text(),"${PlatformName}")]]
-    wait until page contains element  testerID
+    wait until page contains element  ${elementTesterID}
     unselect frame
 
 Assign TC to user ${Username}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
-    select from list by label  testerID  ${Username}
+    select from list by label  ${elementTesterID}  ${Username}
     unselect frame
 
 Assign TC to platform ${PlatformName}
@@ -33,7 +35,7 @@ Assign TC to platform ${PlatformName}
     wait until page contains element  workframe
     select frame  workframe
     click element  xpath=//tr[td[text()="${PlatformName}"]]//input[1]
-    click element  xpath=//input[@name="doAddRemove"]
+    click element  ${xpathInputDoAddRemove}
     unselect frame
 
 Check TC were Assigned
@@ -56,7 +58,7 @@ Unassign TC from ${PlatformName}
     wait until page contains element  workframe
     select frame  workframe
     click element  xpath=//tr[td[text()="${PlatformName}"]]//input[@type="checkbox"]
-    click element  xpath=//input[@name="doAddRemove"]
+    click element  ${xpathInputDoAddRemove}
     unselect frame
 
 Assign to user ${Username} & platform ${PlatformName} TC
