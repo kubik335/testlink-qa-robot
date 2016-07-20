@@ -6,29 +6,28 @@ Library        Selenium2Library
 
 *** Variables ***
 
-${elementViewUsers}  xpath=//div[@class="tabMenu"]//*[contains(text(),"View Users")]
-${elementViewRoles}  xpath=//div[@class="tabMenu"]//*[contains(text(),"View roles")]
-${elementAssignTestProject}  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Project roles")]
-${elementAssignTestPlan}  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Plan roles")]
-${css}  css=div.workBack
-${elementDoCreate}  doCreate
-${elementExport}  export
-${elementFirstName}  firstName
-${elementLastName}  lastName
-${elementEmail}  emailAddress
-${listRightsID}  rights_id
-${listLocale}  locale
-${listAuthentication}  authentication
-${checkboxActiveUser}  user_is_active
-${elementDoUpdate}  do_update
-${elementCancel}  cancel
-${elementResetPassword}  do_reset_password
-${xpathTable}  xpath=//table
-${xpathInputRole}  xpath=//input[@name="rolename"]
-${xpathInputSubmit}  xpath=//input[@type="submit"]
-${xpathFieldsetTestProject}  xpath=//fieldset[legend[text()="Test Project"]]/input[1]
-${xpathTableItemView}  xpath=//table[@id="item_view"]
-${xpathTesterTesena}  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
+${elementViewUsers}                     xpath=//div[@class="tabMenu"]//*[contains(text(),"View Users")]
+${elementViewRoles}                     xpath=//div[@class="tabMenu"]//*[contains(text(),"View roles")]
+${elementAssignTestProject}             xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Project roles")]
+${elementAssignTestPlan}                xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Plan roles")]
+${elementDoCreate}                      doCreate
+${elementExport}                        export
+${elementFirstName}                     firstName
+${elementLastName}                      lastName
+${elementEmail}                         emailAddress
+${listRightsID}                         rights_id
+${listLocale}                           locale
+${listAuthentication}                   authentication
+${checkboxActiveUser}                   user_is_active
+${elementDoUpdate}                      do_update
+${elementCancel}                        cancel
+${elementResetPassword}                 do_reset_password
+${xpathUserTable}                       xpath=//table
+${xpathInputRole}                       xpath=//input[@name="rolename"]
+${xpathInputSubmit}                     xpath=//input[@type="submit"]
+${xpathFieldsetTestProject}             xpath=//fieldset[legend[text()="Test Project"]]/input[1]
+${xpathTableItemView}                   xpath=//table[@id="item_view"]
+${xpathTesterTesena}                    xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
 
 
 
@@ -41,7 +40,7 @@ I am here
     wait until page contains element  ${elementViewRoles}
     wait until page contains element  ${elementAssignTestProject}
     wait until page contains element  ${elementAssignTestPlan}
-    wait until page contains element  ${css}
+    wait until page contains element  css=div.workBack
     wait until page contains element  ${elementDoCreate}
     wait until page contains element  ${elementExport}
     unselect frame
@@ -52,7 +51,7 @@ Wait until page contains view users content
     wait until page contains element  ${elementViewRoles}
     wait until page contains element  ${elementAssignTestProject}
     wait until page contains element  ${elementAssignTestPlan}
-    wait until page contains element  ${css}
+    wait until page contains element  css=div.workBack
     wait until page contains element  ${elementDoCreate}
     wait until page contains element  ${elementExport}
     unselect frame
@@ -94,7 +93,7 @@ Check all fields for editing user are availiable
 Create role ${role}
     page should not contain element  xpath=//a[contains(., "${role}")]
     select frame  mainframe
-    wait until page contains element  ${xpathTable}
+    wait until page contains element  ${xpathUserTable}
     wait until page contains element  ${elementDoCreate}
     click element  ${elementDoCreate}
     unselect frame
@@ -108,8 +107,8 @@ Create role ${role}
     wait until page does not contain element  ${xpathInputRole}
     unselect frame
     select frame  mainframe
-    wait until page contains element  ${xpathTable}
-    wait until element contains  ${xpathTable}  ${role}
+    wait until page contains element  ${xpathUserTable}
+    wait until element contains  ${xpathUserTable}  ${role}
     unselect frame
 
 Click bookmark ${bookmark}

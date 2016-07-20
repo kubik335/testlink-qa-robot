@@ -14,7 +14,7 @@ ${xpathInput2}                  xpath=//*[@id="item_view"]/tbody/tr[2]/td[2]/inp
 ${xpathTable}                   xpath=//table[@id="item_view"]
 ${xpathIssueTracker}            xpath=//*[@id="issue_tracker_id"]
 ${elementIssueTrackerEnabled}   issue_tracker_enabled
-${elementIssueTrackerSelect}    xpath=//select[@name="issue_tracker_id"]]
+${elementIssueTrackerSelect}    //select[@name="issue_tracker_id"]]
 ${itemViewWrapper}              item_view_wrapper
 
 *** Keywords ***
@@ -99,7 +99,7 @@ Add IT to TP ${ISSUETRACKER}
     wait until page contains element  ${elementIssueTrackerEnabled}
     select checkbox  ${elementIssueTrackerEnabled}
     select from list by label  ${xpathIssueTracker}  ${ISSUETRACKER} ( bugzilla (Interface: xmlrpc) )
-    click element  ${elementIssueTrackerSelect}
+    click element  ${elementIssueTrackerEnabled}
     unselect frame
 
 Check Issue Tracker has been added to the Test Project
@@ -134,8 +134,8 @@ Check Test Project and Click Create ${newTestProjectName} ${newTestProjectPrefix
 
 Check Unique ${newTestProjectName} ${newTestProjectPrefix}
     select frame  mainframe
-    element should not contain  ${itemViewWrapper} ${newTestProjectName}
-    element should not contain  ${itemViewWrapper} ${newTestProjectPrefix}
+    element should not contain  ${itemViewWrapper}  ${newTestProjectName}
+    element should not contain  ${itemViewWrapper}  ${newTestProjectPrefix}
     unselect frame
 
 Delete TP NOTHING INSIDE
