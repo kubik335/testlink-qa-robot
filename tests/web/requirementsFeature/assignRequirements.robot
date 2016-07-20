@@ -36,12 +36,11 @@ ${title1}                       newtitle48
     #Check Availiable Requirements
 
 48 Relations between requirements and test cases
-    [Tags]  1
+
     Preconditions for tc48
     Change Test Project and go to ${assignRequirements} ${checkAssignRequirements}
     Select Test Suite ${title1}
-    Check Assigned Requirements ${title1}
-    #Unassign Requirements ${title}
+    Unassign Requirements ${title1}
     #Check Availiable Requirements
 
 *** Keywords ***
