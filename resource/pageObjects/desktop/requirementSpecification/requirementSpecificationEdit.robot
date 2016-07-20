@@ -57,9 +57,9 @@ Choose Requirement Specification ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    sleep  2
+    #sleep  2
     wait until page contains element  xpath=//ul[li[contains(., "${dokumentID}:${title}")]]//a[contains(., "${dokumentID}:${title}")]
-    click element  xpath=//ul[li[contains(., "${dokumentID}:${title}")]]//a[contains(., "${dokumentID}:${title}")]
+    wait until keyword succeeds  1min  0  click element  xpath=//ul[li[contains(., "${dokumentID}:${title}")]]//a[contains(., "${dokumentID}:${title}")]
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -102,9 +102,9 @@ Edit Requirement Operations ${dokumentID} ${title}
     select frame  treeframe
     wait until page contains element  ${elementExpandTree}
     click element  ${elementExpandTree}
-    sleep  2
+    #sleep  2
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
-    double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
+    wait until keyword succeeds  1min  0  double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -129,9 +129,9 @@ Create Test Case From Requirement ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    sleep  2
+    #sleep  2
     wait until page contains element  xpath=//a[span[contains(text(), "${dokumentID}:${title} ")]]
-    double click element  xpath=//a[span[contains(text(), "${dokumentID}:${title} ")]]
+    wait until keyword succeeds  1min  0  double click element  xpath=//a[span[contains(text(), "${dokumentID}:${title} ")]]
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -153,9 +153,10 @@ Create New Version Of Requirement
     wait until page contains element  ${elementExpandTree}
     wait until page contains element  ${elementCollapseTree}
     click element  ${elementExpandTree}
-    sleep  2
+    #sleep  2
+    wait until page contains  ${dokumentID}:${title}
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
-    double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
+    wait until keyword succeeds  1min  0  double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -196,9 +197,9 @@ Select More Than 1 Version Requirement
     wait until page contains element  ${elementExpandTree}
     wait until page contains element  ${elementCollapseTree}
     click element  ${elementExpandTree}
-    sleep  2
+    #sleep  2
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
-    double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
+    wait until keyword succeeds  1min  0  double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
@@ -232,9 +233,9 @@ Check Requirement Version
     wait until page contains element  ${elementExpandTree}
     wait until page contains element  ${elementCollapseTree}
     click element  ${elementExpandTree}
-    sleep  2
+    #sleep  2
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
-    double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
+    wait until keyword succeeds  1min  0  double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     unselect frame
     select frame  mainframe
     wait until page contains element  workframe
