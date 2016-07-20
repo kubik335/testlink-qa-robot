@@ -41,7 +41,7 @@ ${title1}                       newtitle48
     Change Test Project and go to ${assignRequirements} ${checkAssignRequirements}
     Select Test Suite ${title1}
     Unassign Requirements ${title1}
-    #Check Availiable Requirements
+    Check Availiable Requirements
 
 *** Keywords ***
 
