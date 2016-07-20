@@ -10,7 +10,7 @@ Library        Selenium2Library
 *** Variables ***
 
 ${buttonCreateBuild}                create_build
-${elementDoCreate}                  do_create
+${elementBuildDoCreate}             do_create
 ${xpathButtonOK}                    xpath=//button[text()="OK"]
 ${elementBuildName}                 build_name
 ${xpathTextEditor}                  xpath=//iframe[@title="Rich text editor, notes"]
@@ -54,8 +54,8 @@ Fill in the details of the Build ${buildName}
 
 Save Build
     select frame  mainframe
-    wait until page contains element  ${elementDoCreate}
-    click button  Create
+    wait until page contains element  ${elementBuildDoCreate}
+    click element  ${elementBuildDoCreate}
     unselect frame
 
 Save Build after Editing
