@@ -1,33 +1,60 @@
 *** Settings ***
 
 Documentation  This is the resource file containing all methods based part of desktop which contains header
+
 Library        Selenium2Library
 
 *** Variables ***
+
+${elementViewUsers}  xpath=//div[@class="tabMenu"]//*[contains(text(),"View Users")]
+${elementViewRoles}  xpath=//div[@class="tabMenu"]//*[contains(text(),"View roles")]
+${elementAssignTestProject}  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Project roles")]
+${elementAssignTestPlan}  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Plan roles")]
+${css}  css=div.workBack
+${elementDoCreate}  doCreate
+${elementExport}  export
+${elementFirstName}  firstName
+${elementLastName}  lastName
+${elementEmail}  emailAddress
+${listRightsID}  rights_id
+${listLocale}  locale
+${listAuthentication}  authentication
+${checkboxActiveUser}  user_is_active
+${elementDoUpdate}  do_update
+${elementCancel}  cancel
+${elementResetPassword}  do_reset_password
+${xpathTable}  xpath=//table
+${xpathInputRole}  xpath=//input[@name="rolename"]
+${xpathInputSubmit}  xpath=//input[@type="submit"]
+${xpathFieldsetTestProject}  xpath=//fieldset[legend[text()="Test Project"]]/input[1]
+${xpathTableItemView}  xpath=//table[@id="item_view"]
+${xpathTesterTesena}  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
+
+
 
 
 *** Keywords ***
 
 I am here
     select frame  mainframe
-    wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"View Users")]
-    wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"View roles")]
-    wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Project roles")]
-    wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Plan roles")]
-    wait until page contains element  css=div.workBack
-    wait until page contains element  doCreate
-    wait until page contains element  export
+    wait until page contains element  ${elementViewUsers}
+    wait until page contains element  ${elementViewRoles}
+    wait until page contains element  ${elementAssignTestProject}
+    wait until page contains element  ${elementAssignTestPlan}
+    wait until page contains element  ${css}
+    wait until page contains element  ${elementDoCreate}
+    wait until page contains element  ${elementExport}
     unselect frame
 
 Wait until page contains view users content
     select frame  mainframe
-    wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"View Users")]
-    wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"View roles")]
-    wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Project roles")]
-    wait until page contains element  xpath=//div[@class="tabMenu"]//*[contains(text(),"Assign Test Plan roles")]
-    wait until page contains element  css=div.workBack
-    wait until page contains element  doCreate
-    wait until page contains element  export
+    wait until page contains element  ${elementViewUsers}
+    wait until page contains element  ${elementViewRoles}
+    wait until page contains element  ${elementAssignTestProject}
+    wait until page contains element  ${elementAssignTestPlan}
+    wait until page contains element  ${css}
+    wait until page contains element  ${elementDoCreate}
+    wait until page contains element  ${elementExport}
     unselect frame
 
 Click desired user
@@ -37,52 +64,52 @@ Click desired user
 
 Fill inputs for editing user and submit
     select frame  mainframe
-    clear element text  firstName
-    clear element text  lastName
-    clear element text  emailAddress
-    input text   firstName  ${fname}
-    input text   lastName  ${lname}
-    input text   emailAddress  ${email}
-    select from list by label  rights_id  guest
-    select from list by label  locale  Czech
-    select from list by label  authentication  Default(DB)
-    checkbox should be selected  user_is_active
-    click element  do_update
+    clear element text  ${elementFirstName}
+    clear element text  ${elementLastName}
+    clear element text  ${elementEmail}
+    input text   ${elementFirstName}  ${fname}
+    input text   ${elementLastName}  ${lname}
+    input text   ${elementEmail}  ${email}
+    select from list by label  ${listRightsID}  guest
+    select from list by label  ${listLocale}  Czech
+    select from list by label  ${listAuthentication}  Default(DB)
+    checkbox should be selected  ${checkboxActiveUser}
+    click element  ${elementDoUpdate}
     unselect frame
 
 Check all fields for editing user are availiable
     select frame  mainframe
-    wait until page contains element  firstName
-    wait until page contains element  lastName
-    wait until page contains element  emailAddress
-    wait until page contains element  rights_id
-    wait until page contains element  locale
-    wait until page contains element  authentication
-    wait until page contains element  do_update
-    wait until page contains element  user_is_active
-    wait until page contains element  cancel
-    wait until page contains element  do_reset_password
+    wait until page contains element  ${elementFirstName}
+    wait until page contains element  ${elementLastName}
+    wait until page contains element  ${elementEmail}
+    wait until page contains element  ${listRightsID}
+    wait until page contains element  ${listLocale}
+    wait until page contains element  ${listAuthentication}
+    wait until page contains element  ${elementDoUpdate}
+    wait until page contains element  ${checkboxActiveUser}
+    wait until page contains element  ${elementCancel}
+    wait until page contains element  ${elementResetPassword}
     unselect frame
 
 Create role ${role}
     page should not contain element  xpath=//a[contains(., "${role}")]
     select frame  mainframe
-    wait until page contains element  xpath=//table
-    wait until page contains element  doCreate
-    click element  doCreate
+    wait until page contains element  ${xpathTable}
+    wait until page contains element  ${elementDoCreate}
+    click element  ${elementDoCreate}
     unselect frame
     select frame  mainframe
-    wait until page contains element  xpath=//input[@name="rolename"]
-    input text  xpath=//input[@name="rolename"]  ${role}
-    wait until page contains element  xpath=//fieldset[legend[text()="Test Project"]]/input[1]
-    select checkbox  xpath=//fieldset[legend[text()="Test Project"]]/input[1]
-    wait until page contains element  xpath=//input[@type="submit"]
-    click element  xpath=//input[@type="submit"]
-    wait until page does not contain element  xpath=//input[@name="rolename"]
+    wait until page contains element  ${xpathInputRole}
+    input text  ${xpathInputRole}  ${role}
+    wait until page contains element  ${xpathFieldsetTestProject}
+    select checkbox  ${xpathFieldsetTestProject}
+    wait until page contains element  ${xpathInputSubmit}
+    click element  ${xpathInputSubmit}
+    wait until page does not contain element  ${xpathInputRole}
     unselect frame
     select frame  mainframe
-    wait until page contains element  xpath=//table
-    wait until element contains  xpath=//table  ${role}
+    wait until page contains element  ${xpathTable}
+    wait until element contains  ${xpathTable}  ${role}
     unselect frame
 
 Click bookmark ${bookmark}
@@ -93,40 +120,40 @@ Click bookmark ${bookmark}
 
 Change user role in test project
     select frame  mainframe
-    wait until page contains element  xpath=//table[@id="item_view"]
-    wait until page contains element  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
-    select from list by label  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select  ${role}
-    wait until page contains element  do_update
-    click element  do_update
+    wait until page contains element  ${xpathTableItemView}
+    wait until page contains element  ${xpathTesterTesena}
+    select from list by label  ${xpathTesterTesena}  ${role}
+    wait until page contains element  ${elementDoUpdate}
+    click element  ${elementDoUpdate}
     unselect frame
     select frame  mainframe
     wait until page contains  User Roles updated
     unselect frame
     select frame  mainframe
-    wait until page contains element  xpath=//table[@id="item_view"]
-    wait until page contains element  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
-    select from list by label  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select  tester
-    wait until page contains element  do_update
-    click element  do_update
+    wait until page contains element  ${xpathTableItemView}
+    wait until page contains element  ${xpathTesterTesena}
+    select from list by label  ${xpathTesterTesena}  tester
+    wait until page contains element  ${elementDoUpdate}
+    click element  ${elementDoUpdate}
     unselect frame
 
 Change user role in test plan
     select frame  mainframe
-    wait until page contains element  xpath=//table[@id="item_view"]
-    wait until page contains element  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
-    select from list by label  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select  ${role}
-    wait until page contains element  do_update
-    click element  do_update
+    wait until page contains element  ${xpathTableItemView}
+    wait until page contains element  ${xpathTesterTesena}
+    select from list by label  ${xpathTesterTesena}  ${role}
+    wait until page contains element  ${elementDoUpdate}
+    click element  ${elementDoUpdate}
     unselect frame
     select frame  mainframe
     wait until page contains  User Roles updated
     unselect frame
     select frame  mainframe
-    wait until page contains element  xpath=//table[@id="item_view"]
-    wait until page contains element  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select
-    select from list by label  xpath=//tr[*[contains(text(),"tester (tester tesena)")]]//select  tester
-    wait until page contains element  do_update
-    click element  do_update
+    wait until page contains element  ${xpathTableItemView}
+    wait until page contains element  ${xpathTesterTesena}
+    select from list by label  ${xpathTesterTesena}  tester
+    wait until page contains element  ${elementDoUpdate}
+    click element  ${elementDoUpdate}
     unselect frame
 
 Delete role ${role}
