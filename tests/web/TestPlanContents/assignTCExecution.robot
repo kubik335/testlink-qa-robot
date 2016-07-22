@@ -26,8 +26,8 @@ Suite Teardown  Run keywords    Delete test project  ${newTestProjectName}  ${ne
 
 ${LOGIN}                        renat.kulalov
 ${PASSWORD}                     renat123
-${newTestProjectName}           testPlanContent
-${newTestProjectPrefix}         testPlan
+${newTestProjectName}           assignTCExecution
+${newTestProjectPrefix}         assign
 ${newTestProjectDescription}    DesctiptioneOfTestProject
 ${testSuiteName}                tsuite74
 ${testCaseName}                 tc74
@@ -56,9 +56,3 @@ ${buildDescription}             DescriptionOfBuild
     Unassign TC ${PlatformName}
     Unassign TC ${PlatformName1}
     Check TC Are Not Assigned ${testSuiteName}
-
-78 Update Linked TC version
-    Add TC ${testCaseName} to platform ${PlatformName} users ${Username}
-    Update linked TC ${testCaseName} ${testSuiteName} version
-    Check TC Version was changed ${testCaseName} ${testSuiteName} in Update Linked TC Version
-    Check TC Version was changed ${testCaseName} ${testSuiteName} in Assign TC Execution

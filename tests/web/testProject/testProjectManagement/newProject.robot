@@ -41,10 +41,6 @@ ${newTestProjectDescription}    Description of new test project
     Submit and check new test project ${newTestProjectName}
     Delete test project  ${newTestProjectName1}  ${newTestProjectPrefix1}
 
-9 Create new Test Project with no conflict
-
-    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
-
 11 Create new Test Project with enhanced features
 
     Login as admin ${LOGIN} ${PASSWORD}

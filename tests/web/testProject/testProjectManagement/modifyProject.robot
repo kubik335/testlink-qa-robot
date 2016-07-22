@@ -23,7 +23,7 @@ ${testprojectprefix}
 
 *** Test Cases ***
 
-12 Rename test project
+12 No name and prefix conflict
 
     Change Test Project and go to ${testProjectManagement} ${testProjectManagement}
     Wait Until Page Contains TP and Click It ${newTestProjectName}

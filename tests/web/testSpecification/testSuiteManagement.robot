@@ -38,7 +38,7 @@ ${testCaseName2}                    tc82_1
     Controll Warning Message And Create Test Suite ${testSuiteName1} ${suiteDescription}
     Check If Test Suite Was Created ${testSuiteName1}
 
-81 Rename Test Suite Easy
+81 Edit Test Suite 'Easy'
 
     Preconditions for tc80
     Move Copy Edit ${testSuiteName2} ${testSuiteName3}

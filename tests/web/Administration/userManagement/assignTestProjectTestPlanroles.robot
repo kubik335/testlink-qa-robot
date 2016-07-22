@@ -5,8 +5,8 @@ Documentation  Test Suite controls assigning roles to existing users, editing of
 ...            Due to this fact tp100 is commented and will be used by testers if only needed.
 
 
-Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
-Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
+Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
+Resource       ../../../../resource/helper/desktopHeaderTestPlan.robot
 
 
 Suite Setup  Run keywords        Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
@@ -15,7 +15,7 @@ Suite Setup  Run keywords        Login and Create new Test Project ${newTestProj
 
 
 Suite Teardown  Run keywords     HeaderPage Go to ${userManagement}
-...             AND              userManagement.Delete role ${role}
+...             AND              Delete role ${role}
 ...             AND              Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
 ...             AND              Close all browsers
 
@@ -30,24 +30,14 @@ ${lname}                            karel
 ${email}                            email@email.com
 ${pass}                             vojta123
 ${role}                             novaRole
-${newTestProjectName}               userManagement
-${newTestProjectPrefix}             userManagement
+${newTestProjectName}               assignTestProject
+${newTestProjectPrefix}             role
 ${TestPlanName}                     testPlan
 ${TestPlanDescription}              Description
 
 *** Test Cases ***
 
-#100 Create new user
-    #Start creating new user
-    #Fill all info about user and submit
-    #Check that user exists
-
-101 Edit user test case
-
-    Start editing user
-    Edit user
-
-102 Assign Test Project and Test Plan roles
+102 Assign project and roles
 
     HeaderPage Go to ${userManagement}
     Click bookmark Assign Test Project roles

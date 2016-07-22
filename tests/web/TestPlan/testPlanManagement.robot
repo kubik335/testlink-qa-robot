@@ -56,7 +56,7 @@ ${Username}                     renat.kulalov
     Create New Test Plan ${TestPlanName3}
     Create Test Plan ${TestPlanName4} AS COPY Unselect all checkboxes ${TestPlanName3}
 
-56 Edit Test Plan
+56 Edit and Order Test Plan
 
     Preconditions for tc56
     Order By Test Case, Name, Build In Test Plan Management ${TestPlanName5} ${TestPlanName6}

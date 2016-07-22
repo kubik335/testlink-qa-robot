@@ -36,7 +36,7 @@ ${KeywordName}                      keyWord
 
 *** Test Cases ***
 
-5 Validation of changing the Test Project
+5 Validation of TP roll out menu and search bar
 
     HeaderPage Go to ${indexPage}
     Create TP ${newTestProjectName1} ${newTestProjectPrefix1}

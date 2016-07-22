@@ -5,9 +5,9 @@ Documentation  This Test Suite with Test Cases is used to control creating a tes
 ...            with steps and keywords.Another test case checks Test case operations like:
 ...            Export, Print,Create a new version, Deactivate this version, Add to Test plan, Execution history.
 
-Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
-Resource       ../../../../resource/helper/desktopHeaderTestPlan.robot
-Resource       ../../../../resource/helper/desktopHeaderSpecification.robot
+Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
+Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
+Resource       ../../../resource/helper/desktopHeaderSpecification.robot
 
 Suite Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND          Create New Test Plan ${TestPlanName}

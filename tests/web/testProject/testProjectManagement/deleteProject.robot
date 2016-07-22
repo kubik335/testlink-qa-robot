@@ -35,24 +35,6 @@ ${testCaseName}                 tc20
 
 *** Test Cases ***
 
-17 Delete Test Project
-
-    Delete empty test project
-    Check that test has been deleted
-
-18 Delete Test Project Without Platforms
-
-    Change Test Project and go to ${platformManagement} ${platformManagement}
-    Check Platform Management Without Platforms
-    Change Test Project and go to ${testProjectManagement} ${testProjectManagement}
-    Delete empty test project
-
-19 Delete Test Project No Platfroms Assigned
-
-    Preconditions for tc19
-    Check There Is No Platforms Assigned
-    Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
-
 20 Delete test project WORST CASE
 
     Preconditions for tc20
@@ -67,10 +49,6 @@ ${testCaseName}                 tc20
     Check that test has been deleted
 
 *** Keywords ***
-Preconditions for tc19
-    Go to index page and change testproject
-    Create New Test Plan ${TestPlanName}
-    Create Platform ${PlatformName}
 
 Preconditions for tc20
     Go to index page and change testproject

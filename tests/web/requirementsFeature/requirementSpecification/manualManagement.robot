@@ -22,6 +22,8 @@ ${dokumentID1}                  newdokument40
 ${title1}                       newtitle40
 ${dokumentID2}                  newdokument41
 ${title2}                       newtitle41
+${dokumentID3}                   newdokumentid44
+${title3}                        newtitle44
 
 *** Test Cases ***
 
@@ -31,6 +33,13 @@ ${title2}                       newtitle41
     Create New Requirement Specification (type URS) ${dokumentID} ${title}
     Choose Requirement Specification ${dokumentID} ${title}
 
+41 Create requirement specification
+
+    Preconditions for tc41
+    Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
+    Create Test Case From Requirement ${dokumentID2} ${title2}
+    Check Test Specification ${title2}
+
 40 Modify requirement
 
     Preconditions for tc40
@@ -39,12 +48,18 @@ ${title2}                       newtitle41
     Create Requirement Operations ${dokumentID1} ${title1}
     Edit Requirement Operations ${dokumentID1} ${title1}
 
-41 Create requirement specification
-
-    Preconditions for tc41
+44 Delete Requirement
     Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
-    Create Test Case From Requirement ${dokumentID2} ${title2}
-    Check Test Specification ${title2}
+    Create New Requirement Specification (type URS) ${dokumentID3} ${title3}
+    Choose Requirement Specification ${dokumentID3} ${title3}
+    Create Requirement Operations ${dokumentID3} ${title3}
+    Create New Version Of Requirement
+    Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
+    Choose Requirement Specification ${dokumentID3} ${title3}
+    Delete Requirement Specification NO
+    Select More Than 1 Version Requirement
+    Delete More Than 1 Version Requirement
+    Check Requirement Version
 
 *** Keywords ***
 
