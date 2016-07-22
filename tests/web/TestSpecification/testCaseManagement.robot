@@ -70,6 +70,8 @@ ${KeywordName}                      keyword
     testSpecificationPage.Select test case ${testCaseName4} node
     Delete Test Step
 
+###  Test case operations: Print, Create a new version, Deactivate this version, ###
+  ###  Add to Test plan, Execution history  ###
 90 Test Case Operations
 
     Preconditions for tc90

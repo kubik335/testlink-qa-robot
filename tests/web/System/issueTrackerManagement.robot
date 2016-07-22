@@ -65,6 +65,7 @@ ${CONFIGURATION}  <!-- Template bugzillaxmlrpcInterface -->
 
     Preconditions for tc14
     Change Test Project and go to ${testProjectManagement} ${testProjectManagement}
+    ###  Keyword includes setting the issue tracker "Active"  ###
     Add Issue Tracker ${ISSUETRACKER12} to test project ${newTestProjectName1}
     Save test project and check Issue Tracker has been added
     Postcondition for tc14

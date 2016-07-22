@@ -34,10 +34,12 @@ ${TestPlanDescription}          DescriptionOfTestPlan
 *** Test Cases ***
 
 61 Create Build - "Easy" - No release date
+    Change Test Project and go to ${buildReleases} ${checkBuildReleases}
+    Start creating build
+    Add Details and Finish creating build ${buildName}
+    Check if Build was created ${buildName}
 
-    Create Build with name ${buildName}
-
-62 Create Build "EASY" With Release Date
+62 Create Build - "EASY" - With Release Date
 
     Go to index page and change testproject
     Start creating build with warning
@@ -59,6 +61,12 @@ ${TestPlanDescription}          DescriptionOfTestPlan
     Check if Build was created ${buildName5}
 
 66 Delete Build
+### This Keyword contains differnet methods for choosing certain ###
+### build and deleting it by accepting warning message ###
 
-    Create Build with name ${buildName6}
     Delete build ${buildName6}
+
+*** Keywords ***
+
+Preconditions for tc66
+    Create Build with name ${buildName6}

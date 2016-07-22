@@ -33,7 +33,6 @@ Delete Build ${buildName}
     buildsReleases.Delete ${buildName} Build
 
 Create New Test Plan ${TestPlanName}
-    Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     testPlanManagement.Create Test Plan Management
     testPlanManagement_detail.Fill in all fields ${TestPlanName}
     wait until keyword succeeds  1min  0  testPlanManagement.Check Test Plan Management is Created ${TestPlanName}

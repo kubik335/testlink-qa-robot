@@ -71,7 +71,6 @@ Select Create From Existing Projects = No
 
 Unselect all features
     select frame  mainframe
-    unselect checkbox  ${elementOptReq}
     unselect checkbox  ${elementOptPriority}
     unselect checkbox  ${elementOptAutomation}
     unselect checkbox  ${elementOptInventory}

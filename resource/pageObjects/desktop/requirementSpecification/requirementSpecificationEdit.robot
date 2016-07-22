@@ -57,7 +57,6 @@ Choose Requirement Specification ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
-    #sleep  2
     wait until page contains element  xpath=//ul[li[contains(., "${dokumentID}:${title}")]]//a[contains(., "${dokumentID}:${title}")]
     wait until keyword succeeds  1min  0  click element  xpath=//ul[li[contains(., "${dokumentID}:${title}")]]//a[contains(., "${dokumentID}:${title}")]
     unselect frame
@@ -102,7 +101,6 @@ Edit Requirement Operations ${dokumentID} ${title}
     select frame  treeframe
     wait until page contains element  ${elementExpandTree}
     click element  ${elementExpandTree}
-    #sleep  2
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     wait until keyword succeeds  1min  0  double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     unselect frame
@@ -146,14 +144,13 @@ Create Test Case From Requirement ${dokumentID} ${title}
     click button  ${elementCreateTCFormReq}
     unselect frame
 
-Create New Version Of Requirement
+Create New Version Of Requirement ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
     wait until page contains element  ${elementExpandTree}
     wait until page contains element  ${elementCollapseTree}
     click element  ${elementExpandTree}
-    #sleep  2
     wait until page contains  ${dokumentID}:${title}
     wait until page contains element  xpath=//a[span[text()="${dokumentID}:${title}"]]
     wait until keyword succeeds  1min  0  double click element  xpath=//a[span[text()="${dokumentID}:${title}"]]
@@ -190,7 +187,7 @@ Delete Requirement Specification NO
     wait until page contains  Requirement Specification Operations
     unselect frame
 
-Select More Than 1 Version Requirement
+Select More Than 1 Version Requirement ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
@@ -215,7 +212,7 @@ Select More Than 1 Version Requirement
     wait until page contains element  ${elementPrintFriendly}
     unselect frame
 
-Delete More Than 1 Version Requirement
+Delete More Than 1 Version Requirement ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  workframe
     select frame  workframe
@@ -226,7 +223,7 @@ Delete More Than 1 Version Requirement
     wait until page contains  Req: ${dokumentID}-${title} Version 2 was successfully deleted
     unselect frame
 
-Check Requirement Version
+Check Requirement Version ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe

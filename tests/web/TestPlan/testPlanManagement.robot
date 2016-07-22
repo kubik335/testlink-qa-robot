@@ -44,16 +44,27 @@ ${Username}                     renat.kulalov
 
 53 Create new test plan
 
+    Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
+    ### Keyword contains filling name & description of Test Plan, ###
+     ### selecting Active & Public options, clicking on "Create" button ###
     Create New Test Plan ${TestPlanName}
 
 54 Create test plan AS COPY
 
     Create New Test Plan ${TestPlanName1}
+    ### Keyword contains filling name & description of Test Plan, ###
+     ### selecting Active & Public options, selecting a Test plan  ###
+     ### you want to use as a template in 'Create from existing Test Plan' ###
+     ### option, clicking on "Create" button ###
     Create Test Plan Management ${TestPlanName2} AS COPY ${TestPlanName1}
 
 55 Create test plan AS COPY ALL OPTIONS UNCHECKED
 
     Create New Test Plan ${TestPlanName3}
+    ### Keyword contains filling name & description of Test Plan, ###
+     ### selecting Active & Public options, selecting a Test plan  ###
+     ### you want to use as a template in 'Create from existing Test Plan' ###
+     ### option, selecting all checkboxes, clicking on "Create" button ###
     Create Test Plan ${TestPlanName4} AS COPY Unselect all checkboxes ${TestPlanName3}
 
 56 Edit and Order Test Plan
@@ -75,6 +86,7 @@ ${Username}                     renat.kulalov
     Delete Test Plan Management  ${TestPlanName8}
 
 *** Keywords ***
+
 Preconditions for tc56
     Create New Test Plan ${TestPlanName5}
     Create New Test Plan ${TestPlanName6}
