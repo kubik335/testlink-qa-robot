@@ -16,6 +16,7 @@ ${elementBuildName}                 build_name
 ${xpathTextEditor}                  xpath=//iframe[@title="Rich text editor, notes"]
 ${elementCopyTesterAssignment}      copy_tester_assignments
 ${elementSourceBuildID}             source_build_id
+${blank}
 
 *** Keywords ***
 
@@ -50,6 +51,24 @@ Fill in the details of the Build ${buildName}
     mouse up  ${xpathTextEditor}
     select frame  ${xpathTextEditor}
     input text  xpath=//body  ${buildDescription}
+    unselect frame
+
+Check Warning Message
+    select frame  mainframe
+    execute javascript  var imput = document.getElementsByName('build_name'); imput[0].required = false;
+    click element  do_update
+    wait until page contains  Please enter a name for the Build!
+    wait until page contains  Warning!!
+    click button  OK
+    unselect frame
+
+Save Build with Warning Message
+    select frame  mainframe
+    wait until page contains element  do_update
+    click button  Save
+    unselect frame
+    select frame  mainframe
+    wait until page contains  There is already a build with this identifier - NEMAZAT TENTO BUILD
     unselect frame
 
 Save Build
@@ -115,6 +134,10 @@ Create Build With Release Date And Save ${buildName}
 
 Edit Build Info and Save Changes ${buildName}
     [Tags]  64
+    buildsReleases.Fill in the details of the Build ${blank}
+    buildsReleases.Check Warning Message
+    buildsReleases.Fill in the details of the Build ${buildName5}
+    buildsReleases.Save Build with Warning Message
     buildsReleases.Fill in the details of the Build ${buildName}
     buildsReleases.Add Release Date
     buildsReleases.Save Build after Editing

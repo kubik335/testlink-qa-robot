@@ -71,6 +71,8 @@ ${PlatformName1}                Platform56
     Preconditions for tc56
     Order By Test Case, Name, Build, Pltaform In Test Plan Management ${TestPlanName5} ${TestPlanName6}
     Make all Test Plan Active/Inactive ${TestPlanName5} ${TestPlanName6}
+    ### This method contains several functions, which control leaving Test Plan name and description blank ###
+    ### editing of Test Plan ###
     Edit And Check Test Plan ${TestPlanName6} ${EditTestPlanName}
 
 59 Assign Roles

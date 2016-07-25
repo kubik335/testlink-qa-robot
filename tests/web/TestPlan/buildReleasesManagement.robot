@@ -20,13 +20,14 @@ ${LOGIN}                        renat.kulalov
 ${PASSWORD}                     renat123
 ${newTestProjectName}           buildManagement
 ${newTestProjectPrefix}         build
-${buildName}                    buildName
-${buildName1}                   buildName1
-${buildName2}                   buildName2
-${buildName3}                   buildName3
-${buildName4}                   buildName4
-${buildName5}                   buildName5
-${buildName6}                   buildName6
+${buildName}                    buildName61
+${buildName1}                   buildName62
+${buildName2}                   buildName63
+${buildName3}                   buildName63_1
+${buildName4}                   buildName64
+${buildName5}                   buildName64_1
+${buildName6}                   buildName64_2
+${buildName7}                   buildName66
 ${buildDescription}             DescriptionOfBuild
 ${TestPlanName}                 testPlan
 ${TestPlanDescription}          DescriptionOfTestPlan
@@ -53,20 +54,24 @@ ${TestPlanDescription}          DescriptionOfTestPlan
     Create ${buildName3} from existing ${buildName2}
 
 64 Edit Build
-
-    Create Build with name ${buildName4}
+    [Tags]  64
+    Preconditions for tc64
     Change Test Project and go to ${buildReleases} ${checkBuildReleases}
     Select Build ${buildName4}
-    Edit Build Info and Save Changes ${buildName5}
-    Check if Build was created ${buildName5}
+    Edit Build Info and Save Changes ${buildName6}
+    Check if Build was created ${buildName6}
 
 66 Delete Build
 ### This Keyword contains differnet methods for choosing certain ###
 ### build and deleting it by accepting warning message ###
     Preconditions for tc66
-    Delete build ${buildName6}
+    Delete build ${buildName7}
 
 *** Keywords ***
 
+Preconditions for tc64
+    Create Build with name ${buildName4}
+    Create Build with name ${buildName5}
+
 Preconditions for tc66
-    Create Build with name ${buildName6}
+    Create Build with name ${buildName7}

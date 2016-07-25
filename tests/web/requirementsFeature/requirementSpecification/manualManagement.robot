@@ -7,8 +7,8 @@ Resource       ../../../../resource/helper/desktopHeaderSpecification.robot
 
 Suite Setup  Run keywords   Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
-#Suite Teardown  Run keywords     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
-#...             AND              Close browser
+Suite Teardown  Run keywords     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+...             AND              Close browser
 
 *** Variables ***
 
