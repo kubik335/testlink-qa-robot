@@ -68,7 +68,7 @@ Save Build with Warning Message
     click button  Save
     unselect frame
     select frame  mainframe
-    wait until page contains  There is already a build with this identifier - NEMAZAT TENTO BUILD
+    wait until page contains  There is already a build with this identifier -
     unselect frame
 
 Save Build
