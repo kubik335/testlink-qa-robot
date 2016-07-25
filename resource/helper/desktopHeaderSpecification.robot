@@ -4,6 +4,7 @@ Library  Selenium2Library
 Resource  ../../resource/helper/desktopHeaderHelper.robot
 Resource  ../../resource/pageObjects/desktop/testSpecification/testSpecificationPage.robot
 Resource  ../../resource/pageObjects/desktop/testSpecification/assignKeywords.robot
+Resource  ../../resource/pageObjects/desktop/testSpecification/searchTestCases.robot
 
 *** Variables ***
 
@@ -117,3 +118,9 @@ Check Keyword Exists
     [Tags]  tp20
     Change Test Project and go to ${keywordManagement} ${keywordManagement}
     assignKeywords.Check Keyword
+
+Search by ${element} ${testCaseName} with ${text}
+    HeaderPage Go to ${searchTC}
+    searchTestCases.I am here
+    Search TC by ${element} ${text}
+    Check TC ${testCaseName} was selected

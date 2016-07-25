@@ -65,7 +65,6 @@ Check Warning message
     click button    OK
     unselect frame
 
-
 Check new project exists
     [Arguments]  ${newTestProjectName}
     select frame  mainframe

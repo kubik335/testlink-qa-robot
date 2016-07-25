@@ -43,14 +43,11 @@ ${Username}                     renat.kulalov
 *** Test Cases ***
 
 53 Create new test plan
-
-    Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
     ### Keyword contains filling name & description of Test Plan, ###
      ### selecting Active & Public options, clicking on "Create" button ###
     Create New Test Plan ${TestPlanName}
 
 54 Create test plan AS COPY
-
     Create New Test Plan ${TestPlanName1}
     ### Keyword contains filling name & description of Test Plan, ###
      ### selecting Active & Public options, selecting a Test plan  ###
@@ -82,7 +79,7 @@ ${Username}                     renat.kulalov
 
 60 Delete Test Plan
 
-    Create New Test Plan ${TestPlanName8}
+    Preconditions fro tc60
     Delete Test Plan Management  ${TestPlanName8}
 
 *** Keywords ***
@@ -94,6 +91,9 @@ Preconditions for tc56
     Create test suite ${testSuiteName} in test project ${newTestProjectName}
     Create test case ${testCaseName} in ${testSuiteName}
     Add Test Case ${testCaseName} To the Test Plan ${TestPlanName5}
+
+Preconditions fro tc60
+    Create New Test Plan ${TestPlanName8}
 
 
 

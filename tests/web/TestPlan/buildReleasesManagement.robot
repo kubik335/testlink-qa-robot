@@ -63,7 +63,7 @@ ${TestPlanDescription}          DescriptionOfTestPlan
 66 Delete Build
 ### This Keyword contains differnet methods for choosing certain ###
 ### build and deleting it by accepting warning message ###
-
+    Preconditions for tc66
     Delete build ${buildName6}
 
 *** Keywords ***

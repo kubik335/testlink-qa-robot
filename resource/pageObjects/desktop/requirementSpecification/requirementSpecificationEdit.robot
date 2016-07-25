@@ -34,6 +34,7 @@ ${elementNewRevision}           new_revision
 ${elementNewButton}             new_version
 ${elementPrintFriendly}         printerFriendly
 ${elementDeleteSRS}             deleteSRS
+${blank}
 
 *** Keywords ***
 
@@ -95,7 +96,70 @@ Create Requirement Operations ${dokumentID} ${title}
     wait until page contains  ${dokumentID}:${title}
     unselect frame
 
-Edit Requirement Operations ${dokumentID} ${title}
+Change Requirement Status and Type ${dokumentID} ${title}
+    select frame  mainframe
+    wait until page contains element  workframe
+    select frame  workframe
+    input text  ${elementReqDocID}  ${dokumentID}
+    input text  ${elementReqTitle}  ${title}
+    select from list by value  ${elementReqStatus}  I
+    select from list by value  ${elementReqType}  6
+    input text  expected_coverage  1
+    click element  ${elementCreateReq}
+    wait until page contains element  ${inputExtGen30}
+    input text  ${inputExtGen30}  This is new log
+    click button  OK
+    unselect frame
+
+Leave Document ID and Title blank
+    select frame  mainframe
+    wait until page contains element  workframe
+    select frame  workframe
+    input text  ${elementReqDocID}  ${blank}
+    input text  ${elementReqTitle}  ${blank}
+    unselect frame
+
+Leave Document ID blank, fill in Title ${title}
+    select frame  mainframe
+    wait until page contains element  workframe
+    select frame  workframe
+    input text  ${elementReqDocID}  ${blank}
+    input text  ${elementReqTitle}  ${title}
+    unselect frame
+
+Fill in Document ID ${dokumentID}, left Title field blank
+    select frame  mainframe
+    wait until page contains element  workframe
+    select frame  workframe
+    input text  ${elementReqDocID}  ${dokumentID}
+    input text  ${elementReqTitle}  ${blank}
+    unselect frame
+
+Warning Message appears DocID
+    select frame  mainframe
+    wait until page contains element  workframe
+    select frame  workframe
+    execute javascript  var imput = document.getElementsByName('reqDocId'); imput[0].required = false;
+    execute javascript  var imput = document.getElementsByName('req_title'); imput[0].required = false;
+    click button  ${elementCreateReq}
+    wait until page contains  Warning!!
+    wait until page contains  Requirement document id cannot be empty!
+    click button    OK
+    unselect frame
+
+Warning Message appears Title
+    select frame  mainframe
+    wait until page contains element  workframe
+    select frame  workframe
+    execute javascript  var imput = document.getElementsByName('reqDocId'); imput[0].required = false;
+    execute javascript  var imput = document.getElementsByName('req_title'); imput[0].required = false;
+    click button  ${elementCreateReq}
+    wait until page contains  Warning!!
+    wait until page contains  Requirement title cannot be empty!
+    click button    OK
+    unselect frame
+
+Choose Requirement Operation to Edit Requirement ${dokumentID} ${title}
     select frame  mainframe
     wait until page contains element  treeframe
     select frame  treeframe
@@ -114,13 +178,6 @@ Edit Requirement Operations ${dokumentID} ${title}
     wait until page contains element  ${elementCreateReq}
     wait until page contains element  ${elementReqStatus}
     wait until page contains element  ${elementReqType}
-    select from list by value  ${elementReqStatus}  I
-    select from list by value  ${elementReqType}  6
-    input text  expected_coverage  1
-    click element  ${elementCreateReq}
-    wait until page contains element  ${inputExtGen30}
-    input text  ${inputExtGen30}  This is new log
-    click button  OK
     unselect frame
 
 Create Test Case From Requirement ${dokumentID} ${title}

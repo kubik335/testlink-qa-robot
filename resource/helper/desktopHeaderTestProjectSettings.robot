@@ -43,6 +43,9 @@ Check header links
     HeaderPage Go to ${events}
     eventsPage.I am here
     HeaderPage Go to ${indexPage}
+    headerPage.I am here in full
+    HeaderPage Go to ${logout}
+    loginPage.I am here
 
 Delete test project
     [Arguments]  ${newTestProjectName}  ${newTestProjectPrefix}
@@ -92,3 +95,13 @@ Execute Test ${testCaseName}
     executeTestsPage.Expanding tree
     executeTestsPage.Select test case ${testCaseName} node
     executeTestsPage.Execute Test Case
+
+Edit Requirement Operations ${dokumentID} ${title}
+    Choose Requirement Operation to Edit Requirement ${dokumentID} ${title}
+    Leave Document ID and Title blank
+    Warning Message appears DocID
+    Leave Document ID blank, fill in Title ${title}
+    Warning Message appears DocID
+    Fill in Document ID ${dokumentID}, left Title field blank
+    Warning Message appears Title
+    Change Requirement Status and Type ${dokumentID} ${title}

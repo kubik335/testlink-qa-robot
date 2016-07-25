@@ -6,11 +6,9 @@ Documentation  Test Suite controls assigning roles to existing users, editing of
 
 
 Resource       ../../../../resource/helper/desktopHeaderTestProjectSettings.robot
-Resource       ../../../../resource/helper/desktopHeaderTestPlan.robot
 
 
 Suite Setup  Run keywords        Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
-...             AND              Create New Test Plan ${TestPlanName}
 ...             AND              Create and check role ${role} in user management
 
 
