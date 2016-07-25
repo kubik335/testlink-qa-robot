@@ -7,8 +7,8 @@ Resource       ../../../../resource/helper/desktopHeaderSpecification.robot
 
 Suite Setup  Run keywords   Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 
-Suite Teardown  Run keywords     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
-...             AND              Close browser
+#Suite Teardown  Run keywords     Delete test project  ${newTestProjectName}  ${newTestProjectPrefix}
+#...             AND              Close browser
 
 *** Variables ***
 
@@ -30,8 +30,8 @@ ${title3}                        newtitle44
 38 Create requirement specification
 
     Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
+    ### Keyword contains filling in valid ID & title, selecting type of requirement ###
     Create New Requirement Specification (type URS) ${dokumentID} ${title}
-    Choose Requirement Specification ${dokumentID} ${title}
 
 41 Create requirement specification
 
@@ -41,11 +41,15 @@ ${title3}                        newtitle44
     Check Test Specification ${title2}
 
 40 Modify requirement
-
+    [Tags]  40
     Preconditions for tc40
     Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
     Choose Requirement Specification ${dokumentID1} ${title1}
     Create Requirement Operations ${dokumentID1} ${title1}
+    ### This nethod is used to contol editing of requirement operations. It contains several nethods ###
+    ### that checks leave Document ID and Title blank, leaving Document ID blank, fill in Title ${title} ###
+    ### filling in Document ID ${dokumentID}, leaving Title field blank. At the end it checks editing ###
+    ### status and type of chosen requirement. All the changes are saved. ###
     Edit Requirement Operations ${dokumentID1} ${title1}
 
 44 Delete Requirement
@@ -53,13 +57,13 @@ ${title3}                        newtitle44
     Create New Requirement Specification (type URS) ${dokumentID3} ${title3}
     Choose Requirement Specification ${dokumentID3} ${title3}
     Create Requirement Operations ${dokumentID3} ${title3}
-    Create New Version Of Requirement
+    Create New Version Of Requirement ${dokumentID3} ${title3}
     Change Test Project and go to ${requirmSpecification} ${checkRequirmSpecification}
     Choose Requirement Specification ${dokumentID3} ${title3}
     Delete Requirement Specification NO
-    Select More Than 1 Version Requirement
-    Delete More Than 1 Version Requirement
-    Check Requirement Version
+    Select More Than 1 Version Requirement ${dokumentID3} ${title3}
+    Delete More Than 1 Version Requirement ${dokumentID3} ${title3}
+    Check Requirement Version ${dokumentID3} ${title3}
 
 *** Keywords ***
 
