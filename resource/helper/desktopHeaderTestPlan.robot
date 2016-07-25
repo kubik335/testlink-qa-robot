@@ -52,10 +52,10 @@ Create Test Plan ${TestPlanName} AS COPY Unselect all checkboxes ${TestPlanName1
     testPlanManagement_detail.Create Test Plan ${TestPlanName} with unselected checkboxes ${TestPlanName1}
     testPlanManagement.Check Test Plan Management is Created ${TestPlanName}
 
-Order By Test Case, Name, Build In Test Plan Management ${TestPlanName} ${TestPlanName1}
+Order By Test Case, Name, Build, Pltaform In Test Plan Management ${TestPlanName} ${TestPlanName1}
     [Tags]  56
     Change Test Project and go to ${testPlanManagement} ${testPlanManagement}
-    testPlanManagement_detail.Order by Name, TC, Build ${TestPlanName} ${TestPlanName1}
+    testPlanManagement_detail.Order by Name, TC, Build, Platform ${TestPlanName} ${TestPlanName1}
 
 Assign Roles ${TestPlanName}
     [Tags]  tp59

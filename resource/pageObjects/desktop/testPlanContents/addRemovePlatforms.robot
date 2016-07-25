@@ -36,7 +36,7 @@ Check there is platform assigned
     unselect frame
 
 Add Platform
-    wait until keyword succeeds  1min  0  addRemovePlatforms.I Am Here
+    #wait until keyword succeeds  1min  0  addRemovePlatforms.I Am Here
     select frame  mainframe
     click element  xpath=//tr/td[2]/img[1]
     click button  ${elementDoAssignPlatforms}

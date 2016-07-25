@@ -8,6 +8,7 @@ Documentation  The test suite with several test cases for checking basic functio
 Resource       ../../../resource/helper/desktopHeaderTestProjectSettings.robot
 Resource       ../../../resource/helper/desktopHeaderTestPlan.robot
 Resource       ../../../resource/helper/desktopHeaderSpecification.robot
+Resource       ../../../resource/helper/desktopHeaderPlanContent.robot
 
 Suite Setup  Run keywords    Login and Create new Test Project ${newTestProjectName} ${newTestProjectPrefix}
 ...             AND          Go to index page and change testproject
@@ -39,6 +40,7 @@ ${PlatformName}                 Platform
 ${buildName}                    buildName
 ${buildDescription}             DescriptionOfBuild
 ${Username}                     renat.kulalov
+${PlatformName1}                Platform56
 
 *** Test Cases ***
 
@@ -65,9 +67,9 @@ ${Username}                     renat.kulalov
     Create Test Plan ${TestPlanName4} AS COPY Unselect all checkboxes ${TestPlanName3}
 
 56 Edit and Order Test Plan
-
+    [Tags]  56
     Preconditions for tc56
-    Order By Test Case, Name, Build In Test Plan Management ${TestPlanName5} ${TestPlanName6}
+    Order By Test Case, Name, Build, Pltaform In Test Plan Management ${TestPlanName5} ${TestPlanName6}
     Make all Test Plan Active/Inactive ${TestPlanName5} ${TestPlanName6}
     Edit And Check Test Plan ${TestPlanName6} ${EditTestPlanName}
 
@@ -88,6 +90,8 @@ Preconditions for tc56
     Create New Test Plan ${TestPlanName5}
     Create New Test Plan ${TestPlanName6}
     Create Build with name ${buildName}
+    Create Platform ${PlatformName1}
+    Add Platform to Test Plan
     Create test suite ${testSuiteName} in test project ${newTestProjectName}
     Create test case ${testCaseName} in ${testSuiteName}
     Add Test Case ${testCaseName} To the Test Plan ${TestPlanName5}

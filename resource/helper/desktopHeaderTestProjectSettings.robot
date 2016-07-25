@@ -105,3 +105,4 @@ Edit Requirement Operations ${dokumentID} ${title}
     Fill in Document ID ${dokumentID}, left Title field blank
     Warning Message appears Title
     Change Requirement Status and Type ${dokumentID} ${title}
+    Fill the Log

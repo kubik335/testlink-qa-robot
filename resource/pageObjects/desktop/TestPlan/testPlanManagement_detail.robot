@@ -27,6 +27,10 @@ ${xpathItemViewImage}  xpath=//*[@id="item_view"]/thead/tr/th[1]/img[1]
 ${xpathBuildImage}  xpath=//*[@id="item_view"]/thead/tr/th[4]/img
 ${xpathBuildWidth1}  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:6%;"][contains(text(),"1")]
 ${xpathBuildWidth0}  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:6%;"][contains(text(),"0")]
+${xpathPlatformImage}  xpath=//*[@id="item_view"]/thead/tr/th[5]/img
+${xpathPlatformWidth1}  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:10%;"][contains(text(),"1")]
+${xpathPlatformWidth0}  xpath=//div/div/form/div/table/tbody/tr/td[@style="width:10%;"][contains(text(),"0")]
+${blank}
 
 *** Keywords ***
 
@@ -194,6 +198,23 @@ Order By Test Case ${TestPlanName} ${TestPlanName1}
     click element  ${xpathTestCaseImage}
     unselect frame
 
+Order By Platform ${TestPlanName} ${TestPlanName1}
+    select frame  mainframe
+    wait until page contains element  ${xpathPlatformImage}
+    wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
+    wait until page contains element  ${xpathPlatformWidth1}
+    page should contain element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
+    page should contain element  ${xpathPlatformWidth1}
+    click element  ${xpathPlatformImage}
+    unselect frame
+    select frame  mainframe
+    wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName1}")][contains(text()," ")]
+    wait until page contains element  ${xpathPlatformWidth0}
+    page should contain element  xpath=//div/div/form/div/table/tbody/tr/td/a[contains(text()," ")][contains(text(),"${TestPlanName1}")][contains(text()," ")]
+    page should contain element  ${xpathPlatformWidth0}
+    click element  ${xpathPlatformImage}
+    unselect frame
+
 Order By Test Build ${TestPlanName} ${TestPlanName1}
     select frame  mainframe
     wait until page contains element  ${xpathBuildImage}
@@ -235,7 +256,7 @@ Click On Bulb Icon ${TestPlanName} ${TestPlanName1}
     click element  xpath=//tr[td//text()[contains(.,'${TestPlanName1}')]]/td[input[@title="Inactive (click to set active)"]]/input
     unselect frame
 
-Edit Test Plan ${TestPlanName} ${EditTestPlanName}
+Choose Test Plan ${TestPlanName} ${EditTestPlanName}
     select frame  mainframe
     wait until page contains element  ${xpathItemViewImage}
     click element  ${xpathItemViewImage}
@@ -244,6 +265,20 @@ Edit Test Plan ${TestPlanName} ${EditTestPlanName}
     wait until page contains element  xpath=//div/div/form/div/table/tbody/tr/td[span//text()[contains(.,"[ID:")]]/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
     click element  xpath=//div/div/form/div/table/tbody/tr/td[span//text()[contains(.,"[ID:")]]/a[contains(text()," ")][contains(text(),"${TestPlanName}")][contains(text()," ")]
     unselect frame
+
+Leave TestPlan ${TestPlanName} Name and Description blank
+    select frame  mainframe
+    wait until page contains element  ${inputTestPlanName}
+    wait until page contains element  do_update
+    input text  ${inputTestPlanName}  ${blank}
+    execute javascript  var imput = document.getElementsByName('testplan_name'); imput[0].required = false;
+    click element  do_update
+    wait until page contains  You cannot enter Test plan without a name!
+    wait until page contains  Warning!!
+    click button  OK
+    unselect frame
+
+Edit Test Plan ${TestPlanName} ${EditTestPlanName}
     select frame  mainframe
     wait until page contains element  ${inputTestPlanName}
     wait until page contains element  do_update
@@ -268,6 +303,8 @@ Make all Test Plan Active/Inactive ${TestPlanName} ${TestPlanName1}
 
 Edit And Check Test Plan ${TestPlanName} ${EditTestPlanName}
     [Tags]  56
+    testPlanManagement_detail.Choose Test Plan ${TestPlanName} ${EditTestPlanName}
+    testPlanManagement_detail.Leave TestPlan ${TestPlanName} Name and Description blank
     testPlanManagement_detail.Edit Test Plan ${TestPlanName} ${EditTestPlanName}
     testPlanManagement_detail.Check Updated Test Plan ${TestPlanName} ${EditTestPlanName}
 
@@ -297,10 +334,11 @@ Create Test Plan ${TestPlanName} with unselected checkboxes ${TestPlanName1}
     testPlanManagement_detail.unselect checkbox Public
     testPlanManagement_detail.Click Create button to finish Test Plan Management
 
-Order by Name, TC, Build ${TestPlanName} ${TestPlanName1}
+Order by Name, TC, Build, Platform ${TestPlanName} ${TestPlanName1}
     testPlanManagement_detail.Order By Name ${TestPlanName} ${TestPlanName1}
     testPlanManagement_detail.Order By Test Case ${TestPlanName} ${TestPlanName1}
     testPlanManagement_detail.Order By Test Build ${TestPlanName} ${TestPlanName1}
+    testPlanManagement_detail.Order By Platform ${TestPlanName} ${TestPlanName1}
 
 Delete and Check ${TestPlanNameToDelete}
      testPlanManagement_detail.Click Button Delete Test Plan Management  ${TestPlanNameToDelete}

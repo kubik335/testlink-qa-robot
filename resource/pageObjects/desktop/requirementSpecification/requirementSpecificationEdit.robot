@@ -106,8 +106,17 @@ Change Requirement Status and Type ${dokumentID} ${title}
     select from list by value  ${elementReqType}  6
     input text  expected_coverage  1
     click element  ${elementCreateReq}
+    unselect frame
+
+Fill the Log
+    select frame  mainframe
+    wait until page contains element  workframe
+    select frame  workframe
+    #sleep  1
+    wait until page contains  Revision Log
+    wait until page contains  Please add a log message
     wait until page contains element  ${inputExtGen30}
-    input text  ${inputExtGen30}  This is new log
+    wait until keyword succeeds  1min  0  input text  ${inputExtGen30}  This is new log
     click button  OK
     unselect frame
 
