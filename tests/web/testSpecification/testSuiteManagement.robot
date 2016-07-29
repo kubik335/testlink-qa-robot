@@ -43,6 +43,7 @@ ${testCaseName2}                    tc82_1
     Preconditions for tc80
     Move Copy Edit ${testSuiteName2} ${testSuiteName3}
 
+
 82 Drag drop
 
     Preconditions for tc82
@@ -59,7 +60,27 @@ ${testCaseName2}                    tc82_1
     wait until keyword succeeds  1min  0  testSpecificationPage.I am here
     Delete New Test Suite ${testSuiteName7}
 
+124 Move or Copy test Suite
+
+    Preconditions for tc124
+
+    Change Test Project and go to ${testSpecification} ${checkTestSpecification}
+
+    wait until keyword succeeds  1min  0  testSpecificationPage.I am here
+
+    testSpecificationPage.Test Suite ${testSuiteName1} select node
+
+    Copy Test Suite ${testSuiteName1}
+
+
+
+
+
+
 *** Keywords ***
+Preconditions for tc124
+    Create test suite ${testSuiteName1} in test project ${newTestProjectName}
+
 Preconditions for tc80
     Create test suite ${testSuiteName2} in test project ${newTestProjectName}
 

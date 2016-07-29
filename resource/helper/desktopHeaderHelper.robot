@@ -15,6 +15,7 @@ ${checkAssignUserRoles}         User Management
 ${assignCustomFields}           Assign Custom Fields
 ${checkAssignCustomFields}      Assign custom fields
 ${keywordManagement}            Keyword Management
+${checkKeywordManagement}       Keyword Management
 ${platformManagement}           Platform Management
 ${requirmSpecification}         Requirement Specification
 ${checkRequirmSpecification}    Requirement Specifications

@@ -11,7 +11,7 @@ Resource  ../../resource/pageObjects/desktop/system/editIssueTracker.robot
 *** Keywords ***
 
 Start creating Define Custom Fields
-    [Tags]  tp105
+    [Tags]  tp105, tp126
     Change Test Project and go to ${customFields} ${checkCustomField}
     defineCustomFields.Creating Define Custom Fields
 

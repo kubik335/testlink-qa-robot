@@ -17,6 +17,7 @@ Resource  ../../resource/pageObjects/desktop/testExecution/executeTestsPage.robo
 Resource  ../../resource/pageObjects/desktop/testExecution/reportsAndMetricsPage.robot
 Resource  ../../resource/pageObjects/desktop/events/eventsPage.robot
 Resource  ../../resource/pageObjects/desktop/testProject/createTestProjectPage.robot
+Resource  ../../resource/pageObjects/desktop/testProject/keywordManagement.robot
 
 
 *** Variables ***
@@ -75,6 +76,12 @@ Create and check role ${role} in user management
     HeaderPage Go to ${userManagement}
     userManagement.Choose bookmark and create role ${role}
 
+Start creating Keyword Management
+    [Tags]  tp105, tp126
+
+    Change Test Project and go to ${keywordManagement} ${checkKeywordManagement}
+    keywordManagement.Creating Keyword Management
+
 Start editing user
     [Tags]  tp101
     HeaderPage Go to ${userManagement}
@@ -106,3 +113,10 @@ Edit Requirement Operations ${dokumentID} ${title}
     Warning Message appears Title
     Change Requirement Status and Type ${dokumentID} ${title}
     Fill the Log
+
+
+Assing and check custom field
+    Change Test Project and go to ${AssignCustomFields} ${checkAssignCustomFields}
+    Assign Custom Fields
+    Check Custom Field Was Assigned
+
